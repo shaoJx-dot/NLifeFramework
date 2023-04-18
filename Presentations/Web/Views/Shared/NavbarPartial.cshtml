@@ -1,0 +1,38 @@
+﻿<div id="navbar-wrapper">
+    <div id="navigation" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="leader">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><b>ZEROLAG</b></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav h4">
+                        <li class="@ViewBag.MenuClassDictionary.Index"><a href="/">首页</a>@*@Html.ActionLink("首页", "Index", "Home")*@</li>
+                        <li class="@ViewBag.MenuClassDictionary.Focus">@Html.ActionLink("聚焦", "Index", "Focus")</li>
+                        <li class="@ViewBag.MenuClassDictionary.Case">@Html.ActionLink("作品集", "Index", "Case")</li>
+                        <li class="@ViewBag.MenuClassDictionary.Ranklist">@Html.ActionLink("社区榜", "Index", "Ranklist")</li>
+                        <li class="@ViewBag.MenuClassDictionary.Misc">@Html.ActionLink("社区服务", "Index", "Misc")</li>
+                        @*<li><a href="user/login.htm">每日签到</a></li>*@
+                    </ul>
+
+                    <form action="/search" method="post" accept-charset="utf-8" class="navbar-form navbar-left" target="_blank" role="search">
+                        <div style="display:none">
+                            <input type="hidden" name="stb_csrf_token" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keyword" placeholder="输入关键字回车">
+                        </div>
+                    </form>
+                    @Html.Partial("_LoginPartial")
+                    @*@Html.Action("_LoginPartial", "Partial")*@
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

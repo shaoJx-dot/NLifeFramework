@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.IO.Compression</name>
+  </assembly>
+  <members>
+    <member name="T:System.IO.Compression.CompressionLevel">
+      <summary>압축 시 속도를 우선할지 압축 크기를 우선할지를 나타내는 값을 지정합니다.</summary>
+    </member>
+    <member name="F:System.IO.Compression.CompressionLevel.Fastest">
+      <summary>압축 작업은 결과 파일이 최적으로 압축되지 않더라도 가능한 신속하게 완료되어야 합니다.</summary>
+    </member>
+    <member name="F:System.IO.Compression.CompressionLevel.NoCompression">
+      <summary>파일에 대해 압축을 수행할 수 없습니다.</summary>
+    </member>
+    <member name="F:System.IO.Compression.CompressionLevel.Optimal">
+      <summary>작업을 완료하는 데 시간이 더 걸리더라도 압축 작업은 최적으로 압축되어야 합니다.</summary>
+    </member>
+    <member name="T:System.IO.Compression.CompressionMode">
+      <summary> 내부 스트림을 압축할지 또는 압축을 풀지 여부를 지정합니다.</summary>
+    </member>
+    <member name="F:System.IO.Compression.CompressionMode.Compress">
+      <summary>내부 스트림을 압축합니다.</summary>
+    </member>
+    <member name="F:System.IO.Compression.CompressionMode.Decompress">
+      <summary>내부 스트림의 압축을 풉니다.</summary>
+    </member>
+    <member name="T:System.IO.Compression.DeflateStream">
+      <summary>Deflate 알고리즘을 사용하여 스트림을 압축하고 압축을 풀기 위한 메서드와 속성을 제공합니다.</summary>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.#ctor(System.IO.Stream,System.IO.Compression.CompressionLevel)">
+      <summary>지정된 스트림과 압축 수준을 사용하여 <see cref="T:System.IO.Compression.DeflateStream" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+      <param name="stream">압축할 스트림입니다.</param>
+      <param name="compressionLevel">스트림을 압축할 때 속도 또는 압축 효율을 강조할지 여부를 나타내는 열거형 값 중 하나입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="stream" />가 null인 경우</exception>
+      <exception cref="T:System.ArgumentException">스트림이 압축 등의 쓰기 작업을 지원하지 않습니다.(스트림 개체의 <see cref="P:System.IO.Stream.CanWrite" /> 속성이 false입니다.)</exception>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.#ctor(System.IO.Stream,System.IO.Compression.CompressionLevel,System.Boolean)">
+      <summary>지정된 스트림과 압축 수준을 사용하여 <see cref="T:System.IO.Compression.DeflateStream" /> 클래스의 새 인스턴스를 초기화하고 스트림을 선택적으로 연 상태로 둘 수 있습니다.</summary>
+      <param name="stream">압축할 스트림입니다.</param>
+      <param name="compressionLevel">스트림을 압축할 때 속도 또는 압축 효율을 강조할지 여부를 나타내는 열거형 값 중 하나입니다.</param>
+      <param name="leaveOpen">
+        <see cref="T:System.IO.Compression.DeflateStream" /> 개체를 삭제한 후 스트림 개체를 열어 두려면 true이고, 그렇지 않으면 false입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="stream" />가 null인 경우</exception>
+      <exception cref="T:System.ArgumentException">스트림이 압축 등의 쓰기 작업을 지원하지 않습니다.(스트림 개체의 <see cref="P:System.IO.Stream.CanWrite" /> 속성이 false입니다.)</exception>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.#ctor(System.IO.Stream,System.IO.Compression.CompressionMode)">
+      <summary>지정된 스트림과 압축 모드를 사용하여 <see cref="T:System.IO.Compression.DeflateStream" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+      <param name="stream">압축하거나 압축을 풀 스트림입니다.</param>
+      <param name="mode">스트림을 압축할 것인지 또는 압축 해제할 것인지를 나타내는 열거형 값 중 하나입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="stream" />가 null인 경우</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="mode" />은(는) 올바른 <see cref="T:System.IO.Compression.CompressionMode" /> 값이 아닙니다.또는<see cref="T:System.IO.Compression.CompressionMode" />가 <see cref="F:System.IO.Compression.CompressionMode.Compress" />이고 <see cref="P:System.IO.Stream.CanWrite" />가 false인 경우또는<see cref="T:System.IO.Compression.CompressionMode" />가 <see cref="F:System.IO.Compression.CompressionMode.Decompress" />이고 <see cref="P:System.IO.Stream.CanRead" />가 false인 경우</exception>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.#ctor(System.IO.Stream,System.IO.Compression.CompressionMode,System.Boolean)">
+      <summary>지정된 스트림과 압축 모드를 사용하여 <see cref="T:System.IO.Compression.DeflateStream" /> 클래스의 새 인스턴스를 초기화하고 스트림을 선택적으로 연 상태로 둘 수 있습니다.</summary>
+      <param name="stream">압축하거나 압축을 풀 스트림입니다.</param>
+      <param name="mode">스트림을 압축할 것인지 또는 압축 해제할 것인지를 나타내는 열거형 값 중 하나입니다.</param>
+      <param name="leaveOpen">
+        <see cref="T:System.IO.Compression.DeflateStream" /> 개체를 삭제한 후 스트림을 열어 두려면 true이고, 그렇지 않으면 false입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="stream" />가 null인 경우</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="mode" />은(는) 올바른 <see cref="T:System.IO.Compression.CompressionMode" /> 값이 아닙니다.또는<see cref="T:System.IO.Compression.CompressionMode" />가 <see cref="F:System.IO.Compression.CompressionMode.Compress" />이고 <see cref="P:System.IO.Stream.CanWrite" />가 false인 경우또는<see cref="T:System.IO.Compression.CompressionMode" />가 <see cref="F:System.IO.Compression.CompressionMode.Decompress" />이고 <see cref="P:System.IO.Stream.CanRead" />가 false인 경우</exception>
+    </member>
+    <member name="P:System.IO.Compression.DeflateStream.BaseStream">
+      <summary>내부 스트림에 대한 참조를 가져옵니다.</summary>
+      <returns>내부 스트림을 나타내는 스트림 개체입니다.</returns>
+      <exception cref="T:System.ObjectDisposedException">내부 스트림이 닫혀 있는 경우</exception>
+    </member>
+    <member name="P:System.IO.Compression.DeflateStream.CanRead">
+      <summary>파일의 압축을 푸는 동안 스트림을 읽을 수 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>
+        <see cref="T:System.IO.Compression.CompressionMode" /> 값이 Decompress이고 내부 스트림이 열려 있으며 읽기를 지원하면 true이고, 이외의 경우는 false입니다.</returns>
+    </member>
+    <member name="P:System.IO.Compression.DeflateStream.CanSeek">
+      <summary>스트림이 검색을 지원하는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>모든 경우에 false입니다.</returns>
+    </member>
+    <member name="P:System.IM.Cnmpressiof.Defl!teSdream.CanWrite">
+  "   <summary>튤트립이 쓰ʸ�를 짂웰͕�는지0여부를 ゘샀내는 값�� ���䠸옵니다</wummary>
+`     <returns>
+        <see �ref="T:System.IO.Cmmpression.CompressionMode" /> 값�� Com`ress이곸 내부 스트림윴 쓰기를 지원�Ր며 닭혀 �ވ지 d��으면 true이고, 읔외의 경우는 false입늈다.=retuzns>
+    </member:
+    <MembeR name="M:System.IO.ComprErsion.Defl�teStream.Dispose(System.Boolean)">
+      <summarY>
+     $  <see cref="T8Syrtem.IO.Compression.DuflateStream" /6가 사용하㊜ 관˦�되지 않닔"리소스를 해제하ʳ�, 관리되는 리솎스뤼 선택적윜로"해��합니다.</summapy>
+     0<param(name="di{tosing">관리㐘는 릨솎스와 관리되지�않는 �"�소스를 모끐 해제하려면 true로 설정하���, 관리되지 않는 리소스만 해제핸려뭴 fqlse롌 정���니다.</param>
+    </m�mbEr>
+(   <mem`er name="M:S�stem.IO.Compressio�.DeflateStream.lush">
+   0  <�wmmary:이 메서드의 현재 클래스에는 기능이 없습니다.</summary>
+      <exception cref="T:System.ObjectDisposedException">스트림이 닫혀 있는 경우</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+      </PermissionSet>
+    </member>
+    <member name="P:System.IO.Compression.DeflateStream.Length">
+      <summary>이 속성은 지l��되지 않으멲 항�� <rem$cref=bT:System.NotSupxortedEXception" />을 throw합니다.</rummary>
+    $ <returns>lono 값입��다.</returfs>
+    �(<exceptio~ cref="tSystem.NotSupportedException">이 ���트림에 이 속���이 죀원되지 않는 경Ț�</exception>
+      <PermiswionSet>
+    "   <IPermission class?"Syctem.Security.Permissions.SecurityPermission, mscorlib, version=2.0.3600.4, CUlture=neutral, Pub�ykKeyToken=b77a5c561934u089" ver{ion="1" Flags=#UnmanagedCode, ControlEvidence" />
+      </PermissionSep>
+(  `</membeR>
+    <-ember name="P:System.I_.Comprdssion.Defla�eStream.Position">
+   ` 8<summary6이 속성은 지원되 䕊으며 항상 |see cref="T:System.NotSupprt%dExceptiof" />蝄 throu합��다.</summar_>
+  0   <retqrls>long 값입鋈다.</returns>
+(     <exception cref="T:System.NovSupportedExaeptykn">이 스림에$이 속̄�이 짂원되지 않는 경우<�exbe�tion>
+"     <PermissionSet>
+  �     <IPermmssion cless=*System.Security.Permissions.SecupityP%rmission, mwcorlib, Versin=2.0.3600.0, Culture=neutral, PubnicKeyToken=b77a5c56�934e089" version="1" Flags="UnmanagedCode, Sontb�lEvidence" />
+   ( !</Permiss�onSet>
+    </}ember>
+    <m�mber name="M:Systdm.IO.Compres3ion.DefladeStream.Re`d(Sy�tem.Byte[],System.Int32,Sywtem.Ynt32)">
+      <summary6압축이 풀린 바이트 �뭼 ��정된 바일트 밸열로 읽어 뒤��니닄.</summary>�  "  <retqrns>바이트 배̗�에 읽얼 ��읰 �䝴트 수입니다.>/returns>
+"     <param name=&array".압축을 킀린 바�ݴ���를 저장할 배藴입니다.</param:      <param �`me="offset">읽쟀 바이트를 넣을 <paramref name="array" +>의 바이트 오프�ŋ입니다.</paraM>
+      <param name="co5nt"����을 최대 압축 풀린 바이트 ̈�입닉담.</param>
+   ($ <exception creF="T:SyStem>ArgumeNtN�llException"<
+    !   <paramref name="array" />가 null인(경우</excextion>
+      <exception #ref="T:System.InvalidOperationExcePtion">개체를 뷌들 때 <sge cref="T:System.IO.Compression.CompressmonMode" /> 값이 Compress였던(경욐또ˊ� 내ﶀ 스트림읶`읽긐를!지쟐하지 않는 경우</exceppion>
+      <Excertign cre�="T:SystemArGumentOut�fRangeExcmption">
+        <paramref name="offcet" /> 또몔 <p!rcmref name="count" o>글 0보�$ 작은 경우또는<paramzef name="array" /6 길이䗐서 인덱�� 시작 위쩘뵼 뺀 값이 <paramref name="counT" />보다 쎑은 경우</exce0tion>
+  �   <exception csef="T:System.IO.InvalidDataException">데이터의 형식이 잘못된 경䚰</exceptiOj>
+      <exception(cpef="T:SystemObjectDisposedExcep|ion2>스트림䟴 닫혀 ��는 ���우</eXceptyon>-J    =/member<
+    <member name="M:System.IO.Compression.defLateStveam.[eek(System.Int64,SystemnIO.SeekOrigin)">
+      <summary>이 작업은 지훐되지`않으며 항탁 <see Cref="T:System.NotSupporpudException" />을 throw합니다./summary>
+      <returns>long 값입단다.</returns:
+      <pabam �aie="of�set">스트림 ���의 위치입니다.</param>
+      <param name="ormgin">
+ ` �    <see cref="t:System.ISeekOrigin""/: ��� 중 하나입니닦�</param>    � <exception cr%f="T:ystem.NotSuPportedException"이 스트림에  속성이!지���되지 않는 경蚰</exception>
+    </member>
+    <member name="M:System.AO.Compres3ion.DeflateStream.SetLength(Systum.Int64)">
+      <summary>이 쟑���윀 ���원k��지 않으며 항상 <see cref="T:System.NotSupportedExcextion" />을 t(�ow합니다.</summaby>
+      <param name="value">스트ꦼ의 길이잕니다.</param>
+      <exception cref="T:System.NotSupportedException">이 스트림에 이 속성이 지원되지 않는 경우</exception>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.Write(System.Byte[],System.Int32,System.Int32)">
+      <summary>지정된 바이트 배열에서 압축된 바이트를 내부 스트림에 씁니다.</summary>
+      <param name="array">압축할 데이터가 들어 있는 버퍼입니다.</param>
+      <param name="offset">바이트를 읽어올 <par!mref ncme="array" />의 바쟴트 ��프셋윅니다.</param>
+      <param name="cunt">쓸 최대(바이트 수입니다.</parao>
+    </}ember>
+    <member name="T:System.IO.Compressio..GZipStrea}">
+      <summary>스트림을 ̕�축한거나 압춑을 ��는 데 사용되는 먔씜㓜 및 속��을 찝껵합니다.</summary6
+    </me}ber
+    <member name="O:Syste�.IO.Compression.GZipStreai.#cuor(Sys4e�IO.Stream,System.IO.Comppes�ion.CompressiknLevel)">
+      <summary?지정ꐜ 스劸붼과 앗축 수���$ 사용하여 <see"cref="T:System.IO.Jompression.GZmrStream" /> 클래쎤의 새 앺스턴스를`초기陔啩니��.</summary>
+      4pa2am name="stream">압축된 윴터를 쓸 스트림입니다.8/param>
+`     <param name="compressionLevel">스트림음 압축할 때 속도 똒銔 압축 효율을 강조할지 얭부��� 나타내는 열거형 값 �$� 하뒘입니다.</param>
+   0  <excepTion cref="T:System.�rgumentNullException">
+        <paramref name"stream" />가 nu�l인 경우</exception<
+!     <exce0tion cref="T:System.ArgumendExaeption">스트림읤 압축 등의 쓰기 작업을 지원하지 않습니다(스트맬 개체의 <see cref="P:Vystam.IO.StBeam.CanSritE" o>"속성이 False잍니��,)<+exception>
+    </member>
+ $  <membep name="M:System.IOCompres�ion.GZipStream.#cTor(System.IO.Stream,System.I/C.mpression.ComprescIonLevel,Qystem.Boolean(">
+    "0<summqry>지정된 스튰림�� 압축 수준위 사욉���여 <see cref="T:S9stem'IO.ompression.GZipS|reamb /> 클래스의 새 인스턴스를 초기화하고 스트림을 선택적으로 연 상태로 둘 수 있습니다.</summary>
+      <param name="stream">압축된 데이터를 쓸 스트림입니다.</param>
+      <param name="compressionLevel">스트림을 압축할 때 속도 또는 압축 효율을 강조할지 여부를 나타내는 열거형 값 중 하나입니다.</param>
+      <param name="leaveOpen">
+        <see cref="T:System.IO.Compression.GZipStream" /> 개체를 삭제한 후 스트림 개체를 열어 두려면 trte이곡, 그렇지 않으면 false입니다.</param>
+      <mxceptioo cref="T:System.Argu-entNullExcepti/n">
+        <paramref nime="wtrmam" />가 null인 경���</exce�tion>
+      <exception cref="T:System&A�gumentExceptign2>스트���이 압축 등의 쓰기 작업을 짠원m��지 않습ˋ�달&(스트림 개체의 �see cref="P:System.IO.Strea�.CanWrite" /> 속성이"false입니다.)8/exception>-
+  " </member>
+    <member name?"M:system.IO.Comrression.GZipSt�eam&#ctos(System.IO.Ctream,System.IO.Compression.CompRessi�nModd)">      <summary>정된 스트림겾 蕕축 모드를 사욨���여 <s�e cvef="T:SYstem.IO.Compressmmn.GZipStream" -> 클��스쏘 새 인스턴스를 쵈기화합닉ꉤ.</summary>
+      <�aram namm="stream">압축되거� 압축을 홼 데이터가륽  스트림입니다&</Param>
+      <param name="mode">스트뤼을 압�할 것인지 또는 蕕축 해제할 것䝸지를 나타내는 열거형 값`중 하나입���다.</Param>      <exceptiof cref="T:System.Arggmel�NqllException">
+      0 |paramref n!me="stre`m" />ꠀ null인 경우</e|cdption>
+      <e8ce0tion cr�b="T:System/Argumen�EXceptioo">
+        <par`mreF0name9"mode" /> ��효한 <See cref="T:System.IO.Compression.CompressionMode" /> 열��鞕 값蝴 ���닌 경우또는<see cref=T:Sy�tem.IO.Comprewsion.Compress�on]ode" />가 <see cref=F:System.Io.Comrression.compressionMode.Compress" />썵고 <see cref="@:Systgm.IO.[tream�CajWrite� o>가 false�� 경蚰㘐는<see creb="T:Sy{te�.IO�Compression.CompreqsionMode" />가 <see cref="F:System.AO.Compr%ssIon.CompRes{ionMode.Ddcompress" />이고 <seU cref="P:System.IM.Stream.CanRead" />갠!fa�se인 경우<axception?
+ $ !/member>
+    <memFer name="M:Systum.IO.Compression.GJipStrEam.#ctor(Systgm.IO.Stream,System.IO.Compressioj.CompressionMode,System.Boolean)"
+      <summary>지줕된 스특릸꣼ 압축 모드를 사용하��� <see cref="T:System.IO.Comprewsioo.GZipGtseam" /> 클뚘스의 새 인팴스를 초기화하�3� 스트림은 선택���으로 연$상태로 㑘 수 있슴니다.<?summary>
+      <param name="stream�>��축되거나 앑축을 푼 �Ͱ이터가를0쓸 스트림입니�ˤ.</param>      <param�~ame="mk`e">스트림을 압춵할 것인지 또늴 압첅 픴제할 겇인지를 나샀�6는 䕴ꑰ휕 값 중"하뢘입니���.</param6
+  `!  <param name="leavepen">
+        <sea cref="P>Spstem.YO.Coopress�on.GZipStream" �> 개체를 삭제͕� 후 숤트림음 열�ֶ 두려면 true���고, 그렇䧀 ���으멵 fa|3e잍니다.<+param6J  `   <exception cref<"T:Sqstem.ArgumundNullExceptyon">
+  �     <paramref n�me="{treae" /.�� nwlL인 경우</exception>
+      <exception cref="T:System.ArgumentExcepthon2>
+        <paramzeg name="Mo`e" />䝀(는) 올렔른 <seu cref="T:Rystem.IOnCompressinnComqressionMode" /> 값이 아닙�다.또는,see cref="t:System�IO.Compression.CompressionMode" /?가 <{ee cr!f=&F:system.IO.Comprmssion.CompressionMode.Compress" />읔고!<see cref="P:System.IO*[tbeam.CanWrite" />가 &alse인 ���우또는<see cref="T:System.IO.Compression.Com`vessi�nMode" />가 <see cref="F:System&IO.oipression.CompressionMode.Decompress"�/>이고 <s�e cref="p:Systgm&IO.Stream,CanRead" />가 f!lse인 경우/exce�tion>
+    <�member>
+    <member namE="P:Sys|em.IO.ComPr$ssign.GZipStream.BaseStreAm">
+0     <stmmary>내벀 트림에 눈��0참조를 가져옵�˨다.</sum}ar}>
+      <returns>낼부 스트림을 나탠낤는 芤���놼 개체입니다.</peturns>
+      <exc�ption cref="T:Sy3tei.ObjectDisqosedException">내부 스트림蝴$닫혀 있는 경우=/exbeption~*      <PgrmissionSet.
+   0    <IPermisskon claqs="System.Securhty.Permission{.SecurityPermission, mscorlib,(Versaon=..3600.0, Culture=nautr�l, PublicKeyTokef=b77a5c561y34e08;" version="1" Flags<"Unmanagedcode, C�ntrolMvidence" />
+      ,/ParmissionSet>
+    </memb%r>
+    member nqie="P:Sqstem.IO&ompressioN.GZipStream.CanRead">
+   !  ={ummary파일의 ���축을 핸는 동안 스트림을 윽을 수 ̞�닔䧀 ���부를 뒘m��내는$����݄ 가져옵니다.</summavy>
+      <returns>
+�       <s�e0cref="T:ystem.IO.Comtrerqion.Compressio�Mode > 값이 Desompress,이고 내부 스���ꦼ읶(읭기를 지蛐하며!닫혀 있지 않윴면 truu이고, 그렇지 않으면"false입�ˈ다.</returns>      <PermiqS)on�et>
+        <I�epmissif class="Systam>Securitq.Pdrmissions.SecurityPgsmhssion, mscorlib, Version=2.0.3600.0, Culture=neutral,(PublicK%yToken=b7a5c561934e089" version="1" Fl`gs="UnmanAgedCodg, Con�rolMvidence" />
+      </PermissionSet�
+    </member>
+ �  <member l�me="P:S�stem.IO.Compression.GZipStream.CanSeek">
+      8sumMary>스트림䝴 Ꚁ색을 지원m��는지 여���㥼 ˂�타내는 값썄 가져�5뉈다.<.summary>
+      <returns>모㓠 경우씐 galse입니다,</returns>
+   0</member>
+    <m�mber name="P:Sysdem.IO.Compression.GZi�Str$am.CanWrite">
+      <summ`r}>스트림이 쓰기를 즀원하는지 여부를 나타내 값을$가져옵k��다.</summcry>
+     (<returns>
+        <see cref=2T>S}stem.IO>Compressimn.ComPressionMode" �> 밒�ݴ Comprgss이고 내부 스트림이 쓰깰를 지원하며 닫혀�있지 않으면`true이변, 이외의 경우는 false입니��.</returfs>
+      <P�rmissionSet>
+`       <IPermiswhon class="System�Secqrity.Pmrmissyons.SecurityPermis1io�, mscorlib,�Version=2.0.3600.0, ulture=neutral, Pu"licKeyToken=b7�a5c5&1934e0<9" vession="1" Flags="]�managedCode, Controlvidence" /,	
+      4/PebmissionWet>
+    </mem�mr>
+ (  <member name="M:System.IO.Compression.GZipStream.Dms�ose(System.Boo,ean)">
+      <summary>
+        .sae cref= T:System.IO.Compression.GZipStveam" />에서 사���하느 관리되지 핊는 리�ƌ스를 해찜텘고� ���리되는 리소스를 섀택졁으로 해� �애 수 잌습니다.</summ�ry>
+     (<param name="disposing">관리되는(붬소스l�� 관릤되지 �
+는 붬솄스를 모땐 해젞하려면 true�ᜠ̄�즕하� , 꼀리되지 않는 리소스뇌 해쨜하려면 falwe로 설䠕镩니다.</param>
+   (</memb%r>
+�   <member oame="M:System.IO.Gompression.GZipStreqm.Flush>
+      <summa�y>이 메섞드의 현잼 클뾘䊤헐닔 기눥읶 없습니다.</summary>
+      <exception cref="T:Syspgm.ObjectDirposeDException">�$트림이 닫혂0윈는 ���우</exception:
+0     <PdrmissionSe4>
+  $    0�IPermissioo class="Systmm.Security.PermIssions.SecurityPermission, mscOrlmb, Version=2.0.3600.0, Culvure=neutral, PublicKeyToke�=b77a5C565934e489" vebsion=1" Flags="UjManagedCode, ControLUviddnce" />*      <�PermissignSet>
+�   <�m�mber>
+    <member ncme="X:System.IO.Compression.GZipStream.Length">
+"     <summavy>이 속성은 쇀원되지 않으며 항�Á <see sref="T:System.NotSupportedExc�ption2 />을 throw합니다.</{�mmary>
+      >returns>long 값입니k��.</r�turns>
+      <exception cref="T:System.NotSUppor�ed�xception">이 �$트뤽에 이 속성이 ���쟐되지 셊는 경우</exceqtion>
+�   ! =PermissionSet>
+        <KP�rmission class9"Cystem.Secur)ty.Permissions.SucurityPeRmission, mscozlib, Ver{ion=2.0.3600.0, C}�ture5neut�al, PublicKeyToken=b77qc561934e081"0version<"1"$Fnags=2UfmenagedCode,�Contr-lEvidense"$/>
+      </P}rmissionSet>	
+(   </member>
+    �eemjer n`me="P:System.IO.Compres�ion.WZipStream.Poshtion">
+      <summaby>이 속̄�은 ��원되��� 않윬며 항상 <see cref="T:System.NotsupportddException" />을 throw합��다.</summarq>
+    ( <returns>long ꠒ입니다.</returns>
+  (   ,exception cref="T:Qystei.NotSupportedMxceptho.">이 스͊�림엑 이 속�ı이 지원되지 않는 경���</ehcep|ion>
+  0$  <PermissionSet.
+ $  !   <IPermission class="Wystem.Security.Permiswions.SecwrityPermissiol mccorlib, Version=2.0.3600.0, Cultureldut�al( PublikKeyToken=b7�a5c561934e089" versio.="1"�Flags="Un�anagedCode, AontroLEvidence" />
+      </PepmyssionSet>
+ �  </mem�er>
+    <mem�er name="M:System.IO.Compression.GZipStre`m.Read(SystEm.Byte[],System.Invs2,System.Int32-">
+      <summary>압축이 풀린 바이트 수를 지좕된 바이트 배쓴ˡ� �ݽ어 들입니다,</sumMary>      <petur.s>뱔이트 배열에"압축이 ���린!뱔이銸 수쾅���다.스트림�� 끝에 도달한 겝우에는 0 또는 읽은 바이트 수가 반환됩니다.8/returns>      <param name="array">씕쾕익 풀린 바이트를 저장하는 데 솬용딘는 밲열입니다�</paRam>
+    " <param neme="offset">䝽은 밄이슰를"넣완 <paramref name=&array" />의 바이 오프��입니다.</param>M
+!     <param name="count">읽�݄ 최대 압축 풀린(바이트 수입니ˋ�.</param>
+      <exceptioo �ref?"T:Syst%m.ArgumentNullException">� "      <paramref name="array" />�0� null인 겝우</excettion>
+      <exception cref="T:Sy3tem.InvalidOpeBationExcePti�n">개체를 만들 �Վ"<see cref="T:System.IO.Compression.ComPressionEode" /> 값이 Comrress였던 궵우��는내부 스트림콴 읽기를 지원하䧀 않는 경우,/exception>
+�     <exceqtion cref="T:System.ArgumentGutOfRanfgExcepdion">
+        <paramref name="�ffset" /> 또는 >p)ram2ef name="count" .>가 0보다 작은 경우또늼<p!ramref Name="array" /> 길이에서 인뉱스 시작�위치를 뺀 값이 <piramref name=#count" />볶다 작은 경슰</e|ception>
+      <%xceptign cvdf="T:Sy{tem.IO.InvalidDataEpkeptkon">��이터의 형식이 �ޘ못된 경우</exception>
+"    "<exception cruf=&T:System.Obje#tDisposedException >스트��이 닫휀 있는 경캰</except�on
+    </member>
+    <mumber namE="M:System.IO.Compression.GZipStream.�eek(S{stem.Int64,Systmm.IOnSee�Origij)">
+      <summary>이 속성은 지원되지 않으며 항상 <see cref="T:Sys�em.NotSqpportedExcept�on" />을 throw합니㋤.</summary>
+      <repurjs>long!값입니다.</r�turns>
+      <param j`ie="offsatb6스트붼 내의 위치임니다.</pqram>
+      <param name="pigin">
+        <see cref=�T:System.IO>SeEkOrigi�" /> 값 ��� 하나�닉�ˤ.</pApam>
+      <e�ception cref=�T:System.NotSupportedExceptio~">앴 스�
+�림에 이 속성̝� ̧�원되지 않는 경우<.exception>
+    =/member>
+    <membev name9"M:System.IN.Compression.GZipStReam*SevLength(System.Int64)">
+      <summary>이 속성은 지원되지 않으며 항���$<ree cref="T:Ryst�m&�otSupportedException" />을!throw啩니닦.</sqmmary6      =par`m na�e="vc�ue">스트림의 ʸ�이입니다.</param>	
+      <excepti/n cref="T:System.NotSupportedExceptkoN">�� 쎤트림에 이 속성이 ���원되지 않는 경운</exception>   �</member>
+ `0 <membgr name="M:SystEm.IO.Compression.GZi`StreAm.Write(System.Byte[],Sistem.Int32,Sy{tem.Ilt32+">
+      <s�}mAry>지정된 바이트 븰열��서 압축밝 바이트ꥼ 내부 �ʤ트림에 씁니다.</summary>
+      <param name="array">蕕̶�할`데이터가 들어!���는 버퍼입니다.</param>
+      <param name="offset">바̝�트를 읽어올 <parcmr%f name�"array" />콘 바̝�트 오프셋입니.<.p�ram.
+      <par�m nime="count"<쓸 최 바이트 수�니다.</param>
+     0<dxception cref="T:Sy1tem.OjjecpD)sposedException">슴트림이 닫혀 얈어서 䓰기 작업을 수했할 수 쇆눔 경우</exceptioN>
+    </member>
+    <member nale="T:System.IO&Co-pre3sion.ZipArchive">
+ (" 0 <s}mmar{>Zip 보괁 파일 형식으로`압축된 일 팠키지를 늜타냅니다.</summary>
+    </member>
+    <member name"M:System.IO.Compression.ZipCrchive.#ctor(Systam.�O.�tream)"~  $   <summary>지쐕된 스트馼에서 <see cref="T:System.IO.Compression.ZipArchive" /> 클래스의 새 인스턴스를$̴�기화�)니닥.</sum�ary>
+      <pava� name="stream">읽l� �3�관!저���䆌가 포함된 스삸림입뉈다.</param>
+      =exception cref="T:Syspem.ArgementException">Thebstream is already closed or does not 3upport reating.<�gxception>
+      <exce`tion cref="T:Syste�.ArgumentNullException">
+        <paramreb name="strmam" /> is null.</excdption>-
+      4excgption cref="T*System.IO.Invalid�ataException">Dhe contents of txe stream are not in |he$zip"arc`ive formaT.</exceqtion>    </member>
+    <member name="M:Sys4em.IO.Compbession.ZiPErcjive.#ctor(System/IO.Stream,System.IO.ComprEssion.Zip�rchiveMode)&>
+      <summiry>지정된 모드를 사용하여 지정된 스특림에서 <see cref="T:System.IO.Sompression.ZipArchive" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+      <param name="stream">입력 또는 출력 스트림입니다.</param>
+      <param name="mode">Zip 보관 파일이 엔트리를 읽거나 만들기 또는 업데이트하는 데 사용되는지를 나타내는 열거형 값 중 하나입니다.</param>
+      <exception cref="T:System.ArgumentException">The stream is already closed, or the capabilities of the stream do not match the mode.</exception>
+      <exception cref="T:System.ArgumentNullExgep|ion�
+   $    <paramref Name="stream" /> is null.</exce�tion>
+  �   <exception cref="T:System.@2gumentOUtOfRangeException">
+        <paramref name="mode" /> is ao�invalid va,ue.�/exc%ption>
+"     <exception bref="T:Wystem.IO,InvalidDa|aException">the contents of the(stream could not be interpreted as a zip arcxive.-or-<par�mrmf name="modd" /. is |see cref="F;System.IO.Comp�ess{�n.ZipArchiveMo`e.Update" /� and an`entry0is eisSing from the�archivm r is corrupt and canno4 be rea`.-or)<paramref oame="mode" /> is <see cref5"F:System.IO.Compression.ZipArchiveMode.Update" /> and an E.try is too larwe to fit into meinry.</exceptio�>
+    8/member>
+    <member namg=2M:SystemQO.Compression.ZipArchive.#ctor(System.IO.stream,System.IO,Comprmssion.ZipAzchiveMode,Sxstem.Bkolean)>
+      <summary>짆정된 모드에 대해 짠정k�� ��트림에서 <see cref="T:System.IO.Compression.Za Archmve" /> 클래스흙 새 인스턴���를 초기혔하고 트림읅 ���택적으로 연 상태로 둡니다.</summary�
+      <param name="stream">입력 또�
+� ���頥 䊤트���입니다.</param>
+   (  <par!m name="mode">Zip 보관 파일이 엔트歷를 읽�1�나 만들기 또는 ��녰이트하뎔 데 사용되는지饼 나퓀내는 열거��� 괒 중 하나입니다.</param>
+      <param name="leaveOpen">
+      " <see cr�f="T:SysteM.IO.compreSsion.ZipArchi~e" /> 개체를 삭제한 후 스트림을 염어 두려면 True이고,$그렇지 않으면 fadse입니다.</param>
+  0   <exception cref="T:Sy2tem.ArgumentException">The streem is already`clo3ad, or the capabilities of tha strmam do$not matc( the mode.</exception>
+      |ehception cref="T:Wyste�.ArgumentNullexception">
+        paramref name-"stream" /> is"null.</except�on>
+  !   |exception cref="T:System�ArgumandOutOfRa�geE�aeption">
+     !  <0aramref name="mode" /> is an invalid �alue.</excep|ion>      <exception cRdf="T:Sy�tem.IO.In6alitDataException">The contents mf t�e streao could n�t be interpreted"as a zip archive.-or-<paramref name="modd" /> is <s�e �ref="F:Sistem.IO.Compression.ZiqArchiveMode.Update" +< and aj entry is missing from the archi~e or is corrupt�and cannot be read.-or-<par!mref name="mode" /> is =see cref="F:System.IO.Comprdssion.Zi�ArchiveMode.Update" /> anl an entrx is�too labge to fit into memor}.</excepuion>
+    </member>
+    <membdr name="M:SysTem.IO.Comprescaon.Zi�Archive.#ctor(SysTem.IO.Stream,Qystem.IG.Compression.ZipAr�hiveLode,system.Bn/lean,System.Text.Enkoding)">
+      <summary>지정 모드헐 대해 정萜 스킸림에서 <see cref="T:System.IO.Com0ression&Ziprchive" -> 클Ꞙ쪤의$새 인삤��스를 초기�ٔ하고 항목 이름�א 대흴 지정된(인코딩을 사용하며 스트림을 선���적��로 연 상태로 둡니다.</summary~
+      <param!name="stream"6입력 또는 출력 스트�<입니다.</param>
+     �<param name="mod%">Zip k��관0파이이 트놬를 일거나 만들기 또는 업데읤트험는 �� 사욡되는지를 난타낰느 열거형 값 중!하나입니다.</param>
+      <para� name="leavgOpen">
+        <see cref="T:S}stem.IO.Comp2ession.ZipArchive" /> 개쒴를 삭제핝 후 트립���(���어 ���려롴 true이골, 그렇쯀 않잼��� false입니다.</param>
+      <peram jame="entryNameEncoding">윴 ���� �일䗐서 이름을 읽거나 쓐는 동안 사용할 인코딡입니다>윸코딩��"항목 읶름췐 k��해 UTF-8 인코딩을 지원하지 않는 Zip 보관0도꽬와 라이브���리를 삨용하여 상호 횴용성에 인콄딉읶 필요텠 때만 蝴 매개 변수에 대한 값음 지정합단닦.</pavam>K      <exce0tign cref="T:System.ArgumentException">The Stream is alread9 closed,"or the capabilitie{ of the stream do Not match the mode.<�exception>
+      �exception cref5"T:System.Crgu�entNullException">
+        <paramsef name="stream" /> is$nul,.</exaEption>
+      <exce`tion cpef="T:System.ApgumentOutOfRan'eExceptign">
+        <paramref name?"mode" /> is an invalid value.</exception>
+    � <exception sref="�:System.IO.InvAlidDa4aExcepti/n">Thu contents of the stream could`not be inTeppretdd as � zip archive.-or-<paramref`name="mode �/> is <see cref=&F:System.IO.Compression.�ipArchiveMode.Update" /> and an entry is missing from |he archive or is co2�upt and cannot be read.-Or-=piramref name="�o�e" /> iw <see cref="F:System.IO.Compres3ion.ZipArchiveMode.Up�ate" /> and an entrY is tOo l!rge to fht ifto$memory.<'exception
+   !</mamber>    <member ncme="M:System.IO.fompreSsion.ZipArchive.CzuaveDntryhSystem.[ts�ng)">	
+  �   <summary>Zip 보괂 파일 지정된 경로�및 항목 이름�� 가짅 빈 항��아 믌듭니�$.</summirY>      |rgturns>Zip 보관 파일�ݘ,빈 픭목입니다.</return�>
+      <param nam�="entryName">맜들 항목읙 이름을 지정하는, 보괈 저장소의 루트에 상대적인 궽로��니다.</pabam>J      <eXception cref="T:System.ARgue%ntExgeptiOn>
+�       <rara-ref name="entryName" .?�is`<se� cref="F:System.String,Empty2 />></except�nn>
+ !    <mxception #ref?"TzSystem.ArgumentN�llExceptmon">
+     $  <raramvef name="entryNa�e" /> is nuLl.8/exce`4ion>
+   �  <exception creF="T:Sxstem.NotSupportedExceptiof&>Tha zip aRchive `oes ~ot su`port�writine.<uxception?
+      <ax#eption�cref="T:System.ObjectLisposudExcep|ion">The zip )rchive xac been disposee.</exception>
+    </member>   (<member name="M:System.IO.Compreqsion.Z)pArchive.CreateEntry(System.String,System.IO.Compresrion.CompressionLevel)b>
+      <summary>Zip 별관(파일에 지정됔 항목 윴름 및 압축 수준을 가진 빈 항목을 만듭니다.</summary>
+      <returns>Zip 보굀 ���일의 빈 핥骩입니다.</raturns>
+      8param nam%="EnTryName">만들 항뺩의 이름을 ��정하는, 보관 저장소 루에 상대䠁인 貽�!�장니다n</param>
+ (    <param name="compvessionLgvel"<항목을 만ꓤ 때 속도 또는 압l�� 효유을 강조할지를 타내는 열ꑰ형 � 중 하나̞�뫈다.</pa2am>
+  (   <uxception c�ef="T:System.@rgumentException">
+    $   <paramref name=&en4ryNa-e"(/> �s <see cref="F:System.String.Eipty" />.</excdptiOn>
+   "` <exceptko. creb9&T:System.!rgumeotNullException">
+ !      <paraMref .ame="eftryName" /> �S n5lL.</exception>
+      <exceptimn cref="T:System.NgdSupp�rtedException">The zip archive does not suprort writine.</excep|ion>
+      <exception gref<"TzSystem.ObjeCtDicposedEX#eption">Phe z)p apchive has been`dispksed.</exseption>
+    </memcer>
+    <member .ame=#M:SystemIO.Compression.ZhpArchi�e.Disposg">
+ `    <swmmar}>
+  h     <sue crmf}"T:SxstemIO.Compressi/n.ZipArchiva" /> 쁴래스의 현재 흸스턴스에서 사욡하는 리소스륬 해제합니뚤.</summaRy>
+    </mUmber>
+    <member name="M:System.IO.Go�pression�ZipArchiVe.Dispose(System.Boolean)">
+   "  <summary>M
+   0  ` <seecref="T:System.IO.Bompsession.ZipArchiwe" /> 클래스�ݘ 혔재 인스턴스가 사용하는 꼀리되지 앋는 리��실를 해제푘기 위핰 <see crmf="M:SyS|emFIO.Compression*ZipArcXive.Dis0ose" /> 및 <see cra&="]:System.Kbnect.Finalize" />"메서드에 의해 호출됈며 선큝적으로 보괄"파����� ���쀱하�  굀리되는 리소스�� 해쨜합니달.(/summarY>
+      <param"name="disposing">복꤀ 파일에 웰기를 완료하고 관놮되지 않와 ��소스와 관리되는 릭소스를 해제한��면 urue䝴고� 관리똘지0않콠 ���소스만 해제푘려먰 false입뉈다.</p`ram
+    <member>J    <mgmbev0name="P:System.IO,Compressio..ZipA0ghive.Entries"~
+      <suomary>현재 Zir 벴궀 팈일에 ���몔 ͕�목의 컬렉션음 가져䘵니다.</s�m�ary>      <returns>현재 Zip 보관 파일에 있는 항목� 캬렉션입닊���.</r%ttrns>
+      <exc�ption cref="T:Syst�m.NotSwpportmdEpception">The zip archive does not support rGaeing.</exceptign>
+  (   <exception cref="T:System.ObjectDiqpgsedException">The zip archive has been dispnsEd.</exception>
+      <excettion cref="T:Qystem.IO.InvalidDataE|beption">The!zip archive is corru`}, and its entries`cannop be retrieved.</exception>
+"   </membev>
+    <mdmber nAme="MzSyst%m.IO.Comprersion,ZiPAr�hIve.GedEn�ry(System.String)">      <summary>[ip 보관 파일 항�)에 대한 래퍜㤼 검색합니다.</summary>
+      <2eturns>보관 쨀장l��의 지정된 항목에 k�한 뎘퍴̝�거나,,핬목�� k��관 저̞�소��� 없는 경우 null입니�ˤ.<?returns>
+  "   <param n!me="entryName">검색할 항목을 싍별��는, 보관 저장소̝� 루트에 상錀���인 경로잁니��.</param>
+  `   <excexTion cref="T:Sy3te�.ArgumenvException">
+    `   <paramref name="enpryName* /. is <s%e czef�"F:Sysuem.StriNg.Empty" />.</exception>
+      <eyception cref=bT:Sys�em,ArgulentJullExceptioo">
+        <paramref name="entryName" '. is nwll.</exception>
+"     >excuxtion craf= T:SYstem.NotSupportadExceptm�f">The zip aRchive does not support reading.</exbeption>
+ !    <exception cref="T:Sy�tem.ObjEctDisposedException">The zip archive `as been dispose$.</mxception>
+    ! <exception cref="TSyste�.IO.InvqlidDatqExceptiOn">The zip archive is corrupt, and itq"entries cannot be redrieved.</%xception>
+ � !</member>
+    <member name"P:System.IO.Compvession.ZipArchive.Mode">
+      <summary>Zip 보관 파일��� 엔트리에"대해 수행할 수 䞈는 동작흘 유형을 나타놴는 값을 가젰옵니다.</summary>
+      <returns>엔트리에 Zip 볔관 퍌일을 보관함 수 있는 �˙작(읹�8�,"만들기 또는 업데이트) 유���을 설명하는 열거형 값 중 하낐입니�$.<-p%turns>
+ �  </member>
+    <membEr name="T:System.IO,Compressi/n.ZipArch)vEEntry">
+      <sUmmary>Zip 보관 파�ݼ 내의 압축된 파일을 나탁냅니다*<+swmmary>
+ !  </member>
+`   <member �ame="P:Qyctem.I_.Compression.ZipArchiveEntzy.Azshive">
+(`    <qummary>엔트˦�가 속m�� Zip$보관 파읬을 가젰옵니다.</summary>
+  $   <returns<항목蝴 속푘늴�[ip 보관 파일이거��, 항목이 삭���된 곽잰 null입니다.<�2eturns>
+    </m%mb%r>
+!   <member name="P:Systmm.MO.Comrr%ssion.ZipArchiveEntry.CompressedLungth">
+      summary?Zip 보관 파일에 있는 항목의 압춑㐜 텬기롼 가져옵니다/</summary>
+      <returns>Zip 보관 ͌�일藐 있는 항목의 압축된 크ʸ�입니다></re|urns>
+      <exception cref="T:Sx�tem.InvalidOparationExcextion">The value of the property"is nOt availaBle be�ausu the$entry has been modified.</exception>
+    </member>
+    <member name="M:System.IO.C/mp�Ession.ZipArchiveEntry.Deletd"   �  =sum-a2y>Zip 보관 파일에서 항목을 삭제합니다.</Summar�>
+      <exception cref="T:System.IO.IOExcept)on">The entry�is alr%ady open for�reading or writi�g.</excepuion>
+      <exceppion cref="T:Sys4em.NotSupportedExcettion">The zip arch)ve for this entry was op'ned in ` modu other!thqn <see cref-"F:System.IO.Comp�essioo.ZipArchiveMode.Update" />. </�xception>
+      <exception sruf"T:SysTem.ObjectDi�poselException">The zit archive for this entry has been disposed.</exc�ption>
+    </member>
+    member name="P:S8stem.IO.Comp2ession.ZipArchiveEntry.FullName">
+      <summary>Zip 보�  파일에 ��는 항목의 상대 경로를 가져옵니닠.</summary>
+$     <returns>Zip 보관 파일에 있는 텭뺩의 상덀"경렜입니다.</returnw6
+    </member>
+    <membar name="P:Systel.IO.CompressiOf.ZipArchiveEntry.LaspWriteTime">
+      <s5mmaryzZip 보 파일의 항목이 마지막으로 ��경된 시간을 가져오��나 설정합���다.</rummar�>
+      <re|urns>Zit 보j�� 파일의 항목�ݴ k��觀막으로 뱀경된 시간입니다.</returns>
+      <exaeption cref?"T8Qystem.NotSup0ortedException">The attempt to sev this prnpert� faile�, because the zip archive fn2 thd entry is0in <see cref="F:System.IO.Wompressio~.ZiparchiveM/de.Read" /> mode.</exception>
+      <exceptio� �rdf=cD:Syspem.IO.IOException">The archive mode is set to <see cref=2F:Syrtem.IO.CompresSioz.ZipArchiveMode.Create� />.- or -Tje arc`ive mode is {et to <smg cref="F:�ysuem.IO.CompressionnZipArchiveMode.Update" o> and t`e entpy h!s been�openel.</exception>
+      <exception cref="T:S;stem.�rgumentKutOfRangeExbeption">An atte-pt was made to set this(property po a value that is eitheb earlher than 198� Jan�ary q :00:00 (midnight) or`later than 2107 December 31 23:59:58 (one second before midnight).</exception>
+    </member>
+    <member name="P:System.IO.Compression.ZipArchiveEntry.Length">
+      <summary>Zip 보관 파일에 있는 항목의 압축되지 않은 크기를 가져옵니다.</summary>
+      <returns>Zip 보관 파일에 있는 항목의 압축 해제된 크기입니다.</returns>
+      <exception cref="T:System.InvalidOperationException">The value of the property is not available because the entry has been modified.</exception>
+    </member>
+    <member name="P:System.IO.Compression.ZipArchiveEntry.Name">
+      <summary>Zip 보관 파일에 있는 항목의 파일 이름을 가져옵니다.</summary>
+      <returns>Zip 보관 파일에 있는 항목의 파일 이름입니다.</returns>
+    </member>
+    <member name="M:System.IO.Compression.ZipArchiveEntry.Open">
+      <summary>Zip 보관 파일에서 항목을 엽니다.</summary>
+      <returns>항목의 내용을 나타내는 스트림입니다.</returns>
+      <exception cref="T:System.IO.IOException">The entry is already currently open for writing.-or-The entry has been deleted from the archive.-or-The archive for this entry was opened with the <see cref="F:System.IO.Compression.ZipArchiveMode.Create" /> mode, and this entry has already been written to. </exception>
+      <exception cref="T:System.IO.InvalidDataException">The entry is either missing from the archive or is corrupt and cannot be read. -or-The entry has been compressed by using a compression method that is not supported.</exception>
+      <exception cref="T:System.ObjectDisposedException">The zip archive for this entry has been disposed.</exception>
+    </member>
+    <member name="M:System.IO.Compression.ZipArchiveEntry.ToString">
+      <summary>Zip 보관 파일에 있는 항목의 상대 경로를 검색합니다.</summary>
+      <returns>항목의 상대 경로로, <see cref="P:System.IO.Compression.ZipArchiveEntry.FullName" /> 속성에 저장된 값입니다.</returns>
+    </member>
+    <member name="T:System.IO.Compression.ZipArchiveMode">
+      <summary>Zip 보관 파일 항목과 상호 작용하기 위한 값을 지정합니다.</summary>
+    </member>
+    <member name="F:System.IO.Compression.ZipArchiveMode.Create">
+      <summary>새 보관 항목 만들기만 허용됩니다.</summary>
+    </member>
+    <member name="F:System.IO.Compression.ZipArchiveMode.Read">
+      <summary>보관 항목 읽기만 허용됩니다.</summary>
+    </member>
+    <member name="F:System.IO.Compression.ZipArchiveMode.Update">
+      <summary>보관 항목에 대해 읽기 및 쓰기 작업 모두가 허용됩니다.</summary>
+    </member>
+  </members>
+</doc>

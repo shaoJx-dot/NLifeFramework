@@ -1,0 +1,6 @@
+D:\Work\C#\NLifeFramework\EntityLayer\Common.Model\bin\Debug\Common.Model.dll
+D:\Work\C#\NLifeFramework\EntityLayer\Common.Model\bin\Debug\Common.Model.pdb
+D:\Work\C#\NLifeFramework\EntityLayer\Common.Model\obj\Debug\Common.Model.csproj.CoreCompileInputs.cache
+D:\Work\C#\NLifeFramework\EntityLayer\Common.Model\obj\Debug\Common.Model.dll
+D:\Work\C#\NLifeFramework\EntityLayer\Common.Model\obj\Debug\Common.Model.pdb
+D:\Work\C#\NLifeFramework\EntityLayer\Common.Model\obj\Debug\Common.Model.csprojResolveAssemblyReference.cache

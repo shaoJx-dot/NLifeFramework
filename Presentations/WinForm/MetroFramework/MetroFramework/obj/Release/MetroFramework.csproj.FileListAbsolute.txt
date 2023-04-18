@@ -1,0 +1,9 @@
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework\bin\Release\MetroFramework.dll
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework\obj\Release\MetroFramework.csproj.AssemblyReference.cache
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework\obj\Release\MetroFramework.Forms.MetroForm.resources
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework\obj\Release\MetroFramework.Forms.MetroMessageBox.resources
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework\obj\Release\MetroFramework.MetroMessageBoxControl.resources
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework\obj\Release\MetroFramework.Properties.Resources.resources
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework\obj\Release\MetroFramework.csproj.GenerateResource.cache
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework\obj\Release\MetroFramework.csproj.CoreCompileInputs.cache
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework\obj\Release\MetroFramework.dll

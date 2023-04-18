@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FCBE7502-51E9-4B1A-9FE4-48317792C664}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NLife.Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainApplication.designer.cs">
+      <DependentUpon>MainApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\MenuBar.cs" />
+    <Compile Include="Menu\MenuButton.cs" />
+    <Compile Include="PluginEngine\Plugin.cs" />
+    <Compile Include="PluginEngine\PluginCompiler.cs" />
+    <Compile Include="PluginEngine\PluginDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PluginEngine\PluginDialog.Designer.cs">
+      <DependentUpon>PluginDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PluginEngine\PluginInfo.cs" />
+    <Compile Include="PluginEngine\PluginInstallDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PluginEngine\PluginInstallDialog.Designer.cs">
+      <DependentUpon>PluginInstallDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PluginEngine\PluginListItem.cs" />
+    <Compile Include="Plugins\DemoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugins\DemoForm.Designer.cs">
+      <DependentUpon>DemoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\MainSettings.cs" />
+    <Compile Include="Settings\SettingsBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetBarSourceDistribution\DotNetBar.csproj">
+      <Project>{36546ce3-335c-4ab6-a2f3-40f8c818bc66}</Project>
+      <Name>DotNetBar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNetBarSourceDistribution\InstrumentationControls\DevComponents.Instrumentation.csproj">
+      <Project>{3084e369-3d7b-4918-958f-2776da03e6bc}</Project>
+      <Name>DevComponents.Instrumentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNetBarSourceDistribution\TreeGX\TreeGX.csproj">
+      <Project>{f6575883-1bdd-40bb-beec-6b0154c5c85e}</Project>
+      <Name>TreeGX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MetroFramework\MetroFramework.Design\MetroFramework.Design.csproj">
+      <Project>{7316584d-9a16-4280-a8ab-6d45198c6e4d}</Project>
+      <Name>MetroFramework.Design</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MetroFramework\MetroFramework.Fonts\MetroFramework.Fonts.csproj">
+      <Project>{5a2fcae8-c2fa-41bd-90ea-16103ea07b26}</Project>
+      <Name>MetroFramework.Fonts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MetroFramework\MetroFramework\MetroFramework.csproj">
+      <Project>{bb41ac8b-cbed-4387-a7e0-4567edb3f57f}</Project>
+      <Name>MetroFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainApplication.resx">
+      <DependentUpon>MainApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PluginEngine\PluginDialog.resx">
+      <DependentUpon>PluginDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PluginEngine\PluginInstallDialog.resx">
+      <DependentUpon>PluginInstallDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugins\DemoForm.resx">
+      <DependentUpon>DemoForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

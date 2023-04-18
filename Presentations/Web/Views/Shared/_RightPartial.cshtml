@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNet.Identity
+<div class="col-xs-6 col-sm-3">
+    <div @*class="col-md-12"*@>
+        @Html.Action("_LoginRightPartial", "Partial")
+        <!--<div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">节点列表</h3>
+        </div>
+        <div class="panel-body">
+            <p><span class="text-muted">官方专区</span></p>
+            <p>
+                <a href="node/1.htm" >程序发布</a>&nbsp;
+                <a href="node/4.htm" >开发动态</a>&nbsp;
+                <a href="node/15.htm" >商业用户专区</a>&nbsp;
+                <a href="node/16.htm" >ZeroLag Team</a>&nbsp;
+            </p>
+            <p><span class="text-muted">ZEROLAG使用</span></p>
+            <p>
+                <a href="node/2.htm" >bug反馈见议</a>&nbsp;
+                <a href="node/3.htm" >程序讨论</a>&nbsp;
+                <a href="node/5.htm" >模板风格</a>&nbsp;
+                <a href="node/6.htm" >插件模块开发</a>&nbsp;
+                <a href="node/8.htm" >教程帮助</a>&nbsp;
+                <a href="node/17.htm" >ZEROLAG@net</a>&nbsp;
+            </p>
+            <p><span class="text-muted">其它版区</span></p>
+            <p>
+                <a href="node/7.htm" >站长交流</a>&nbsp;
+                <a href="node/9.htm" >网站展示</a>&nbsp;
+                <a href="node/10.htm" >唠叨</a>&nbsp;
+                <a href="node/11.htm" >PHP/mysql技术</a>&nbsp;
+                <a href="node/18.htm" >Laravel</a>&nbsp;
+                <a href="node/19.htm" >CodeIgniter</a>&nbsp;
+            </p>
+        </div>
+    </div>-->
+        @*@Html.Partial("_CountPartial")*@
+        @Html.Action("_CountPartial", "Partial")
+        @Html.Action("_AdvertPartial", "Partial")
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">支付宝捐助ZeroLag</h3>
+            </div>
+            <div class="panel-body">
+                @*<ul class="list-unstyled">
+                    <img src="~/Content/Images/Default/alipay_account.jpg" width="266px" />
+                    <li><a href="topic/327.htm">捐助列表</a></li>
+                </ul>*@
+                <p style="margin-bottom: 10px;">
+                    <img src="~/Content/Images/Default/alipay_account.jpg" width="266px" />
+                </p>
+                <p style="margin-bottom: 10px;">
+                    <a href="topic/327.htm">捐助列表</a>
+                </p>
+            </div>
+        </div>
+
+        @Html.Action("_LinkPartial", "Partial")
+    </div><!-- /.col-md-4 -->
+
+</div>

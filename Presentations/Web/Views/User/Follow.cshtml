@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xs-6 col-sm-9">
+    <div >
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">我关注的会员</h3>
+            </div>
+            <div class="panel-body">
+                <ul class='user-list clearfix'>
+                    <li>
+                        <a href="http://bbs.startbbs.com/user/profile/1" title="admin">
+                            <img class="img-rounded" alt="admin" src="http://bbs.startbbs.com/uploads/avatar/1/01/1_normal.png" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">关注会员的话题</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="media-list">
+                    <li class="media">
+                        <a class="media-left" href="http://bbs.startbbs.com/user/profile/1"><img class="img-rounded" src="http://bbs.startbbs.com/uploads/avatar/1/01/1_normal.png" alt="admin"></a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="http://bbs.startbbs.com/topic/4701">新增: Startbbs超级群 645590178</a><span class="badge badge-info">置顶</span></h4>
+                            <p class="text-muted">
+                                <span><a href="http://bbs.startbbs.com/node/4">开发动态</a></span>&nbsp;•&nbsp;
+                                <span><a href="http://bbs.startbbs.com/user/profile/1">admin</a></span>&nbsp;•&nbsp;
+                                <span>昨天13:06</span>&nbsp;•&nbsp;
+                                <span>最后回复来自 <a href="http://bbs.startbbs.com/user/profile/8686">cbd513882714</a></span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <a class="media-left" href="http://bbs.startbbs.com/user/profile/1"><img class="img-rounded" src="http://bbs.startbbs.com/uploads/avatar/1/01/1_normal.png" alt="admin"></a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="http://bbs.startbbs.com/topic/4298">新版规划</a><span class="badge badge-info">置顶</span></h4>
+                            <p class="text-muted">
+                                <span><a href="http://bbs.startbbs.com/node/1">程序发布</a></span>&nbsp;•&nbsp;
+                                <span><a href="http://bbs.startbbs.com/user/profile/1">admin</a></span>&nbsp;•&nbsp;
+                                <span>4 天前</span>&nbsp;•&nbsp;
+                                <span>最后回复来自 <a href="http://bbs.startbbs.com/user/profile/8668">coco</a></span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /.col-md-8 -->
+
+    </div>
+</div>
+
+@Html.Partial("_RightPartial")

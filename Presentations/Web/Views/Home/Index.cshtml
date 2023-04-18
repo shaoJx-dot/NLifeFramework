@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "主页";
+}
+@using Models;
+@using Component.Utils.Web;
+<div class="col-xs-6 col-sm-9">
+    <div @*class="col-md-12"*@>
+        <div class="panel panel-default">
+            <div class="panel-heading ">
+                <h3 class="panel-title">
+                @(Session["userDisplayName"] == null ? "" : Session["userDisplayName"].ToString() + "，")欢迎访问ZeroLag零时差微社区</h3>
+            </div>
+
+            @foreach (var topic in ViewData["TopicList"] as List<TopicEntity>)
+            {
+            <div class="row blog_li">
+                <h2>@Html.ActionLink(topic.Title, "Index", "Topic", new { id = topic.ID }, new { target = "_blank" })</h2>
+                <div class="col-sm-3 blog_img">@Html.ActionLinkWithImage(Url.Content("/Content/UploadImg/vediojs_thumb.jpg"), "Index", "Topic", new { id = topic.ID }, "_blank")@*<img src="/Content/UploadImg/vediojs_thumb.jpg" alt="MySQL/MariaDB主主数据同步配置">*@</div>
+                <div class="col-sm-9 blog_txt">
+                    <p>
+                        @*<span>@Html.ActionLink(topic.CategoryEntity.Name, "Category", "Home", new { id = topic.CategoryEntity.ID }, null)</span>*@
+                        <span><a href="/@*@topic.CategoryEntity.EnName*@">@topic.CategoryEntity.Name</a></span>
+                        <span>@string.Format("{0:yyyy年MM月dd日}", topic.CreateTime)</span>
+                    <span>作者：@topic.UsersEntity.DisplayName</span>
+                    <span>标签：
+                        @foreach (var tag in topic.TagsList)
+                        {
+                        @Html.ActionLink(tag.Name, "Index", "Topic", new { id = topic.CategoryEntity.ID }, null) @Html.Raw("&nbsp;&nbsp;")
+                        
+                        }
+                    </span>
+                    </p>
+                    <p class="abstracts">
+                    @{
+                        var content = topic.Body.Length > 100 ? topic.Body.Substring(0, 100) : topic.Body;
+                        var contenttext = TextHelper.ReplaceHtmlTag(content, 100);
+                    }
+                    @Html.Raw(contenttext)
+                    @Html.ActionLink("阅读全文", "Index", "Topic", new { id = topic.ID }, new { target = "_blank" })
+                    </p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            }
+            @*ViewBag.Content = "<p>你好,我现在测试一个东西.</p>";
+            <div>@Html.Raw(ViewBag.Content)</div>*@
+            @*<div id="pagecount"><span class="noprepage">上一页</span><span class="cur">1</span><span><a href="index-2.html">2</a></span><span><a href="index-3.html">3</a></span><span><a href="index-4.html">4</a></span><span><a href="index-5.html">5</a></span><span><a href="index-6.html">6</a></span><span><a href="index-7.html">7</a></span><span class="dot">...</span><span><a href="index-49.html">49</a></span><span><a href="index-2.html">下一页</a></span></div>*@
+            
+            @{
+                int dataCount = (int)ViewData["DataCount"];
+                int pageDataCount = (int)ViewData["PageDataCount"];
+            }
+            @PageHelper.CreatePaginateButton(dataCount, pageDataCount, "")
+        </div>
+    </div>
+
+</div>
+
+@Html.Partial("_RightPartial")

@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "主页";
+}
+@{
+    int dataCount = (int)ViewData["DataCount"];
+    int pageDataCount = (int)ViewData["PageDataCount"];
+    Category category = ViewData["Category"] as Category;
+}
+@using Models
+<div class="leftContent">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">分类：@category.Name<span class="pull-right">话题&nbsp;<span class="badge badge-info">@dataCount</span></span></h3>
+                </div>
+                <div class="panel-body">
+                    <p class="text-muted">
+                        @category.Description
+                    </p>
+                </div>
+            </div>
+
+            <div class="panel-heading ">
+                <h3 class="panel-title">
+                    话题列表
+                </h3>
+            </div>
+
+            @foreach (var topic in ViewData["TopicList"] as List<TopicEntity>)
+            {
+                <div class="blog_li">
+                    <h2>@Html.ActionLink(topic.Title, "Index", "Topic", new { id = topic.ID }, new { target = "_blank" })</h2>
+                    <div class="blog_img">@Html.ActionLinkWithImage(Url.Content("/Content/UploadImg/vediojs_thumb.jpg"), "Index", "Topic", new { id = topic.ID }, "_blank")@*<img src="/Content/UploadImg/vediojs_thumb.jpg" alt="MySQL/MariaDB主主数据同步配置">*@</div>
+                    <div class="blog_txt">
+                        <p>
+                            <span>@string.Format("{0:yyyy年MM月dd日}", topic.CreateTime)</span>
+                            <span>作者：@topic.UsersEntity.DisplayName</span>
+                            <span>
+                                标签：
+                                @foreach (var tag in topic.TagsList)
+                                {
+                                    @Html.ActionLink(tag.Name, "Index", "Topic", new { id = topic.CategoryEntity.ID }, null) @Html.Raw("&nbsp;&nbsp;")
+
+                                }
+                            </span>
+                        </p>
+                        <p class="abstracts">我们前面有文章介绍了Mysql主从复制备份的配置，那么在一些高可用的场景中需要配置主主互备，即双主数据同步。MySQL的主主同步和主从同步的原理一样，只是主主同步的双方都是主从角色。本文以MariaDB来演示主主配置细节。@Html.ActionLink("阅读全文", "Index", "Topic", new { id = topic.ID }, new { target = "_blank" })</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            }
+            @*ViewBag.Content = "<p>你好,我现在测试一个东西.</p>";
+                <div>@Html.Raw(ViewBag.Content)</div>*@
+            @*<div id="pagecount"><span class="noprepage">上一页</span><span class="cur">1</span><span><a href="index-2.html">2</a></span><span><a href="index-3.html">3</a></span><span><a href="index-4.html">4</a></span><span><a href="index-5.html">5</a></span><span><a href="index-6.html">6</a></span><span><a href="index-7.html">7</a></span><span class="dot">...</span><span><a href="index-49.html">49</a></span><span><a href="index-2.html">下一页</a></span></div>*@
+
+            
+            @PageHelper.CreatePaginateButton(dataCount, pageDataCount, "")
+        </div>
+    </div>
+
+</div>
+
+@Html.Partial("_RightPartial")

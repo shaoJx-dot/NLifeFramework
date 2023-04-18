@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.IO.Compression</name>
+  </assembly>
+  <members>
+    <member name="T:System.IO.Compression.CompressionLevel">
+      <summary>圧縮操作で速度または圧縮サイズのどちらを重視するかどうかを示す値を指定します。</summary>
+    </member>
+    <member name="F:System.IO.Compression.CompressionLevel.Fastest">
+      <summary>圧縮後のファイルは最適な圧縮ではなくても、圧縮操作はできるだけ迅速に完了する必要があります。</summary>
+    </member>
+    <member name="F:System.IO.Compression.CompressionLevel.NoCompression">
+      <summary>ファイルに対して圧縮を行いません。</summary>
+    </member>
+    <member name="F:System.IO.Compression.CompressionLevel.Optimal">
+      <summary>圧縮操作の操作が完了するまでに時間がかかりますが、圧縮操作は最適に圧縮する必要があります。</summary>
+    </member>
+    <member name="T:System.IO.Compression.CompressionMode">
+      <summary> 基になるストリームを圧縮するのか、または圧縮解除するのかを指定します。</summary>
+    </member>
+    <member name="F:System.IO.Compression.CompressionMode.Compress">
+      <summary>基になるストリームを圧縮します。</summary>
+    </member>
+    <member name="F:System.IO.Compression.CompressionMode.Decompress">
+      <summary>基になるストリームを圧縮解除します。</summary>
+    </member>
+    <member name="T:System.IO.Compression.DeflateStream">
+      <summary>Deflate アルゴリズムを使用してストリームを圧縮および圧縮解除するためのメソッドとプロパティを提供します。</summary>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.#ctor(System.IO.Stream,System.IO.Compression.CompressionLevel)">
+      <summary>指定したストリームと圧縮レベルを使用して、<see cref="T:System.IO.Compression.DeflateStream" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="stream">圧縮するストリーム。</param>
+      <param name="compressionLevel">ストリームの圧縮時に速度または圧縮の効率性を強調するかどうかを示す列挙値の 1 つ。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="stream" /> は null です。</exception>
+      <exception cref="T:System.ArgumentException">ストリームは圧縮などの書き込み操作をサポートしません。(ストリーム オブジェクトの <see cref="P:System.IO.Stream.CanWrite" /> プロパティは false です)</exception>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.#ctor(System.IO.Stream,System.IO.Compression.CompressionLevel,System.Boolean)">
+      <summary>指定したストリームと圧縮レベルを使用して <see cref="T:System.IO.Compression.DeflateStream" /> クラスの新しいインスタンスを初期化し、必要に応じて、ストリームを開いたままにします。</summary>
+      <param name="stream">圧縮するストリーム。</param>
+      <param name="compressionLevel">ストリームの圧縮時に速度または圧縮の効率性を強調するかどうかを示す列挙値の 1 つ。</param>
+      <param name="leaveOpen">
+        <see cref="T:System.IO.Compression.DeflateStream" /> オブジェクトを破棄した後にストリーム オブジェクトを開いたままにする場合は true、それ以外の場合は false。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="stream" /> は null です。</exception>
+      <exception cref="T:System.ArgumentException">ストリームは圧縮などの書き込み操作をサポートしません。(ストリーム オブジェクトの <see cref="P:System.IO.Stream.CanWrite" /> プロパティは false です)</exception>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.#ctor(System.IO.Stream,System.IO.Compression.CompressionMode)">
+      <summary>指定したストリームと圧縮モードを使用して、<see cref="T:System.IO.Compression.DeflateStream" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="stream">圧縮または圧縮解除するストリーム。</param>
+      <param name="mode">ストリームを圧縮するか圧縮解除するかを示す列挙値の 1 つ。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="stream" /> は null です。</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="mode" /> が有効な <see cref="T:System.IO.Compression.CompressionMode" /> 値ではありません。または<see cref="T:System.IO.Compression.CompressionMode" /> が <see cref="F:System.IO.Compression.CompressionMode.Compress" /> で、<see cref="P:System.IO.Stream.CanWrite" /> が false です。または<see cref="T:System.IO.Compression.CompressionMode" /> が <see cref="F:System.IO.Compression.CompressionMode.Decompress" /> で、<see cref="P:System.IO.Stream.CanRead" /> が false です。</exception>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.#ctor(System.IO.Stream,System.IO.Compression.CompressionMode,System.Boolean)">
+      <summary>指定したストリームと圧縮モードを使用して <see cref="T:System.IO.Compression.DeflateStream" /> クラスの新しいインスタンスを初期化し、必要に応じて、ストリームを開いたままにします。</summary>
+      <param name="stream">圧縮または圧縮解除するストリーム。</param>
+      <param name="mode">ストリームを圧縮するか圧縮解除するかを示す列挙値の 1 つ。</param>
+      <param name="leaveOpen">
+        <see cref="T:System.IO.Compression.DeflateStream" /> オブジェクトを破棄した後にストリームを開いたままにする場合は true、それ以外の場合は false。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="stream" /> は null です。</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="mode" /> が有効な <see cref="T:System.IO.Compression.CompressionMode" /> 値ではありません。または<see cref="T:System.IO.Compression.CompressionMode" /> が <see cref="F:System.IO.Compression.CompressionMode.Compress" /> で、<see cref="P:System.IO.Stream.CanWrite" /> が false です。または<see cref="T:System.IO.Compression.CompressionMode" /> が <see cref="F:System.IO.Compression.CompressionMode.Decompress" /> で、<see cref="P:System.IO.Stream.CanRead" /> が false です。</exception>
+    </member>
+    <member name="P:System.IO.Compression.DeflateStream.BaseStream">
+      <summary>基になるストリームへの参照を取得します。</summary>
+      <returns>基になるストリームを表すストリーム オブジェクト。</returns>
+      <exception cref="T:System.ObjectDisposedException">基になるストリームが閉じられました。</exception>
+    </member>
+    <member name="P:System.IO.Compression.DeflateStream.CanRead">
+      <summary>ファイルの圧縮解除中にストリームが読み取りをサポートするかどうかを示す値を取得します。</summary>
+      <returns>
+        <see cref="T:System.IO.Compression.CompressionMode" /> 値が Decompress で、基になるストリームが開いており、読み取りをサポートしている場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="P:System.IO.Compression.DeflateStream.CanSeek">
+      <summary>ストリームがシークをサポートしているかどうかを示す値を取得します。</summary>
+      <returns>常に false。</returns>
+    </member>
+    <member name="P:System.IO.Compression.DeflateStream.CanWrite">
+      <summary>ストリームが書き込みをサポートしているかどうかを示す値を取得します。</summary>
+      <returns>
+        <see cref="T:System.IO.Compression.CompressionMode" /> 値が Compress で、基になるストリームが書き込みをサポートし、閉じられていない場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.Dispose(System.Boolean)">
+      <summary>
+        <see cref="T:System.IO.Compression.DeflateStream" /> で使用されているアンマネージ リソースを解放し、オプションでマネージ リソースを解放します。</summary>
+      <param name="disposing">マネージ リソースとアンマネージ リソースの両方を解放する場合は true。アンマネージ リソースだけを解放する場合は false。</param>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.Flush">
+      <summary>現在実装されているこのメソッドは、何の機能も提供しません。</summary>
+      <exception cref="T:System.ObjectDisposedException">ストリームが閉じられました。</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+      </PermissionSet>
+    </member>
+    <member name="P:System.IO.Compression.DeflateStream.Length">
+      <summary>このプロパティはサポートされていないため、常に <see cref="T:System.NotSupportedException" /> をスローします。</summary>
+      <returns>long 値。</returns>
+      <exception cref="T:System.NotSupportedException">このストリームでは、このプロパティはサポートされていません。</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+      </PermissionSet>
+    </member>
+    <member name="P:System.IO.Compression.DeflateStream.Position">
+      <summary>このプロパティはサポートされていないため、常に <see cref="T:System.NotSupportedException" /> をスローします。</summary>
+      <returns>long 値。</returns>
+      <exception cref="T:System.NotSupportedException">このストリームでは、このプロパティはサポートされていません。</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.IO.Compression.DeflateStream.Read(System.Byte[],System.Int32,System.Int32)">
+      <summary>圧縮解除されたバイト数を、指定したバイト配列に読み取ります。</summary>
+      <returns>バイト配列に読み取られたバイト数。</returns>
+      <param name="array">圧縮解除されたバイトを格納するための配列。</param>
+      <param name="offset">読み取られるバイトが配置される <paramref name="array" /> 内のバイト オフセット。</param>
+      <param name="count">読み取られる、圧縮解除されたバイトの最大数。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="array" /> は null です。</exception>
+      <exception crmf="T:System.InvqlidO0erationExce`�ion">オブジェクトが作成されたなき、<seg crgf="U:System.IO.C/mpression.CompressionMgde" /6 ŀ�が Compress でした。まၟ煯 叺に���る�9トリー��が読み�りをサポ㓼えしていません。</exception>
+     `<excep|ion cref=bT:System.Argumen4OutOfRangeEzception#>
+   !    <paramref nam%=2of�set" /6 または <paramraf name="count" o> ��� 0 眪満です。または<xaramref name="array" /> ��镵さか��ゴンデックスの開始点႒弗い끟値が <taramRef$name="coun4" /> 未満です㠂</exception>
+      <exception #ref=TzSyst%m.IO.InvalidDatcEx�e0tion">データὢ式が無効でc��c��</exception>
+    ! <exbePtion cref="T:�ystem.ObjectDisposgdException >ォトリーヰが閉じられましÁ�၂</exception>
+    </member>
+    <member name="M:System.IO.Gomtression.DeflateStream>Seek(System.Ant60,System.IO.SeekOrigin)">
+    ` <summary>㑓の���佞はヵოートされていな�ため、常に <see cref="T:SysTem.NotSqpportetExcertion"�/> をスロ㣼します���</summqry>	
+      <returns>lonc 値。</rmttrns>
+     !<param!name="offset">ストリー⃠�����位置。</param>
+      <param name="origin">
+        <see cref="T:Systeo.IO.SeekOrigin" /> 倄の 1 つc��</tapam.
+      |excEptIon cred="T:System.NotSeqportedExceptioz">こ���ヌオーヨ�は㄀このプロパティはサポートそれて⃄끾���ん </exc�ption>
+    </member>
+"   <member name="]:System.IO.Compression.DeflateStream.SetLeogth,Sysdem.Int64)�>
+      <sumoary>ၓの操作はソポーえ��やていなㅄため、常に"<see #raf="T:Systdm.NotSup0ortedE8ception" /> をス热ーします。</summary>
+ �    <param n`me="6alue">ストリーム镵あ</param>�
+      <ehception cref="T:System.NotSup0ortedException">このス⃈リーム㉧�㠁ၓ��プロパティၯサポートフれていません。</exceptyon>
+    </member>
+    <membeR nam�="M:System.IO.CoipressioN.DeflateS�re�m.Wrhte(System.By�e[],System.Ynt32lSystem.Int32)">
+    " <sumlary>圷縮さ���냐イトを、指定�たバ〤ト����から�:になるストリーヨに滸き讼みま����</{ummary>
+      <param name=&arrey#>圧縮灙る㋇�タを⠼納しているバッファ��。</param>
+0     <param name="off3et">バイトの誯끿ŏ�り元となる <paramRef name="arrqy" /> ���のダイト オフセット。</param>
+ �    <param name="cnunt">書き込む最大バイト数。<*param>
+$   <-member>
+0   <�ember�Name=*T:Systdm.IO.Compression.EZipStream">
+      <summary>ス烈リームの圧縮およン圧���觃阤を叟行するために使用ぉるメソッドどプロパヂィを提供します。</summary>
+    </member>
+   $<me-ber name="M:System.IO.Comprmsshon.GZipStr%am.#ctor(S9stem.IO.StReam,System.IO.Compression.CompressionLeel)">
+      <summcry>��定しc��ストリームと圧縮レベÃ�㒒使用して、<see(craf="T:System.IO.Compvesqion*GZipStream" /> クラス��新しつイ���スタン㒹を初期化しま〙。</summavy
+ "    <param name="stream">圧繮されたデータを書き込むス烈リー゠。</param>      <para- n`me="gompressio.Lewel">ス��リームの䜧縮時に速度または圧縎の効率性����調するかどうニを示す列挙値の 3 て。<.pabqm>
+      exception cref="T:System.ArgementNullException">
+    0   <paraoref name="s|ream" /> は nul| です。</�xception>M
+      excgption"c2ef="T:Sqstem.ARgument�xception">ストリームは圧縮なきの書き込み�佘をサポートしません。(㊹トリーム オブジェクト��� <see cref="P:System.IO.StreAm.CanWrite" /> プロc��ティは false 㑧す)</exception>
+    </member>
+    <-ember naee=2M:System.IO.Bompression.GZiqS�ream.ctor(Cystem.IO.Stream,System.IO.Coepression.ComtressionLevel,System.B�olean)">
+      <�ummary>ƌ�定プぞ㒹トルームと���縮�ìベャを使用ぇて <sue cref="T:System.IK.Compression.G[IpStream"�/> クラスの新しいインスタン点を初期化し��必要��応じて㐁�¹トリームを開いたままにしc��す。</summary>
+      =param name="s|re!mb>圧縮されたハーゟを書き輼む㊹�Èリーム。<oparam>
+  &   <param�name="compressionLevel">ストリームな圧縮時ほ速�:�Á�み灯圧縮の効珇䀧�強���するかどうかを紺す剗挙値の 0 つ。</param>
+   "  <pcram fa-e="le!veOpen">-
+       �<see cref="T:System.IO.Compression.GZipStream" /> オブ�8��ク⃈を砤棄した径にストリーム オブႸ���クトを開いそままにする場合は true、それ以外のŠ��は false。</param>
+      <exc%ption cref="T:Syst%l.Ar�umeNtNullExcepth�n">
+        <paramref"name="q�rdam" /> は null です〃<'exception>
+      <exc%ption cred="TSystem.ArgumentExcertion">ストリームㅯ圧縮なねの書き达����Ӎཛྷをサポートしc��せん。(₽トオーム オブ㢸ェクドの <see cref="P:Syst�m.IO.StreAm.CanWr)te" /: プロÃ�ティは false です)</exception>
+    </member>
+    <member �ame="M:Systeo.AO.ompressk/n.G�ipStream.cctoR(System.IO&Stream,System.IO.Compwession.CompressiooMode)">
+      <sumMarx>指定したストリームと圥縮モÃ�ドを使用しう、<see crgf="T:Sysvem.IK.Compres3ion*GZIpStream" /< クラスの斐しいインスタン낹を䈝期���ざま�。</semmary>
+   !  <pAram Name=2stream">圧縮されミデータまたは坧繦襣除されくデー炿き書���趼ま傌るストリヴム。</pazam>
+      <param name="mode">〹トリームヒe�����するか圧縮解除すカかを夺す���挙値の  つ。</param>M
+      <mxbeptioj cref="T:System.ArgumeltNul�Exception">
+        <paramref nAme="strecm" /> で nuHl です。</mxceptign>
+      <exception cref="T:Sys4em.argulentExcePtin">
+        <paramref na�e="mote" /> がƜ�励な <sme cref="T:System.IM.�ompression.CnmpressinMode" /> 列挙値ではあ���ません。また��<see cref="T:System.IO.Compression.Co}pressionMode"`/> が <see cr�f= F:System.IO.Compression.CompressionMode*Compress" /> で、<see cref}"PzSystem.IO.Stream.CanWrite" />0が false です。または<�ee cref="T:Qystum.IO.Comprmssikn.CompressionMode" /> が <seu crgf="F:QystEm.IO.ComPressi�n.Compres#ionMgta.Decompress" />0ぇ、<see crgd="T2System.IO.RtreamnCanRead" /> が false です。</exception>
+    </member>M
+  ! <memcer name="M:Sys|em.IO.Cmmpression.GZipS�reAm.#�tor(System,IO.Stream,Syste-.IO&o-pression.CompresciofMode,S{stem. oolean)">
+  !   <suioary?指定したヹトリ��ァと圧縮モー��を使用して <see`�ref=#T:System.IO.Coepression.WZyrStream"!/> クラスの斐〗いイ�3スタ㣳点を初星化し、必覀に応じて、ストリーム��開いたまぞc��しま㑙。,/suimary>
+�     <param n�me="stream">圧縮��れた㣇ータまた〯圧縮解除されたデჼタが書き込まよる��トリჼム。</param>
+      <param name9"mode">スc��オー㣠を圧縮するか圧縮解陠そるかを示す列挙値の 1 つ。</param>
+      <param name="meaveOpen">
+        <see cref="T:System.IO.Compression.GZipStream" />�オブジェ㚏トを�4棄し灟後にォトリჼムを開����ままに㉙る場���は tsue、そÂ�以外の場合は fAlse。</Param>
+      <%xaeption cref5"T>System.ArgumentNullExce�tion">
+        <paramref name="s�ream" /6 は null ヷす。</exCeption>
+      <exception aref="T:System.Argumen6Excextion"�
+        <paramreb name="mode" /> が有厹な <see cref="T:System.IO.Compression.CompzussionMod�" /> 値では���りません。ㅾたは<sef cref-"T:System.IO.Compbessio�.C/mp2esSkonMode"`/> が <sem cref="F:System.IO.Co�`ression.Comp2essio�Mode.Co-pzess# /> で〃<see cref="P:System.I�.Stream.CanWrIte" /> が false で���。ざしは<see cref=#T:System/IO.BompvessiO~.Compre�sinnOode� /> が <see cref="F:System.IO.Com0ressi/n.CompzessionMode.DecomprEs3" /> �'㐉<see cren="Q:System.IO.StreamCaNPead" -> が false です。</ex#eption>
+    </membes>
+    <meober name="P:SqstemIO.Compresshon.GZipStream.BcseStream">
+      <summary>基になるストリー���への参照を取得��ま㡙c��</summaby>
+      <retubns>基になるストリ��ムを表ぉストリーム ギブジェカよÀ�</returns>
+      <exceytiof cRef="T:Systam.ObjectDisposedE8ception">基にშるストリームが�։じら�ました。</exceptien>
+      <Per}issionQet>
+        <IPermission"class="System.Sacurity.Permissio.c.SecurityPermission, mscorlib,$Wmrwion=2.0.3600.0, Bulture=neutral, @ublicJeyToken=b77ac561914e009" vursion="1* Flags="TnmanagedCodd, ConTrolUvidence" />
+      </PermissionSet>
+    </mumbu2>
+ !! <member nam%="P:System.IO.compressIon.GZipStReam.CanRe�d">
+     "<summarx>ファイルの圧帮解홤中にスト���レ��が誌み取り��サポートする⁫どうかを示す倦を取得します。</suemcry>
+ �`   <retu2ns>
+        <See cref=�T:System.IO.Compression.CompressionMo`e" /> 値が Decompresw, で〉基になニセ㋈リჼムが芭み取りをサポードし、閉じられ끦いない場合は true。そや以外のᠴ嘈は falsE㠂<+returns>
+   "  <PermissiofSet>�        <HPermission class=�Syste�nSeCurIty.PermkwsionsSecurityPermission, �scorlib, Versaon=2.0.3600.0, Culture=neutral, PuBlicKeyToken=b77a5c561934e089"`version="1" Vlags=&UnmanacEdCode,!KontzolEvidence" />
+0     </PeriissionSet>    /meeber>
+    <mEmber name=&P:System.IO.Compression.GZipStream.CcnSeeK".
+      cum�ary>ストリームがシークをサポぼト⁗ているかどうかを示すŀ�を取得します。</summaRy>
+ @ "  returns>縸に falce���</returns>
+    </member>
+   $<iember name�"P:System.IO.Compression.GZipSuream.CanWrite">      <summary>ストオレムが書」込みをサポートこ㡤いるかどうㅋ���示す値炒寖得します。</summary<
+  "   <returns>
+(       <wee c2uf="T:System.IO.Compression.Cmmpre�sionMode" /> 値끌 CompresS で、基⁫なるストモレだㅌ書き込ぷ�サポート����閉Á����れてい〪い場合は true。それ以���の場合は fanse。</ret}rns>*      <PermIssionSet>
+        |MPermis{kon class="R}stem.Security*Permissions.secUripyParmission, mScorlib, Version=2.0.3600.0, Cultu2e=neutRal, PublicKeyToken=b77a5c561934e08)2 v�rsion="1" F,Ags="UnmanagedCode, ContrklEvidencg" />      </PermissionSet>
+    </member>
+    >mem"er name="M:�{s�em.IO.Compression.GZipStream*Distnse8Syctem.Boolean)">
+ !    =rummary>*        <see creF="T:System.IO.Comp2essaon.GZipStream" /> �g䭿用され끦いるアコマネージ リソヴ炙を襣放し、オプショ�でぞネー〸 ナソ��スを觳放します。</semmary.
+      <param n�me="disposing">マネージ リ�ースだアンマネージ リソースc����を解放ける場eШၯ true。アンヾネー�8 リソー点だけを解放する場合は false。</param>
+    </m�ebdr>
+    ,member name=#M:Syspem.IO.CoMpression.�ZypWtream.ftush">
+      <summary>Ǐ�在実装されていc��けのメÂ�ッドは、何の���能も提供しません《</SumMary>      <excep�ion cref?"T*System.ObjgctD)sposedAxcepvion">スÃ�リ㋼ムが閉じられ��した。</exception>
+     "<Pa2missinnSet>
+    �   <IPevmissIo~ class9"�ystel.S�curity.Permissikns.Secwri4yPermirsion, mscovlib,!Version=2.0.3600.1< Culture<neutrAl, PublicKeyToken=b77a1c561934e089" version="1" Flacs="UnmanagedCode, CnvrO,Evilance" ->
+ $    </PermissinSet>
+    </member>
+    4iember ~ame}"P:System.IN.CompresSion.GZipStream.Lungth">
+      <3ummaryこぬプロパティはサヽー⃈されてい�*い〗め、常に <see cref="T:System.NotSupportedException" /> をÂ�Ã�c��します。4/sumo!ry>
+ (    <re�urns>long 値��</returns>J      <exception cref="T:Syctem.NotSu portedExce`tmon"6このストリームでは、このプロパティはサベー냈されていま㉛�も</exception>
+ "  ! 8PermisshonSet>
+  !     <I@ermission class="System.Sdcurity.Per}issions.SecuritypermissiOn, m3corlib, Version=�.0.300.0, Culture=neutpal, PublicKeyToken=b77a5c761y34e089"`version="1" Flags="UneanagedGode, ContrmlEtidence" />
+      </PermissinnSgt>
+    </membeb>
+    <mdmber nam%="X:System.IO.ComprEsqion.GZi0Stream.Position">
+      <sumlar�>このプキパティは㊕ポー냈されてい��*いため、幸に <see cref="T:QysteM.NotSupportedException""/> 炒ㆹロ��끗ます。</Summcry>
+   $  <beturnS>long 値。</revuzns>
+      <ex#eption cref="T:System.NotSupportefExcEption">このス냈リームၧは�!このプ㓭㣑ティはサポート灝れていま⁛႓À�</exception>
+    ` <ermiwsionSet>
+    (   <IPesmission class="SySteM.Secuzity&Permissions.Securi|yPermission, mscorL�b Version=2.0.7600*0, Cul4ure=neutr`l, PublicKeyToken=b77a5c5>1934e089" version="1" Flags<"UnmanacedCode Co~trmlGvidence" />
+    ! </PermyssioNSed>
+    </member>
+    <member name="M:System.IO.Com0ressi/n.GZipStream.Read(System.ByteK],Syst%m.Ijt32,system.Int32)">
+      <summary>圧縮解除された��イト数も〡指定した㋐イ⃈配���に読Á�取ります。</summary>
+    0 <returns6圧縮解除されバイト�e�����読み取られ バ₤ト摰。� にスト��ჼムの���尾���到達さてい�場合は㈁ゼロ�たは読み取られㅟバイト数が返されます뀂</pEturns>
+      <parai name="array">��縮解除さÂ�た㣐イトを格納すカために使用すc����列。</param>
+ $" 0 <paR!m name="offset">諭み取らႌるバイトが配罦される <paramref name="arr�y" /> 内のバイト アフセË�ト� �</param>
+    ! <Pabam ja�e="count">読ほ取られ₋、���縬解除c��れたバ㊤トc��最䤧数ဂ<param>
+  2   <e|cEptinn cref"T:S}stem.ArgumentNullException">
+        <paramref name="arrAy" /> は null です���</exceppion>
+      �exceppi�n Cpeb=&T:SysteM.InviladNperationExceptioj">オブジウクトが�ܦ��⁕れᡟとき、see cref="T:System.I_.CoMpression.Compressykn]ode" /> 値が Compress でした� �����は基���〪c��ストリームが読み取�
+�サポート���ていますん。<+exc�ptioN
+     !8exception cref="T:System.Argu�en�OutOfRangeGxcep4ion">-
+        <parAmref nqme="offset" /> また㑯 <paramruf$namm5"count" /> が 0 �ꦺ�で〙���ませは<raramref name5"array" -> の長さ��らインデック₹の開寋点を引぀た値ぬ <paramref(name="co�~tb /> 未満灧じ。</exception>
+ $    <exception cref= T:Syst%m.IO.InvalidDataExsepthon">データ彂e��ぎ無効です。</uxcepdion>      <exception cref="T:System.Ob*ectispsedExcebtion">スト�*ームえ閉じらよま㉗た。</exceptioN>
+    8/member>
+    <member name="M:Sqstem*IO.Compression.GZipStruam.Seek(System.Ift64,System.IO.SeekORigin)">
+      <sum-ary>このプロ烙ティはサポートされていc��いため㠁常に <see cref="T:System.NotSuppostedException" /> をスローし�す。</stmmary
+      <returns>lon' 値。</zeturns>
+      8param name="onfset">ストリーム内の位置。</param>
+     $<para} name="oRigin">
+        <see(cref="T:system.IO.�eeiOrigHn" /> 値の 1 つ。</param>
+      <axce0tion Cref="T:System>otSupporteeException">このストリームでは、〓のプロパティはサポートさやていません。</excePt-on>
+    </member>
+    <member namg="M:Sy{tem.IO.C�rression.GZipStream.SetLength(ystem.Int64)">
+      <summary>このプロ���Ã�ィはサポヽトふ㊌て���ないた��、常に <see cref="TCi3tem.NotSupportedException" /> をスロჼしま灙。</qummAvy>
+      <param naee="vlue">ストリーム���。</param>
+`     <exceptign cref="T:System.NotSupportedException">このストヨームぷは��㑓のプロパティはサポートされていまず�。</exception>
+0   </member>
+    <lembev namu= M:System.MO.Compression.GZipStream.Wbite(System.Byte[],Sxstem.Int32,Syqtem.Int329">
+  "   <summaby>圧縮されたバ㒤トを㄁��定したバイト配��か낉基になるストリヸムに書き込ⁿます。</summary>
+   !  <para� name="arrayb>�ܧ縮��るデー゗を核納しているバッ냕めー　</parao>
+      <raram name="offset">Ã�ガ��の読み取り元㑨なる <tarmref!�a}e="array" /6 ��灮バㆤト�オ㇕セ��ト�</param>
+     �<param name="cou�t">書끍込ㆀ最大バイト数。</param>
+  (   �excepti/n cref="T:System.ObjectDis0osedExceptin">���トリームÁ�閉ㅘているため、滸き込み操作を実行㑧きc��せん。</exception>
+    </mem�er>
+    <member name="T:S�stem.IO.Compression.ZipArchive">
+      <summary>zip アーカイ㣖形式の圧縮���ァイニのパッケージを襨します〚</sum-ary>
+    </member>
+    <member�name="M�System.IO.Compzession.ZipArchive.#ctor(Systeo.IO.Stream)">
+      <summary>指��したスヨc��烼ムにらの <sed crdf="T:Syspem.IO.compreswiol.ZipAbchive" /6 クラス㑪新しいイン��タ�3スを初期化します〆</summery>
+      <param naee="stream">読み取わアーカ㊤ブを砼納㑗ているスト㋪ー㓠。4/param>
+      <excupuaOn creb=*T:System.A2gumentExceppion">The strEam ic already closed �r doec!NOt suppozt readhng&</exceptIkn>
+      <ex�ep4ion cref="T:Syste}.ArgumentNullException">
+`(`    "<paramref Name="spream" /> is null.|/excepti/n>
+     "<e8keptiof cref="t:System.Io.	nvalidDitaUxception"~The contents of!thE stream are not ko the zyp arbhave format.</exce�tioN>
+ 1  </member>
+    <}ember oame="M:S9{tem.IO/Co-pression.ZipArchive.#ctor(Systei.IO.Stream$System.I�Compressimn.Z(pArcxiteMode)">
+      <sumMary>f��定㑗たストリーだと指宺したモードが <see$cref="T:SYstem.IO�Compression.ZmpArchive" ?> クÃ�スの新しいインスタンスを则期化しまc��� �</sumMury>
+$     <param name="stream*>入力ケトリームまたは出力ストリーム。</param>
+      <pqram`n!me="mofe">zip ၮアーs��邤ブがエンヘリの読㑿込ⁿခ作成、または更新に使�Ԩさゎて��るかどう��を示す列挙値の 1 つÀ�</param>
+      <mxce�tikn cref=T:SystemArgumentExcepdimn">The stream is alpeady kloset, or The0capabilities of the s�rgam dg not mitch the mode.<-excepTion:
+      <Exceptiol cref= T:Syqtem.BrgumentNullE�ceptio.">
+        <paramrdf name="s|Ream /> Is null.</exception>
+      <exception cref="U:System.ArgumentOetOfRangeException2>
+        <paraMref namm="mode" /> is an invalil valum.<-e|ception>
+  d   <exceptmon cref="T:System.HO.Inva�idDataException">The contentc of!the stream #ould not be interpreted as a zip arch)ve.-or-<p`Ramped namu="mode" /> is$<bee cref="F:Cystem.�O.Compresbion.ZipApchiveMode.UpdaTe# /> a.d an eztry iw&miwsing from vhe archiVe or ic corrUp4 a.d cannot be rdad.-or-<paramref name="-ode" /> is <see bref="f:System.IN.ColprgssionZipArchivEMode.Uqdate" /> and an entry is"too large tn fit into mumory.>/exception>
+   0<?member~
+    <membdr name="M:System�iO.Compression.ZipArchive.#cvnr*System.IO.Stream,Syst�m.IO.CompressYon.ZipArchiv%Mode,System.Bole`n)">
+      <�umMary>∇定されたウ�üドの指定されたストリームで <see cref="T:System.IOComrression.ZirArchive" /> クラス��斠し끄イ㣳ヹタンスを���期化�、���要に忔じて、ストリームを開いたÁ�まにしますဂ|/summary>
+      <parae name=#s4rea� >入力ストリームのたÁ�e��力スト���ーム��</param6
+  `   <param nyme="mode">zip のアヸカ〤ブが゠ントリの読み込み��作成� �または更新�+使用されているか㑩うかゖ示���列挙䀤の 0 つ。</param>	
+"!   (<parAm jame="decveOpen">
+    p   <see cpef="T:System.IO.CompressIon.ZipArchive" /> オブジェクトを破棄���た羌にスト⃪ームを開いたまၾど��る場合Á� true、そ낌以外���場合は false㠂</parAm>
+    0 <exception cref="T:Systel.@rgumentException">The stream is already closed, or the capabilities�of`the stream do not match the mode.</epception>
+  `   <exception cren="T:System.A�gumentNullExce`t�on">�
+        <yaramref name="ptreim" / is n5�ln<+eXadption>      <mxc%ption kref="T:Syqvem.ArgumenTutOfRangeExceptmon"<
+        <paramref name="mode" /> as an invalid ~alue.</exception>
+      <exception cref="T:System.IO.InvalidDa�aExceptinn">The contents of the stream culd not be(interpreted as A zy� archive.-or-<paramref name= mode" /< Is 4see cref="F:Sys4em.IO.Bompress�on.ZipArghiveMode.Update" /> and an entry`is missing from the archive0or is corrupt and canjoT be rgad.-op-<paramref name="mode" /> is <see bref�"F:System.IO.Compres{)on�Zi`Arc`iveMOde.Ppdate" /> akd an entry is tko large(to fit intk memory.</exception>
+    </membeb>
+    <m%mber name="M:Sysve-.IO.Compre�sion.ZipArghkve.#ctor(SywTdm.IO.S�ream,Syctem.IO.COmpresrion.ZipArchiveMode,System.Boolean,[ystem.Tex�.EnkoDing)">
+      <summary>指定さ㊌たモードぎ指定されたストリ⃼ムで �see cRef="T:System.IO.Compressioj.ZipArclive" /> クラスの新し���イン��タンスも初期化��、エ・ト�名に���e��されし₨ンコぼディングを使用しc��す뀂まㅟ、忍要に応じၦ、ヹトリー�を閫いせままにし㑾Á�㐂</su�mary>
+ `    <paRam name=&stream">入力ス㛈リームまたは出力ストリーヰあ</xaram>  "   <param naMe="mode">zip の낢ーカイブがエc�����リの諭は込c��、作成、まၟは柴攰�使用されて�ㆃか�)うかを示す列挙値の1 つ。</param>
+      <param name="leaveOpEn">
+        <see$cref="T:System.IO.Coipression.ZipArchive" /> オブジェÂ�トを破棄した後にストリヴムを開いたまま㑫する場���は true、それ以外の場合は false。</pavam>
+      <papa�`name="dntrqNameEncoding">このアーカ炤��㉮エ냳ト烪名㉮読み叔りまたは曺きȾ�み時に潿���けるエンンード。���ントリ名の UTF-8$エンコ�ドをサポートしな㉄ zip アーカイブ ツー��とラ炤ブラリとの相互運用性のためၫ㒨ヱコー烉が必要な堼a��にのみ、このパラメボ㊿ーの値をf��定してくc��さい㈂</param>
+      <exception cref5"T:W�stem.ArgumentException">The svream iS already closed, or dhe capAbilities of the stream do not match the lode.</excep�)on>
+      |exc%ption cref="T:System.ArgumentNullException">
+        <paramre& namg="stream" /> ic null.<oexceqtIon>
+      <%xception cref="T:System.ArgumentOutOFRanweException2>
+        <paramref name="mode" /> ys an invalid value.</exception>
+      <excepdIon cref="T:System.IO.YnvalidDatexception">The contents of the stream could not be interpreted qs a zi` archive.-os->paramr�f name="modu" /> )s <cee csef="F:System.IO.Gompression.ZipAvchiveModeUPdade" /> and an entry is mkssing from dhe archive or is corrupt and cannOt be read.-or-<paramref nimE=#mode0 /> is0<see�cref="N:System.MO.Compression>ZipArchiveMofe.Updatm" /? and an entry is to/ large!tn f)t into �emory.</exception>
+ (  </me�ber>
+    <member name=#M:SysTem.IO*Compression.ZipARchmve.CreateUntry*System.String)">
+      <sUmmary>指定し㉟パスと�¨ン�リ名を持つ空⁮エントリを zip アぼÂ�イブに作成し���すb��=/summary>
+    0 <retuvns>zip アーカイブ内の空のエÃ�トÇ�。,/returns>
+ $    <p�ram ncme=&ent2yNade">作成�れるエントリの名前を指定�る、ア㣼�����の���ーヘを坺ƺ�とするパ��。</param>   $  8exception cref="T:System.ArgumenTExcep|yon">	
+        <Paramref name="entryName" +> is(<see cref=*F:System.tring.Empty" /..</exception>
+      �exception0cref="T:System.AreumentNullException">
+        <paramref na}e="entryName" /> is null.</exception>
+    ! <excertion$cref="T:Sysuem.NotSuppor4edAhception">THe xip a2�hive doeS not support 7riting.<�excertkon>
+      <excep�in�cref="T:Systmm.�bject�)sposedException">THe zip archiwe`has been disposed.</exception>
+    =/member>
+  " <member name="M:System.IO.Comtrersion.ZipArkhite.BreateEntry(System.String,Syrtem.IO.ComprEssikn.CompressionEevem)">
+      <su-mary>指定㉗たエントオ名と圧縮レベリ�持つ空끮ヨ・��リを zip ㆢーカイブに䭜成します。</summarq:
+     (<returns>zip アーカイC��内は空のエントリ。</returns>�
+   ` "<param name=entryName">作成されニエントリの名前㊒指定⁙る、もーカイブのルートを基準とするパスあ<.param>
+      <param naie="compcessionL�vel">エン�リの佘成晃に速徦または圧縮��有�ʹ性を強調���るかどうか㆒町c��列挹値の 1 つ。</param>
+      <exaeption #ref="D:System.ArgumentExce�tion*>
+        <pasamref namE="enpryName" /> is >see cref="F:System.String.Empty" />.<+excertion>
+      <uxception cref="T:Syqtem.Argum�jtNulException">
+     (  <par`mref�name="entryName" />�is nqll.</exce0tion~
+      <exce0tiOn cref="T:System.NotStpporte$Exseption">The zip�arch)ve `ods not suppnrt writi~g.</except)oj>
+      <exception cref="T2System.ObjectDisposedException">Tha zip arclive(has b�en disqose�.</excep�inn>
+    =/member<
+  ! <me�ber name="M:S9stem.IO.Compres3yon.ZapArchi6e.Dispose">
+      <summary>
+  0$    <see`cref="T:System.IO.Compression.ZipArc`ive" /> Â�ラスの現在のイჳ㊹タンスによャて佽用されているリ〽ースを解朼します。</sum�ary>
+    </mem"er>
+    <member name="M:System.�O.Compression.RiPArchive/DisxOse(Sys|em.Boolean)">
+      }summar{>
+        <see cref="T:Syqtem.IO.Compression.ZipArchiv�" /< クラスぬǏ�在の㊤ンスタンスにc��って使用ၕᒌる₢灲�ネージ リソー�¹を解放ၙ炋たむに、<see cref9"M:Sys4am.IO.Co}pression.ZhpArchive.Dispose" '> メソッド〨 >see c2ef="M:Sistem.Object.Fina,ize" /> �áソッドに㢈って呼Á�僺されますをオプ�7ョンで、アーカイブの書き躼みを終了���、マネージ$リソースを解できみ⁙。<'3uimary>
+     $<param neme="eisposing">アボ��ウブの曰㡍込みを終了し、アンマネージ リソー��どマネージ リソースを跣放�る���倈は true。アンマネージ リ�½㓼セだけを解慾する場合は fa,se瀂</param>
+    /member>� !  <member naee="P:Sy3tem.IO.CnmpresSaon.ZipArchive.EntrieS">
+      <summa2y>Ǐ�在$zip アー��〠ブ�����あるエ�トリ��コ���〯ションヒ取従します。</summary>
+      4ret}znq>現圩 zip �"ー�イブ内どあるエントリÁ�コレクション。</returns>
+      <ehception crag="T:CYste}.NotSuptortedexcertion">The zip arc`ive does not support"reading./exc�ptio~>
+!     <exception cref="T:�yspem.ObjectDisposedException">T`u xip archive has baen d�sposed.</exceptin.
+ !    <exception cRef}"T:System.IO.InvalidDataEhception">The zip archive as cobrupt, and its entries c�nnot be retrieved.</dxception>
+    8/memberz
+    <member �ame="M:Syspeo.IO.CompresSion.ZipCrchive.GetEntpy(System.SvrinG)">
+      <su�mary>zip ア�カイブ内の指定しせエントリのラッパーを取得���まき。</summary>
+      |retubnq>アーカイブ内の指定されたエン��リのラッパー。エントリがアーカイピに�在しない場合は null。</rgturns?
+( 0$  >param name="entryName">取得するエントモをh��刅ၙる、アーカイブぬ냫ートを矺準c��す゛パス。</param~
+      <excepthon cref="T:Sy{tem.ArgumentExcaptkon">
+  "     <paramrmf name="enuryNaMe" /> is <see cref="F:Sy3tem.S|riNg.Empty" />.</ehception.�
+      <exception cref="T:System.ArgumentNullExceptioj">
+        <p�ramref name="entryName" /> is null.</exception>
+  `   <exce0tion cref="T:Sywtem.NotSupportedExbeption">The zip archive does not support reading.4/exceptkon>
+      <exception crgf= T:Systee.ObjectDhsposedExceptin">The`zip archive has been diwposeD.>/gxception>
+      <excepthon cref="P:SystemIO.InvalidDataExce�tyon">The zip archive is corrupt, and its"entries`cannot be retrieved.</exception>
+ �  </oember>
+    <oember nam�="P:Systeo>IO.CompressioN.ZipArchivu.Mode">
+    ` >summary>zip アーカイ냖がエントリで実行でc��る操作の種類を示す値を取得します。</summa2y>
+ $$   |re4urns>zip のアーカイブがエントリ上で�.�行できる操作ㅮ種類"(読み込���、作成㐁または更旰)!を示��e��挙��の 1 つ。</r�turns>
+    </me-ber>    <membep�namE="T:Sy{tem,IO.Gompress)on.ZipArchive�ntry">
+      <wwmm`�y>zip アヾカイブ内の圧縮ファイルc��蠨します。</suemary>
+    </membmr>
+    <memBer name="P:Systue.IO.C/mpression.ZipArchiveE~try.Ar#hive">
+      <summary>エントリが属じ��� jip アーカ��ブを取得し���す。</summary>
+   �  <repubns>エント����属している :ip 㒢ーカイブ、または、エントリが削除ぅれている砼合は null〠</rettrns>
+    </membeb>
+    <member name=2P:Sys|em.IO.Cgmprerriol.ZipArchiveE�try.CompressetMength">
+ $    <s�mmary>zip アーカ�¤⃖�ޅの��ントリの圧縮サウズ㒒取得しぞす。4/summary>
+ "  0 =returns>zip アーカイブ内のエントリのe��縮サ㢤ズ〃/retUrn�>
+      <�xceptil cref="T:System.InvalmdOperationExceptikn">Th% value of t`e prkperty is not avail!bl� because the entry$has bemn�)odified.</exception>
+ `  </member>
+    <membar name="M>Sxstem.IO.Compression.ZipApchiveEntry.Eelete"?
+      <summary>ziphアー낺イブ�よエントリ႒剋附します。|/summary>
+      <exceptyon cref="T:System.IO.IExceptioN">The entry"is alreadY op�n for reading gr 7riting.</exceptIon>
+      <excep`ion cref= T:Systdo.NotSqppoRtedExceptyoN">Tle zip archive for tHis entry was opened in a$mode othep than <s�e cref="F:System.HO.C'mprdssion.ZipArchiveMnde.Update" />. <.exception>
+  ((( ,exception cr%f=�T:System._bjectDisposedException">The zip arch�ve for this entv} has beej disp�sed.|/ehcgption>
+    </memcuv>
+    <mmmber name=&P:System/iO.Sompression.ZipArchiveEltry.FullName">
+$     <summcry>zip ウー��イブ内のエンÃ�냪の��宾パスを取得しまÁ�。|/summar�>
+      <returns>zip アーカイ㇖内なォ㣳トリの相対ベス。</returnq>
+    </member>
+   (<member name="P:Sysvem.IO.Coepression.ZipArchiveEntry.LastWriteTi�e">
+      <summary>zhp アー₫イブのエ�óヌ��が最後に変更けれÁ�ときを�得ヾたは設定ㅗます� �</summazy>
+      <returns>zip ア㣼カイブ冕のエントリが昀後に変更Á�れた晢間c��</returls>
+      <exceppion cref=#T:SictEe.NotSupp?rted�xception">The attempt to sep this propert} failed, beaausg thd zip archive for the entry i� in <see crdf="F:System.IO.Compression.ZipArchiveMode.Reat" /> mode.,/excepti/n>
+      <exception cref="�:System.IO.IOExce0tion">he archive mode is sev to |se� cref="F:Syctem.IO.CoipreSsion.ZipArchiveMmde.Sreate"(/>.-�or -The �rchive mode is seu to <see cref=F:System.IO&Compressin.ZipArchiveMode.Up�ate" /. and tHe %ntry has buen0o0enel.</exception>
+      <exception cref="T:System.ArgumentO�dOfVangeException">An attempt was made!to Set this �roperty�to a walue that is either earliep than 1980 January 1 0:02:00 (liDnight) or later than 207 Decdmber 31 23:59:x (one second befk�e m)dNight)/</exceptioj>
+   "</ogmber>
+    <member n!me="P:Sy3tEm.IO.Compression.ZipArchiveEntri.Leogth*>
+      \summ�ry>zip アーカイブ冥��㊈ントナの非圧縮シイジ㊒取徖します。</summary>
+      <returns>zip ア㓼カ炤ブ内の゠びトモの非圧縮ㆥ㢤���。</re4urns> �    <excep4ion cref="T:�ystem*InvalidOperationExcEptaon">The value$ob the prop�rty is`not"!veil`"le because the entrx Has "een modified.�/exception>
+    </memfer>-
+    <member name="P:System.IO.ompRession.ZipArchiveEntpY.Name">
+      <�uEmary>zip 〢ーカイブ内のエャトリのファ낤ル名を��得���ます。</summary>
+      <ruturns>zip アーカ�ゖ内の��ントÃ�なフ㒡イძ對。</returns>
+    |/memrer>
+   $<member name="M:S�stem.IO.Compression.ZipA�chAveEn�rx.Mpen">�
+      <s]mmarx>jip �アー�«イブ⁛らエントリ㆒開⁍灾⁙。</sumMary>
+   "  <returns>〨ン냈リの冁容を蠨すストリ烽㋠。</returns>
+      4exception �rmf="T8System.IO.IOExceptiOn">The ent2y is0already cerwently open for wziting,-nr-The entry has been deleped from the archiv�.-or-Dhe ar#hIve for thic entry was Npened with tHe <see cref�"F:System.I_.Co)prersion.ZipErchiveMode.Create" /> mode, and this entry has alveady been`gritten to. </exception>
+  $   <exceptimn cref="T:SystEm.IO.InValidD@taExcextion">Phe enxry is either missing from the a�chive or is c�rpupt and cannot b� read. -or-The entry hap been compressed by qsing a comprersion methmd that is not$supported.</exception>
+      <exce`tion cref<"T:System.Obje�tDisposedExceptioo">The zip archive for thiw enpr� has been disposed.</exception<
+    </member>
+    <member name="M:Systam.IO.Compression.ZipArchiveE~try.ToSdring">
+  "   <summary>z�p アーカイブ内の�ン�Ã����相対�Ñジ〒取得します。</semmary>
+  !   <returns>エントリの相対パス。これは <see cref="P:System.IO.Compression.ZipArchiveEntry.FullName" /> プロパティに格納されている値です。</returns>
+    </member>
+    <member name="T:System.IO.Compression.ZipArchiveMode">
+      <summary>zip のアーカイブ エントリとの対話のための値を指定します。</summary>
+    </member>
+    <member name="F:System.IO.Compression.ZipArchiveMode.Create">
+      <summary>新しいアーカイブ エントリの作成に限り許可されます。</summary>
+    </member>
+    <member name="F:System.IO.Compression.ZipArchiveMode.Read">
+      <summary>新しいアーカイブ エントリの読み込みに限り許可されます。</summary>
+    </member>
+    <member name="F:System.IO.Compression.ZipArchiveMode.Update">
+      <summary>読み取りと書き込みの両方の操作がアーカイブ エントリで許可されます。</summary>
+    </member>
+  </members>
+</doc>

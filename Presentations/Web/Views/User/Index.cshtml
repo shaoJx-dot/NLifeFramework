@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Models
+<div class="col-xs-6 col-sm-9">
+    <div >
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-2">
+                    <img class="img-rounded img-responsive" src="Content/Images/Default/head_big.png" alt="admin large avatar">
+                </div>
+                <div class="col-md-6">
+                    <h4>@Session["userDisplayName"].ToString()</h4>
+                    <p class="text-muted"><small>@Session["userDisplayName"].ToString()是第
+                        @Session["userID"].ToString()
+                        号会员，加入于2013-01-06 15:18</small></p>
+                    <p>签名：在我的眼里，这个世界是由0和1组成的！</p>
+                    <p>个人主页：@Html.ActionLink("http://www.zerolag.cn", "Index", "Home")</p>
+                    <p>所在地：广东佛山</p>
+                </div>
+                <div class="col-md-4" >
+                    <p class="private_letter">
+                        <span>
+                            @*<a href="#" class="btn btn-info" data-method="post" rel="nofollow">发表</a>*@
+                            @Html.ActionLink("发表文章", "add", "User", null, new { @class = "btn btn-info" })
+                        </span>
+                    </p>
+                </div>
+                <div class="col-md-12">
+                    <p>lovton@163.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><small>@Session["userDisplayName"].ToString() 最近创建的主题</small></h3>
+            </div>
+            <div class="panel-body">
+                <ul class="media-list">
+                    @foreach (var topic in ViewData["Topics"] as List<TopicEntity>)
+                    { 
+                    <li class="media topic-list">
+                        <div class="pull-right">
+                            <span class="badge badge-info">@topic.ReplyCount</span>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading topic-list-heading">@Html.ActionLink(topic.Title, "Index", "Topic", new { id = topic.ID }, new { target = "_blank" })</h4>
+                            <p class="small text-muted">
+                                <span>@Html.ActionLink(topic.CategoryEntity.Name, "Index", "Topic", new { id = topic.CategoryEntity.ID }, null)</span>&nbsp;•&nbsp;
+                                <span>@string.Format("{0:yyyy-MM-dd HH:mm}", topic.CreateTime)</span>&nbsp;•&nbsp;
+                                <span>最后回复来自 <a href="http://bbs.startbbs.com/user/profile/8686">cbd513882714</a></span>
+                            </p>
+                        </div>
+                    </li>
+                    }
+                    
+                </ul>
+                <ul class="pagination"></ul>
+            </div>
+        </div><!-- /.topics -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><small>@Session["userDisplayName"].ToString() 最近回复了</small></h3>
+            </div>
+            <div class="panel-body">
+                <ul class="media-list">
+                    <li class="media reply-list">
+                        <div class="media-body reply_content">
+                            <h4 class="media-heading topic-list-heading"><small>回复了 <a href="http://bbs.startbbs.com/user/profile/7583" title="阿郎">阿郎</a> 创建的主题 </small><a href="http://bbs.startbbs.com/topic/show/4517">什么时候发布新版本啊？</a></h4>
+                            <blockquote>
+                                快了,完成95%                                        <small>178 天前</small>
+                            </blockquote>
+                        </div>
+                    </li>
+                    
+                </ul>
+                <!--<ul class="pagination"></ul>-->
+            </div>
+        </div><!-- /.comments -->
+
+    </div>
+</div>
+
+@Html.Partial("_RightPartial")

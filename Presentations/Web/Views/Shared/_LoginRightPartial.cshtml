@@ -1,0 +1,45 @@
+﻿@if (Session["userName"] != null)
+{
+    <div class="panel">
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <a href="/User"><img alt="lovton large avatar" class="img-rounded img" src="@Url.Content("~/Content/Images/Default/head_big.png")"></a>
+                </div>
+                <div class="col-md-7">
+                    <ul class="list-unstyled">
+                        <li><a href="/User" title="lovton">@Session["userDisplayName"].ToString()</a></li>
+                        <li>用户组：普通会员</li>
+                        <li>积分：302</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <p><a href="favorites">0</a></p>
+                    <p>@Html.ActionLink("收藏", "favorites", "User")</p>
+                </div>
+                <div class="col-md-6">
+                    <p><a href="follow">0</a></p>
+                    <p>@Html.ActionLink("关注", "follow", "User")</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-muted">
+            暂无提醒
+        </div>
+    </div>
+}
+else
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>ZeroLag</h4>
+        </div>
+        <div class="panel-body">
+            @Html.ActionLink("现在注册", "Register", "Account", null, new { @class = "btn btn-default" }) 已注册请
+            @Html.ActionLink("登入", "Login", "Account")
+        </div>
+    </div>
+}

@@ -1,0 +1,22 @@
+﻿@model Web.Models.RegisterViewModel
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+@Html.Partial("HeadPartial")
+
+<body>
+    <div class="container" @*style="border:1px solid green;"*@>
+        @Html.Partial("NavbarPartial")
+
+        <div class="row">
+            @RenderBody()
+            @*@Html.Partial("_RightPartial")*@
+        </div><!-- /.row -->
+        <div class="push"></div>
+    </div><!-- /.container -->
+    @Html.Partial("FooterPartial")
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

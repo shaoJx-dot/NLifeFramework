@@ -1,0 +1,17 @@
+E:\Work\NLifeFramework\EntityLayer\Models\bin\Debug\Models.dll
+E:\Work\NLifeFramework\EntityLayer\Models\bin\Debug\Models.pdb
+E:\Work\NLifeFramework\EntityLayer\Models\obj\Debug\Models.dll
+E:\Work\NLifeFramework\EntityLayer\Models\obj\Debug\Models.pdb
+E:\Work\NLifeFramework\EntityLayer\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+D:\Work\C#\NLifeFramework\EntityLayer\Models\bin\Debug\Models.dll
+D:\Work\C#\NLifeFramework\EntityLayer\Models\bin\Debug\Models.pdb
+D:\Work\C#\NLifeFramework\EntityLayer\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\Work\C#\NLifeFramework\EntityLayer\Models\obj\Debug\Models.dll
+D:\Work\C#\NLifeFramework\EntityLayer\Models\obj\Debug\Models.pdb
+D:\Work\C#\NLifeFramework\EntityLayer\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\NLifeFramework\EntityLayer\Models\bin\Debug\Models.dll
+D:\NLifeFramework\EntityLayer\Models\bin\Debug\Models.pdb
+D:\NLifeFramework\EntityLayer\Models\obj\Debug\Models.csproj.AssemblyReference.cache
+D:\NLifeFramework\EntityLayer\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\NLifeFramework\EntityLayer\Models\obj\Debug\Models.dll
+D:\NLifeFramework\EntityLayer\Models\obj\Debug\Models.pdb

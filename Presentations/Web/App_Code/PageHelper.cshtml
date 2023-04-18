@@ -1,0 +1,404 @@
+﻿@*
+    amount：数据总数，count：每页显示的数据条数，redierctUrl点击按钮时的跳转链接
+    页面上需引用：bootstrap.min.css
+*@
+@helper CreatePaginateButton(int amount, int count, string redirectUrl)
+{
+    <div id="pagenumber" style="text-align:center;width:100%">
+        <nav style="text-align:center">
+            <ul class="pagination">
+                
+                @{
+                    
+                    int pageNumber = (int)Math.Ceiling(amount / (count * 1.0));
+                    pageNumber = pageNumber < 1 ? 1 : pageNumber;
+                    //页面上显示的按钮数目（不计首页、末页、上一页、下一页等按钮），若页面总数超过该值则绘制按钮分隔符
+                    const int BUTTON_COUNT = 7;
+                    // 按钮分隔符
+                    const string BUTTON_SEPARATOR = "...";
+                    //按钮分隔符左侧按钮数目（不计首页、末页、上一页、下一页等按钮）
+                    const int LEFT_BUTTON_COUNT = 4;
+                    //按钮分隔符右侧按钮数目（不计首页、末页、上一页、下一页等按钮）
+                    const int RIGHT_BUTTON_COUNT = 2;
+
+                    string[] urlSegments = Request.Url.Segments;
+                    int selectedIndex = 0;
+                    int.TryParse(urlSegments[urlSegments.Length - 1], out selectedIndex);
+                    int previous = (selectedIndex - 1) <= 0 ? 1 : selectedIndex - 1;
+                    int next = (selectedIndex + 1 > pageNumber) ? pageNumber : selectedIndex + 1;
+                    var r = Request.Cookies[""];
+
+                    if (selectedIndex == 0 || selectedIndex == 1)
+                    {
+                        <li><span>首页</span></li>
+                    }
+                    else
+                    {
+                        <li><a href="@redirectUrl/">首页</a></li>
+                    }
+                    
+                    if (pageNumber > BUTTON_COUNT)
+                    {
+                        //上一页时，如果是第一页不显示1
+                        if (previous == 1 && selectedIndex == 1)
+                        {
+                            <li><span>上一页</span></li>
+                        }
+                        else
+                        { 
+                            <li><a id="next" href="@redirectUrl/@previous">上一页</a></li>
+                        }
+                        
+                        for (int i = 1; i <= BUTTON_COUNT; i++)
+                        {
+                            if (selectedIndex >= LEFT_BUTTON_COUNT && i <= LEFT_BUTTON_COUNT
+	                            && selectedIndex % LEFT_BUTTON_COUNT == 0
+	                            && selectedIndex != pageNumber && (pageNumber - selectedIndex) > 4 )
+                            {
+                                <li><a name="pageButton" href="@redirectUrl/@selectedIndex">@selectedIndex</a></li>
+                                int step = selectedIndex;
+                                int tag = 0;
+                                for (i = 1; i <= LEFT_BUTTON_COUNT; i++)
+                                {
+                                    tag = i + step;
+                                    if (tag > pageNumber - RIGHT_BUTTON_COUNT)
+                                    {
+                                        if (i <= LEFT_BUTTON_COUNT)
+                                        {
+                                            i = LEFT_BUTTON_COUNT + 1;
+                                        }
+                                        break;
+                                    }
+                                    <li><a name="pageButton" href="@redirectUrl/@tag">@tag</a></li>
+                                }
+                            }
+                            else if (i <= LEFT_BUTTON_COUNT && selectedIndex < LEFT_BUTTON_COUNT)
+                            {
+                                if (i == selectedIndex)
+	                            { 
+	                                <li><span style="background-color:#EEE;">@i</span></li>
+	                            }
+	                            else
+	                            {
+	                                <li><a name="pageButton" href="@redirectUrl/@i">@i</a></li>
+	                            }
+				
+                            }
+                            else if (i < LEFT_BUTTON_COUNT && selectedIndex > LEFT_BUTTON_COUNT)
+                            {
+                                int step = selectedIndex / LEFT_BUTTON_COUNT;
+                                if (selectedIndex == pageNumber || (pageNumber / LEFT_BUTTON_COUNT) == step)
+	                            {
+	                                if (step > 1)
+	                                {
+	                                    step = step - 1;
+	                                }
+	                            }
+                                int tag = 0;
+                                <li><a name="pageButton" href="@redirectUrl/@(step*LEFT_BUTTON_COUNT)">@(step * LEFT_BUTTON_COUNT)</a></li>
+                                for (i = 1; i <= LEFT_BUTTON_COUNT; i++)
+                                {
+                                    tag = i + step * LEFT_BUTTON_COUNT;
+                                    if (tag > pageNumber - RIGHT_BUTTON_COUNT)
+                                    {
+                                        if (i <= LEFT_BUTTON_COUNT)
+                                        {
+                                            i = LEFT_BUTTON_COUNT + 1;
+                                        }
+                                        break;
+                                    }
+				                    if (tag == selectedIndex)
+                                    { 
+                                        <li><span style="background-color:#EEE;">@tag</span></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a name="pageButton" href="@redirectUrl/@tag">@tag</a></li>
+                                    }
+                                }
+                            }
+                            //绘制按钮分隔符右侧按钮
+                            if (i == BUTTON_COUNT - 1)
+                            {
+                                if ((pageNumber - 1) == selectedIndex)
+	                            { 
+	                                <li><span style="background-color:#EEE;">@(pageNumber - 1)</span></li>
+	                            }
+	                            else
+	                            {
+	                                <li><a name="pageButton" href="@redirectUrl/@(pageNumber-1)">@(pageNumber - 1)</a></li>
+	                            }
+				
+                            }
+                            else if (i == BUTTON_COUNT)
+                            {
+                                if (pageNumber == selectedIndex)
+	                            { 
+	                                <li><span style="background-color:#EEE;">@pageNumber</span></li>
+	                            }
+	                            else
+	                            {
+	                                <li><a name="pageButton" href="@redirectUrl/@pageNumber">@pageNumber</a></li>
+	                            }
+                            }
+                            //绘制按钮分隔符
+                            else if (i >= BUTTON_COUNT - RIGHT_BUTTON_COUNT && (pageNumber - selectedIndex) > 5)
+                            {
+                                <li><span name="pageButton">@BUTTON_SEPARATOR</span></li>
+                            }
+                        }
+                        
+                        //上一页时，如果是最后页不显示1
+                        if (previous == pageNumber)
+                        {
+                            <li><span>下一页</span></li>
+                        }
+                        else
+                        { 
+                            <li><a id="next" href="@redirectUrl/@next">下一页</a></li>
+                        }
+                        
+                    }
+                    else
+                    {
+                        for (int i = 1; i <= pageNumber; i++)
+                        {
+                            if (i == selectedIndex || (selectedIndex == 0 && i == 1) )
+                            {
+                                <li><span name="pageButton" style="background-color:#EEE;">@i</span></li>
+                            }
+                            else
+                            {
+                                <li><a name="pageButton" href="@redirectUrl/@i">@i</a></li>
+                                @*<li><a name="pageButton" id="@i" href="@redirectUrl/@i">@i</a></li>*@
+                            }
+                        }
+                    }
+
+                    //末页时，如果是末页不显示1
+                    if (selectedIndex == 0 && pageNumber == 1 || selectedIndex == pageNumber)
+                    {
+                        <li><span>末页</span></li>
+                    }
+                    else
+                    {
+                        <li><a href="@redirectUrl/@pageNumber">末页</a></li>
+                    }
+                    
+                }
+                
+            </ul>
+        </nav>
+    </div>
+    @*<script>
+        $(function () {
+            //设置被选中按钮的背景色
+            var selected = $('#@selectedIndex');
+            if (selected != undefined) {
+                selected.css('background-color', '#E1E1E1');
+            }
+    </script>*@
+}
+
+@helper CreateDetailPaginateButton(int amount, int count, string redirectUrl)
+{
+    <nav style="text-align:center">
+        <ul class="pager">
+            @{
+                
+                int pageNumber = (int)Math.Ceiling(amount / (count * 1.0));
+                pageNumber = pageNumber < 1 ? 1 : pageNumber;
+                //页面上显示的按钮数目（不计首页、末页、上一页、下一页等按钮），若页面总数超过该值则绘制按钮分隔符
+                const int BUTTON_COUNT = 7;
+                // 按钮分隔符
+                const string BUTTON_SEPARATOR = "...";
+                //按钮分隔符左侧按钮数目（不计首页、末页、上一页、下一页等按钮）
+                const int LEFT_BUTTON_COUNT = 4;
+                //按钮分隔符右侧按钮数目（不计首页、末页、上一页、下一页等按钮）
+                const int RIGHT_BUTTON_COUNT = 2;
+
+                string[] urlSegments = Request.Url.Segments;
+                int selectedIndex = 0;
+                //参数为3个时，为第一页
+                if (urlSegments.Length == 3)
+                {
+                    selectedIndex = 1;
+                }
+                else
+                {
+                    int.TryParse(urlSegments[urlSegments.Length - 1], out selectedIndex);
+                }
+                
+                int previous = (selectedIndex - 1) <= 0 ? 1 : selectedIndex - 1;
+                int next = (selectedIndex + 1 > pageNumber) ? pageNumber : selectedIndex + 1;
+                var r = Request.Cookies[""];
+
+                if (selectedIndex == 0 || selectedIndex == 1)
+                {
+                    <li><span>首页</span></li>
+                }
+                else
+                {
+                    <li><a href="@redirectUrl">首页</a></li>
+                    @*<li><a href="@Url.Content(redirectUrl)/">首页</a></li>*@
+                    
+                }
+
+                if (pageNumber > BUTTON_COUNT)
+                {
+                    //上一页时，如果是第一页不显示1
+                    if (previous == 1 && selectedIndex == 1)
+                    {
+                        <li class="prev"><span>←</span></li>
+                    }
+                    else
+                    {
+                        <li class="prev"><a href="@redirectUrl/@previous">←</a></li>
+                    }
+
+                    for (int i = 1; i <= BUTTON_COUNT; i++)
+                    {
+                        if (selectedIndex >= LEFT_BUTTON_COUNT && i <= LEFT_BUTTON_COUNT
+                            && selectedIndex % LEFT_BUTTON_COUNT == 0
+                            && selectedIndex != pageNumber && (pageNumber - selectedIndex) > 4 )
+                        {
+                            <li><span style="background-color:#EEE;">@selectedIndex</span></li>
+                            @*<li><a href="@redirectUrl/@selectedIndex">@selectedIndex</a></li>*@
+                            
+                            int step = selectedIndex;
+                            int tag = 0;
+                            for (i = 1; i <= LEFT_BUTTON_COUNT; i++)
+                            {
+                                tag = i + step;
+                                if (tag > pageNumber - RIGHT_BUTTON_COUNT)
+                                {
+                                    if (i <= LEFT_BUTTON_COUNT)
+                                    {
+                                        i = LEFT_BUTTON_COUNT + 1;
+                                    }
+                                    break;
+                                }
+                                <li><a href="@redirectUrl/@tag">@tag</a></li>
+                            }
+                        }
+                        else if (i <= LEFT_BUTTON_COUNT && selectedIndex < LEFT_BUTTON_COUNT)
+                        {
+                            if (i == selectedIndex)
+                            { 
+                                <li><span style="background-color:#EEE;">@i</span></li>
+                            }
+                            else
+                            {
+                                <li><a href="@redirectUrl/@i">@i</a></li>
+                            }
+                            
+                        }
+                        else if (i < LEFT_BUTTON_COUNT && selectedIndex > LEFT_BUTTON_COUNT)
+                        {
+                            int step = selectedIndex / LEFT_BUTTON_COUNT;
+                            if (selectedIndex == pageNumber || (pageNumber / LEFT_BUTTON_COUNT) == step)
+                            {
+                                if (step > 1)
+                                {
+                                    step = step - 1;
+                                }
+                            }
+                            int tag = 0;
+                            <li><a href="@redirectUrl/@(step*LEFT_BUTTON_COUNT)">@(step * LEFT_BUTTON_COUNT)</a></li>
+                            for (i = 1; i <= LEFT_BUTTON_COUNT; i++)
+                            {
+                                tag = i + step * LEFT_BUTTON_COUNT;
+                                if (tag > pageNumber - RIGHT_BUTTON_COUNT)
+                                {
+                                    if (i <= LEFT_BUTTON_COUNT)
+                                    {
+                                        i = LEFT_BUTTON_COUNT + 1;
+                                    }
+                                    break;
+                                }
+                                if (tag == selectedIndex)
+                                { 
+                                    <li><span style="background-color:#EEE;">@tag</span></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@redirectUrl/@tag">@tag</a></li>
+                                }
+                                
+                            }
+                        }
+                        //绘制按钮分隔符右侧按钮
+                        if (i == BUTTON_COUNT - 1)
+                        {
+                            if ((pageNumber - 1) == selectedIndex)
+                            { 
+                                <li><span style="background-color:#EEE;">@(pageNumber - 1)</span></li>
+                            }
+                            else
+                            {
+                                <li><a href="@redirectUrl/@(pageNumber-1)">@(pageNumber - 1)</a></li>
+                            }
+                            
+                        }
+                        else if (i == BUTTON_COUNT)
+                        {
+                            if (pageNumber == selectedIndex)
+                            { 
+                                <li><span style="background-color:#EEE;">@pageNumber</span></li>
+                            }
+                            else
+                            {
+                                <li><a href="@redirectUrl/@pageNumber">@pageNumber</a></li>
+                            }
+                            
+                        }
+                        //绘制按钮分隔符
+                        else if (i >= BUTTON_COUNT - RIGHT_BUTTON_COUNT && (pageNumber - selectedIndex) > 5)
+                        {
+                            <li><span>@BUTTON_SEPARATOR</span></li>
+                        }
+                    }
+
+                    //上一页时，如果是最后页不显示1
+                    if (selectedIndex == pageNumber)
+                    {
+                        <li class="next"><span>→</span></li>
+                    }
+                    else
+                    {
+                        <li class="next"><a href="@redirectUrl/@next">→</a></li>
+                    }
+
+                }
+                else
+                {
+                    for (int i = 1; i <= pageNumber; i++)
+                    {
+                        if (i == selectedIndex || (selectedIndex == 0 && i == 1))
+                        {
+                            <li><span style="background-color:#EEE;">@i</span></li>
+                        }
+                        else
+                        {
+                            <li><a href="@redirectUrl/@i">@i</a></li>
+                        }
+
+                    }
+                }
+
+                //末页时，如果是末页不显示1
+                if (selectedIndex == 0 && pageNumber == 1 || selectedIndex == pageNumber)
+                {
+                    <li class="last"><span>尾页</span></li>
+                }
+                else
+                {
+                    <li class="last"><a href="@redirectUrl/@pageNumber">尾页</a></li>
+                }
+
+            }
+
+        </ul>
+    </nav>
+    
+}

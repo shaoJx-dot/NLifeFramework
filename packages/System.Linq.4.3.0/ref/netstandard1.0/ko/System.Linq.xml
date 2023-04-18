@@ -1,0 +1,1972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Linq</name>
+  </assembly>
+  <members>
+    <member name="T:System.Linq.Enumerable">
+      <summary>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />을 구현하는 개체를 쿼리하기 위한 static(Visual Basic의 경우 Shared) 메서드 집합을 제공합니다.</summary>
+    </member>
+    <member name="M:System.Linq.Enumerable.Aggregate``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})">
+      <summary>시퀀스에 누적기 함수를 적용합니다.</summary>
+      <returns>최종 누적기 값입니다.</returns>
+      <param name="source">집계할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="func">각 요소에 대해 호출할 누적기 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="func" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Aggregate``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})">
+      <summary>시퀀스에 누적기 함수를 적용합니다.지정된 시드 값은 초기 누적기 값으로 사용됩니다.</summary>
+      <returns>최종 누적기 값입니다.</returns>
+      <param name="source">집계할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="seed">초기 누적기 값입니다.</param>
+      <param name="func">각 요소에 대해 호출할 누적기 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TAccumulate">누적기 값의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="func" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Aggregate``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})">
+      <summary>시퀀스에 누적기 함수를 적용합니다.지정된 시드 값은 초기 누적기 값으로 사용되고 지정된 함수는 결과 값을 선택하는 데 사용됩니다.</summary>
+      <returns>변환된 최종 누적기 값입니다.</returns>
+      <param name="source">집계할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="seed">초기 누적기 값입니다.</param>
+      <param name="func">각 요소에 대해 호출할 누적기 함수입니다.</param>
+      <param name="resultSelector">최종 누적기 값을 결과 값으로 변환하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TAccumulate">누적기 값의 형식입니다.</typeparam>
+      <typeparam name="TResult">결과 값의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="func" /> 또는 <paramref name="resultSelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.All``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>시퀀스의 모든 요소가 특정 조건에 맞는지 확인합니다.</summary>
+      <returns>소스 시퀀스의 모든 요소가 지정된 조건자의 테스트를 통과하거나 시퀀스가 비어 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="source">조건자를 적용할 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">각 요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Any``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>시퀀스에 요소가 하나라도 있는지 확인합니다.</summary>
+      <returns>소스 시퀀스에 요소가 하나라도 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="source">비어 있는지 확인할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Any``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>시퀀스에 특정 조건에 맞는 요소가 있는지 확인합니다.</summary>
+      <returns>지정된 조건자의 테스트를 통과하는 요소가 소스 시퀀스에 하나라도 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="source">요소에 조건자를 적용할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">각 요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.AsEnumerable``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>입력을 <see cref="T:System.Collections.Generic.IEnumerable`1" />로 형식화하여 반환합니다.</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />로 형식화된 입력 시퀀스입니다.</returns>
+      <param name="source">
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />로 형식화할 시퀀스입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>
+        <see cref="T:System.Decimal" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균입니다.</returns>
+      <param name="source">평균을 계산할 <see cref="T:System.Decimal" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>
+        <see cref="T:System.Double" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균입니다.</returns>
+      <param name="source">평균을 계산할 <see cref="T:System.Double" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>
+        <see cref="T:System.Int32" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균입니다.</returns>
+      <param name="source">평균을 계산할 <see cref="T:System.Int32" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Int64})">
+      <summary>
+        <see cref="T:System.Int64" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균입니다.</returns>
+      <param name="source">평균을 계산할 <see cref="T:System.Int64" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Decimal}})">
+      <summary>nullable <see cref="T:System.Decimal" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균이거나, 소스 시퀀스가 비어 있거나 null인 값만 들어 있으면 null입니다.</returns>
+      <param name="source">평균을 계산할 nullable <see cref="T:System.Decimal" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">시퀀스에 있는 요소의 합이 <see cref="F:System.Decimal.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+      <summary>nullable <see cref="T:System.Double" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균이거나, 소스 시퀀스가 비어 있거나 null인 값만 들어 있으면 null입니다.</returns>
+      <param name="source">평균을 계산할 nullable <see cref="T:System.Double" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>nullable <see cref="T:System.Int32" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균이거나, 소스 시퀀스가 비어 있거나 null인 값만 들어 있으면 null입니다.</returns>
+      <param name="source">평균을 계산할 nullable <see cref="T:System.Int32" />  값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">시퀀스에 있는 요소의 합이 <see cref="F:System.Int64.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Int64}})">
+      <summary>nullable <see cref="T:System.Int64" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균이거나, 소스 시퀀스가 비어 있거나 null인 값만 들어 있으면 null입니다.</returns>
+      <param name="source">평균을 계산할 nullable <see cref="T:System.Int64" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">시퀀스에 있는 요소의 합이 <see cref="F:System.Int64.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Single}})">
+      <summary>nullable <see cref="T:System.Single" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균이거나, 소스 시퀀스가 비어 있거나 null인 값만 들어 있으면 null입니다.</returns>
+      <param name="source">평균을 계산할 nullable <see cref="T:System.Single" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Single})">
+      <summary>
+        <see cref="T:System.Single" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균입니다.</returns>
+      <param name="source">평균을 계산할 <see cref="T:System.Single" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 <see cref="T:System.Decimal" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균입니다.</returns>
+      <param name="source">평균을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+      <exception cref="T:System.OverflowException">시퀀스에 있는 요소의 합이 <see cref="F:System.Decimal.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 <see cref="T:System.Double" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균입니다.</returns>
+      <param name="source">평균을 계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 <see cref="T:System.Int32" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균입니다.</returns>
+      <param name="source">평균을 계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+      <exception cref="T:System.OverflowException">시퀀스에 있는 요소의 합이 <see cref="F:System.Int64.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 <see cref="T:System.Int64" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균입니다.</returns>
+      <param name="source">평균을 계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">소스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+      <exception cref="T:System.OverflowException">시퀀스에 있는 요소의 합이 <see cref="F:System.Int64.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 nullable <see cref="T:System.Decimal" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균이거나, 소스 시퀀스가 비어 있거나 null인 값만 들어 있으면 null입니다.</returns>
+      <param name="source">평균을 계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.OverflowException">시퀀스에 있는 요소의 합이 <see cref="F:System.Decimal.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 nullable <see cref="T:System.Double" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균이거나, 소스 시퀀스가 비어 있거나 null인 값만 들어 있으면 null입니다.</returns>
+      <param name="source">평균을 계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 nullable <see cref="T:System.Int32" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균이거나, 소스 시퀀스가 비어 있거나 null인 값만 들어 있으면 null입니다.</returns>
+      <param name="source">평균을 계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.OverflowException">시퀀스에 있는 요소의 합이 <see cref="F:System.Int64.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 nullable <see cref="T:System.Int64" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균이거나, 소스 시퀀스가 비어 있거나 null인 값만 들어 있으면 null입니다.</returns>
+      <param name="source">평균을 계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 nullable <see cref="T:System.Single" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균이거나, 소스 시퀀스가 비어 있거나 null인 값만 들어 있으면 null입니다.</returns>
+      <param name="source">평균을 계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 <see cref="T:System.Single" /> 값 시퀀스의 평균을 계산합니다.</summary>
+      <returns>값 시퀀스의 평균입니다.</returns>
+      <param name="source">평균을 계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Cast``1(System.Collections.IEnumerable)">
+      <summary>
+        <see cref="T:System.Collections.IEnumerable" />의 요소를 지정된 형식으로 캐스팅합니다.</summary>
+      <returns>지정된 형식으로 캐스트된 소스 시퀀스의 각 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">
+        <paramref name="TResult" /> 형식으로 캐스팅할 요소가 들어 있는 <see cref="T:System.Collections.IEnumerable" />입니다.</param>
+      <typeparam name="TResult">
+        <paramref name="source" />의 요소를 캐스팅할 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidCastException">시퀀스의 요소를 <paramref name="TResult" /> 형식으로 캐스팅할 수 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>두 시퀀스를 연결합니다.</summary>
+      <returns>두 입력 시퀀스의 연결된 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="first">연결할 첫 번째 시퀀스입니다.</param>
+      <param name="second">첫 번째 시퀀스에 연결할 시퀀스입니다.</param>
+      <typeparam name="TSource">입력 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 또는 <paramref name="second" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Contains``1(System.Collections.Generic.IEnumerable{``0},``0)">
+      <summary>기본 같음 비교자를 사용하여 시퀀스에 지정된 요소가 들어 있는지 확인합니다.</summary>
+      <returns>소스 시퀀스에 지정된 값을 갖는 요소가 들어 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="source">값을 찾을 시퀀스입니다.</param>
+      <param name="value">시퀀스에서 찾을 값입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Contains``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>지정된 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />를 사용하여 시퀀스에 지정된 요소가 들어 있는지 확인합니다.</summary>
+      <returns>소스 시퀀스에 지정된 값을 갖는 요소가 들어 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="source">값을 찾을 시퀀스입니다.</param>
+      <param name="value">시퀀스에서 찾을 값입니다.</param>
+      <param name="comparer">값을 비교할 같음 비교자입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Count``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>시퀀스의 요소 수를 반환합니다.</summary>
+      <returns>입력 시퀀스의 요소 수입니다.</returns>
+      <param name="source">개수를 셀 요소가 들어 있는 시퀀스입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">
+        <paramref name="source" />의 요소 수가 <see cref="F:System.Int32.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Count``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>지정된 시퀀스에서 특정 조건에 맞는 요소 수를 나타내는 숫자를 반환합니다.</summary>
+      <returns>시퀀스에서 조건자 함수의 조건에 맞는 요소 수를 나타내는 숫자입니다.</returns>
+      <param name="source">테스트하여 개수를 셀 요소가 들어 있는 시퀀스입니다.</param>
+      <param name="predicate">각 요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+      <exception cref="T:System.OverflowException">
+        <paramref name="source" />의 요소 수가 <see cref="F:System.Int32.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.DefaultIfEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>지정된 시퀀스의 요소를 반환하거나, 시퀀스가 비어 있으면 형식 매개 변수의 기본값을 반환합니다.</summary>
+      <returns>
+        <paramref name="source" />가 비어 있으면 <paramref name="TSource" /> 형식에 대한 기본값이 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 개체이고, 그렇지 않으면 <paramref name="source" />입니다.</returns>
+      <param name="source">비어 있는 경우 기본값을 반환할 시퀀스입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.DefaultIfEmpty``1(System.Collections.Generic.IEnumerable{``0},``0)">
+      <summary>지정된 시퀀스의 요소를 반환하거나, 시퀀스가 비어 있으면 singleton 컬렉션의 지정된 값을 반환합니다.</summary>
+      <returns>
+        <paramref name="source" />가 비어 있으면 <paramref name="defaultValue" />가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />이고, 그렇지 않으면 <paramref name="source" />입니다.</returns>
+      <param name="source">비어 있는 경우 지정된 값을 반환할 시퀀스입니다.</param>
+      <param name="defaultValue">시퀀스가 비어 있는 경우에 반환할 값입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.Distinct``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>기본 같음 비교자로 값을 비교하여 시퀀스에서 고유 요소를 반환합니다.</summary>
+      <returns>소스 시퀀스의 고유 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">중복 요소를 제거할 시퀀스입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Distinct``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>지정된 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />로 값을 비교하여 시퀀스에서 고유 요소를 반환합니다.</summary>
+      <returns>소스 시퀀스의 고유 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">중복 요소를 제거할 시퀀스입니다.</param>
+      <param name="comparer">값을 비교할 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ElementAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+      <summary>시퀀스에서 지정된 인덱스의 요소를 반환합니다.</summary>
+      <returns>소스 시퀀스에서 지정된 위치의 요소입니다.</returns>
+      <param name="source">요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="index">검색할 요소의 인덱스(0부터 시작)입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="index" />가 0보다 작거나 <paramref name="source" />의 요소 수보다 크거나 같은 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ElementAtOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+      <summary>시퀀스에서 지정된 인덱스의 요소를 반환하거나, 인덱스가 범위를 벗어나면 기본 값을 반환합니다.</summary>
+      <returns>인덱스가 소스 시퀀스의 범위를 벗어나면 default(<paramref name="TSource" />)이고, 그렇지 않으면 소스 시퀀스에서 지정된 위치에 있는 요소입니다.</returns>
+      <param name="source">요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="index">검색할 요소의 인덱스(0부터 시작)입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Empty``1">
+      <summary>지정된 형식 인수를 갖는 빈 <see cref="T:System.Collections.Generic.IEnumerable`1" />을 반환합니다.</summary>
+      <returns>해당 형식 인수가 <paramref name="TResult" />인 빈 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <typeparam name="TResult">반환되는 제네릭 <see cref="T:System.Collections.Generic.IEnumerable`1" />의 형식 매개 변수에 할당할 형식입니다.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.Except``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>기본 같음 비교자로 값을 비교하여 두 시퀀스의 차집합을 구합니다.</summary>
+      <returns>두 시퀀스 요소의 차집합이 들어 있는 시퀀스입니다.</returns>
+      <param name="first">
+        <paramref name="second" />에 없는 해당 요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="second">첫 번째 시퀀스에 해당 요소가 있는 경우 반환되는 시퀀스에서 해당 요소를 제거할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">입력 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 또는 <paramref name="second" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Except``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>지정된 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />로 값을 비교하여 두 시퀀스의 차집합을 구합니다.</summary>
+      <returns>두 시퀀스 요소의 차집합이 들어 있는 시퀀스입니다.</returns>
+      <param name="first">
+        <paramref name="second" />에 없는 해당 요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="second">첫 번째 시퀀스에 해당 요소가 있는 경우 반환되는 시퀀스에서 해당 요소를 제거할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="comparer">값을 비교할 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />입니다.</param>
+      <typeparam name="TSource">입력 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 또는 <paramref name="second" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.First``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>시퀀스의 첫 번째 요소를 반환합니다.</summary>
+      <returns>지정된 시퀀스의 첫 번째 요소입니다.</returns>
+      <param name="source">첫 번째 요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">소스 시퀀스가 비어 있는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.First``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>시퀀스에서 지정된 조건에 맞는 첫 번째 요소를 반환합니다.</summary>
+      <returns>시퀀스에서 지정된 조건자 함수의 테스트를 통과하는 첫 번째 요소입니다.</returns>
+      <param name="source">요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">각 요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="predicate" />의 조건에 맞는 요소가 없는 경우또는소스 시퀀스가 비어 있는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.FirstOrDefault``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>시퀀스의 첫 번째 요소를 반환하거나, 시퀀스에 요소가 없으면 기본값을 반환합니다.</summary>
+      <returns>
+        <paramref name="source" />가 비어 있으면 default(<paramref name="TSource" />)이고, 그렇지 않으면 <paramref name="source" />의 첫 번째 요소입니다.</returns>
+      <param name="source">첫 번째 요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.FirstOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>시퀀스에서 특정 조건에 맞는 첫 번째 요소를 반환하거나, 이러한 요소가 없으면 기본값을 반환합니다.</summary>
+      <returns>
+        <paramref name="source" />가 비어 있거나 <paramref name="predicate" />에 지정된 테스트를 통과하는 요소가 없으면 default(<paramref name="TSource" />)이고, 그렇지 않으면 <paramref name="source" />에서 <paramref name="predicate" />에 지정된 테스트를 통과하는 첫 번째 요소입니다.</returns>
+      <param name="source">요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">각 요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>지정된 키 선택기 함수에 따라 시퀀스의 요소를 그룹화합니다.</summary>
+      <returns>각 <see cref="T:System.Linq.IGrouping`2" /> 개체에 개체 및 키의 시퀀스가 들어 있는 IEnumerable&lt;IGrouping&lt;TKey, TSource&gt;&gt;(C#의 경우) 또는 IEnumerable(Of IGrouping(Of TKey, TSource))(Visual Basic의 경우)입니다.</returns>
+      <param name="source">요소를 그룹화할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="keySelector">각 요소에 대해 키를 추출하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="keySelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>지정된 키 선택기 함수에 따라 지정된 비교자로 키를 비교하여 시퀀스의 요소를 그룹화합니다.</summary>
+      <returns>각 <see cref="T:System.Linq.IGrouping`2" /> 개체에 개체 및 키의 컬렉션이 들어 있는 IEnumerable&lt;IGrouping&lt;TKey, TSource&gt;&gt;(C#의 경우) 또는 IEnumerable(Of IGrouping(Of TKey, TSource))(Visual Basic의 경우)입니다.</returns>
+      <param name="source">요소를 그룹화할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="keySelector">각 요소에 대해 키를 추출하는 함수입니다.</param>
+      <param name="comparer">키를 비교할 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="keySelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+      <summary>지정된 키 선택기 함수에 따라 시퀀스의 요소를 그룹화하고 지정된 함수를 사용하여 각 그룹의 요소를 투영합니다.</summary>
+      <returns>각 <see cref="T:System.Linq.IGrouping`2" /> 개체에 <paramref name="TElement" /> 형식의 개체 및 키의 컬렉션이 들어 있는 IEnumerable&lt;IGrouping&lt;TKey, TElement&gt;&gt;(C#의 경우) 또는 IEnumerable(Of IGrouping(Of TKey, TElement))(Visual Basic의 경우)입니다.</returns>
+      <param name="source">요소를 그룹화할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="keySelector">각 요소에 대해 키를 추출하는 함수입니다.</param>
+      <param name="elementSelector">각 소스 요소를 <see cref="T:System.Linq.IGrouping`2" />의 요소에 매핑하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <typeparam name="TElement">
+        <see cref="T:System.Linq.IGrouping`2" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="keySelector" /> 또는 <paramref name="elementSelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>키 선택기 함수에 따라 시퀀스의 요소를 그룹화합니다.키는 비교자를 통해 비교되고 각 그룹의 요소는 지정된 함수를 통해 투영됩니다.</summary>
+      <returns>각 <see cref="T:System.Linq.IGrouping`2" /> 개체에 <paramref name="TElement" /> 형식의 개체 및 키의 컬렉션이 들어 있는 IEnumerable&lt;IGrouping&lt;TKey, TElement&gt;&gt;(C#의 경우) 또는 IEnumerable(Of IGrouping(Of TKey, TElement))(Visual Basic의 경우)입니다.</returns>
+      <param name="source">요소를 그룹화할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="keySelector">각 요소에 대해 키를 추출하는 함수입니다.</param>
+      <param name="elementSelector">각 소스 요소를 <see cref="T:System.Linq.IGrouping`2" />의 요소에 매핑하는 함수입니다.</param>
+      <param name="comparer">키를 비교할 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <typeparam name="TElement">
+        <see cref="T:System.Linq.IGrouping`2" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="keySelector" /> 또는 <paramref name="elementSelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``4(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Func{``1,System.Collections.Generic.IEnumerable{``2},``3})">
+      <summary>지정된 키 누적기 함수에 따라 시퀀스의 요소를 그룹화하고 각 그룹의 결과 값과 해당 키를 만듭니다.각 그룹의 요소는 지정된 함수를 통해 투영됩니다.</summary>
+      <returns>각 요소가 그룹과 해당 키에 대한 프로젝션을 나타내는 <paramref name="TResult" /> 형식의 요소 컬렉션입니다.</returns>
+      <param name="source">요소를 그룹화할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="keySelector">각 요소에 대해 키를 추출하는 함수입니다.</param>
+      <param name="elementSelector">각 소스 요소를 <see cref="T:System.Linq.IGrouping`2" />의 요소에 매핑하는 함수입니다.</param>
+      <param name="resultSelector">각 그룹의 결과 값을 만드는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <typeparam name="TElement">각 <see cref="T:System.Linq.IGrouping`2" />에 있는 요소의 형식입니다.</typeparam>
+      <typeparam name="TResult">
+        <paramref name="resultSelector" />에서 반환하는 결과 값의 형식입니다.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``4(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Func{``1,System.Collections.Generic.IEnumerable{``2},``3},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>지정된 키 누적기 함수에 따라 시퀀스의 요소를 그룹화하고 각 그룹의 결과 값과 해당 키를 만듭니다.키 값은 지정된 비교자를 통해 비교되고 각 그룹의 요소는 지정된 함수를 통해 투영됩니다.</summary>
+      <returns>각 요소가 그룹과 해당 키에 대한 프로젝션을 나타내는 <paramref name="TResult" /> 형식의 요소 컬렉션입니다.</returns>
+      <param name="source">요소를 그룹화할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="keySelector">각 요소에 대해 키를 추출하는 함수입니다.</param>
+      <param name="elementSelector">각 소스 요소를 <see cref="T:System.Linq.IGrouping`2" />의 요소에 매핑하는 함수입니다.</param>
+      <param name="resultSelector">각 그룹의 결과 값을 만드는 함수입니다.</param>
+      <param name="comparer">키를 비교할 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <typeparam name="TElement">각 <see cref="T:System.Linq.IGrouping`2" />에 있는 요소의 형식입니다.</typeparam>
+      <typeparam name="TResult">
+        <paramref name="resultSelector" />에서 반환하는 결과 값의 형식입니다.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``1,System.Collections.Generic.IEnumerable{``0},``2})">
+      <summary>지정된 키 누적기 함수에 따라 시퀀스의 요소를 그룹화하고 각 그룹의 결과 값과 해당 키를 만듭니다.</summary>
+      <returns>각 요소가 그룹과 해당 키에 대한 프로젝션을 나타내는 <paramref name="TResult" /> 형식의 요소 컬렉션입니다.</returns>
+      <param name="source">요소를 그룹화할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="keySelector">각 요소에 대해 키를 추출하는 함수입니다.</param>
+      <param name="resultSelector">각 그룹의 결과 값을 만드는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <typeparam name="TResult">
+        <paramref name="resultSelector" />에서 반환하는 결과 값의 형식입니다.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``1,System.Collections.Generic.IEnumerable{``0},``2},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>지정된 키 누적기 함수에 따라 시퀀스의 요소를 그룹화하고 각 그룹의 결과 값과 해당 키를 만듭니다.키는 지정된 비교자를 통해 비교됩니다.</summary>
+      <returns>각 요소가 그룹과 해당 키에 대한 프로젝션을 나타내는 <paramref name="TResult" /> 형식의 요소 컬렉션입니다.</returns>
+      <param name="source">요소를 그룹화할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="keySelector">각 요소에 대해 키를 추출하는 함수입니다.</param>
+      <param name="resultSelector">각 그룹의 결과 값을 만드는 함수입니다.</param>
+      <param name="comparer">키를 비교할 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <typeparam name="TResult">
+        <paramref name="resultSelector" />에서 반환하는 결과 값의 형식입니다.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3})">
+      <summary>키가 같은지 여부에 따라 두 시퀀스의 요소를 연관시키고 결과를 그룹화합니다.기본 같음 비교자를 사용하여 키를 비교합니다.</summary>
+      <returns>두 시퀀스에 대해 그룹화 조인을 수행하여 가져온 <paramref name="TResult" /> 형식 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="outer">조인할 첫 번째 시퀀스입니다.</param>
+      <param name="inner">첫 번째 시퀀스에 조인할 시퀀스입니다.</param>
+      <param name="outerKeySelector">첫 번째 시퀀스의 각 요소에서 조인 키를 추출하는 함수입니다.</param>
+      <param name="innerKeySelector">두 번째 시퀀스의 각 요소에서 조인 키를 추출하는 함수입니다.</param>
+      <param name="resultSelector">첫 번째 시퀀스의 요소와 두 번째 시퀀스의 일치하는 요소 컬렉션을 통해 결과 요소를 만들 함수입니다.</param>
+      <typeparam name="TOuter">첫 번째 시퀀스 요소의 형식입니다.</typeparam>
+      <typeparam name="TInner">두 번째 시퀀스 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">키 선택기 함수에서 반환하는 키의 형식입니다.</typeparam>
+      <typeparam name="TResult">결과 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="outer" />, <paramref name="inner" />, <paramref name="outerKeySelector" />, <paramref name="innerKeySelector" /> 또는 <paramref name="resultSelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3},System.Collections.Generic.IEqualityComparer{``2})">
+      <summary>키가 같은지 여부에 따라 두 시퀀스의 요소를 연관시키고 결과를 그룹화합니다.지정된 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />를 사용하여 키를 비교합니다.</summary>
+      <returns>두 시퀀스에 대해 그룹화 조인을 수행하여 가져온 <paramref name="TResult" /> 형식 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="outer">조인할 첫 번째 시퀀스입니다.</param>
+      <param name="inner">첫 번째 시퀀스에 조인할 시퀀스입니다.</param>
+      <param name="outerKeySelector">첫 번째 시퀀스의 각 요소에서 조인 키를 추출하는 함수입니다.</param>
+      <param name="innerKeySelector">두 번째 시퀀스의 각 요소에서 조인 키를 추출하는 함수입니다.</param>
+      <param name="resultSelector">첫 번째 시퀀스의 요소와 두 번째 시퀀스의 일치하는 요소 컬렉션을 통해 결과 요소를 만들 함수입니다.</param>
+      <param name="comparer">키를 해시하여 비교할 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />입니다.</param>
+      <typeparam name="TOuter">첫 번째 시퀀스 요소의 형식입니다.</typeparam>
+      <typeparam name="TInner">두 번째 시퀀스 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">키 선택기 함수에서 반환하는 키의 형식입니다.</typeparam>
+      <typeparam name="TResult">결과 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="outer" />, <paramref name="inner" />, <paramref name="outerKeySelector" />, <paramref name="innerKeySelector" /> 또는 <paramref name="resultSelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Intersect``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>기본 같음 비교자로 값을 비교하여 두 시퀀스의 교집합을 구합니다.</summary>
+      <returns>두 시퀀스의 교집합을 이루는 요소가 들어 있는 시퀀스입니다.</returns>
+      <param name="first">
+        <paramref name="second" />에도 있는 고유 요소가 반환되는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="second">첫 번째 시퀀스에도 있는 고유 요소가 반환되는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">입력 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 또는 <paramref name="second" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Intersect``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>지정된 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />로 값을 비교하여 두 시퀀스의 교집합을 구합니다.</summary>
+      <returns>두 시퀀스의 교집합을 이루는 요소가 들어 있는 시퀀스입니다.</returns>
+      <param name="first">
+        <paramref name="second" />에도 있는 고유 요소가 반환되는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="second">첫 번째 시퀀스에도 있는 고유 요소가 반환되는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="comparer">값을 비교할 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />입니다.</param>
+      <typeparam name="TSource">입력 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 또는 <paramref name="second" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Join``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
+      <summary>일치하는 키를 기준으로 두 시퀀스의 요소를 연관시킵니다.기본 같음 비교자를 사용하여 키를 비교합니다.</summary>
+      <returns>두 시퀀스에 대해 내부 조인을 수행하여 가져온 <paramref name="TResult" /> 형식 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="outer">조인할 첫 번째 시퀀스입니다.</param>
+      <param name="inner">첫 번째 시퀀스에 조인할 시퀀스입니다.</param>
+      <param name="outerKeySelector">첫 번째 시퀀스의 각 요소에서 조인 키를 추출하는 함수입니다.</param>
+      <param name="innerKeySelector">두 번째 시퀀스의 각 요소에서 조인 키를 추출하는 함수입니다.</param>
+      <param name="resultSelector">일치하는 두 요소를 통해 결과 요소를 만들 함수입니다.</param>
+      <typeparam name="TOuter">첫 번째 시퀀스 요소의 형식입니다.</typeparam>
+      <typeparam name="TInner">두 번째 시퀀스 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">키 선택기 함수에서 반환하는 키의 형식입니다.</typeparam>
+      <typeparam name="TResult">결과 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="outer" />, <paramref name="inner" />, <paramref name="outerKeySelector" />, <paramref name="innerKeySelector" /> 또는 <paramref name="resultSelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Join``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})">
+      <summary>일치하는 키를 기준으로 두 시퀀스의 요소를 연관시킵니다.지정된 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />를 사용하여 키를 비교합니다.</summary>
+      <returns>두 시퀀스에 대해 내부 조인을 수행하여 가져온 <paramref name="TResult" /> 형식 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="outer">조인할 첫 번째 시퀀스입니다.</param>
+      <param name="inner">첫 번째 시퀀스에 조인할 시퀀스입니다.</param>
+      <param name="outerKeySelector">첫 번째 시퀀스의 각 요소에서 조인 키를 추출하는 함수입니다.</param>
+      <param name="innerKeySelector">두 번째 시퀀스의 각 요소에서 조인 키를 추출하는 함수입니다.</param>
+      <param name="resultSelector">일치하는 두 요소를 통해 결과 요소를 만들 함수입니다.</param>
+      <param name="comparer">키를 해시하여 비교할 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />입니다.</param>
+      <typeparam name="TOuter">첫 번째 시퀀스 요소의 형식입니다.</typeparam>
+      <typeparam name="TInner">두 번째 시퀀스 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">키 선택기 함수에서 반환하는 키의 형식입니다.</typeparam>
+      <typeparam name="TResult">결과 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="outer" />, <paramref name="inner" />, <paramref name="outerKeySelector" />, <paramref name="innerKeySelector" /> 또는 <paramref name="resultSelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Last``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>시퀀스의 마지막 요소를 반환합니다.</summary>
+      <returns>소스 시퀀스에서 마지막 위치에 있는 값입니다.</returns>
+      <param name="source">마지막 요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">소스 시퀀스가 비어 있는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Last``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>시퀀스에서 지정된 조건에 맞는 마지막 요소를 반환합니다.</summary>
+      <returns>시퀀스에서 지정된 조건자 함수의 테스트를 통과하는 마지막 요소입니다.</returns>
+      <param name="source">요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">각 요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="predicate" />의 조건에 맞는 요소가 없는 경우또는소스 시퀀스가 비어 있는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LastOrDefault``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>시퀀스의 마지막 요소를 반환하거나, 시퀀스에 요소가 없으면 기본값을 반환합니다.</summary>
+      <returns>소스 시퀀스가 비어 있으면 default(<paramref name="TSource" />)이고, 그렇지 않으면 <see cref="T:System.Collections.Generic.IEnumerable`1" />의 마지막 요소입니다.</returns>
+      <param name="source">마지막 요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LastOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>시퀀스에서 특정 조건에 맞는 마지막 요소를 반환하거나, 이러한 요소가 없으면 기본값을 반환합니다.</summary>
+      <returns>시퀀스가 비어 있거나 조건자 함수의 테스트를 통과하는 요소가 없으면 default(<paramref name="TSource" />)이고, 그렇지 않으면 조건자 함수의 테스트를 통과하는 마지막 요소입니다.</returns>
+      <param name="source">요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">각 요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LongCount``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>시퀀스의 총 요소 수를 나타내는 <see cref="T:System.Int64" />를 반환합니다.</summary>
+      <returns>소스 시퀀스의 요소 수입니다.</returns>
+      <param name="source">개수를 셀 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">요소 수가 <see cref="F:System.Int64.MaxValue" />를 초과하는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LongCount``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>시퀀스에서 특정 조건에 맞는 요소 수를 나타내는 <see cref="T:System.Int64" />를 반환합니다.</summary>
+      <returns>시퀀스에서 조건자 함수의 조건에 맞는 요소 수를 나타내는 숫자입니다.</returns>
+      <param name="source">개수를 셀 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">각 요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+      <exception cref="T:System.OverflowException">일치하는 요소 수가 <see cref="F:System.Int64.MaxValue" />를 초과하는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>
+        <see cref="T:System.Decimal" /> 값 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 <see cref="T:System.Decimal" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>
+        <see cref="T:System.Double" /> 값 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 <see cref="T:System.Double" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>
+        <see cref="T:System.Int32" /> 값 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 <see cref="T:System.Int32" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Int64})">
+      <summary>
+        <see cref="T:System.Int64" /> 값 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 <see cref="T:System.Int64" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Nullable{System.Decimal}})">
+      <summary>nullable <see cref="T:System.Decimal" /> 값 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값에 해당하는 Nullable&lt;Decimal&gt; 형식(C#) 또는 Nullable(Of Decimal) 형식(Visual Basic의 경우) 값입니다. </returns>
+      <param name="source">최대값을 확인할 nullable <see cref="T:System.Decimal" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+      <summary>nullable <see cref="T:System.Double" /> 값 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값에 해당하는 Nullable&lt;Double&gt; 형식(C#) 또는 Nullable(Of Double) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최대값을 확인할 nullable <see cref="T:System.Double" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>nullable <see cref="T:System.Int32" /> 값 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값에 해당하는 Nullable&lt;Int32&gt; 형식(C#) 또는 Nullable(Of Int32) 형식(Visual Basic의 경우) 값입니다. </returns>
+      <param name="source">최대값을 확인할 nullable <see cref="T:System.Int32" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Nullable{System.Int64}})">
+      <summary>nullable <see cref="T:System.Int64" /> 값 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값에 해당하는 Nullable&lt;Int64&gt; 형식(C#) 또는 Nullable(Of Int64) 형식(Visual Basic의 경우) 값입니다. </returns>
+      <param name="source">최대값을 확인할 nullable <see cref="T:System.Int64" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Nullable{System.Single}})">
+      <summary>nullable <see cref="T:System.Single" /> 값 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값에 해당하는 Nullable&lt;Single&gt; 형식(C#) 또는 Nullable(Of Single) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최대값을 확인할 nullable <see cref="T:System.Single" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Single})">
+      <summary>
+        <see cref="T:System.Single" /> 값 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 <see cref="T:System.Single" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>제네릭 시퀀스의 최대값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 <see cref="T:System.Decimal" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 <see cref="T:System.Double" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 <see cref="T:System.Int32" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 <see cref="T:System.Int64" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 nullable <see cref="T:System.Decimal" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값에 해당하는 Nullable&lt;Decimal&gt; 형식(C#) 또는 Nullable(Of Decimal) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 nullable <see cref="T:System.Double" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값에 해당하는 Nullable&lt;Double&gt; 형식(C#) 또는 Nullable(Of Double) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 nullable <see cref="T:System.Int32" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값에 해당하는 Nullable&lt;Int32&gt; 형식(C#) 또는 Nullable(Of Int32) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 nullable <see cref="T:System.Int64" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값에 해당하는 Nullable&lt;Int64&gt; 형식(C#) 또는 Nullable(Of Int64) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 nullable <see cref="T:System.Single" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값에 해당하는 Nullable&lt;Single&gt; 형식(C#) 또는 Nullable(Of Single) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 <see cref="T:System.Single" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>제네릭 시퀀스의 각 요소에 대해 변형 함수를 호출하고 최대 결과 값을 반환합니다.</summary>
+      <returns>시퀀스의 최대값입니다.</returns>
+      <param name="source">최대값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" />에서 반환하는 값의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>
+        <see cref="T:System.Decimal" /> 값 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 <see cref="T:System.Decimal" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>
+        <see cref="T:System.Double" /> 값 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 <see cref="T:System.Double" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>
+        <see cref="T:System.Int32" /> 값 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 <see cref="T:System.Int32" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Int64})">
+      <summary>
+        <see cref="T:System.Int64" /> 값 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 <see cref="T:System.Int64" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Nullable{System.Decimal}})">
+      <summary>nullable <see cref="T:System.Decimal" /> 값 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값에 해당하는 Nullable&lt;Decimal&gt; 형식(C#) 또는 Nullable(Of Decimal) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최소값을 확인할 nullable <see cref="T:System.Decimal" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+      <summary>nullable <see cref="T:System.Double" /> 값 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값에 해당하는 Nullable&lt;Double&gt; 형식(C#) 또는 Nullable(Of Double) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최소값을 확인할 nullable <see cref="T:System.Double" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>nullable <see cref="T:System.Int32" /> 값 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값에 해당하는 Nullable&lt;Int32&gt; 형식(C#) 또는 Nullable(Of Int32) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최소값을 확인할 nullable <see cref="T:System.Int32" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Nullable{System.Int64}})">
+      <summary>nullable <see cref="T:System.Int64" /> 값 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값에 해당하는 Nullable&lt;Int64&gt; 형식(C#) 또는 Nullable(Of Int64) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최소값을 확인할 nullable <see cref="T:System.Int64" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Nullable{System.Single}})">
+      <summary>nullable <see cref="T:System.Single" /> 값 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값에 해당하는 Nullable&lt;Single&gt; 형식(C#) 또는 Nullable(Of Single) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최소값을 확인할 nullable <see cref="T:System.Single" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Single})">
+      <summary>
+        <see cref="T:System.Single" /> 값 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 <see cref="T:System.Single" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>제네릭 시퀀스의 최소값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 <see cref="T:System.Decimal" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 <see cref="T:System.Double" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 <see cref="T:System.Int32" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 <see cref="T:System.Int64" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 nullable <see cref="T:System.Decimal" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값에 해당하는 Nullable&lt;Decimal&gt; 형식(C#) 또는 Nullable(Of Decimal) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 nullable <see cref="T:System.Double" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값에 해당하는 Nullable&lt;Double&gt; 형식(C#) 또는 Nullable(Of Double) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 nullable <see cref="T:System.Int32" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값에 해당하는 Nullable&lt;Int32&gt; 형식(C#) 또는 Nullable(Of Int32) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 nullable <see cref="T:System.Int64" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값에 해당하는 Nullable&lt;Int64&gt; 형식(C#) 또는 Nullable(Of Int64) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 nullable <see cref="T:System.Single" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값에 해당하는 Nullable&lt;Single&gt; 형식(C#) 또는 Nullable(Of Single) 형식(Visual Basic의 경우) 값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 <see cref="T:System.Single" /> 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" />에 요소가 없는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>제네릭 시퀀스의 각 요소에 대해 변형 함수를 호출하고 최소 결과 값을 반환합니다.</summary>
+      <returns>시퀀스의 최소값입니다.</returns>
+      <param name="source">최소값을 확인할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" />에서 반환하는 값의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OfType``1(System.Collections.IEnumerable)">
+      <summary>지정된 형식에 따라 <see cref="T:System.Collections.IEnumerable" />의 요소를 필터링합니다.</summary>
+      <returns>
+        <paramref name="TResult" /> 형식의 입력 시퀀스에서 가져온 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">요소를 필터링할 <see cref="T:System.Collections.IEnumerable" />입니다.</param>
+      <typeparam name="TResult">시퀀스의 요소를 필터링할 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>시퀀스의 요소를 키에 따라 오름차순으로 정렬합니다.</summary>
+      <returns>요소가 키에 따라 정렬된 <see cref="T:System.Linq.IOrderedEnumerable`1" />입니다.</returns>
+      <param name="source">정렬할 값의 시퀀스입니다.</param>
+      <param name="keySelector">요소에서 키를 추출하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="keySelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+      <summary>지정된 비교자를 사용하여 시퀀스의 요소를 오름차순으로 정렬합니다.</summary>
+      <returns>요소가 키에 따라 정렬된 <see cref="T:System.Linq.IOrderedEnumerable`1" />입니다.</returns>
+      <param name="source">정렬할 값의 시퀀스입니다.</param>
+      <param name="keySelector">요소에서 키를 추출하는 함수입니다.</param>
+      <param name="comparer">키를 비교할 <see cref="T:System.Collections.Generic.IComparer`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="keySelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderByDescending``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>시퀀스의 요소를 키에 따라 내림차순으로 정렬합니다.</summary>
+      <returns>요소가 키에 따라 내림차순으로 정렬된 <see cref="T:System.Linq.IOrderedEnumerable`1" />입니다.</returns>
+      <param name="source">정렬할 값의 시퀀스입니다.</param>
+      <param name="keySelector">요소에서 키를 추출하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="keySelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderByDescending``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+      <summary>지정된 비교자를 사용하여 시퀀스의 요소를 내림차순으로 정렬합니다.</summary>
+      <returns>요소가 키에 따라 내림차순으로 정렬된 <see cref="T:System.Linq.IOrderedEnumerable`1" />입니다.</returns>
+      <param name="source">정렬할 값의 시퀀스입니다.</param>
+      <param name="keySelector">요소에서 키를 추출하는 함수입니다.</param>
+      <param name="comparer">키를 비교할 <see cref="T:System.Collections.Generic.IComparer`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" />에서 반환하는 키의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="keySelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Range(System.Int32,System.Int32)">
+      <summary>지정된 범위 내의 정수 시퀀스를 생성합니다.</summary>
+      <returns>순차적 정수 범위가 들어 있는 IEnumerable&lt;Int32&gt;(C#의 경우) 또는 IEnumerable(Of Int32)(Visual Basic의 경우)입니다.</returns>
+      <param name="start">시퀀스의 첫 번째 정수 값입니다.</param>
+      <param name="count">생성할 순차적 정수의 개수입니다.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="count" />가 0보다 작은 경우또는<paramref name="start" /> + <paramref name="count" /> -1이 <see cref="F:System.Int32.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Repeat``1(``0,System.Int32)">
+      <summary>반복되는 단일 값이 들어 있는 시퀀스를 생성합니다.</summary>
+      <returns>반복되는 값이 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="element">반복할 값입니다.</param>
+      <param name="count">생성된 시퀀스에서 값을 반복할 횟수입니다.</param>
+      <typeparam name="TResult">결과 시퀀스에서 반복할 값의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="count" />가 0보다 작은 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Reverse``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>시퀀스의 요소 순서를 반전합니다.</summary>
+      <returns>입력 시퀀스의 요소 순서를 뒤집은 시퀀스입니다.</returns>
+      <param name="source">반전할 값의 시퀀스입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>시퀀스의 각 요소를 새 폼에 투영합니다.</summary>
+      <returns>해당 요소가 <paramref name="source" />의 각 요소에 대해 변형 함수를 호출한 결과인 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">변형 함수를 호출할 값 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" />에서 반환하는 값의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,``1})">
+      <summary>요소의 인덱스를 통합하여 시퀀스의 각 요소를 새 폼에 투영합니다.</summary>
+      <returns>해당 요소가 <paramref name="source" />의 각 요소에 대해 변형 함수를 호출한 결과인 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">변형 함수를 호출할 값 시퀀스입니다.</param>
+      <param name="selector">각 소스 요소에 적용할 변형 함수이며, 이 함수의 두 번째 매개 변수는 소스 요소의 인덱스를 나타냅니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" />에서 반환하는 값의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``1}},System.Func{``0,``1,``2})">
+      <summary>시퀀스의 각 요소를 <see cref="T:System.Collections.Generic.IEnumerable`1" />로 투영하고, 결과 시퀀스를 단일 시퀀스로 평면화한 다음 포함된 각 요소에 대해 결과 선택기 함수를 호출합니다.</summary>
+      <returns>해당 요소가 <paramref name="source" />의 각 요소에 대해 일대다 변형 함수 <paramref name="collectionSelector" />를 호출한 다음 이러한 시퀀스 요소와 해당 소스 요소를 각각 결과 요소에 매핑한 결과인 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">계산할 값의 시퀀스입니다.</param>
+      <param name="collectionSelector">입력 시퀀스의 각 요소에 적용할 변형 함수입니다.</param>
+      <param name="resultSelector">중간 시퀀스의 각 요소에 적용할 변형 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TCollection">
+        <paramref name="collectionSelector" />에서 수집하는 중간 요소의 형식입니다.</typeparam>
+      <typeparam name="TResult">결과 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="collectionSelector" /> 또는 <paramref name="resultSelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``1}})">
+      <summary>시퀀스의 각 요소를 <see cref="T:System.Collections.Generic.IEnumerable`1" />에 투영하고 결과 시퀀스를 단일 시퀀스로 평면화합니다.</summary>
+      <returns>해당 요소가 입력 시퀀스의 각 요소에 대해 일대다 변형 함수를 호출한 결과인 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" />가 반환하는 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Collections.Generic.IEnumerable{``1}},System.Func{``0,``1,``2})">
+      <summary>시퀀스의 각 요소를 <see cref="T:System.Collections.Generic.IEnumerable`1" />로 투영하고, 결과 시퀀스를 단일 시퀀스로 평면화한 다음 포함된 각 요소에 대해 결과 선택기 함수를 호출합니다.각 소스 요소의 인덱스는 해당 요소의 투영된 중간 폼에 사용됩니다.</summary>
+      <returns>해당 요소가 <paramref name="source" />의 각 요소에 대해 일대다 변형 함수 <paramref name="collectionSelector" />를 호출한 다음 이러한 시퀀스 요소와 해당 소스 요소를 각각 결과 요소에 매핑한 결과인 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">계산할 값의 시퀀스입니다.</param>
+      <param name="collectionSelector">각 소스 요소에 적용할 변형 함수이며, 이 함수의 두 번째 매개 변수는 소스 요소의 인덱스를 나타냅니다.</param>
+      <param name="resultSelector">중간 시퀀스의 각 요소에 적용할 변형 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TCollection">
+        <paramref name="collectionSelector" />에서 수집하는 중간 요소의 형식입니다.</typeparam>
+      <typeparam name="TResult">결과 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="collectionSelector" /> 또는 <paramref name="resultSelector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Collections.Generic.IEnumerable{``1}})">
+      <summary>시퀀스의 각 요소를 <see cref="T:System.Collections.Generic.IEnumerable`1" />에 투영하고 결과 시퀀스를 단일 시퀀스로 평면화합니다.각 소스 요소의 인덱스는 해당 요소의 투영된 폼에 사용됩니다.</summary>
+      <returns>해당 요소가 입력 시퀀스의 각 요소에 대해 일대다 변형 함수를 호출한 결과인 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">계산할 값의 시퀀스입니다.</param>
+      <param name="selector">각 소스 요소에 적용할 변형 함수이며, 이 함수의 두 번째 매개 변수는 소스 요소의 인덱스를 나타냅니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" />가 반환하는 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SequenceEqual``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>해당 형식에 대한 기본 같음 비교자를 통해 요소를 비교하여 두 시퀀스가 서로 같은지 확인합니다.</summary>
+      <returns>두 소스 시퀀스의 길이가 같고 해당 형식의 기본 같음 비교자에 따라 상응하는 요소가 서로 같으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="first">
+        <paramref name="second" />와 비교할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="second">첫 번째 시퀀스와 비교할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">입력 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 또는 <paramref name="second" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SequenceEqual``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>지정된 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />를 통해 요소를 비교하여 두 시퀀스가 서로 같은지 확인합니다.</summary>
+      <returns>두 소스 시퀀스의 길이가 같고 <paramref name="comparer" />에 따라 해당 요소가 서로 같은 것으로 비교되면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="first">
+        <paramref name="second" />와 비교할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="second">첫 번째 시퀀스와 비교할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="comparer">요소를 비교하는 데 사용할 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />입니다.</param>
+      <typeparam name="TSource">입력 시퀀스 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 또는 <paramref name="second" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Single``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>시퀀스의 유일한 요소를 반환하고, 시퀀스에 요소가 정확히 하나 들어 있지 않으면 예외를 throw합니다.</summary>
+      <returns>입력 시퀀스의 단일 요소입니다.</returns>
+      <param name="source">단일 요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">입력 시퀀스에 요소가 두 개 이상 있습니다.또는입력 시퀀스가 비어 있는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Single``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>시퀀스에서 지정된 조건에 맞는 유일한 요소를 반환하고, 이러한 요소가 둘 이상 있으면 예외를 throw합니다.</summary>
+      <returns>입력 시퀀스에서 특정 조건에 맞는 단일 요소입니다.</returns>
+      <param name="source">단일 요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="predicate" />의 조건에 맞는 요소가 없는 경우또는<paramref name="predicate" />의 조건에 맞는 요소가 둘 이상인 경우또는소스 시퀀스가 비어 있는 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SingleOrDefault``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>시퀀스의 유일한 요소를 반환하거나 시퀀스가 비어 있으면 기본값을 반환합니다. 시퀀스에 요소가 둘 이상 있으면 예외를 throw합니다.</summary>
+      <returns>입력 시퀀스의 단일 요소이거나, 시퀀스에 요소가 없으면 default(<paramref name="TSource" />)입니다.</returns>
+      <param name="source">단일 요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.InvalidOperationException">입력 시퀀스에 요소가 두 개 이상 있습니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SingleOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>시퀀스에서 지정된 조건에 맞는 유일한 요소를 반환하거나 이러한 요소가 없으면 기본값을 반환합니다. 조건에 맞는 요소가 둘 이상 있으면 예외를 throw합니다.</summary>
+      <returns>입력 시퀀스에서 조건에 맞는 단일 요소이거나, 이러한 요소가 없으면 default(<paramref name="TSource" />)입니다.</returns>
+      <param name="source">단일 요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Skip``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+      <summary>시퀀스에서 지정된 수의 요소를 건너뛴 다음 나머지 요소를 반환합니다.</summary>
+      <returns>입력 시퀀스에서 지정된 인덱스 뒤에 나오는 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="count">나머지 요소를 반환하기 전에 건너뛸 요소 수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SkipWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>지정된 조건이 true이면 시퀀스에 있는 요소를 무시하고 나머지 요소를 반환합니다.</summary>
+      <returns>입력 시퀀스에서 <paramref name="predicate" />에 지정된 테스트를 통과하지 않는 급수의 첫 요소부터 시작되는 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">각 요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SkipWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Boolean})">
+      <summary>지정된 조건이 true이면 시퀀스에 있는 요소를 무시하고 나머지 요소를 반환합니다.조건자 함수의 논리에 요소의 인덱스가 사용됩니다.</summary>
+      <returns>입력 시퀀스에서 <paramref name="predicate" />에 지정된 테스트를 통과하지 않는 급수의 첫 요소부터 시작되는 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">요소를 반환할 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</param>
+      <param name="predicate">각 소스 요소를 조건에 대해 테스트할 함수이며, 이 함수의 두 번째 매개 변수는 소스 요소의 인덱스를 나타냅니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>
+        <see cref="T:System.Decimal" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>시퀀스에 있는 값의 합입니다.</returns>
+      <param name="source">합을 계산할 <see cref="T:System.Decimal" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Decimal.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>
+        <see cref="T:System.Double" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>시퀀스에 있는 값의 합입니다.</returns>
+      <param name="source">합을 계산할 <see cref="T:System.Double" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>
+        <see cref="T:System.Int32" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>시퀀스에 있는 값의 합입니다.</returns>
+      <param name="source">합을 계산할 <see cref="T:System.Int32" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Int32.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Int64})">
+      <summary>
+        <see cref="T:System.Int64" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>시퀀스에 있는 값의 합입니다.</returns>
+      <param name="source">합을 계산할 <see cref="T:System.Int64" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Int64.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Decimal}})">
+      <summary>nullable <see cref="T:System.Decimal" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>시퀀스에 있는 값의 합입니다.</returns>
+      <param name="source">합을 계산할 nullable <see cref="T:System.Decimal" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Decimal.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+      <summary>nullable <see cref="T:System.Double" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>시퀀스에 있는 값의 합입니다.</returns>
+      <param name="source">합을 계산할 nullable <see cref="T:System.Double" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>nullable <see cref="T:System.Int32" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>시퀀스에 있는 값의 합입니다.</returns>
+      <param name="source">합을 계산할 nullable <see cref="T:System.Int32" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Int32.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Int64}})">
+      <summary>nullable <see cref="T:System.Int64" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>시퀀스에 있는 값의 합입니다.</returns>
+      <param name="source">합을 계산할 nullable <see cref="T:System.Int64" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Int64.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Single}})">
+      <summary>nullable <see cref="T:System.Single" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>시퀀스에 있는 값의 합입니다.</returns>
+      <param name="source">합을 계산할 nullable <see cref="T:System.Single" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Single})">
+      <summary>
+        <see cref="T:System.Single" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>시퀀스에 있는 값의 합입니다.</returns>
+      <param name="source">합을 계산할 <see cref="T:System.Single" /> 값의 시퀀스입니다.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 <see cref="T:System.Decimal" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>투영된 값의 합입니다.</returns>
+      <param name="source">합을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Decimal.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 <see cref="T:System.Double" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>투영된 값의 합입니다.</returns>
+      <param name="source">합을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 <see cref="T:System.Int32" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>투영된 값의 합입니다.</returns>
+      <param name="source">합을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Int32.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 <see cref="T:System.Int64" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>투영된 값의 합입니다.</returns>
+      <param name="source">합을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Int64.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 nullable <see cref="T:System.Decimal" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>투영된 값의 합입니다.</returns>
+      <param name="source">합을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Decimal.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 nullable <see cref="T:System.Double" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>투영된 값의 합입니다.</returns>
+      <param name="source">합을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 nullable <see cref="T:System.Int32" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>투영된 값의 합입니다.</returns>
+      <param name="source">합을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Int32.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 nullable <see cref="T:System.Int64" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>투영된 값의 합입니다.</returns>
+      <param name="source">합을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+      <exception cref="T:System.OverflowException">합이 <see cref="F:System.Int64.MaxValue" />보다 큰 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 nullable <see cref="T:System.Single" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>투영된 값의 합입니다.</returns>
+      <param name="source">합을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>입력 시퀀스의 각 요소에 대해 변형 함수를 호출하여 가져온 <see cref="T:System.Single" /> 값 시퀀스의 합을 계산합니다.</summary>
+      <returns>투영된 값의 합입니다.</returns>
+      <param name="source">합을 계산하는 데 사용되는 값의 시퀀스입니다.</param>
+      <param name="selector">각 요소에 적용할 변환 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="selector" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Take``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+      <summary>시퀀스 시작 위치에서 지정된 수의 연속 요소를 반환합니다.</summary>
+      <returns>입력 시퀀스의 시작 위치부터 지정된 수의 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">요소가 반환되는 시퀀스입니다.</param>
+      <param name="count">반환할 요소 수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />가 null입니다.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.TakeWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>지정된 조건이 true인 동안 시퀀스에서 요소를 반환합니다.</summary>
+      <returns>입력 시퀀스에서 요소가 테스트를 더 이상 통과하지 않는 위치보다 앞에 나오는 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">요소가 반환되는 시퀀스입니다.</param>
+      <param name="predicate">각 요소를 조건에 대해 테스트하는 함수입니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.TakeWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Boolean})">
+      <summary>지정된 조건이 true인 동안 시퀀스에서 요소를 반환합니다.조건자 함수의 논리에 요소의 인덱스가 사용됩니다.</summary>
+      <returns>입력 시퀀스에서 요소가 테스트를 더 이상 통과하지 않는 위치보다 앞에 나오는 요소가 들어 있는 <see cref="T:System.Collections.Generic.IEnumerable`1" />입니다.</returns>
+      <param name="source">요소가 반환되는 시퀀스입니다.</param>
+      <param name="predicate">각 소스 요소를 조건에 대해 테스트할 함수이며, 이 함수의 두 번째 매개 변수는 소스 요소의 인덱스를 나타냅니다.</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 요소의 형식입니다.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 또는 <paramref name="predicate" />가 null인 경우</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ThenBy``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})">
+      <summary>시퀀스의 요삌를 키�� 따라 오름l��䈜으로 다시 정렬합니ʋ�.<+swemery>
+  0   <peturfs>요소가 킄�ߐ 따라 정렬된 <see cref="T:System.Minq.	OrdevedEnumqrable`1"!'>입니뫤.</returns>
+     `<par`m naee="source:>정렬��� 운소가 듥�� 있는 <see c2ed="T:System.Lilq.IOrdgredEnumurable`1" />��니다.<+piram>
+      4param name="keySemector">각 요소에서 키를 얔추하는 함수입뫈�$.</p�2am>
+      <pxpeparam namu="TSOuzce">
+! 8     <paramsef name="source& /> 요소의 형식입니��.</typepa�am>
+      <ty`eraram name="PKmy">
+       `<paramref name="keyelecTor" />에서 �0�환하는 킠의"형싽쾅니다.</vypdparam>
+     $<exce`tion cb%f="TSystem.ArguMetNumlExceqtion">     !  <paramref name="soubce" /> ��는!<paramren`name="+eySeluctor" />글 lull인`경우</excepdion>
+  ! ,/eemfer>
+    <mem�er"name="M:�ystem.Linq.EnuMerabme.ThenBy`d"(Qystem.LinQ.IOr`eredEnumerabNe{�`0],System.Func{``0,``1},System.CollectionsnGenerkc.IComparer{`�1})">
+      <suomAry>식퀀̊�의 요소를 지정���비ꥐ잀를 사용하여 오름���쌜으로 뛤��� 정뢬��돈달.</summary>      4ze4urns>요소�� 키에(딱 찕㠬된 <see cref=�T>System.LInq.IorderEdENumerable`1" />螕니다.</returns>
+      <par!m name="sourc�#>정롬�� 요소가 �Ӥ�� ���는 <sem cref="T:System.Linq.IMbdgredenumezable`1" />입니다.</param>
+      <param name="keySelector">각 요소에蔜 ���를 추얜하는 함수입뉈다.</param>
+      <�aram name?2#omparer">키를 鹄교͕�!<�ee craf="T:System.Collections.Generic.IComparer`1" />입니�ˤ.</para�>
+0     <ty�eparam1n�mg="TSource">
+        >paramref name="skurce" .> 요�ƌlݘ 형식입니다.<'typepasam>
+  (   <typEparam name="TKey*>
+        <paramjef fame=keySelector" />�א셜"반환하는 키윘 ��식입니다.</typeparam>
+     `<exceptaon �ref="P*System.ArgtmentNullExceptign">
+!     ( <paramreF Neme="sourCe" /> 또는 <paramref name="keySelectmr"`/>Ⰰ�nuhl인 경우</exception>
+    </mem"mr>
+    ,member n�mm="M8S{qtem.LHnq.Enumerab|e.Thm~ByDgsbending`p3(System.Linq.IOrderelE~umerable{``0},System.Func{``0,`a!})">
+      =summaRy>시큀스의 요소를 키에 따라 낰림쐨̈����로(다쫜 정렬합니다.</summary>
+      <returns6요l��각 ��에 따라`내림쐨순으�!� 쀕렬된 <see$cref9"T*System.Liny.IOrderedEnumerable`1� />입니다*<+2eturos>
+  !   <par`m oame="source">l��렬할 요소가 들어 ���는 =see!cre�=bTSystem.Linq.IOrderedEnumarable`1" />입니다.</para-6
+      <param name="keySelector">j�� 요소에서 키뤼 �촜험는 함수입뉈다.</papam:
+      <typeparam name="TSour#e".�        <paramRef name="souRce" /> 월소䝘 형�입니다>/typeparam>
+!     <tyrepasam name="TKey�>
+        <paramr%f(name="keySe,ectnr" />에서 반퉘하는 ��의 혗식욅니다.>/typetaram>
+      <e|cmption cref="T:System.Argum�ntNtlnException">
+(`      <0aralref jame="soUrce" /> 또는 <paraere$ Name="keyQalectmr" /가 lull인 경蚰</e��eption>
+,   </lember>
+ $  <member nald="M:System>Linq/Enumerable.ThenByDescending``2(System.\inq.IOrderedENumerable{p`0},System.Func{d`0,` 1}>System.Collections.Generic.IComparer{``1})">* (    <summary>시퀀삤의 ���ƌ를 l����된 비교자���$사䚩하엯 내림��̈�으륜 다시 정렬합니다.</sumla2y>
+      =returns>요소갈 키에 따라 내림차순으로 렬ꐜ <see cref="T:System.Linq*IOrdaredEnum%rablda1" />잁닊다.</raturns>
+     !<`aram name="{ource">정����� �소ꐀ 둤얶 있는 <sue cref=2T:Systum.Lins.IOrderedEnumerabl%`1"!/>장니다.</param:
+    0 <param name="keySelector">각 요소에서 키를 춐출하는 함숑힅니���.</p`2am>
+    $ <qaram name="compaber2<傤뭼 비교할 <sde cSef="T:System.Collecions.Ge�eric.IComparer"1" />입니다.</param>
+      =typeparai name5"TSnurce">
+      � <paramref(name="sout�E" /� ��소의 형시장니다.</t{peparam>
+      <typeparam naie="TKey">
+    !   <paramred name="keyQehector" />에셜 반환하는 키의 형식입ꋈ다�</tYpeparam>
+      <exkeption"cruf="T:S{�tem.ArgumentNullException"<
+      ( <paramreF name="source" /> 또�`<paramref name="keySeleator" .>가 null인 궽옰</exception>
+    </member>
+"   <member nale="E:Systmm>Linq.EnuIera`de&ToArra�``1(System.CollecTions.Gengrig.IEnumEbebnez``0�	"<
+(     <summary>�
+        <s%e cref="T:System.Col|ectinns.Genermc.IEnumdri`le`1" />을 사욭하얬 배열을 만듭돊다.</summary>
+ "   `<returns>쾅력 시퀀스의 요膌가 들얼 있는 배열입니��.<�returns�-
+  "   <param name="source"~배열을 녌드는 �� 사용할 <see cref="T:SysTum/Collections.Gdneric.IMnumerablea1" />입뛈鋄></param>�
+(     <typeparam2name="TQource">
+        8parAmref ~ame="sourse" /> 요소의�형䋝입뉈닦.<typepar!m>
+      <exceqTion creb?"T:System.Argum�ntFuLlExcuption">
+   `    <paramref name="�ource" /?글 nul쬞�니다.</excepTion>
+    </member>
+    <member n!me="M:System.\inq.EnumeRable.TOdictionarY``2([ystem.Collecti/ns.Generic.IEnumerabLe{``0},Qystem.Func{``0,``1})�>      <summari>지� �된 키 선택기 ͕��에 따라 <sqe crev=#T:System.Collectionr.Geleric.IEnumeRable`1" /<을 사�ک하여 <see cref="T*Systum.Collectmo�s.Generic.Dictionary`2" />를 뤄듭니다.</summary>-
+      <returns>키 값이 들어 잉는 <s�e cref="T:System.Collections.Generic.Dic4ionary`2" ?>입니냤.</returns>
+      <param na-e="sou�ce">
+$       <wue cref="T:S�stem�Collections.Generic.Dictimnary 2" />를 만����� 데 사l��镠 <see cref="T:System/CollEctions.Generic.IEnumebable`1" />입니다.</paRam>
+      <t`zam name="keyPelector">각0��소엒서 키륽 추䶜하는 함수입니.</param>$ !   <typeparam ncme="TSourCe">
+        <parAmref name"sowrce"`/> ��소의 형식윁니다.</dypeparam>/
+      =tytepabam0name="Key*>
+        paramr%f naoe="keYSelector" />에섄 k��m��하는 키의 형식�니다.</4ypeparam>
+ (  " <exception cref="T:System*Argumen|NullException">
+ ( "    <paramred name="source" /> ��는�<paamref n`ee="ieySelector" />가 null인 경���븐銔<paramref`na-e=&keySe�ectop& />가 생성하�ʔ 키가 null인 경�0</exception:
+      <exceppion cref=*T:Systee.ArcumentExcmptign">
+   (    <paramreg nqm�="keySeLector" />��� 두 캐톌에 대해 ���룵k�� 傤를 생성하는 경���</exception>
+    </mmmber>    <memfer name="M:System.Linq.Efu}ev`ble.ToDictiona2y``2(ystem.Collectmons.Generic.IE�um%rable{dd0}System.Fulcs``0,``1},System�Collectiojs.Generic�IEqualityComp!rer{``1})">      <summary>즀정됔 키 선택기 함수왂 키 비��자에 따˝� <see(cref="t:[ystem.Collections.Generic.IEnumerable`1" />蝄 사캩핐여 <qeu cref="T:Syst%m.Coll%ctions.Ggneric.Dictionary`2" /.를 㧌듭니다.</summary
+      >returns>키䙀 �이 들햴 있는 <see c2af="P*System.ColleatinnsnGeodric.DIctionary`2" />입니다.=/rep1rns>
+      �perem name="source">
+        <see cref="T:System.Collections.GenericDmctionary`2" />를 ��뒜는 데 사용할 <see csef=bT:Sxstem.AolLectin3.Generic.IEnumerable`1* />l��니돤.</param>
+ `    <param name="keySmlectmr">각 쒔솈에脜 傦를0출촜하뚔 함수입鋈다.</param>
+      <parae n�me="compareb">키�%� 비교할 <see csef="T*Systel.Bollecpions.Generic.IEqwalityComparer`1" />입니���.</param> `    <typetaram ~ame?"TSource">
+ "  !   <paramref lamu="source" /> 요소의 형식��니다.4-typeparam6
+      <dypep�ram(naoe="TKey">
+        <paramref �ame="keySelectop" />에서 반환하는 키의 혝싕입니다.</dypeparam>
+      <excuption craf="T:[yste].ArgumentNumlEpception">
+      ! <paramref0name="source" /: 눐늖 |paramreg name="keYSel�ctor2 />가 o}ll인 경우또는<paramref nAme="keySelector ->가 쓕��하는 키가 nule인 경우<?eyceppion>
+      <�xcePtiof crev="T:System.@rgumentEpcept�on">
+ !$(    <paramref name="keySemectoR" />가$�� 욜소에�대해 중복된 키를 생성하는 경우</exception>
+    </member>�
+ `  <member"name="M:System.Linq.Enumerable/ToDictionary``3(Systgm.C�llections.GeNeric.IEoumezable{``0},�q3tem.Funcz``0,``1},Syste}.Func{`b8,�`2})":
+   � `<summarY>지젅된 킄 선택기와 요소 섡택��� 핈수��따라 <sae cref="T:System.Kmlhections.Generic.IEnumara`le`1" /6흄 사용하여 <see c�ef="T:Systum.Cklle�tioNs.Generic.DictInary@2" />를 만듭���다</summary>� "    <Re�Urns>Ğ�력 시퀀슴에서"선택한 <paramrdf na�e=�\Element"0/> ��싍 값앰 뒤�4 있는 |sue cref="T:Sy{dem.Collectioos.Oeneric.Diktionary`2" />입니다.</returns>
+ !    <para- �ame="sOurce">  (     <see cref="T:SystemnColLections>GElepic.Dictionary`2"`/>˥� 만드는 데 사용할 <see cref="T:System.bollections.G�neric.�Enumureble`1" />̞�뛈�ˤ.</pasem.
+     (<param".ame="keySelecto2">걁 요���에서 키를 억출하는 함수입니다.</paral>
+      <peram name="elemuntSelector">각"䚔소를 사용여 결과�요소 값을 생��핤 변혅 함수입니다.8+param>
+      <typeparam name="TSourc%"> 0   !  <paramref neme=bsource" /> 요솬의 형식입니</typeqaram>
+  0   <|ypeparam name="�Key">
+ $(   " <parairef name="keySeLec4or" />에서`鰘홸하는�킠의 형식입니다.</typ%Param>
+ 0    <typeparam name="TElementb>
+        <paraMref name=2elementRe�ector" />에�� 밐��학는 ���의 협슕입뉈다.<otyterarci>
+      >exception cref9"T:Syste-.ArgumentNullEhceptioN">
+ 0      <parAmref nAme?"rource" />- <parAmref name="keySelector" /> ��는 <`ar!mref nAme="elemejtSelec�/r />가 null인 경우또는<paramred name="ke}Selector" ?>가 쇙성�՘는 키가 vull읰 경�ڠ|/exception>
+  �   <gxce�vin cref="T:QyStdm.ArgumentExseptinn">
+(       <paramref name="k�ySelector" />가 두 요쇌에 ��해 중복됝 키를 생성镘몔 궽우</exception>
+    </membeb>
+ $  <member name="M:Rys|em&Lmnq.Enumerable�ToDictionary``3(System.Collecthons.GenezicIEnwme�able{`` },SysteL&Func{``0l``1},S�stem.Func{`` ,``2�,System.Collections.Oeneric.IEqualityComparar{@`1})">
+     !<qumm�ry>지젗된 키 脠택긠(함수, 비교자 ˰� �소 선퇝기 할수에 따라 <see!cref}T:System.CollectiOns.Geferic.IEnumerable`1" />을 사용푘여 <see cref=#T:Sy{tdm.Collections.Generic.Dikpkmna2y`2"`/>를 �듭니다.</summary>�
+      <butUrns>입력 시퀈스쓐서 선택템 <paramref nama="TElement� /> 형식 값이 들어 있는 <see cref="T:Systei.Collectaos.Generic.Dictiona�y`2" />입니다.</returns>
+(     <param name="source">
+      �0<see cref="T:System.Collections.Generic.Dictionary`2" />를 ˧�드��0뉰 肬욹할 <see cref="V:SyStem.Co�lectig.snGenerhc*IE.umerabl�`3" />입니다.</par`m>
+   !! <param!neme="keySelect/r">각 ��소얐서 傤를 추출하몔 함입니다.</param>
+      <parcm Name=#elementSeluctOr">각 운소뭼 샬용험여 결과 요소 ꐒ을 생l��할 㳀형0함수입니다.</param>
+      <param nam%="coexereb2.키를 비교�� 4cee(cref="T:System.Collectinns.Genezic.IEqualityComparer`1" />입鋈다,</param>
+ 0"   <uqpep�ram name="TSource">
+(       <paramreb name="�nurceb />!요l��의 형식입니다.</typeparao>-
+      8typepazam name<"Iey">
+       `<parampeb name="keySelector� />�א서 鰘흘하는�m��읚 형식입니다.<.typeparam>
+      <typeparem j`m�="TEle-unt">
+        <par�mreF name="elMmentSelector  />䗘서 반환하는 값l�� 형식입단다.</typeparam>
+    " <excEptioj cref="T8Systdm.ArgumentNullExcuption"~
+  (     <paramref$name="source" ?>, <paramref name="keySe|ec|or" +> ꘐ는 <paramref nam%="ehementsElector" />ꐀ null인 경우또骔<paramref name="keyCelector" />간 생섳하는`키가 nd,l외 경우</exception>
+      <ExCeptig~ cref="T:SYst%m.ArgumentE8ception">
+        <par`mrev name="keySelectmr"�>가0두 요톌��� 대��� 중복된 키를 생성镐���0�=<.exception>
+    </membur>
+    <member name="M:R9�|em.Linq.Enumerable.ToList``1(System.Collectaons.Generic.IEnumera"le{``0})">
+!     4summary?
+     0  <see cref="T:System.Collections.GgnEriCnIEnu�erable`1�!/>을 사용핈여 �see cref="T?System.Collection�.Ge�eryc.Liqt`1 />�< 만듭니다.</summary>
+)     <retuvns>입력 시퀀스l�� ̚��ƌ가 들�� 있�� see cref="T:sxstem.Collectio�s.Generi�.List`1"`/>입늈다.</seturns>
+  0   <paral�name="source>
+        <see cref="T:Syspem.ColLactions.Funeric*List`1" />흄 만�는 돰 사용할 <see0#ref=bT:Systgm.Col�ections.GeNeric*IE.u-erable`" />입니다.</param>
+      <typeparam namm="TSource">
+(       <paramref name="source" /> 요���윘 형식입니다.</typetaram>
+ $    <exceptioj gref="TzRysteo.ArgumentNum�Exception`>
+ 0      <paramref namq= 3o5rce" />가 null잇ꋈ돤.</exception>
+    </member>
+    <member na�e="M2System.Linq.Enumerable.ToLookUph`2(Syste-.C/llec4ions.Generic.IEnum�vable{`pp},System.NunC{h`0,``1})"6
+$     $rummary지쀕��� 키 선퇝�(� 함순�� k��라 <see`cref="T:System-COLleCtions.Genermc.IEnumerable`1" />을 좬̚�하여 <see cref="T:Rysteo.Linq.Lo�ku0`2"$/>을 만�ӭ니���.4/summary>
+      <returns>키와 값이 들어 ��는 <see$cref="T:System.Linq.Lookup`2" />입뛈다.</returns>
+      <par`m name="source">
+        <see cren="T:Wystem.LijQ.L_okup`2" />�� 만드는 데 용할 <see gp�f"T>Syst�m.CollecTiOns.GenericIEnumepibde`1""/>螅니다.</param>
+(     <param�nama="keySele�tEr">가 요��에��� 풤륜 추출하는 함수입니�$./param>      |typep1ram name="TSource">
+        <paralref na}e="source" /> 요소의 �ؕ싽입니담.</typeparam>
+      <txpepavam name="TKey">
+     `( <paramrev naMe="k%ySelmctor" /<에� ��환m��銔 키의 형식얅니닄.4/�y`eparam�
+      =exception cref="T:S}stem.ArgumentNullException"> (�     <paramref"name="source"`/> 또는 pAramref name="keySelector"(/>가 oull인 겹욐</excepuion>
+   "</iember>
+    <member name="M:System.Linq.EnumeraBle.ToMookup@`2(System.CollectionS.Genaric.IEn�meRable{``0},SystemFunc{``0,``1},System.Collacpions.GEn�ric.	EqualhtYCOmparer{``1}(">
+      <summa2y?지정�� 키 선틝기 함수와 키 비교자에 따라 <see cref="T:System.Collectamjs.Generic�IEnumerable`1" />쟄 사용��여 <see cref="T:System.Linq.Lon+up`2� />아�만듭니다.</sumeary>
+      <returns>키와 값윴 들어 있는 see cref="t*System.Linq.Lookup`2" />입니�ˤ.<returnb>
+      <p!ram name5"sour�o">
+ (      <see cref="T:Syst%m.Linq.Lookupp�" /6논 만드는 덲 䂬용͕�!<see cref="T:Sq{tem.Collect�ons.GeneRhc.IEnumerable`120/>입니다.</param:
+      8param"lame="keySelector">각 요���서 키로 쾔출하는 ͕�수입니.</param>
+      <param name="Comparer">키를 빀교할 <sem gref="T8System.Collections.Generic.IEq�almtyComparer`1" />입니다.</p@ram>
+      <typeparam naee="TSkurc�">        <paramref ~ame="source" /> 잔소의 형식잁니다&</tyraparam>
+      <typepasam naee="TKey">
+        <paramref name="keyselgctor" />에서 반환m��㊔ 키��� 툕식입니鋤.<?type�aram>
+      <gxceptio~ ctef="T:System.ARgumentNullException">
+        <pab!oref name="sourCe" /> 또는 |paramref name="keYSglector" />가 ulh인 ��우</exceptann>
+    </melcer>
+    <member ~a�u="M:System.Linq.EnuMerable.ToLookup``2hSystem.Colle�tions.Ganerac.IEnumerab�e[``0}(Sqs|em.Func{``0,``1},System.Fujc{``0,``2})">
+      <summary>지정된`키 선���기와 요소 ���택갰 함수에 넰��� <see cref="T:System.Collectinns.Generic.YEnumerable`1" /?을 삭용镘여 <sde c�ef="T:System.Linq.Lookup`2" />를 ꧌듭�ˈ담.</summary>	
+ 0(   <returns>입력 시퀁스에서 선̓�한 <par!mrgf name="TElemunt" /> ���식 값이 들얰 있는 <see czev="T:System.Linq.Lookux`2" ?>입니다.</retUrns>
+      <pasam name="source">
+      % <see Cren="T:System.LiNq.Lookup`2" />맼 ꧌드는 �0 삮용할 <see cref="T:CYsteM.Collections.Generic.IEnumerable`1" />입닀다.</paraM>
+      <paRam nale="keyS�lectkr">각 요소앐l�� ͂�˥< 춐출하는`��수입니닦.<+param>
+  !   <pava, nam%="elementSelector�>각 요̆�를 사용하여 ꒰과 요소 값을 생성͕� 변형 함수입鋈다.</param>
+ !  ( <typeparae namd="TSource">M
+        <paramref name="source" /> 요소의 형식입니다.</typeparem>
+      <typeparam naee="TKey">
+        <tiralref na�e="keySelector" />에서 반환퍘는 m��았 형��입니�.<opypeparam>
+    � <typeparam name="Elem�Nt">
+0     0 <paramrEf name="ElementSele�tor" />서0반환하는 갚��� 툕식얅돘���.8/typepar`m
+      <exception gref="T:SystEm.ArgumentNullExcdpu�o�">
+        <paramref name="sourbe" />( <paramref nime�"keySelector" /> 또�ʔ <paramref namm="e|eme�tSeldct/r" />�0� null인 경횰</gxception.
+  $ </mdmj�r>-    <Member falg="M:System.Dinq�Enumerable>ToLooktp`p3(System.Coll�ctiOns.Generic.IEnumeracle{ah0}$System.Ftnc{``0,``1},Syqrem.Funcz``0,``2=,System.Cklleations.Generic.IEqualityCompaper{``1})">
+ 0    <�ummary>지정되 키 선̓�기!함수, 비���자 및 욐��� 선택기 함수에 따라 <sEe cref<"T:System.Conlections.Generyc.	Enumera`le`1" />�݄ 사용하 <see kref="T:System.Linq.Lookup`2" ?>을 만듭니닦.</summary>
+     $<returns>입+��!시���스에서�선택표 <paramref name="TEnement""/� 형̋� 값이 들어 있는 <see cref="D:Sistem.Linq.Lookup`2" />입니다.</returns>
+      8param name="source">
+     `  <see`cref="T:system.Linq.Lookup`:" />ꥼ 만���늴 데 사용할 <see cref="T:System.Collmctions.Generic&IEnumerable`1" />잕니다./param>
+ (    <pajam name="keySeluctlr">각 횔솬에서 키를 추출하몔 ���수쎅���ꋤ.</param>
+      <param name="elementSeLeCtOr">��� 슔소롼 사욡핈�׬ 결과 요소�값썄 생성픠0변͘� 함툘입니다.<+param>
+      <pasam name="bomparer">키를 비교할 <see cref="T:Sqsdem.Collections.Gendric&IEpua,itYComp!rer`1"$/>입닉다.<par�m>
+      <typeparam name?"TSource">        <paramref naoe9"source"$.> 요소의 阕식입니닄.</typeparam>
+      <typep!ram name="TKey">
+        <par!mref�name="keySelectob"(/>에서 반환하낔 키의 ���식입니늤.</uypep`ram>
+ $    <typeparam naMe="TElemejt"<
+    0   <paramref lame="uledentSelector" />에서 반환镘늕 갲의 퐕식잍니�ˤ.</typEparam>
+      <exception cref=&T:SyStee�ArgumentNullException">
+        <paramref name="source" />, <paramref name=#keySgmector"`/> 뜐는 ,pAbam�ef naie="elementSelec|or" />가 null의 경우</eXception>
+    </membeR>
+   (|membdr nam%}"m:System.L�~q.Entmerable.Union``1(Qystem.C/lleCtions.GenericAEnueerable{``0},System.Cnllections.GefeRic.IEnumerable{``0})"
+      <summary>기본 같음 비교�를 사욉하여 두 시퀀스의 텩집합썄 구합닌다.</summaby>
+      <returns>두!입력 시퀀스의 모��� ̚�소가 들춴 있는 <See creo="T:Sysuem&Co�lections.Generic.Ienumupable`9" /?이며,`쬑�5 요소는 제외됩돈늦.</ret�rns>	
+    ` <param name="girst">해닩 고� 0�ڔ소谀 합집i��의 첪 겈째 집���을 앴롨는 <see0grdf="V8Qistem/Colle�tions.Genebic.IEnumerabne`1"(o>입니다.</param>
+      <param name9"recond*>���당 고윰 요소가 핡집합의 두 k��째 ���합을 이飩는 <se� cref="T:Sy{tem.Collections.G%ner�c.IEnumerablea1!/>L��니다.</param6
+   !  <typepa�!m0name=2TS/urce">���먥 시���스!요���ݘ 형식힅니다.</typ%p�ram>
+      <exccption cref="T:Sysvem.QrcementNullExcmppion"?
+        <paramref`~ame5"first* /> 뜐는 <paramref name="second" '>가 null인 경우>/eXcmption>
+    <?member>
+ (  <member name="M:System.LinqEnumerablE.Unimnh`1(SystEm.Collec4ions.Gdner)c*IEnumerab-e{``8},System.Collec�ions.Generic&IEnumerable{``0�,System.Colle`tion�.Generig.IEquali4yCoiyarmr{``0})#>
+  �   <summ@ry>지정된 <see cref="T:S}stem.Collections.Generic.IEqualityComparer`1"!'>를 삮�)하여 두 틜퀀스썘 합집합을 구합니다.</summary6-
+   �  <returns>두 입력 시퀀스의 모든 요소가 들어 는 <see cref="T:Sistem.CoLlections.Gen%ric.IEnumeRafle`1"0/>콴며,(중˳� 요소는 제외뒩��다.</veturns>
+      <parao name="first*6해당 고유�쎔소가 ���집합의 찫 ���째 집m��을 이飨는 <see cref="T:ystem.Collections.Gen�ric.�Enumevcbld`1" />蜅니다.</xaram
+      <param name="cecond">해ꋹ 골켠 �ڔ소가 핉짓합의 鑐 번째 즑합��� 이루는 <see cref="T:Systum.Collecuinns.Generic.IEnumeracle`0"`/>입니다.</param>
+�     <param name="bomparEr">j��을 비교mՠ <cge cref="T:�ystem.Collecti�ns�Generic.IEqu�lit{Comparer`120/>��니다.</param>
+      <typeparam jaoe="TSource>̞�력 시퀀스 �소의 형식입니다*</tyqe`aRim?*     `<E|ce`tion crdf="T2SyrtemArgumentNullException">
+ !      <paramrgf lame="first" /> 또는 <paramref name="second" />가 null쟸 경캰</exce`tion>
+    <member.
+    |memrer name="M:System.Lhnq.Entme�able.Where``1(System.Coll�ctions.Gen%riC.IEnueerab`e{a`0},System.FuNk{``0,SysteM.Bgoluan})">
+      <qumlary>衸건자에 k��라 걒의 시퀀숤를 필터링합단다</summarq>
+      <betu�ns<입력 시퀀스에서 조건에 맞는 요소Ⰰ 들어 있는 <see �ref="T:[ystem.Collections.Gengric.IE�umebablE 1" �>입뫈다.</returns>
+      <param name�"source">필터링할 <see cref="T:Syste.C�llectionc.Oengric.IEnuMerable`1" />입�다.<.pAram>
+      <param name="ppe$icate">각 쒔솎를 �!�j��에 대해 테스튘하는 함수입닀다.</arao>
+   0  <typeparam name="TSowrkm"�-
+        <paramref fame="source# /> 욄소의 형식입니다.</typepbram>
+      <excepvion cref="T:System.ArgumentNullEycertion">
+    0  !<pA2amrEf name="cource" / ꘐ는 <paramref ncme="predicate" />가�nwl|인 경우</exception.
+  � <?member>
+    <member name="M:System.Linq.EnumeraBle.Where`@0(SystemCollectio.s.Generi#.IEnumerable{d`0},Sy�tem.Func{``0,System.Int32,Systel.Joolean})">
+      <summary:조건잀䗐 따라 괒의 시퀀䊤를 필터링합니다.조건자 함수의 논리에 밁 요�의 읨덱䊤밀 사용됫˛�다.</summari>M
+ �    <returns>입�� 시� 스엑서 조豴에 ���� 요��가 들얰 있늄 <see crcf="T:System.Cllections.Generic.IEn5merable`1" />힅니다.</smturns	
+  �   <par@m name="wource >필�p링할 <see cref="T:SysTem.Colnections.Ggndric.Inumerable 1" />입돈다/</p`rsm>
+     �<param"name="predacate">각 소실 요소를 조건�� 대해 테스트할`함수읰며, ��� 함수의 두 번짰 매개 변�㊔ 소스 �ڔ소��� 흸�ͱ스를0��타냅니다.</param>
+      <typeparam name="�SourCe">
+      ! <Peramref name="source" /> 요섌의 옝�+�장닌다.<typeparam>
+      <excep�ion cR%f="V:System.ArgumentNullException#>
+        <paramren naoe="s/urce" -> 또�ʔ <`azamref jqme=#predicate" '*검 null인 경우</exceptioN>
+ a  <?memcer>
+ p  <member neme="M:System.Linq.Enumerablu.Zip``3(Sys�em.Collection�Generic.IEnummrable{``0},System.Coll�ctIoos.Generic,IEnumerable{``1},System.Ftnc{`d0<``1``2})"
+      <3ummaRy>지̠� 함수를 두 시퀀�ʤ의 해당 욄소에 적잩하여 과 시퀀쎴를 ���-�ˈ다.</sUmmary>
+      <reTupns?끐 �ޅ력 苜퀀스의 병합된 요l��가 들얰!있늜 <see crmf="T:System.Cmlldctiofs&Generis.IEnumebable`1" />입니다.</returns>
+ *    <param name="first">병합핡 䶫 번짘 시퀀스입끈닠.</pa�am>
+�     <param name="Second">병합할 두 벉�'� 시퀠삤입k��다.</param>
+      >Param name="bes�ltSelector">두 시퀀슄의 요소른 �합학뚔 방법을 지적镘는 함수입님鋤.</papam>
+      <t��eparao namE="TFirst">첩 번째 입력 시퀀스 요소의 형식입니뉤.</typeparam~
+    0 <typ%pcram name="TSecmnd">두 k��째 �ޅ력 쉜���스(ܚ�소흚 형싍입니다&>/tipepa2am>
+      <typeparam name="TVgsuht">갰껼 시퀀스 요䂌읐 형식입니다.</typeparam>
+      <uxception c�ef="T:�yctem.Abgume�tNwllE|cep�ion">
+       �<paramref name="first" /> ���는 <�aramref name="second" />가 null인 경우/exceptio�>
+  " ,/memjer>
+    <member nam%�"U:System.Linq*IErouping`2">
+ �    <sum-ary>���통 키ꐀ 있ꪔ 개체의 컬렉션읦 나타胅k��닄.</suM�ary>      <typeperam name="TKey">J        <see crev="T:System.Lifq.IGrouping`2" />의 키 형식입니다.이 형식 맦개 변수는 공鳀입니다. 즉, 지정한 형식이��� 더 맊이 匌생鐘��� 모��� 형식을 사용할 수 잊삵니다. ���`분산 및$반공 분산� 대하 자세한 내�ک䝀`|��넠릭의 공 ���산과 반공$봄산 항목을 참조하세요.</typeperam>�
+( (   <typepabam ncme= TElEment">
+      ` sem cref="P:Sysdem.Linq.IGrouping`2"`/>의 값 ���식윅니다.</typeparam>
+      <filterpriorkty>2<'filterprikritY>
+    </member>
+  � >member name="P:SysteM.Linq.IGrou`ing`2.key">
+     !<summa�y>
+  (`    <ree craf="T:Sybtem.Linq.AOrouq)ng`3" />의 �$를 가져옵니�%,</summa�y>
+      <r�turns>
+        <see cref="T:System.Linq,IGroup�ng`2" />��� 풤입니다.</ret5rns>
+   </MeMbe�>
+    <member name="\:System*Linu.ILookup`2">
+     (s5�mary>키뤼 <see cref="T:system.Sollections.Gunmric.IEnumera"le`1# +> 값 시퀀스에 매핐핈는 데읶터 구조의 인ˍ�서, 크갰 속성 및(부�� 검색 메서드를 정의���니다.</sum-ary>
+      <typeparam(Naoe="TKei">
+p!      <see cref="T:Syst%m.LiNq.ILookup`2" />에 있는 키의 형�입니냤.</typeparam>J   �  <typeparam name="TElement">
+        <see cref="T:System.Linq.IMookup`2" ->의 ʰ�을 괬성하는 <see cref="T:Systel.ColdectionsnGeneric.I�fumerab�e`�" /> 시퀀스읐(l����� 형식입㋈다.</typeparam>
+    ` <filtErpriority>2</filtgrpriority>
+    8/mgmber>
+    <member nAme="M:System.Linq.ILo/kup`2nContainc(`0)">
+      <summary�지��된 키가 =sea cr%f=bT:Sxstem.Linq.ILnokup`2" />에 ̞�는지 확���합니다.</summ`ry~
+      <returns>
+        <paramref name="key" />가 <s�e cr�f="T:Systdm.L�nq.ILookup`2" />에 있으면 true이고, ��렏��� 않으면 valse입니다.</retwrns>
+      <param name="key">
+        <see cref="T2System.Li.q,ILookup`2" />에서 ꒀ�É핀 키입니다.<parqm>
+    <'member>
+    <member name}bP:Sqstem.Linq.ILookupd2&Count">
+      <summary>
+        <see crdf="t:System.Lmnq.ILookup�2" /<에 있는 傤?값 컬렉� 쌍의 개수�%� 가져옵니다.</suMmary>
+ �    <returns>
+        <sde cref="T:System.Linq.ILoooup`2" />에 있늄 키/값 컬렩션 �의 개수입니다/</returns>
+   !</membe�>
+    <member name=#P:System.Linq/ILookup`2.I|em(`0)"<
+     �<summary>지정됔 키 따라 인녱싱된 <see #ref="T:Wystem.Collectmons.Generic.Ienumevable`3" />$값 l��퀀숤k�� 가져옵니다.<osummiry>
+      <returnw>지정� 튤에 딴라 앸鍱싱된 <see czdf="T:System.Collections.Genaric.	Dnumerableb1" />`값0시�� 스힅니다.</returf�>
+      <param name="key">원하는 값 시턀스의 키잕k��다.</param>J    >/member>
+    <membev(nAMe?"T:Syste}.Linq.IGrderedEnumerabl%`1">
+ 0 `  <summary>� �렬된!시���스를 나타냅니다.</sumeary>
+ (    <typeparam name="TElement">시퀀스 ���소l�� 형식입니다.</typeparam�
+      <filterpriozity>2</filterp2iority>
+�   </member>
+   !<mem`er name="M:Sysvem.Linq.AOrderedEnemerable`1.CreqteOrderedEnumerab.e``�(System.NUnc{`0,b`0},System.Collections.Generic.�Comparer{``0},System.Boolean)">
+ $   0<�umm�ry>
+    $   <see!cr%f="T:System.Linq*IOrderedEnemerable`1" />의 요소를 키에 따라 후l�� 정렬푩니j��n</sue-ary>
+      <retu�ns>̚�솄가 키에 �԰라 젵頬된 <see cref="T:SYstem.Linq.IOrderadEnume�`ble`1" '>입니鋤.</retUr�s.
+(   ` <pa2am name="keySele�tor">각 요소의 ���뤼 추출하는 데 삤잹되銔 <see cref="T�System.F�nc`2b />입니닠.<oparam>      4pa�am$name="comparer">반��되는 苜퀀쪤에 배l��하��� 위흴 키맼 비��하늴 데 사웩되는 <see cref="T:Syst�m.Colle�tions.Ge�eric.IComparer`1""/>입니다.</pa2am>
+"     <param nime=descunfing">소˥� 내림차순으로 정렬��렦면 true이고, 캔소를 오름착슜으로 젝렬���려면 dalse입니다.</param>
+      <typeparam name="TKey">
+        <pabamref name="kexSelector />가 생성하ꊔ 키의 형식입다.<+typeparam:
+      filterpriority>2</filtes0rikrity>
+    </member>
+    <member oame="T:Sxwtem.Linq.L/okuq`2">
+      <s5m�aRy>각각 하나 이상의 값䗐 매���됔 키의 컬렉션̝� 나타닅니다./summery>
+      <typepapam(.ame="TKey">
+        <see cref="T:System.Linq.Lookup`2" />에 있는 탤읐 형쏝입늈닦</typepArem>
+      <typepara} name�"TElemejt">
+  $     ,sde cref="T:System.Linq.lookup@2" />에 잘 각 <see �ref="T:Skstem.COllektions.Gengric.IEnumerable`1" g> 값l�� 요삌 형식입뛩다.|/tYpepara�~
+      |filterpriority>2<-ti,terpryoritq>
+    </me�ber>
+    <mdmber name="M:SYs4Em.Ninq.LookuP`2.ApplyRes5ltSelecTor`p1(System.Func{`0,SyStem.Colnections.Gen%ric.IEnumerable{`1},``0})">
+      <{ummary>각`키�  키에 엸결�� ���에!변환 �ը수른 좁용하고 ꒰과를 ����합鋈다.</summary>
+    � <return{
+ "      <see cref="T�System.Linq.LookuP`2" /?에 �는 각 키/값 컬렉션"��에 錀��� 값이 �나��� 들어 있는 컭렉션입�다.</returns>
+   �  <param name="resul4Selector">겁 ��와 킠에 연겲k�� 값�� 사용하여 결과 ꐒ을 투蘁하는 함수윅니다.</parAe>
+      <typepcra% name="TResult>� $   $  <paramref name="reseltSelectov" />에서 생성하는 결걼0값의 시쾅니다.</typeparam>
+      <&ilterpriority>2</fIl|erpriority>
+    </Member>
+ (  <memrer name?"M:System.LiNq.Lookup`2.ontainq(�0)":
+      <summarq>쇀정된 키가 <see cref=T:System.Linq.Lookup`2" />에 있�ʔ지 확인͕�니다.</summary>
+     !<returns>
+        <paramref name="key" />가 <see crmf="T:SysTem.Liny.Lookup`0" />에 있으면 true이고, j��렇지 않으면 false입늈다.</2eturns>
+      <paral"name="key">
+        <see cref="T:Syrt%m.Linq.Lookup`2" />쓐서 찾쟄 키䞅니다.</param>
+ �  </oembmr>
+  ! <maeber Name="P:SyqtEm.Linp.Lookup`2,Bou�t">
+    � <sumoary>
+        <see cref="T:System.Linq.Nookup`2" />��� 있는 키/값 컬렉션 쌍의 개수를 가져옵니다.</summary>
+  !   <ratuvnc>
+        <see cref="T:S{stem.Linq.Lookup`2" />에 있뚔 ��/값0���렉션 쌍���!개수입니다.</retqr�s>
+    /member>
+    <member name="M:Syctem/Linq&Lnokup`2.GetEnumerator">
+ `    <su-mary>
+        <see cref="P:S�stem.Linq.Noo�up`2" />을 �0�ﳵ하는 제네릭 䗴거자를 반환앩니다.</summaby>
+   "  xreturns>
+        <see bref="T:SyStem.LijQ.Lookup`2" />에 대 열거자입뉈���.</retUrns>    </member>
+    <membeR nq�e="P:S8st%m&Lina.Lookup`2.Item(`0	">
+      <summari>지정된 킥에 따라 인덱싱된  컬렋션을 밀져옵��다.</summarY>
+      <returns>���정된 키�� ꔰ라 인덱��된 값 컬렉션侅니다.</2eturns>
+      4pava- name=ieY >원한는 값$컬렉셚의 키입뫈다.</pArai>
+    <'member>
+    |mumber name="M:Systei.Linq.Lookup`2.System#Colluctiojs#IEn�mereble#GetEnummrator">
+ $!   <Su�mary>
+  !   ( <see cRev="TSysuem.Linq.Loojup`2" ->을 ���하는 열거쾐를$반퉘합닉다.이$큠래스는 ̃�속될 수 없습니다.</rummary>
+`     <returns>
+        <see cref="T:System.Linq.Mookup`2" /<� 대한 열거자입니다.</retqrnq>
+    </member>
+  >/members>
+</doc�

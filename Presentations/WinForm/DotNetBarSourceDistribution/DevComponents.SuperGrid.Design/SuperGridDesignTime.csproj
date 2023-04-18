@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D06A8233-416A-4547-BFF6-7A26345B7396}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DevComponents.SuperGrid.Design</RootNamespace>
+    <AssemblyName>DevComponents.SuperGrid.Design</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SUPERGRID</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ReleaseTrial|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SUPERGRID;TRIAL</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Compile Include="BoolValueTypeDropDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ColumnListTypeEditor.cs" />
+    <Compile Include="ImageIndexTypeDropDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImageIndexTypeDropDown.Designer.cs">
+      <DependentUpon>ImageIndexTypeDropDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageIndexEditor.cs">
+    </Compile>
+    <Compile Include="ImageListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SuperGridActionList.cs" />
+    <Compile Include="SuperGridDesigner.cs" />
+    <Compile Include="ValueTypeDropDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ValueTypeDropDown.Designer.cs">
+      <DependentUpon>ValueTypeDropDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ValueTypeEditor.cs" />
+    <Compile Include="GridCellCollectionEditor.cs" />
+    <Compile Include="GridRowCollectionEditor.cs" />
+    <Compile Include="GridColumnCollectionEditor.cs" />
+    <Compile Include="EditTypeDropDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditTypeDropDown.Designer.cs">
+      <DependentUpon>EditTypeDropDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditTypeEditor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ImageIndexTypeDropDown.resx">
+      <DependentUpon>ImageIndexTypeDropDown.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValueTypeDropDown.resx">
+      <DependentUpon>ValueTypeDropDown.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditTypeDropDown.resx">
+      <DependentUpon>EditTypeDropDown.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevComponents.DotNetBar.SuperGrid\SuperGrid.csproj">
+      <Project>{a344305f-d2e2-4350-b61e-d7277959a5b4}</Project>
+      <Name>SuperGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNetBar.csproj">
+      <Project>{36546ce3-335c-4ab6-a2f3-40f8c818bc66}</Project>
+      <Name>DotNetBar</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

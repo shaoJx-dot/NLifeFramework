@@ -1,0 +1,17 @@
+D:\NLifeFramework\Presentations\WinForm\Initial\bin\Release\Initial.exe.config
+D:\NLifeFramework\Presentations\WinForm\Initial\bin\Release\Initial.exe
+D:\NLifeFramework\Presentations\WinForm\Initial\bin\Release\Initial.pdb
+D:\NLifeFramework\Presentations\WinForm\Initial\bin\Release\MetroFramework.Design.dll
+D:\NLifeFramework\Presentations\WinForm\Initial\bin\Release\MetroFramework.dll
+D:\NLifeFramework\Presentations\WinForm\Initial\bin\Release\MetroFramework.Fonts.dll
+D:\NLifeFramework\Presentations\WinForm\Initial\bin\Release\MetroFramework.Design.pdb
+D:\NLifeFramework\Presentations\WinForm\Initial\bin\Release\MetroFramework.Fonts.pdb
+D:\NLifeFramework\Presentations\WinForm\Initial\obj\Release\Initial.csproj.AssemblyReference.cache
+D:\NLifeFramework\Presentations\WinForm\Initial\obj\Release\Initial.csproj.SuggestedBindingRedirects.cache
+D:\NLifeFramework\Presentations\WinForm\Initial\obj\Release\Initial.LoginForm.resources
+D:\NLifeFramework\Presentations\WinForm\Initial\obj\Release\Initial.Properties.Resources.resources
+D:\NLifeFramework\Presentations\WinForm\Initial\obj\Release\Initial.csproj.GenerateResource.cache
+D:\NLifeFramework\Presentations\WinForm\Initial\obj\Release\Initial.csproj.CoreCompileInputs.cache
+D:\NLifeFramework\Presentations\WinForm\Initial\obj\Release\Initial.csproj.CopyComplete
+D:\NLifeFramework\Presentations\WinForm\Initial\obj\Release\Initial.exe
+D:\NLifeFramework\Presentations\WinForm\Initial\obj\Release\Initial.pdb

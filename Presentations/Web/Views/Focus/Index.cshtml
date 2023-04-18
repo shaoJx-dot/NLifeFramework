@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xs-6 col-sm-9">
+    <div >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">今日聚焦</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="media-list" id="topic_list">
+                    <li class="media topic-list">
+                        <div class="pull-right">
+                            <span class="badge badge-info topic-comment"><a href="topic/3055.htm#reply">186</a></span>
+                        </div>
+                        <a class="media-left" href="user/profile/1.htm"><img class="img-rounded medium" src="Content/Images/Default/normal.png" alt="admin medium avatar"></a>
+                        <div class="media-body">
+                            <h2 class="media-heading topic-list-heading"><a href="topic.html">微社区zerolag v1.0.0发布</a><span class="badge badge-info">置顶</span></h2>
+                            <p class="text-muted">
+                                <span><a href="node/1.htm">程序发布</a></span>&nbsp;•&nbsp;
+                                <span><a href="user/profile/1.htm">lovton</a></span>&nbsp;•&nbsp;
+                                <span>20 天前</span>&nbsp;•&nbsp;
+                                <span>最后回复来自 <a href="user/profile/8552.htm">lovton</a></span>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="media topic-list">
+                        <div class="pull-right">
+                            <span class="badge badge-info topic-comment"><a href="topic/4298.htm#reply">80</a></span>
+                        </div>
+                        <a class="media-left" href="user/profile/1.htm"><img class="img-rounded medium" src="Content/Images/Default/normal.png" alt="admin medium avatar"></a>
+                        <div class="media-body">
+                            <h2 class="media-heading topic-list-heading"><a href="topic.html">新版规划</a><span class="badge badge-info">置顶</span></h2>
+                            <p class="text-muted">
+                                <span><a href="node/1.htm">程序发布</a></span>&nbsp;•&nbsp;
+                                <span><a href="user/profile/1.htm">admin</a></span>&nbsp;•&nbsp;
+                                <span>20 天前</span>&nbsp;•&nbsp;
+                                <span>最后回复来自 <a href="user/profile/8548.htm">J1anCan</a></span>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="media topic-list" _hover-ignore="1">
+                        <div class="pull-right">
+                            <span class="badge badge-info topic-comment"><a href="http://bbs.startbbs.com/topic/3055#reply">198</a></span>
+                        </div>
+                        <a class="media-left" href="http://bbs.startbbs.com/user/profile/1"><img class="img-rounded medium" src="Content/Images/Default/normal.png" alt="admin medium avatar" _hover-ignore="1"></a>
+                        <div class="media-body">
+                            <h2 class="media-heading topic-list-heading"><a href="http://bbs.startbbs.com/topic/3055" _hover-ignore="1">开源轻社区startbbs v1.2.3发布</a><span class="badge badge-info">置顶</span></h2>
+                            <p class="text-muted">
+                                <span><a href="http://bbs.startbbs.com/node/1">程序发布</a></span>&nbsp;•&nbsp;
+                                <span><a href="http://bbs.startbbs.com/user/profile/1">admin</a></span>&nbsp;•&nbsp;
+                                <span>6 天前</span>&nbsp;•&nbsp;
+                                <span>最后回复来自 <a href="http://bbs.startbbs.com/user/profile/9391">jdjds</a></span>
+                            </p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="panel-footer"><a href="javascript:void(0)" id="getmore">更多新主题</a></div>
+        </div>
+
+    </div>
+</div>
+
+@Html.Partial("_RightPartial")

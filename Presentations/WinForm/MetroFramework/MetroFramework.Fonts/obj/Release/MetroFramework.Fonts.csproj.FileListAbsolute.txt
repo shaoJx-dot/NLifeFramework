@@ -1,0 +1,8 @@
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Fonts\bin\Release\MetroFramework.Fonts.dll
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Fonts\bin\Release\MetroFramework.Fonts.pdb
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Fonts\bin\Release\MetroFramework.dll
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.csproj.AssemblyReference.cache
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.csproj.CoreCompileInputs.cache
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.csproj.CopyComplete
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.dll
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Fonts\obj\Release\MetroFramework.Fonts.pdb

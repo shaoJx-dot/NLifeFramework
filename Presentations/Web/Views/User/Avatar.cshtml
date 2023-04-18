@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xs-6 col-sm-9">
+    <div >
+
+        <div class="panel">
+            <div class="panel-heading">
+                <h4>账号设置</h4>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs">
+                    <li>@Html.ActionLink("基本信息", "settings", "User")</li>
+                    <li class="active"><a href="javascript:void(0)">修改头像</a></li>
+                    <li>@Html.ActionLink("密码安全", "passwd", "User")</li>
+                </ul>
+                <div class="setting">
+                    <form class="form-horizontal" enctype="multipart/form-data" action="/settings/avatar_upload" method="post">
+                        <input type="hidden" name="stb_csrf_token" value="62f915b11cbdea14372f479839a5752e">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">当前头像</label>
+                                <div class="col-md-8">
+                                    <img class="large_avatar" src="Content/Images/Default/big.png" class="img-rounded">
+                                    <img class="middle_avatar" src="Content/Images/Default/normal.png" class="img-rounded">
+                                    <img class="small_avatar" src="Content/Images/Default/small.png" class="img-rounded">
+                                    <div class="alert alert-info alert-avatar">
+                                        <strong>注意</strong> 支持 512k 以内的 PNG / GIF / JPG 图片文件作为头像，推荐使用正方形的图片以获得最佳效果。
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="avatar_file">选择图片</label>
+                                <div class="col-md-6">
+                                    <input type="file" id="avatar_file" name="avatar_file" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6">
+                                    <button type="submit" name="upload" class="btn btn-primary">上传新头像</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div><!-- /.col-md-8 -->
+
+    </div>
+</div>
+
+@Html.Partial("_RightPartial")

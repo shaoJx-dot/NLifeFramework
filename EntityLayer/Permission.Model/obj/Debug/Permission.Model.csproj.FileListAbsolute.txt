@@ -1,0 +1,10 @@
+E:\Work\LWD\NLifeFramework\EntityLayer\Permission.Model\bin\Debug\Permission.Model.dll
+E:\Work\LWD\NLifeFramework\EntityLayer\Permission.Model\bin\Debug\Permission.Model.pdb
+E:\Work\LWD\NLifeFramework\EntityLayer\Permission.Model\obj\Debug\Permission.Model.dll
+E:\Work\LWD\NLifeFramework\EntityLayer\Permission.Model\obj\Debug\Permission.Model.pdb
+E:\Work\LWD\NLifeFramework\EntityLayer\Permission.Model\obj\Debug\Permission.Model.csprojResolveAssemblyReference.cache
+D:\Work\C#\NLifeFramework\EntityLayer\Permission.Model\bin\Debug\Permission.Model.dll
+D:\Work\C#\NLifeFramework\EntityLayer\Permission.Model\bin\Debug\Permission.Model.pdb
+D:\Work\C#\NLifeFramework\EntityLayer\Permission.Model\obj\Debug\Permission.Model.csproj.CoreCompileInputs.cache
+D:\Work\C#\NLifeFramework\EntityLayer\Permission.Model\obj\Debug\Permission.Model.dll
+D:\Work\C#\NLifeFramework\EntityLayer\Permission.Model\obj\Debug\Permission.Model.pdb

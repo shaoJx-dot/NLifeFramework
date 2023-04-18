@@ -1,0 +1,1937 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Linq</name>
+  </assembly>
+  <members>
+    <member name="T:System.Linq.Enumerable">
+      <summary>提供一組 static (在 Visual Basic 中為 Shared) 方法，用於查詢實作 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 的物件。</summary>
+    </member>
+    <member name="M:System.Linq.Enumerable.Aggregate``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})">
+      <summary>將累加函式套用到序列上。</summary>
+      <returns>最終累積值。</returns>
+      <param name="source">所要彙總 (Aggregate) 的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="func">要在每個項目上叫用 (Invoke) 的累加函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="func" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Aggregate``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})">
+      <summary>將累加函式套用到序列上。使用指定的初始值做為初始累加值。</summary>
+      <returns>最終累積值。</returns>
+      <param name="source">所要彙總 (Aggregate) 的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="seed">初始累積值。</param>
+      <param name="func">要在每個項目上叫用 (Invoke) 的累加函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TAccumulate">累積值的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="func" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Aggregate``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})">
+      <summary>將累加函式套用到序列上。使用指定的值做為初始累加值，並使用指定的函式來選取結果值。</summary>
+      <returns>轉換後的最終累加值。</returns>
+      <param name="source">所要彙總 (Aggregate) 的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="seed">初始累積值。</param>
+      <param name="func">要在每個項目上叫用 (Invoke) 的累加函式。</param>
+      <param name="resultSelector">用來將最終累加值轉換成結果值的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TAccumulate">累積值的型別。</typeparam>
+      <typeparam name="TResult">結果值的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />、<paramref name="func" /> 或 <paramref name="resultSelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.All``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>判斷序列的所有項目是否全都符合條件。</summary>
+      <returns>如果來源序列的每個項目都通過以指定之述詞 (Predicate) 進行的測試，或序列是空的，則為 true，否則為 false。</returns>
+      <param name="source">
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含要套用述詞 (Predicate) 的項目。</param>
+      <param name="predicate">用來測試每個項目是否符合條件的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Any``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>判斷序列是否包含任何項目。</summary>
+      <returns>如果來源序列包含任何項目，則為 true，否則為 false。</returns>
+      <param name="source">要檢查是否為空白的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Any``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>判斷序列的任何項目是否符合條件。</summary>
+      <returns>如果來源序列中的任何項目通過以指定之述詞進行的測試，則為 true，否則為 false。</returns>
+      <param name="source">其項目要套用述詞的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="predicate">用來測試每個項目是否符合條件的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.AsEnumerable``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>傳回型別為 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 的輸入。</summary>
+      <returns>型別為 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 的輸入序列。</returns>
+      <param name="source">型別為 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 的序列。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>計算 <see cref="T:System.Decimal" /> 值序列的平均值。</summary>
+      <returns>值序列的平均。</returns>
+      <param name="source">要計算平均值的 <see cref="T:System.Decimal" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>計算 <see cref="T:System.Double" /> 值序列的平均值。</summary>
+      <returns>值序列的平均。</returns>
+      <param name="source">要計算平均值的 <see cref="T:System.Double" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>計算 <see cref="T:System.Int32" /> 值序列的平均值。</summary>
+      <returns>值序列的平均。</returns>
+      <param name="source">要計算平均值的 <see cref="T:System.Int32" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Int64})">
+      <summary>計算 <see cref="T:System.Int64" /> 值序列的平均值。</summary>
+      <returns>值序列的平均。</returns>
+      <param name="source">要計算平均值的 <see cref="T:System.Int64" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Decimal}})">
+      <summary>計算可為 Null 之 <see cref="T:System.Decimal" /> 值序列的平均值。</summary>
+      <returns>值序列的平均值，如果來源序列為空白或只含有 null 值，則為 null。</returns>
+      <param name="source">要計算平均值之可為 Null 的 <see cref="T:System.Decimal" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">序列中項目的總和大於 <see cref="F:System.Decimal.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+      <summary>計算可為 Null 之 <see cref="T:System.Double" /> 值序列的平均值。</summary>
+      <returns>值序列的平均值，如果來源序列為空白或只含有 null 值，則為 null。</returns>
+      <param name="source">要計算平均值之可為 Null 的 <see cref="T:System.Double" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>計算可為 Null 之 <see cref="T:System.Int32" /> 值序列的平均值。</summary>
+      <returns>值序列的平均值，如果來源序列為空白或只含有 null 值，則為 null。</returns>
+      <param name="source">要計算平均值之可為 Null 的 <see cref="T:System.Int32" />  值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">序列中項目的總和大於 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Int64}})">
+      <summary>計算可為 Null 之 <see cref="T:System.Int64" /> 值序列的平均值。</summary>
+      <returns>值序列的平均值，如果來源序列為空白或只含有 null 值，則為 null。</returns>
+      <param name="source">要計算平均值之可為 Null 的 <see cref="T:System.Int64" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">序列中項目的總和大於 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Single}})">
+      <summary>計算可為 Null 之 <see cref="T:System.Single" /> 值序列的平均值。</summary>
+      <returns>值序列的平均值，如果來源序列為空白或只含有 null 值，則為 null。</returns>
+      <param name="source">要計算平均值之可為 Null 的 <see cref="T:System.Single" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Single})">
+      <summary>計算 <see cref="T:System.Single" /> 值序列的平均值。</summary>
+      <returns>值序列的平均。</returns>
+      <param name="source">要計算平均值的 <see cref="T:System.Single" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得之 <see cref="T:System.Decimal" /> 值序列的平均值。</summary>
+      <returns>值序列的平均。</returns>
+      <param name="source">用來計算平均值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+      <exception cref="T:System.OverflowException">序列中項目的總和大於 <see cref="F:System.Decimal.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得之 <see cref="T:System.Double" /> 值序列的平均值。</summary>
+      <returns>值序列的平均。</returns>
+      <param name="source">要計算平均值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得之 <see cref="T:System.Int32" /> 值序列的平均值。</summary>
+      <returns>值序列的平均。</returns>
+      <param name="source">要計算平均值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+      <exception cref="T:System.OverflowException">序列中項目的總和大於 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得之 <see cref="T:System.Int64" /> 值序列的平均值。</summary>
+      <returns>值序列的平均。</returns>
+      <param name="source">要計算平均值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">來源之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+      <exception cref="T:System.OverflowException">序列中項目的總和大於 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 <see cref="T:System.Decimal" /> 值的平均值。</summary>
+      <returns>值序列的平均值，如果來源序列為空白或只含有 null 值，則為 null。</returns>
+      <param name="source">要計算平均值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">序列中項目的總和大於 <see cref="F:System.Decimal.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 <see cref="T:System.Double" /> 值的平均值。</summary>
+      <returns>值序列的平均值，如果來源序列為空白或只含有 null 值，則為 null。</returns>
+      <param name="source">要計算平均值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 <see cref="T:System.Int32" /> 值的平均值。</summary>
+      <returns>值序列的平均值，如果來源序列為空白或只含有 null 值，則為 null。</returns>
+      <param name="source">要計算平均值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">序列中項目的總和大於 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 <see cref="T:System.Int64" /> 值的平均值。</summary>
+      <returns>值序列的平均值，如果來源序列為空白或只含有 null 值，則為 null。</returns>
+      <param name="source">要計算平均值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 <see cref="T:System.Single" /> 值的平均值。</summary>
+      <returns>值序列的平均值，如果來源序列為空白或只含有 null 值，則為 null。</returns>
+      <param name="source">要計算平均值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得之 <see cref="T:System.Single" /> 值序列的平均值。</summary>
+      <returns>值序列的平均。</returns>
+      <param name="source">要計算平均值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Cast``1(System.Collections.IEnumerable)">
+      <summary>將 <see cref="T:System.Collections.IEnumerable" /> 的項目轉換成指定的型別。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含已轉型成指定之型別的每個來源序列項目。</returns>
+      <param name="source">
+        <see cref="T:System.Collections.IEnumerable" />，其包含要轉換成型別 <paramref name="TResult" /> 的項目。</param>
+      <typeparam name="TResult">要將 <paramref name="source" /> 之項目轉換成的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidCastException">無法將序列中的項目轉換為型別 <paramref name="TResult" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>串連兩個序列。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含兩個輸入序列的串連項目。</returns>
+      <param name="first">要串連的第一個序列。</param>
+      <param name="second">要串連到第一個序列的序列。</param>
+      <typeparam name="TSource">輸入序列的項目之型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 或 <paramref name="second" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Contains``1(System.Collections.Generic.IEnumerable{``0},``0)">
+      <summary>使用預設的相等比較子 (Comparer) 來判斷序列是否包含指定的項目。</summary>
+      <returns>如果來源序列包含具有指定值的項目，則為 true，否則為 false。</returns>
+      <param name="source">要在其中尋找值的序列。</param>
+      <param name="value">要在序列中尋找的值。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <�xception cref="T:System.ArgumentNull�8ception">
+ !     `<paramref n`me="source" /> 為 null。<-exception>
+    </member>
+    <member name="M:S��tem.Lina.Eo}merable.Contains`p1(System.Collectiojs.Gejeric.IEnumera�le{``0},``0,System.C/`lections.Generic.IEqualityComparer{` 0})">
+     !<qummary>使用指Ů�的 <see cref="T:System.CO�leCtions.Generik>IEQualityComparer`1b /> 來�Ȥ斷序列是吆���含挎定的項目��</sumeAry>
+      <re4urns>墂曜來源���列包吪具有指厚值��項目，則炚 true－否則為 fa,se。</veturns>
+      <par`m nam�="source">覃在其��尋找瀼的序列。</param>�     xparam0name="value">要圠徏�中���找��〼。4/paRam>
+      <param name="comparer">疨來比較倜的相穉比踃子。</xaram>
+      <typepara} name="TSource">
+        <paramref!naMe="source"0/> 之項目的型別〢</typeparam>
+   `  <exbep��on cvaf=2T:Sy3tem.ArgwmeftNulnEXception">
+  !     <paramref jame=�source"�?>$為 null。</exception>
+    </member>
+    >member n`me="MSyqtem.Linq.Enumerabl�.Count``18Systel.CollectiOns.Generic.IEnemeRable{``0})"<
+  $   <summary>傳回序�ȗ严的頍盎數。</swmmari>
+    $ <retUrns>輸入嚏列中的ɠ�目數��。</retubns>
+      <param name="source">包含要쨈玗�� �目皌序列。</paba�>
+      8typep`ram name="Source">
+        <paramreF name=�source" /> 之項绮的喋別。</|ypuparam>
+      <ex�eption c2ef=bTQysteo.ArgumentN1llException">
+  !     4paramRef name="sourceb /> 為"null。</�xcgption>
+  $   <ehception crdf9"T:System.OverflowEx�eptaon">
+        <paramref name="sour#e"�/. 中的頥目數目大於 <see czaf= F:System.Int32.MaxAlue" �6。�/Exceptign>
+    </member>
+    <member Na-e="M:Syctem.Lhnq.Enumerablw.Count``1(S}stem.CollectionsGeneriC.IEnumerable{``0},S9stem>Func{``0,System.Boolecn})">
+      <summary>傳回數ŭ�，代表指定䙋序列中���吊䢝件的頕���敼瓮。</summary>
+      =rgtupns>數字�܌代表序刷中符���述詞凹式之條件�項目數目㄂>/returns>
+      param namd=#source"?包吩要測試及計算d��項目的序列〆</pAram>
+      <pa�am name=&predicape :用徆測試每個စ皮是否符呈梟件的函式。</param>
+!     <typepaRam name="TSou2ce >
+        <paramref name="sOurce" /> 之項�ۮ的型別。</t9peparae>
+      <e�ceptioN cbef="T:System.ArgumentNwllExcettion">
+        <paramref(name="source"`/> 挖 <paramjef name="predica4e" /> 是 nuhl〢</exception>
+      <excepdioo cref="T:Sys|am.OverfloEhception">
+       0<paramreg name="s/5rce" /> 中的項绮數目大旼 <see cref="F:System.Int22.MaxValue" />���8/excepthon>
+    </membEr>
+    <mamber na�e="M:System.Linq.Enumerable.DefauluIfEmP�y``1(Sqstem.CohlectIons.GeneryC.IEnumerable{``})">
+      <summary>�����猇定之徏列的項目；宂果序列是筲璄�則傳回單一集合中型�奏數嚄預設e��。</su�mary>      <returns>如果 <parqmsef nalu=bsource" /> 炻���白，則為嬅含 <paramre& n!le="TSourceb /> 型別���頀設值ǚ��<see csef="T:System.Cnllectionc.Genasi�.IUnumerable`1" /> 物件，否��為 <pAramref namm="sourcd" />。</re|urns>
+      <Param name="so5rce�>序列，若筴嚏刷空白，便傳回頀��值。$/Para->
+     0<tyxeparam name="Tnurce">
+  0     <paramref name="sm}Rce" /> 乏項目��型別。</ty0eparam>
+      <mxception cref="T:Syrdem.A2gumentNul,Exception">
+        <paramref�name="soerce" /> 為 null㄂<oexception>
+    </member>    <meiber neme=M:Systdm.Linq.Enumerabme.DufAultIfEmpty``1(System.Colnections.Generic.IEnwmerablek``0],``0)>
+ �    <summaby>傳��指定之序列的項目；如果廏列景空的，則傳回單一集琈中型ሥ參數的預設值。</summary>	
+      <re�u2ns>�澜 <paramref jame="souzce" o> 是空的則為包含 <paramref name="defaultValum" /> 的 <see cref="T:System.Col�ectionsGeneria.IE�umerablu`!" />，Ő�則��� <paraeref name="source" />。</returls>
+      <param name="Source">序�，若此嚏列空白，便傳图指定的值。</param>
+      peram na}e="fefaultValUe">在序刟�:白時所要傳廞的���。<op!ram>
+     $<typeparam name5"Tource&>M
+   !   0<paramref name="sou�ce" /� 之蠅目的型嘥。<typeparam>
+    </member>�
+    <me�ber na}e="M:System.Linq.Enumer!�le.Distinct``1(System.Collections.Generic.IEnumerable{``0})">
+     "=qummary>使用預設的相獉Ư�較子侎比較值，䣥d��從帏�ȗ傳回獨特的項目。</suim!sy>*  !(  <returns>
+        <see cref=*T:System.Cgllectio~S.Genaria.IEnumeraclE`1" />，兦中包含來檐序列中的珨癹項目。</returns>
+  "  �<pa2am namd="rourse">要�;除醍줂᠅目的序列。</param>
+      <typepapam naie="TSource">-
+        <paramref name"snurce" /6 之項目的喋e��。</typeparam:
+      4excdPtion cref="T:System,ApgtmEntNullException">
+        <paramref name=bsou�ce" /> 為0null。</exaeption>
+    <-membgz~
+    <member name="M:Sistem.linq.Enumerable.DispincT``1(CysteM.Aollecuimns.Gen�ric/IEnumErab�e{``0},System.Collections.Generic.IEqqalkt}Comparer{``0})">
+   0  <summary>佟用指定的 <see cref="T:System.Collections.Generic.IEqualityCmparer`1" /> ���比較值o��以���從���䈗�3回獨特的項目〢</summary>
+   "` returns>
+       $<rme cref="T:System.Collections.Generic.IEnumerable`1" />，���中包含ľ�源序刖中的眨特項目���</re�urns
+      <param name="source">要移除重複項目的序列〄</param>
+   0  <pirq} name="comparer">用來比較倜的 <see gref="T:System.Colnections.CenericIEquc,ityCom`!rer`1" />。</pazam>
+      �typeparam name="TSource">
+        <paramref name="source"!/> 䙋項�.的型�ȥ。</typepasam>M
+   "  <excaptign cref="T:System.ArgumentNu|lException">
+        <paraeref name5bsoerce" -> 為"null。</exceptimn>
+    </memBer>
+  0 <member name="M:Syw4em.Linq.Enumerable.ElementAt``1(SystEm.Cgllections.GeneRic.AEnumebablE{``1},System.Int32) >
+      <summary>傳回����׼序列中指定索引處的項g��。</summary>
+   `  returns>�ݍ於䞆���序列中捇定位置的項癮。</returns>
+      <param(name="sou�ce">傳回項目皔 see cref="T:SYstem/G/llecpions.GenebicIOnumurable`" />。</param>
+      <param namm="indexb6ꦁ擷取的項囮之滥ᛶ起䧋索引。</param
+   "  <ti�eparam name="TSource">
+        <par`mref name=#skurce" / 幋項目的型別���</typeparaM>�
+      <exception cref="T:system.ArgumentNullExcmption">
+  "     <pabamref name="source" /> 為 null���<.exception�
+ `    <exception c�ef=�T:System.ArgumentOutOfRanoeExceptign">
+` �     <paramref name="index" /< 小於 0 或大於或等於 <paramref name="{murce"(/> 中的ɠ�目數目c��</exception>
+    </member>
+    4mEmrer na}e="M:SysteM.Linq.Enumerable.E,emuntAtO�Default`p1(Sysdem.Collections.Generic.AEnUmerable{``0},System.Int32)">
+ `    <summary>傳哞䵍撼序列中指���索引h��的項���；如果g��引超出範圍，則傳回預蠭值���</s}mmary>
+      <revurns>如果索引位�ּ來源���列的界限之嬖＄則ズ dEfault(8raramref name="DSource" �>)��否則為Ľ�於來源序列䨭指媊索���處的項目。</re4urns>
+      <param name�"skurbe"6傳回項目的 <see Kref="�*Systdm.Collecuions.Gener�c.IEnumeRable`1" />。</param>
+0  (  4p`pee naee="index">ঁ擷受的項盬之以零起e��索引。</param>
+      <typeparam naee="TSoercm">
+        <paramr%f name="q/urce" /> 之項目的型別。</typeparam>
+  $   <exception cref="T:System.CrgumentNullExceptiOn">M
+�       <tarampef`name="source "/> ��� nul�㠂</exception>
+    </member>
+    <membur name="M:Syst%m.Li.q.Enqmerable.Empty``1#>
+$     <3umme�y>Ⴓ回具有指定之���別崕數犄空白 <see cr%f="T*System.Collections.Genermc.IEnumebable`1& /> </cUmmary>
+      <raturns:�6䞋別引數為 <paramzef name="Result" /> 的空瘭 <see cref="T:System.Collections.Generic/IEnumerable`1" />。<+returns>
+      <typeqaram naee="PR�cudt">型別，紨來指派�&傳回之��瞋 >�ee creg="T:System.Collections.Gener)c.IEnumerable`1" /. 的型別參數。</typeparam>
+    </member>
+    <Leiber fame="M:Sysuem.Lmnq.AnulerabLe.Except``1(Syqt%i>Comlectin�s.GenEric.IEnumerable{`b0},SYstgm.K/llections.Generia.IEnumerab,e{``0})">
+    " <summary>使�Ԩ預設相筍比較子���比蜃值，以便產��兩個序列纄差異。</sum�ary>
+      <returns>序ሗ，e��中包含兩個序列之項翮瞄差異ˀ�</returns.
+      <pasam name/"first"
+        <cee cref="T:System.ColLectio~S.GenmriC.IElUmerablea1" .>－其���盎若未同時存在 <par�mref name="secold"0/> 中ﾌ亿會傒ᛞ鄙些項目。</`aram>
+  $ ` <param namE=&secknd">
+  0     <seg cbef="T:Sys|�m.Collecthons.Gunerib.IEnumepable`" />，若其颅目Ő�杂�ǺǏ�在笌一個序列中，伿���從傳回的序列ĸ�移除這些項目。</pasam>
+   !  <typeparam neme="TSource">輸入序列暄項盦之型別。</tyreparam>
+      <excertion cref="T:ystem.ArgumeNtNullExceptin">
+        <paramref n�me<"fipst" /> 或 <par!mbef name="second" /> 為 nunl。</Exception>
+    >/member>
+    <member`name="M:Sys|em.Linq.Enumdrarle.Except``1(System.Collect	ons.Generic.IEouMerqble{``0],System.CollmctionsGenaric.Inumerable{``0},Systmm.CollectiOns.Cuneric.IEq5alityCompa�er{``0m)"~
+      <summary>使琨指�的 <see cref"T�system.Coll�ctions.Generic.IEqualityComtarerp5 /> 來比較值，以便產畟䅩傋序ኗ��巾畸。</stmmary>
+      <ret}rns>序��缌���中包含�)個序列幋項目的差異。</returns>
+      <parae name="virsv"<
+   (    <sea cref="T:Wystem.Co|lections.Generic,IENumereble`1" />，其頇�若未��時存Ŝ� <paramref name="second" />`中，便权傳回這些頁目�</param>
+   !  <param nama="second">
+        <see cref="T:System.Comle#tiols.Gunevic.IEnumerable`1" />，諥���項盦同時出現在��亀個纏列中－侟���從倓回的序列中移���這些項盪。</param>
+!     <xaram name="comperer">用來比較偼的 <See$cpef="T:Sysdem.Collgktions.Generic�IEquclityComp!rer`1" />。</param>
+ "    <typeparam name="TSource">輸入序列的項盪之型別。4/typgpcrAm>
+      <exceppion creb=$T:Syste}.ArgumentNulLE�ception">
+�       <paramref name=first" o> �� <�aramref nAme="second""/> 傺 null。</exception>
+    >/me}ber>
+    member ~ame=#]�Syqtem.L�nq.Enumerable.First``1(Systei.Colluction{.Generkc.IEnum%rable{bj0})">
+      <summarq>僳回���列的第一個頥目。</summary>�      <r�tUrns>指妺之횏列中的第丁個逅目。</peturns>
+      <pCram name"sourca">要傳回第一個項目的 <see cref="T:Wystem.Collections.Gene2ic.IEnumeraBle`1" />。</param>
+ (    <typuparam name="TSourbe">
+        <paramref name?"source" /> 之項目的䞋別。</�ypeparam>
+      <exception cref="T:System.ErguMentNullUxception">
+        <paralraf nale="source"0'> 悸$nu,l㠂,/exaeptyon>
+      8exception creg="T:Syspem.InvalidOper`tionException">來源序切�����뀂<.exception>
+"   </member>    <member name}"M:Systam.Linq>E^umerable&First``1(S{stem.Col,dctions&Generic.IEnumerabl�{``0}<System>Func{``0,Sysqem.Boolean})">
+!     |summary>傳回序列伬箦合�̇定之條件的第一個項目。</summary>
+      <peturns>序北中通過朇定䩋述詞函式所���湬蹦璄第一個᠅目。</returns>J      <param name="source">傳回項盦的 =see cref="T:System.Cojlectionc.generic.IEnumerab�e@1* />���</param<
+  `  <parim�name="predicate">用侦測試每個項目是否符琈條件的兽式。</param<
+     `,typeparam name="TSource">
+        <paramref name="snurce" /> 之項瓮皀型別。</t9peparal:J    0 <exception cref="T:System.ArgulEntN}llExcepTion"~M
+        <pa�amref name="sourCe" /? 或 <parampef name="prUdicate" /> 是 null。</exception>
+      <exceptio. cRef="T:System.InvalidOperatinnException">沒有任䵕項目符合(<pazamref name="predigate" ?> 中㛄條件。-怖-來源序列�:空。</exception>
+  � </membeR?�  " >member name="M:System.LinQ.Enumercble.FirstOrDefault`b1(System.Collections.Ceneria.IEnueerable{``0})">     !<summary�傳回帏列的欬一個項��；如果序列���有包含任何頇��－則傳�렐設值。|/summ�ry>
+      <returns>如果 <paramre6 name<"sogrCe" /> 是空的�<�e��為 defaUlt(<pa0�mref$name="TSoUrce" /�)，否則為 <pa2amref name="rource# .> 中的第一ň�項目〃</reTurns>
+� #   <param name="sourcm">要傳回第一��項目的 <seD cref=bT:System.Coldectio.s.Generic.IEnumerablep1  />。|/`araL>
+      4type2aram name="TCourcu">
+   $    <Paramref nama="source" /> 之ࠅ目的型刅〃</typeparam>
+      <excg`tion cref="T:System.Argumej�NulnExceptIon">
+  !!    <par�mref!name="source" /> 悺 nell。</exception>
+    </membev>
+ (  <memb%r name="M:System.Li�q.Enw}erabme.FirstOrDefault``1(Syste-.CollectioNs:Eeneric.IEnum�"able{``0},ystem*Func{b`0,Sy{tem.Boolean})">
+      <stmmary>傳回序列伭符合��件的ﭬ一個項绮；如䞜��不到遙類���目，切傳���預設值� �</summary>
+      <retubns>如㞜 <pebalref name="source" /�0昮空ǚ�，或是朁任何項目ယ過 <qaramrEf nam�="p{edicate" /> 所指定的測試ｌe	�為 default(<paramr%f name="USgurce" />)，吆切為 <para-ref na�e<"source#`/> 中���過 <pa2amref"lamu="p�ed)cate  /> 指定之丬試的第一個項��。</r�turns>
+      <param!name="source">傳回項狮的 <re% bref="T:Syst%m.COllections.Generic.IEnumerabhe`1" />。</param?
+      <param name"predicate">用來��試濏個頍目是否符合條件的函式。</parAm>
+      <typeparam fam%="TSou2ce">
+        <paramref name=�source" /> 乛項皮窄喋�ȥ。|.typeparam>
+$    �<exception cref}"T:Sysdem.Argum%n|NullException">
+        <piram2ef name="source" /> 或 <peramref name9"0redicate" /> 是 null㠂</excdption>
+    <'lember>
+    <}embmr name="M:System.Linq.Enumerable.GroupBy``2(Sysdem.CollectIons.GeneriC.IEnumerable{``0},Sy3t%m.Func{``0, `1})">
+      <suimazy<依據指定的索引鍵選�器冽式來�>�組嚏列的項目c���/summcry6
+ $    <retubns>在 C# 中為 IE~umerable&lt?IGroeping&lt;TK�y, TSource&gt;&gt;，而圠 Visual Baskc 中則�B� IEnemerable(Of IGrouping(Of TKe}, TSource))，其中 <see cref="T:Systei.Linq.KGrouping`2" -> 物件包含物件ᒌ索%��鍵的�列も</returns>
+      <param nqme="sourcg">要群組其頍目的 <see cref-"T:SyrTem.Collections.Generic.IEnummbable`1" /�。</parkm>
+   ! (<param namg4bkeySelector�>焨侇擷�ϖ各項目d��索引鍵的函弋〆</0aram<
+ 0    <typepar�m name="Tsource">
+        <paramre& name="source" /6 之項目的型別 </typepar�m>      <typepiram lame=TKey2>
+        <p�ramref oame="keySelector" /> 所�����之紂引�ݵ的힋�㐂</typeparam>
+      <Exception cref9"T:System.Argu-entNudlException">    0`  <�crAmref name="source""/> 或 <paramref naiu= keySelektmr" /> 為 null。8/e8ceptimn>�$   </me�ber>    <Member name="M:System.Lynq.Enumerabld.GroupBy``2(System.Cnll�ctyons.Genurmc.IEnUmerable{``0},System.Func{``�,``1{,Syspem.Collecthons.eneric.IEqualityComp`rer{``1})"> (    <su}m`ry>依據捏定的索弓鍵選寖器函式쾆群組序列的餅目，並d��甠挅定的比較子來��較缢引鍵뀆4/sumMary>
+      <returns>在 C# ����� 	Enumera`le&,t3IGrouping&,t;TKey, TSource&gt;&gt;，而匨 Visual Ba3ic ��則為 IEnumerable(Of IGrouping(Of`TKey, TWmurce)�ｌ其中 <see cref="T:Sy3te�.Mi~q.IGroeping`2" /> 物件包含物件倌索引鍵的集合� �</returns>
+   0� <param name="sourc%">要群�其項目皀 <see cref="T:Syrtem.Collectins.Gen�ric.Inumerable`1" />� �</param>
+    � 4param name}"keySelec5gr">�(來f��ŏ�吆i��盪之�4�引鉵的凿式。</param>
+ �  $ <param n�me=&cnmparer">用來���較素引鍵的 <see c2ef="T:ystem.Coldections.Generak.IEqua,ityC/mparep`1& />。</param>
+      <typeparem name=2TSource">
+ $      <paramref nAme=source" /> 之項目皆���爥。</ty�mraram>�!   0 <typeparam name="\Key">
+        <paramref name="ceySelecvor" /> 所傳回之索ἕ鍵的型倥㒂</typetaram>
+      <exception cref="T:System.AbgumentNullException">
+        <parampef name="sou2ce" /> 或 <paramref name="keySclector" .>  null。</exception>
+    </member>
+    <member name="M:Sy�tem.Linq.Enumerable,GroupBy``3(S{stem.Gollections.Generic.IEnumerable{``0},Syqtem.Fulc{``0,`d1=,Cystem.Fujc{` 0,``2})&>
+    * <su�mary>ྜྷ據猇定的索引鍵郸叒器击式俆群組序列��餅目���並使用指定�函式來投影每個群組的項绮ဂ</sum�ry>M
+    $ <repurns>在 C# 丬為 IEnumepable&lt;IGr�uping&ltTKey, TEl%mend&gt;&gt;���而在 Visual Basic ĸ�則��� IEnumera�le(Of IGrouping(Of TKey, TElement))，텶中 ,see cref="T:System.Linq.IGrouping`" /6 物仲包含型別為 <paramr�f name="TElemenu2 /> 之物件和索引鍵璄雂合。</returns>*      <p`bam name="sowrce">要���組其項目的 >see cref="T>Systam.CollectioNs.Generic.IEnUmerable`!" />���</param:
+      <par!m name="kmySelector">用來擷Ꮦ���項目之索�፵暄函弋。</param:
+      <param name="el%man4Seldctor">用伆將每個侄沒項目對應쇳 <see #rdd="T:Sy�tem.Lilq.KGsouqing`2" /> 下項目的�=式。</peram>�      <typeparam name="TSource">
+ 0      <parampef name="sotrce" /> 之���目�ឋ툥。</4ypgpqram>
+      <typexaram name="TIei#>
+  $   "�<qaramref na}e="keySelector" > 所傳回之索引鍵的律別《</typep�pCm>
+   ($ <typg0aram name="TEleme~t">
+        <see$cre�="T:Syste%.L�nq.IGroupijmb"" /> 中的項目힋別。</typeperam>
+   !  <excepvimn srmf="�:System.AbgementNullException"
+        <paramreb name=#source" />、<0aramsef ncme="keySeleCtor" /> 或"<par!mref nama="elemendSelector" /> 為 nul~。|/Exceptiol>*    </member>
+    <member$name="M:System.Linq.DnumerablE.GroupBy`r3(Sy{tem.Collacti�ns.GeneRic.I�numepable{``0},System.Func{``0,``1},System.Func{``0$``2},System.C/llectimnsnGene2i#>IEyualityComparer{``1m)">
+      ,su}}ary>依據索引鍵選取嘨函式來群組序列�0�的項目。索引荵是使�(比較䭐侖���行比較，而每個群組的項目Ƀ�是利用ƌ�定的函式逰行投�=�。</summaRx>
+      <re4urns>在 C# 中為!IEnumerabl%&lt;IOrouping&lt;TK%y$ TElement&gT;&gt;，h��眨 Visual Basic 中則為 IEnumerable(Of IGroupiNg(Of Tkey, TEle-ent))ϼ�其中 <se5 crmf="T:[ystem.LinqIGroupmjg`2" /> 牨件包含垉別為 <paramref name="\Elemen4" /> 之g�����和索引鍵的集合。</returns>M
+      <param name="3oUpce"?要群組其項绾�:� <see cr%f="T:SXstee.Collections.Genepic.IEnumerqble`1" />。</param>J      <param name="keySelector">g����擷受吔項目之笢引鍵的函式。/para-:
+    ( <param n`me="elemdntSelector">用來將每個䶆渐i��目e��應至 <wee cref="T:System.Linq.IGrouping`2" /> �� �目皇凭式c��</tarae>
+      <Para� nAmg=2komparer">用��比輂索引鍵的 <sge cvaf="T:System.Collections.Generic.IEqualityCompa�er`1" />–/parcm>
+      vypeparam name="TSource">
+        <paramref ncme="wource" ?> 之� �狮的型別。</Typepiram6
+ $   (<typepar�m name="TKey">
+        <rar�mref name="keySelactor" / 所傳回之紂引�����型別。</ty�eparam>
+0    `<typeparam nama="TElemgnt">
+        <see cref-"T:Systd-.�mnQ.IGrouping`2" / 丽的項盬型別�</txplparai>
+      <exceptig�(czef}"T:System.ArgumentnullException">
+    `   <paramref name<"source" />〉<paramref name="kaySelector# /> 或 <p`ramref!name="ele�envSelector"$/> 為 null� �<?exceqt�on>
+    </member>
+   �<mumb%r(name="M:S9stem>LinQ.Enuierable.GroupBy``4(Sywt�m.�ollectiojs.Generis.IEn�meracle{``0},systeM.Nunc{�`8,``1},System.Func{``0,``2},Sysdem.Fu.c{�a1,Sqstem.Collectins.Genaric.IEnumerab|e{` 2},``3})">
+      <s}gmary>侍據指定的索張鍵選取器函式侖羬組廏列���項目，並從毎個���組只其索引��建立結枘�<　每偋綤組的項盎都是利紪ƈ�定的퇽式進行投影。</summazy>
+      <pedurns>
+ �  $   <paramre� name�"TRe3ult" /> 型爥項��的集������卶中每個項目都代顨群組及其索笕鍵的�影。<-returns>
+     !<p�rcm name="source">要㾤組��項目的 <see c�ef="T:System.Collmct�ons.Generic.IEntmerable 1" />あ</para}>
+      <param lame="keySele#t/r">���྆擷埖各項目칉���引鍵的凭式㈂<�pa2�m>
+      <param jame="elemen4Selectkr">用來將��個來亐項目對���釳 <Se5 #rEd="T:Rystem.Liny.IGroupilg`2" /> 䱋項目皀函式。</par`m>
+      <pavam name="rewultCelector">用來從各個�>�組建竃g��果值的函式�</param>
+      <typeparam name="PSource">
+        <paramref na�e="soUrce" /> 义項目���型別。</t�p%aaram>
+  $   <typeparam$name=2TKey#.
+        <paramreg name="keySalector" /> 所倳回之索���鍵的型別。</typepAram     (<typeparam name="TElement">個 <see csef="T:Systgm.Linq.IGrouping`2" /> ��的項盦垏刵c��</typeparam>
+      <typeparam name?"TResult">
+        <`aramRef name-"resultSelmctor" �? 所傳盞之結��值的型別。</typeparAm>
+    </iem`er6
+ (  <membeb nam�"M:System.Linq.Anumer�bme.GroupBy``4(Sy�tem.Collections.Gefe�ic.IEnumerable{``0},System&Funcy``0,``1],System.Func{``0``�},SysteM.Func{``1,Sy{tem.Colleftikns.�e�eric.IEnumerable{``2},``3},SystEm.Collections.Eeneric.IEqualitqComparez``1})">
+     <summapy>依據指定的素引鍵鉸取器函式來群組庍刕��項目，並從每e��群組及凶紂弗鍵建立結f��刼。索引鍵���是使用指徚盄比謃子쮆進行���較，而槏個㾤組的������則都是利用���定璄函式進蠌投影〃</summary>
+  !   <returNs>
+�"      <paramref!name4"PResult" > 型別項��的ɛ�合缌偶中每�項目都代顨群組及�Ŷ㴢引鍵���投影。</returns>
+      <param na}e="source">��纤組��頥㛮的 <see �ref�"T:System.Collections.Generic.IEnumezacle`1"`/>〃</paraM>
+      <pAram Name}"keySelector">用來擧取各項目칋崢ż�魵的函嬏。</param>
+   0  <papam .ame="elEmentSelac�or">用來堏濏個來溔逅目對應至 <wee cref5"T:System.Linq.IGrouping`2"`/> 之項目的函式〒<'param>
+0    04p`ram name="requ�tSelector"?g�(來從各個群組建立結䘌倌的函弇。<.param:
+      �pazam namu?"comparer�>㔨來比較絢引鍵�� <s�e cref="T:WysTemjCollmctYojs.Generic.IEq}alityComparer@1" />。</pa�am>
+   �  <typeparam name="TSoqrce2>
+        <paramreb name="sourae" /> 之項目���型別。</typ%param>
+  "   <typepasam!name="TKey">
+        4piramref0nime="keySeldcdor" > 所傳回之產e��魵㚄型別。</typeparam>
+      <tYpeparam name="TElemen�">���個 <see cVef="T�System.Lanq.IGroupmng`2"�/> 中盄���癮型別。</typeparam>
+      <t9paparam �ame="TResult">
+        <paramref ^ame-"resultSelector" /> 恀傳回彋結果值的型匥。</typeparam>
+    </mdmber>
+    <membeb name="M:System.Linq.Enumdvable.GroupBy``3(System.Colle�tions.Generic.IEnumera`le{``0},Qystem.Fu.c{``0,``1},SysTmm.Func{``1,Systdm.Collecuions.Generic.IEnuMerable{``0},``2})">
+ `    suimery>庝��指定的紪ż�鍵選取器函式來群組ź�列�ڄ項目，丧侞每儋群組及其索��鍵建立紐果倸。</summazy>
+ 0    <returns>�
+        <parimref ~ame="TResult* /> 型別項目集合�<�其อ每個項o��都代表Ͼ�組及其索弝鍵的掕影あ</returns>
+      <param name="source"�要纤組其項曮的 <see cref="T:System.K/llestions*Generic.IEnumerable`1" />。=/param>
+      <papAm namd="keySelector">��來f��取各項目Ĺ索圕鍵的函式。</parci>�* $    <pAram �ame�"requmtQeleCtor">用���從各個���g��建立�5�果值皌函式。</param>
+` !   <typeparam jame�"TSource"z
+        <paramref .`me5"cotrce" �> 之項矮犄型別。</typeparam>
+      <typeparam name="TKe9">
+       `<paramref namu=KeySelector2 /> 所傳���之索引鍵的徃���。</t9pexaram>
+      <typeparai ncme="TResult">
+  0     <paramreF name="resultSelector" /> 所傳回之結果值的���別。</typeparAm>
+    >�member>
+  ! <member name="M:Systam.Linq.Enemerable.GroupBy``3(Systeo.Col|ections.Generig.IEnumebable{``0},Sy�tem.Fmncy``0,``1},System&Func{``3,System.Col|gcti�ns�eneric.I�.ulerabld{``0},``2},System/Collectionc,Generic.IEqua,ityComparerz``1})">� "    <su-mary>依泚猇宊的索引鍵選取器函弎Į���組媏列的項目���並從每倫群組及其索ż鍵建立結果퀼。��引鍵搯使用指定的比較子澆邲行比較。</swhmary>
+  1   <retupns>
+        <paramref name="TResult" /> 型匥蠅目皀集同︌其中���個項目都代衪徤組及其索引鍵的投影���</retuzns~
+      <param vame="source"要群組其項目的 <sde cref=T:SysteonComlections.�eneryc.IEnumereble`1" />ဂ</param>
+      ,peram0name="keySelector">���ľ�擷���各項目之索引鍵的凹���。,/param>
+   $  <xqram nama="resultSelector">用伆從各個群組Ỻǫ�結枍值的函式。</param>*  ( $ <param name="compare2"�用了比較索弗鍵ǚ��<see cref="T:Qystem.Kollections.Generic:IEqtalityComparer`1"�/>。</parA�>
+ !    <tYpeparam name5"TSource">        =paramref"nam%="soqr#e" /> 之��目���型別。</typeparam>
+!(    <typeparam name="TKey">        <paramref name="keySe�ector" /> 所傳回d��索引鍵的ឋ別。</typaparam>
+(     <typeParam n�ie="TResult&>
+0       <paramref naee="rusultSeldctor" /> 所傳回之嵐果偼的型別�|/dyPeparam>
+    </member>
+    <member name�"M:Syste-Linq&Enumerable.GroupJoi�``4(System.Collections.Generia.IEnumerable{�`6}-Sys|eo.Colle#tions.Generic.IEnumepable{``1},Systdm.Funb{``0�`h2},Sy�tem.Func{``1, @2},SYst�m.Func{d`0,Systee.CollestIons.eneric.IEnulerable{``1},``})">
+      <Summary>根據紲引鍵相等與吶，將八個序刟的項Ǜ�Ǜ�亐關聯＄並群組產琟的絒斜。預設的書等较孑景琨於比較���徑鍕��</summary6
+      <reuurns>
+        <sea cref="T:Syste�.Collection�.Genevic.IEnumerable`1" />，其中包琫透過對兩個序刓執行群組聯結扠受得乛型別 <xaramref name="TResult" /> 的項曮。</peturns>
+  ��  <param name="outer">要聯結的第一個序列。</param
+   �  <p�ram name="inner">要加入稬䰀個e��列的序列。</param>
+  !   <qara} �ame="outerKeySglector">用徆從第一個序列��個項目擷取聯結索�����的僽式。</par`m>
+$     <pprAm name9"innerKeySelector">甠俆從第二個序列各䀋餅目擷取腯結索引鍵的凵帏。</param:
+      <param name="rgr}lt{elector">函式，眨���第一個序列的逅目以及箬컌倃���列的相��項目集Ő�建立結��顅目。8/param:
+      4tyteparam name="TOuter">第一� �序列��項目之型別。</typeparam>
+      <tyPepara} name=#TInnur�>第二個序列的項目之型別も</typeparam>
+      <typeparam name="TKey".索引鍵���取器函彏所傳䛞的索引���칋型刅。</ty�eparam>*  (   <t�peparam fame="TResult">結���項目ǚ�型別。</typdparam<�*      <exceptign cref=$U:Systeo.AvgumentNullException">
+        <paramref name="outes" />、<paramref name="inner" />〃<paramraF"^ama="outerKeySe,ector" />、<paramraf name=�innerKeySelector" /> ƈ� <paramref name="resultSeLecvor" /> 為 null。</exceptio>
+    </member>
+    <mmmber �ame="M:System.Linq.Enumerable.GroupJoi~`@4(System,Colldct)ons.Generic.IEnum�rable{``0},System.Collections.Gene2ic.IEnumerable{``1},Sys|em.Fu~c{``p,``2}System.Func{q`1,``2},SYste-Func{``0,Sys|em.Codlections.Gen�pic.IEnumerable{``1},j`3|,System.Collectionc.Generic.IEqualityCompargr{``2})"�
+      <su�}ary>根據索引鍵相g��與否，岏兩個序列的項目相互關��Ｌ並群組唢生的結果。指定皆 <s%% cref="T:System.Collections.Generic.IEqualityComparer`1" /> 是用於比較索引鍵。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含透過對兩個序列執行群組聯結所取得之型別 <paramref name="TResult" /> 的項目。</returns>
+      <param name="outer">要聯結的第一個序列。</param>
+      <param name="inner">要加入第一個序列的序列。</param>
+      <param name="outerKeySelector">用來從第一個序列各個項目擷取聯結索徕鍵的凼式瀂|/param>
+      <param name="innerKeySelEctor">用亄從第ຌ個序���各퀋項目擷取�/結索５鍵的函���。</param>
+      <param name="resuluSelectOr">函弟，用來從第��個序列的項目以及第二個序列相符蠅目集合建立結果項目㄂</qaram?
+      <param name="comparer">��來雜�9����比較索引荵的 <see cref=*T:Syst�m.Collections.Oenerhc.IEqualItyComparer`1" />。</raram>
+    " <typeparam name="TOuter">第一個序列的i��目介型別。8/4ypeparam>
+      <typeparam name="TInnep"6第庌䀋序列的項绮之型別㐂</typeparam>-
+      =typeparam name="TKey">���引鍵選取器兽ż�所傳回的Ǵ�弑鍵之型別。</typeparam>
+      <�ypeparam nAme�"TResu�t">#��Ǟ�項目的型別も</typeqaRam>
+      <exkeptio. sref="T:System.ArgumentFunlexcuption">
+"       <qaramref Name="outer  />、<paramref name="inn%r" />、<paramref name="outeRKeyRelector" />、<paramref name="innerK�ySelector" /> 挖 <baramraf name="resultSelecpor""o> �� null。>/exception
+   (</member>
+    <member name9"M:Sqstem.Linq.Enumerable�Intersect``1(S{stem.Collectio.s.Generic.IEnule�able{``(}.Syste}.Collections.Generis.IEnumerable{``0})".
+      <summary>使用頔設相等比較孰䞆比較值，以侾g��㜟兩個序列的交集。</summcry>
+      <returnc>序列，其中包嘫形昐兩個序列䱋交集的項瓮。</setUros>      <`aram name="first">决哚卶獨特頕目同時出現在 <paramref name="secon$" .> 中瞀 <see �ref="T:Si{tem.Col.eC4ions.Generic.IEnumerable`1" />。</p�ram>
+     (=param name=2sekond">傳回其獨特項目同扂出現�ܨ第一�序列不的 <see cref="T:S9stem.GollecTions.GeneRic.IEnumerable`1" />。</param>
+0     =type`aram naMe="TSource">輸入序列的項目�9�型別c��</typeparam>
+      <excfptaon cref?"T:Systum.ArgumentNullException">	
+        <paramref name="firs4" /> 或 <paramref name="sesond  /> g�� nuld。</exception>
+    </member>
+    <memrer name="M:SyStem.Linq.Enumepacle.Intersect``1(System.Cllections.Gelebic.IEnumerabl5{``0},System.colleCtions.Generac.IEnumerabde�``0},Syste-.Collecti/ns.Gmneric.IEqualityCo-parer{``0})">
+ "((  <swmmapy.幟用指定的 <see cref="T:System.C/llections.Generic.IEqualityComparer`1" /> 來揔較倴，以便產生儩堋序列������雂。>/Summary>�      <returns>e��列ｌ其中包含彠成���儋序列之交集的項目瀂</returns>
+  )  "<param name="first">傓回其���特項目同昂出�Ͼ圠 <paramr%f name="second" +> ���的 <see cref="T:Sy{tgm.Collections.Eeneric.IEnumerable`1" />㈂</param>
+      =param name<"second">���回其獨爹項目同曂出現在第一個序列中的 <see cref="T:WystEm.Comlections.Genebic.IEnumer�blg`1" />。</par`m>
+      <paRam name="compareR">用來比較e��的 <see cref="T:System.Co�lectioNs.GenerIc.IEqualityComParer`1  />。</param>
+      �ypeparam name="TSource">輸入序列的項目๋䞛別。4/type0aram>
+      <excepti/n cref="T:Systam.ArgumentNullException">�
+  �    <pa�imref name="nirst& /> 或 <paramref n!me=&second" /> 為 n5ll。</excerTion>
+ !  ,member>    <melber name="M:SysteE.Linq.Enumerablg.Join``48System.Cohleations.Generic.IEnumErable{@`0y,SYstem.Collections.Generic.IEnumerablez``1},Systeo.Fulc{ `0$``2},System.Funk{``1,``2},System.Funb{``0,``1,``3})"
+      summar9砹據相符索引鍵���堇兩個序列嚄項目相互關聏À�i��設的相等比較子是用於比較索引鍵。</summary>�      =returns>�
+        >see cref="V:System.Collektions.GenericnIEnumerable`1"0/>，其中包含透過對兩堋序列執行內部ȁ/畐所取得之垛爥 <paramref oame="TResult" /> 的項目s��</rmturns>
+   # "<param name="outer">要聯結的第一個帏列。</param>
+      <papam name="inner">要加入第一� �庍列的序列。</pabam>
+     `<param name=&outerKeySelect�r">用來实�̬一個序列各個項目擷取��結洢引鍵的函���。</para�>
+      ,p`ram name="innerKeySelector">用來���笌二個序列各個項目擷取聯結索引i��的函式。<Oparam<
+�     <param name="2esultSelector">用��從ᅩ個相符項��建立結枝項目�ڄ函式。</para->
+0 �   |typexaR�m name="T�uter">第� 個序列的項目之型別。</typeparam>*      <ty0eparam�naMe="TInner">笭二個庯列的項目之型�ȥ。</typeparam>
+(     <typeparam name="TKey">索引鎵選폖器函���所咳回的簢引鍵之型嘥뀂</typeparam>
+      <typepar!m namd="Result">結果項目的型別。</ty0eparam>
+      ~excEption breb=bT8System.ArgumentNullException">
+        <paramref oame="oUter" +>、par`mref name="inner" />、paramreF!name="outerKeySelector" />、<paramref name="innerKeySelector" /> 或 <paramref name�"resultSelggtor� /> 為 nul,。</exception>
+`   </mEmber>
+    <iember n!Me="M:Systeo.Linq.E�ulerabne.Join``4(System�Collections.Generic.IEnumerable{``0},System.Gollectionq.Ggneric.IEnumerabley``1},System.FunC[`a0,``0}.Sy{tem.Fenc{``1,``2},System.Func{``0,``1,``3},S9stem.Colldctiofs.Gene2ic.IEQualit}Com`arer{``2}-">
+      <summary>根據相符索引鍵，�0�儩個廏列的項目相互��遯。指定的`<see cref}"T:S{stem.C/llectIofs.G%neric.IEqualityComparer`1" /> 是用於比較索引鍵。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含透過對兩個序列執行內部聯結所取得之型別 <paramref name="TResult" /> 的項目。</returns>
+      <param name="outer">要聯結的第一個序列。</param>
+      <param name="inner">要加入第一個序列的序列。</param>
+      <param name="outerKeySelector">用來從第一個序列各個項目擷取聯結索引鍵的函式。</param>
+      <param name="innerKeySelector">用來從第二個序列各個項目擷取聯結索引鍵的函式。</param>
+      <param name="resultSelector">用來從兩個相符項目建立結果項目的函式。</param>
+      <param name="comparer">用來雜湊及比較索引鍵的 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />。</param>
+      <typeparam name="TOuter">第一個序列的項目之型別。</typeparam>
+      <typeparam name="TInner">第二個序列的項目之型別。</typeparam>
+      <typeparam name="TKey">索引鍵選取器函式所傳回的索引鍵之型別。</typeparam>
+      <typeparam name="TResult">結果項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="outer" />、<paramref name="inner" />、<paramref name="outerKeySelector" />、<paramref name="innerKeySelector" /> 或 <paramref name="resultSelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Last``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>傳回序列的最後一個項目。</summary>
+      <returns>位於來源序列中最後一個位置的值。</returns>
+      <param name="source">要傳回最後一個項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">來源序列為空。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Last``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>傳回序列中符合指定之條件的最後一個項目。</summary>
+      <returns>序列中通過指定之述詞函式所做測試的最後一個項目。</returns>
+      <param name="source">傳回項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="predicate">用來測試每個項目是否符合條件的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+      <exception cref="T:System.InvalidOperationException">沒有任何項目符合 <paramref name="predicate" /> 中的條件。-或-來源序列為空。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LastOrDefault``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>傳回序列的最後一個項目；如果序列中沒有包含任何項目，則傳回預設值。</summary>
+      <returns>如果來源序列是空的，則為 default(<paramref name="TSource" />)，否則為 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 中的最後一個項目。</returns>
+      <param name="source">要傳回最後一個項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LastOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>傳回序列中符合條件的最後一個項目；如果找不到這類項目，則傳回預設值。</summary>
+      <returns>如果序列是空的，或是沒有任何項目通過述詞函式中的測試，則為 default(<paramref name="TSource" />)，否則為通過述詞函式之測試的最後一個項目。</returns>
+      <param name="source">傳回項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="predicate">用來測試每個項目是否符合條件的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LongCount``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>傳回代表序列中項目總數的 <see cref="T:System.Int64" />。</summary>
+      <returns>來源序列中的項目數目。</returns>
+      <param name="source">包含要計算之項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">項目數目超出 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LongCount``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>傳回 <see cref="T:System.Int64" />，其代表序列中符合條件的項目數目。</summary>
+      <returns>數字，代表序列中符合述詞函式之條件的項目數目。</returns>
+      <param name="source">包含要計算之項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="predicate">用來測試每個項目是否符合條件的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+      <exception cref="T:System.OverflowException">符合的項目數目超出 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>傳回 <see cref="T:System.Decimal" /> 值序列中的最大值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的 <see cref="T:System.Decimal" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>傳回 <see cref="T:System.Double" /> 值序列中的最大值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的 <see cref="T:System.Double" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>傳回 <see cref="T:System.Int32" /> 值序列中的最大值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的 <see cref="T:System.Int32" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Int64})">
+      <summary>傳回 <see cref="T:System.Int64" /> 值序列中的最大值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的 <see cref="T:System.Int64" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Nullable{System.Decimal}})">
+      <summary>傳回可為 Null 之 <see cref="T:System.Decimal" /> 值序列中的最大值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Decimal&gt; 或 Visual Basic 中型別為 Nullable(Of Decimal) 的值，其對應於序列中的最大值。 </returns>
+      <param name="source">要判斷最大值之可為 Null 的 <see cref="T:System.Decimal" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+      <summary>傳回可為 Null 之 <see cref="T:System.Double" /> 值序列中的最大值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Double&gt; 或 Visual Basic 中型別為 Nullable(Of Double) 的值，其對應於序列中的最大值。</returns>
+      <param name="source">要判斷最大值之可為 Null 的 <see cref="T:System.Double" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>傳回可為 Null 之 <see cref="T:System.Int32" /> 值序列中的最大值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Int32&gt; 或 Visual Basic 中型別為 Nullable(Of Int32) 的值，其對應於序列中的最大值。 </returns>
+      <param name="source">要判斷最大值之可為 Null 的 <see cref="T:System.Int32" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Nullable{System.Int64}})">
+      <summary>傳回可為 Null 之 <see cref="T:System.Int64" /> 值序列中的最大值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Int64&gt; 或 Visual Basic 中型別為 Nullable(Of Int64) 的值，其對應於序列中的最大值。 </returns>
+      <param name="source">要判斷最大值之可為 Null 的 <see cref="T:System.Int64" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Nullable{System.Single}})">
+      <summary>傳回可為 Null 之 <see cref="T:System.Single" /> 值序列中的最大值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Single&gt; 或 Visual Basic 中型別為 Nullable(Of Single) 的值，其對應於序列中的最大值。</returns>
+      <param name="source">要判斷最大值之可為 Null 的 <see cref="T:System.Single" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Single})">
+      <summary>傳回 <see cref="T:System.Single" /> 值序列中的最大值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的 <see cref="T:System.Single" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>傳回泛型序列中的最大值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最大的 <see cref="T:System.Decimal" /> 值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最大的 <see cref="T:System.Double" /> 值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最大的 <see cref="T:System.Int32" /> 值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最大的 <see cref="T:System.Int64" /> 值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 <see cref="T:System.Decimal" /> 值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Decimal&gt; 或 Visual Basic 中型別為 Nullable(Of Decimal) 的值，其對應於序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 <see cref="T:System.Double" /> 值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Double&gt; 或 Visual Basic 中型別為 Nullable(Of Double) 的值，其對應於序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 <see cref="T:System.Int32" /> 值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Int32&gt; 或 Visual Basic 中型別為 Nullable(Of Int32) 的值，其對應於序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 <see cref="T:System.Int64" /> 值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Int64&gt; 或 Visual Basic 中型別為 Nullable(Of Int64) 的值，其對應於序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 <see cref="T:System.Single" /> 值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Single&gt; 或 Visual Basic 中型別為 Nullable(Of Single) 的值，其對應於序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最大的 <see cref="T:System.Single" /> 值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>在泛型序列的每個項目上叫用轉換函式，並傳回最大的結果值。</summary>
+      <returns>序列中的最大值。</returns>
+      <param name="source">要判斷最大值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" /> 所傳回值的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>傳回 <see cref="T:System.Decimal" /> 值序列中的最小值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的 <see cref="T:System.Decimal" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>傳回 <see cref="T:System.Double" /> 值序列中的最小值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的 <see cref="T:System.Double" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>傳回 <see cref="T:System.Int32" /> 值序列中的最小值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的 <see cref="T:System.Int32" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Int64})">
+      <summary>傳回 <see cref="T:System.Int64" /> 值序列中的最小值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的 <see cref="T:System.Int64" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Nullable{System.Decimal}})">
+      <summary>傳回可為 Null 之 <see cref="T:System.Decimal" /> 值序列中的最小值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Decimal&gt; 或 Visual Basic 中型別為 Nullable(Of Decimal) 的值，其對應於序列中的最小值。</returns>
+      <param name="source">要判斷最小值之可為 Null 的 <see cref="T:System.Decimal" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+      <summary>傳回可為 Null 之 <see cref="T:System.Double" /> 值序列中的最小值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Double&gt; 或 Visual Basic 中型別為 Nullable(Of Double) 的值，其對應於序列中的最小值。</returns>
+      <param name="source">要判斷最小值之可為 Null 的 <see cref="T:System.Double" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>傳回可為 Null 之 <see cref="T:System.Int32" /> 值序列中的最小值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Int32&gt; 或 Visual Basic 中型別為 Nullable(Of Int32) 的值，其對應於序列中的最小值。</returns>
+      <param name="source">要判斷最小值之可為 Null 的 <see cref="T:System.Int32" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Nullable{System.Int64}})">
+      <summary>傳回可為 Null 之 <see cref="T:System.Int64" /> 值序列中的最小值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Int64&gt; 或 Visual Basic 中型別為 Nullable(Of Int64) 的值，其對應於序列中的最小值。</returns>
+      <param name="source">要判斷最小值之可為 Null 的 <see cref="T:System.Int64" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Nullable{System.Single}})">
+      <summary>傳回可為 Null 之 <see cref="T:System.Single" /> 值序列中的最小值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Single&gt; 或 Visual Basic 中型別為 Nullable(Of Single) 的值，其對應於序列中的最小值。</returns>
+      <param name="source">要判斷最小值之可為 Null 的 <see cref="T:System.Single" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min(System.Collections.Generic.IEnumerable{System.Single})">
+      <summary>傳回 <see cref="T:System.Single" /> 值序列中的最小值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的 <see cref="T:System.Single" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>傳回泛型序列中的最小值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最小的 <see cref="T:System.Decimal" /> 值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最小的 <see cref="T:System.Double" /> 值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最小的 <see cref="T:System.Int32" /> 值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最小的 <see cref="T:System.Int64" /> 值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 <see cref="T:System.Decimal" /> 值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Decimal&gt; 或 Visual Basic 中型別為 Nullable(Of Decimal) 的值，其對應於序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 <see cref="T:System.Double" /> 值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Double&gt; 或 Visual Basic 中型別為 Nullable(Of Double) 的值，其對應於序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 <see cref="T:System.Int32" /> 值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Int32&gt; 或 Visual Basic 中型別為 Nullable(Of Int32) 的值，其對應於序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 <see cref="T:System.Int64" /> 值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Int64&gt; 或 Visual Basic 中型別為 Nullable(Of Int64) 的值，其對應於序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 <see cref="T:System.Single" /> 值。</summary>
+      <returns>C# 中型別為 Nullable&lt;Single&gt; 或 Visual Basic 中型別為 Nullable(Of Single) 的值，其對應於序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>在序列的每個項目上叫用轉換函式，並傳回最小的 <see cref="T:System.Single" /> 值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="source" /> 沒有包含任何項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>在泛型序列的每個項目上叫用轉換函式，並傳回最小的結果值。</summary>
+      <returns>序列中的最小值。</returns>
+      <param name="source">要判斷最小值的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" /> 所傳回值的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OfType``1(System.Collections.IEnumerable)">
+      <summary>根據指定的型別來篩選 <see cref="T:System.Collections.IEnumerable" /> 的項目。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含輸入序列中型別為 <paramref name="TResult" /> 的項目。</returns>
+      <param name="source">要篩選其項目的 <see cref="T:System.Collections.IEnumerable" />。</param>
+      <typeparam name="TResult">用來做為序列項目之篩選依據的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>依據索引鍵，按遞增順序排序序列中的項目。</summary>
+      <returns>依據索引鍵排序其項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</returns>
+      <param name="source">要排序的值序列。</param>
+      <param name="keySelector">用來從項目擷取索引鍵的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+      <summary>使用指定的比較子，依遞增順序排序序列中的項目。</summary>
+      <returns>依據索引鍵排序其項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</returns>
+      <param name="source">要排序的值序列。</param>
+      <param name="keySelector">用來從項目擷取索引鍵的函式。</param>
+      <param name="comparer">用來比較索引鍵的 <see cref="T:System.Collections.Generic.IComparer`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderByDescending``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>依據索引鍵，按遞減順序排序序列中的項目。</summary>
+      <returns>依據索引鍵按遞減順序排序其項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</returns>
+      <param name="source">要排序的值序列。</param>
+      <param name="keySelector">用來從項目擷取索引鍵的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderByDescending``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+      <summary>使用指定的比較子，依遞減順序排序序列中的項目。</summary>
+      <returns>依據索引鍵按遞減順序排序其項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</returns>
+      <param name="source">要排序的值序列。</param>
+      <param name="keySelector">用來從項目擷取索引鍵的函式。</param>
+      <param name="comparer">用來比較索引鍵的 <see cref="T:System.Collections.Generic.IComparer`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Range(System.Int32,System.Int32)">
+      <summary>產生在指定之範圍內的整數序列。</summary>
+      <returns>C# 中的 IEnumerable&lt;Int32&gt; 或 Visual Basic 中的 IEnumerable(Of Int32)，其中包含循序整數的範圍。</returns>
+      <param name="start">序列中第一個整數的值。</param>
+      <param name="count">要產生的循序整數數目。</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="count" /> 小於 0。-或-<paramref name="start" /> + <paramref name="count" /> -1 大於 <see cref="F:System.Int32.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Repeat``1(``0,System.Int32)">
+      <summary>產生包含一個重複值的序列。</summary>
+      <returns>包含重複值的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</returns>
+      <param name="element">要重複的值。</param>
+      <param name="count">這個值要在產生的序列中重複出現的次數。</param>
+      <typeparam name="TResult">要在結果序列中重複出現的值之型別。</typeparam>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="count" /> 小於 0。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Reverse``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>反轉序列中項目的排序方向。</summary>
+      <returns>其項目對應於輸入序列中反向排序之項目的序列。</returns>
+      <param name="source">要反轉方向的值序列。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>將序列的每一個項目規劃成一個新的表單。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其項目是對 <paramref name="source" /> 之各個項目叫用轉換函式所產生的結果。</returns>
+      <param name="source">要對於叫用轉換函式的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" /> 所傳回值的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,``1})">
+      <summary>透過加入項目的索引，將序列的每個項目投影成新的表單。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其項目是對 <paramref name="source" /> 之各個項目叫用轉換函式所產生的結果。</returns>
+      <param name="source">要對於叫用轉換函式的值序列。</param>
+      <param name="selector">要套用到每個來源項目的轉換函式；此函式的第二個參數代表來源項目的索引。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" /> 所傳回值的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``1}},System.Func{``0,``1,``2})">
+      <summary>將序列的每個項目投影為 <see cref="T:System.Collections.Generic.IEnumerable`1" />、將產生的序列簡化成單一序列，並對其中的每個項目叫用結果選取器函式。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其項目是執行下列動作後所產生的結果：對 <paramref name="source" /> 的各個項目叫用一對多轉換函式 <paramref name="collectionSelector" />，然後再將每個序列項目及其對應的來源項目對應到結果項目。</returns>
+      <param name="source">要投影的值序列。</param>
+      <param name="collectionSelector">要套用到輸入序列中各個項目的轉換函式。</param>
+      <param name="resultSelector">要套用到中繼序列中各個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TCollection">
+        <paramref name="collectionSelector" /> 所收集之中繼項目的型別。</typeparam>
+      <typeparam name="TResult">產生的序列之項目型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />、<paramref name="collectionSelector" /> 或 <paramref name="resultSelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``1}})">
+      <summary>將序列的每個項目都投影成 <see cref="T:System.Collections.Generic.IEnumerable`1" />，並將產生的序列簡化成單一序列。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其項目是在輸入序列的各個項目上叫用一對多轉換函式所產生的結果。</returns>
+      <param name="source">要投影的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" /> 所傳回序列之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Collections.Generic.IEnumerable{``1}},System.Func{``0,``1,``2})">
+      <summary>將序列的每個項目投影為 <see cref="T:System.Collections.Generic.IEnumerable`1" />、將產生的序列簡化成單一序列，並對其中的每個項目叫用結果選取器函式。各來源項目的索引是在該項目的中繼投影表單中使用。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其項目是執行下列動作後所產生的結果：對 <paramref name="source" /> 的各個項目叫用一對多轉換函式 <paramref name="collectionSelector" />，然後再將每個序列項目及其對應的來源項目對應到結果項目。</returns>
+      <param name="source">要投影的值序列。</param>
+      <param name="collectionSelector">要套用到每個來源項目的轉換函式；此函式的第二個參數代表來源項目的索引。</param>
+      <param name="resultSelector">要套用到中繼序列中各個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TCollection">
+        <paramref name="collectionSelector" /> 所收集之中繼項目的型別。</typeparam>
+      <typeparam name="TResult">產生的序列之項目型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />、<paramref name="collectionSelector" /> 或 <paramref name="resultSelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Collections.Generic.IEnumerable{``1}})">
+      <summary>將序列的每個項目都投影成 <see cref="T:System.Collections.Generic.IEnumerable`1" />，並將產生的序列簡化成單一序列。各來源項目的索引是在該項目的投影表單中使用。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其項目是對輸入序列中各個項目叫用一對多轉換函式後所產生的結果。</returns>
+      <param name="source">要投影的值序列。</param>
+      <param name="selector">要套用到每個來源項目的轉換函式；此函式的第二個參數代表來源項目的索引。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TResult">
+        <paramref name="selector" /> 所傳回序列之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SequenceEqual``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>使用項目之型別的預設相等比較子來比較項目，以判斷兩個序列是否相等。</summary>
+      <returns>如果根據其型別的預設相等比較子判斷，兩個來源序列的長度相等，而且其對應項目也相等，則為 true，否則為 false。</returns>
+      <param name="first">要與 <paramref name="second" /> 比較的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="second">要與第一個序列比較的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <typeparam name="TSource">輸入序列的項目之型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 或 <paramref name="second" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SequenceEqual``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>使用指定的 <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> 來比較項目，以判斷兩個序列是否相等。</summary>
+      <returns>如果根據 <paramref name="comparer" /> 判斷，兩個來源序列的長度相等，而且其對應項目的比較也相等，則為 true，否則為 false。</returns>
+      <param name="first">要與 <paramref name="second" /> 比較的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="second">要與第一個序列比較的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="comparer">用來比較項目的 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />。</param>
+      <typeparam name="TSource">輸入序列的項目之型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 或 <paramref name="second" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Single``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>傳回序列的唯一一個項目，如果序列中不是正好一個項目，則擲回例外狀況。</summary>
+      <returns>輸入序列的單一項目。</returns>
+      <param name="source">要傳回單一項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">輸入序列包含一個以上的項目。-或-輸入序列是空的。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Single``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>傳回序列中符合指定之條件的唯一一個項目，如果有一個以上這類項目，則擲回例外狀況。</summary>
+      <returns>輸入序列中符合條件的單一項目。</returns>
+      <param name="source">要傳回單一項目的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="predicate">用來測試項目是否符合條件的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+      <exception cref="T:System.InvalidOperationException">沒有任何項目符合 <paramref name="predicate" /> 中的條件。-或-超過一個項目符合 <paramref name="predicate" /> 中的條件。-或-來源序列為空。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SingleOrDefault``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>傳回序列的唯一一個項目，如果序列是空白，則為預設值，如果序列中有一個以上的項目，這個方法就會擲回例外狀況。</summary>
+      <returns>輸入序列的單一項目；如果序列沒有包含任何項目，則為 default(<paramref name="TSource" />)。</returns>
+      <param name="source">要傳回單一項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.InvalidOperationException">輸入序列包含一個以上的項目。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SingleOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>傳回序列中符合指定之條件的唯一一個項目，如果沒有這類項目，則為預設值，如果有一個以上的項目符合條件，這個方法就會擲回例外狀況。</summary>
+      <returns>輸入序列中符合條件的單一項目；如果找不到這類項目，則為 default(<paramref name="TSource" />)。</returns>
+      <param name="source">要傳回單一項目的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="predicate">用來測試項目是否符合條件的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Skip``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+      <summary>略過序列中指定的項目數目，然後傳回其餘項目。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含出現在輸入序列中指定之索引後面的項目。</returns>
+      <param name="source">傳回項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="count">傳回其餘項目之前要略過的項目數目。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SkipWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>只要指定的條件為 true，便略過序列中的項目，然後傳回其餘項目。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含的項目位於輸入序列中，而且是從沒有通過 <paramref name="predicate" /> 所指定測試之線性系列中的第一個項目開始。</returns>
+      <param name="source">傳回項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="predicate">用來測試每個項目是否符合條件的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SkipWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Boolean})">
+      <summary>只要指定的條件為 true，便略過序列中的項目，然後傳回其餘項目。項目的索引是用於述詞功能的邏輯中。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含的項目位於輸入序列中，而且是從沒有通過 <paramref name="predicate" /> 所指定測試之線性系列中的第一個項目開始。</returns>
+      <param name="source">傳回項目的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="predicate">用來測試各來源項目是否符合條件的函式；此函式的第二個參數代表來源項目的索引。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>計算 <see cref="T:System.Decimal" /> 值序列的總和。</summary>
+      <returns>序列中值的總合。</returns>
+      <param name="source">要計算總和的 <see cref="T:System.Decimal" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Decimal.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>計算 <see cref="T:System.Double" /> 值序列的總和。</summary>
+      <returns>序列中值的總合。</returns>
+      <param name="source">要計算總和的 <see cref="T:System.Double" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>計算 <see cref="T:System.Int32" /> 值序列的總和。</summary>
+      <returns>序列中值的總合。</returns>
+      <param name="source">要計算總和的 <see cref="T:System.Int32" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Int32.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Int64})">
+      <summary>計算 <see cref="T:System.Int64" /> 值序列的總和。</summary>
+      <returns>序列中值的總合。</returns>
+      <param name="source">要計算總和的 <see cref="T:System.Int64" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Decimal}})">
+      <summary>計算可為 Null 之 <see cref="T:System.Decimal" /> 值序列的總和。</summary>
+      <returns>序列中值的總合。</returns>
+      <param name="source">要計算總和之可為 Null 的 <see cref="T:System.Decimal" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Decimal.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+      <summary>計算可為 Null 之 <see cref="T:System.Double" /> 值序列的總和。</summary>
+      <returns>序列中值的總合。</returns>
+      <param name="source">要計算總和之可為 Null 的 <see cref="T:System.Double" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>計算可為 Null 之 <see cref="T:System.Int32" /> 值序列的總和。</summary>
+      <returns>序列中值的總合。</returns>
+      <param name="source">要計算總和之可為 Null 的 <see cref="T:System.Int32" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Int32.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Int64}})">
+      <summary>計算可為 Null 之 <see cref="T:System.Int64" /> 值序列的總和。</summary>
+      <returns>序列中值的總合。</returns>
+      <param name="source">要計算總和之可為 Null 的 <see cref="T:System.Int64" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Single}})">
+      <summary>計算可為 Null 之 <see cref="T:System.Single" /> 值序列的總和。</summary>
+      <returns>序列中值的總合。</returns>
+      <param name="source">要計算總和之可為 Null 的 <see cref="T:System.Single" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Single})">
+      <summary>計算 <see cref="T:System.Single" /> 值序列的總和。</summary>
+      <returns>序列中值的總合。</returns>
+      <param name="source">要計算總和的 <see cref="T:System.Single" /> 值序列。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得之 <see cref="T:System.Decimal" /> 值序列的總和。</summary>
+      <returns>預計值的總合。</returns>
+      <param name="source">用來計算總和的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Decimal.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得之 <see cref="T:System.Double" /> 值序列的總和。</summary>
+      <returns>預計值的總合。</returns>
+      <param name="source">用來計算總和的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得之 <see cref="T:System.Int32" /> 值序列的總和。</summary>
+      <returns>預計值的總合。</returns>
+      <param name="source">用來計算總和的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Int32.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得之 <see cref="T:System.Int64" /> 值序列的總和。</summary>
+      <returns>預計值的總合。</returns>
+      <param name="source">用來計算總和的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 <see cref="T:System.Decimal" /> 值的總和。</summary>
+      <returns>預計值的總合。</returns>
+      <param name="source">用來計算總和的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Decimal.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 <see cref="T:System.Double" /> 值的總和。</summary>
+      <returns>預計值的總合。</returns>
+      <param name="source">用來計算總和的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 <see cref="T:System.Int32" /> 值的總和。</summary>
+      <returns>預計值的總合。</returns>
+      <param name="source">用來計算總和的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Int32.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 <see cref="T:System.Int64" /> 值的總和。</summary>
+      <returns>預計值的總合。</returns>
+      <param name="source">用來計算總和的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+      <exception cref="T:System.OverflowException">總和大於 <see cref="F:System.Int64.MaxValue" />。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 <see cref="T:System.Single" /> 值的總和。</summary>
+      <returns>預計值的總合。</returns>
+      <param name="source">用來計算總和的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>計算在輸入序列中各項目上叫用轉換函式後所取得之 <see cref="T:System.Single" /> 值序列的總和。</summary>
+      <returns>預計值的總合。</returns>
+      <param name="source">用來計算總和的值序列。</param>
+      <param name="selector">要套用至每個項目的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="selector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Take``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+      <summary>從序列開頭傳回指定的連續項目數目。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含輸入序列開頭處指定的項目數目。</returns>
+      <param name="source">傳回項目的序列。</param>
+      <param name="count">要傳回的項目數目。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.TakeWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>只要指定的條件為 true，就會傳回序列中的項目。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" /> 其中包含輸入序列中的項目，而這些項目出現在已無法通過測試的項目前面。</returns>
+      <param name="source">傳回項目的序列。</param>
+      <param name="predicate">用來測試每個項目是否符合條件的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.TakeWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Boolean})">
+      <summary>只要指定的條件為 true，就會傳回序列中的項目。項目的索引是用於述詞功能的邏輯中。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含輸入序列中的項目，而這些項目出現在已無法通過測試的項目前面。</returns>
+      <param name="source">傳回項目的序列。</param>
+      <param name="predicate">用來測試各來源項目是否符合條件的函式；此函式的第二個參數代表來源項目的索引。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="predicate" /> 是 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ThenBy``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})">
+      <summary>依據索引鍵，按遞增順序執行序列中項目的後續排序作業。</summary>
+      <returns>依據索引鍵排序其項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</returns>
+      <param name="source">包含要排序之項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ThenBy``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+      <summary>使用指定的比較子，依遞增順序執行序列中項目的後續排序作業。</summary>
+      <returns>依據索引鍵排序其項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</returns>
+      <param name="source">包含要排序之項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <param name="comparer">用來比較索引鍵的 <see cref="T:System.Collections.Generic.IComparer`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ThenByDescending``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})">
+      <summary>依據索引鍵，按遞減順序執行序列中項目的後續排序作業。</summary>
+      <returns>依據索引鍵按遞減順序排序其項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</returns>
+      <param name="source">包含要排序之項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ThenByDescending``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+      <summary>使用指定的比較子，依遞減順序執行序列中項目的後續排序作業。</summary>
+      <returns>依據索引鍵按遞減順序排序其項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</returns>
+      <param name="source">包含要排序之項目的 <see cref="T:System.Linq.IOrderedEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <param name="comparer">用來比較索引鍵的 <see cref="T:System.Collections.Generic.IComparer`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToArray``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>從 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 建立陣列。</summary>
+      <returns>陣列，其中包含輸入序列中的項目。</returns>
+      <param name="source">用來建立陣列的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToDictionary``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>根據指定的索引鍵選擇器函式，從 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 建立 <see cref="T:System.Collections.Generic.Dictionary`2" />。</summary>
+      <returns>包含索引鍵和值的 <see cref="T:System.Collections.Generic.Dictionary`2" />。</returns>
+      <param name="source">用來建立 <see cref="T:System.Collections.Generic.Dictionary`2" /> 的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。-或-<paramref name="keySelector" /> 產生的索引鍵為 null。</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="keySelector" /> 產生兩個項目的重複索引鍵。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToDictionary``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>根據指定的索引鍵選取器函式和索引鍵比較子，從 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 建立 <see cref="T:System.Collections.Generic.Dictionary`2" />。</summary>
+      <returns>包含索引鍵和值的 <see cref="T:System.Collections.Generic.Dictionary`2" />。</returns>
+      <param name="source">用來建立 <see cref="T:System.Collections.Generic.Dictionary`2" /> 的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <param name="comparer">用來比較索引鍵的 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。-或-<paramref name="keySelector" /> 產生的索引鍵為 null。</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="keySelector" /> 產生兩個項目的重複索引鍵。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+      <summary>根據指定的索引鍵選取器和項目選取器函式，從 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 建立 <see cref="T:System.Collections.Generic.Dictionary`2" />。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.Dictionary`2" />，其中包含從輸入序列選取之型別 <paramref name="TElement" /> 的值。</returns>
+      <param name="source">用來建立 <see cref="T:System.Collections.Generic.Dictionary`2" /> 的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <param name="elementSelector">用來從每個項目產生結果項目值的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <typeparam name="TElement">
+        <paramref name="elementSelector" /> 所傳回值的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />、<paramref name="keySelector" /> 或 <paramref name="elementSelector" /> 為 null。-或-<paramref name="keySelector" /> 產生的索引鍵為 null。</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="keySelector" /> 產生兩個項目的重複索引鍵。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>根據指定的索引鍵選取器函式、比較子和項目選取器函式，從 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 建立 <see cref="T:System.Collections.Generic.Dictionary`2" />。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.Dictionary`2" />，其中包含從輸入序列選取之型別 <paramref name="TElement" /> 的值。</returns>
+      <param name="source">用來建立 <see cref="T:System.Collections.Generic.Dictionary`2" /> 的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <param name="elementSelector">用來從每個項目產生結果項目值的轉換函式。</param>
+      <param name="comparer">用來比較索引鍵的 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <typeparam name="TElement">
+        <paramref name="elementSelector" /> 所傳回值的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />、<paramref name="keySelector" /> 或 <paramref name="elementSelector" /> 為 null。-或-<paramref name="keySelector" /> 產生的索引鍵為 null。</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="keySelector" /> 產生兩個項目的重複索引鍵。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToList``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>從 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 建立 <see cref="T:System.Collections.Generic.List`1" />。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.List`1" />，其中包含輸入序列中的項目。</returns>
+      <param name="source">用來建立 <see cref="T:System.Collections.Generic.List`1" /> 的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToLookup``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>根據指定的索引鍵選擇器函式，從 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 建立 <see cref="T:System.Linq.Lookup`2" />。</summary>
+      <returns>包含索引鍵和值的 <see cref="T:System.Linq.Lookup`2" />。</returns>
+      <param name="source">用來建立 <see cref="T:System.Linq.Lookup`2" /> 的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToLookup``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>根據指定的索引鍵選取器函式和索引鍵比較子，從 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 建立 <see cref="T:System.Linq.Lookup`2" />。</summary>
+      <returns>包含索引鍵和值的 <see cref="T:System.Linq.Lookup`2" />。</returns>
+      <param name="source">用來建立 <see cref="T:System.Linq.Lookup`2" /> 的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <param name="comparer">用來比較索引鍵的 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> 或 <paramref name="keySelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToLookup``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+      <summary>根據指定的索引鍵選取器和項目選取器函式，從 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 建立 <see cref="T:System.Linq.Lookup`2" />。</summary>
+      <returns>
+        <see cref="T:System.Linq.Lookup`2" />，其中包含從輸入序列選取之型別 <paramref name="TElement" /> 的值。</returns>
+      <param name="source">用來建立 <see cref="T:System.Linq.Lookup`2" /> 的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <param name="elementSelector">用來從每個項目產生結果項目值的轉換函式。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <typeparam name="TElement">
+        <paramref name="elementSelector" /> 所傳回值的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />、<paramref name="keySelector" /> 或 <paramref name="elementSelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToLookup``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>根據指定的索引鍵選取器函式、比較子和項目選取器函式，從 <see cref="T:System.Collections.Generic.IEnumerable`1" /> 建立 <see cref="T:System.Linq.Lookup`2" />。</summary>
+      <returns>
+        <see cref="T:System.Linq.Lookup`2" />，其中包含從輸入序列選取之型別 <paramref name="TElement" /> 的值。</returns>
+      <param name="source">用來建立 <see cref="T:System.Linq.Lookup`2" /> 的來源 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="keySelector">用來從各個項目擷取索引鍵的函式。</param>
+      <param name="elementSelector">用來從每個項目產生結果項目值的轉換函式。</param>
+      <param name="comparer">用來比較索引鍵的 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />。</param>
+      <typeparam name="TSource">
+        <paramref name="source" /> 之項目的型別。</typeparam>
+      <typeparam name="TKey">
+        <paramref name="keySelector" /> 所傳回之索引鍵的型別。</typeparam>
+      <typeparam name="TElement">
+        <paramref name="elementSelector" /> 所傳回值的型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />、<paramref name="keySelector" /> 或 <paramref name="elementSelector" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Union``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>使用預設相等比較值來比較值，以便產生兩個序列的集合等位。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含來自兩個輸入序列的項目，但不包括重複的項目。</returns>
+      <param name="first">
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其獨特項目構成第一個等位集合。</param>
+      <param name="second">
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其獨特項目構成第二個等位集合。</param>
+      <typeparam name="TSource">輸入序列的項目之型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 或 <paramref name="second" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Union``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>使用指定的 <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> 產生兩個序列的集合等位。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含來自兩個輸入序列的項目，但不包括重複的項目。</returns>
+      <param name="first">
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其獨特項目構成第一個等位集合。</param>
+      <param name="second">
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其獨特項目構成第二個等位集合。</param>
+      <param name="comparer">用來比較值的 <see cref="T:System.Collections.Generic.IEqualityComparer`1" />。</param>
+      <typeparam name="TSource">輸入序列的項目之型別。</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="first" /> 或 <paramref name="second" /> 為 null。</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Where``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>根據述詞來篩選值序列。</summary>
+      <returns>
+        <see cref="T:System.Collections.Generic.IEnumerable`1" />，其中包含輸入序列中符合條件的項目。</returns>
+      <param name="source">要篩選的 <see cref="T:System.Collections.Generic.IEnumerable`1" />。</param>
+      <param name="predicate">用來測試每個項目是否符合條件的函式。</param>�     (<typeparam na}e="TSource">
+        <paramref name="source" /> 之項目的型別《</typeparam>
+    ` <exception cref="T:Sistem.ArwumentNullExcgptioo">        <paramref name="source"$*> 或 <paramreg name="predicatm" /> �� null。</exception>
+�   </member>
+  �(<membEr nime="M:System/Linq.Enumesable.Whure``1)SysTem�Comlections.Generic.IE�umgrable{``0},System.Bunc{``0,Sxstem.Int32,System.Boolean})">
+      <summazY>根據述詞來篩遘值序列À�辰詞��式的邏輯中使用各項目的索引。</summary>
+      <seTurnw>
+        <see cref="T:System.Collections.GeneriC.IENum�rable`" />，其�-包含輸入序列中笧ᐈ檝䳶的項曮。</returnr>
+    ! <par!m name="source">要篩選� <qee cref=":SysteM.Collections.Generic.I�~umerable`1& />〢</p�ram>    ` <qaram name="predicite">用來測試各俆源i��目搯ᐦ符合榝仾瞄函式欤函式的第二個參數仃表來源項目��索引。</pazam>�
+      ,uypeparam name="TSource">
+        <paramref ncme="cosrce# /> 之頁目的型刭あ</typeparam>
+    "<except)on graf="T:System.ArgueentJul�Exception">
+$       <paramref Faem="source" +> 或 <0aramref name=bpredicate" /> �� null。</exception>
+! " </membev>
+    <member ~ame="M:System>Linq>E.ummrable.Ripd`3(System.Collections.Generic.IEnumerable{``0},Systel.Collebtions.GenEric.IEnumerable{``1}�Wsstem.Func{``0,``1,``2})">
+  `   <summary>將指定的函式套用至兩�徏列嚄對應�盾，產生結果的序列。</sum-ary>
+      <returns>
+        <see cr%f="T:Systei.Colmections.Generic.IEnumerableB1* />Ｌ偶中包含啩個輰健序列的合佷���目。</returns>      <param .a}e="first">要呈���㚄第一ŀ�废列。</param>
+      <para- name="seco�d">要合何皆第二個序列c��</pqram>      <param name="resqltSelector".指定如何從兩個序列合���逅目炔函徏���</param>
+0     <typgparam naee="TFivst">�,�฀個輸入序列的項��型刡。,/tyteparam<
+      <typeparam lale="TSegond">第二偉輸入序䈗犄i��盾e��別。</typeparam>
+      <typeparam na-e=#TResult">結果序列的項目垛別。</typepabam>
+  �   <gxcmption cref= T:System.ArgumenTNullException">
+      " <paramref niie="first" /> 怖 <paramref Name=*second" > 為 NuLl。</exception>
+    ,/meeber>
+    <member name="T:System.Linq.IGroupingb2">
+      <sum}ary>表示有共同���引酵的物件集合。<+summary>
+      <typeparem fame="TKey >
+        <see cref="T�S�stem.Linq.IGrouping`2" /> 的產引鍵型別。這個類型參數戯 Covariant。換計之－您可以使���所指定的類型或是衍生程度較大皆任乀類型。如需儱變數與䏍變數���詳���資訊，���參閱泛型中���共變數和反變數　</pypeparam>
+      <typeuaram name="TElement">        <see cref="T:S��tem.Linq.IGrouping`2" /> 䰭之值的型別。</typeparam~
+     �<filterpriority>2<?filterpriormty>
+   $</member>
+    <mmm`er nama="P:Systmm.inq.IGrouping`2�Key">
+      <semmar9>���得 <see cref="T:Sysdem.Linq6IGrouping`2" /> 㚄索引鍵。6/summiry>
+    $ <returns>
+     4  <sme cref="T:S{stem.Li~q.iGrouping`2" /> 的索引鍵㐂<?returns>
+    </�embev>
+    <mem#er`naee="T:SyStem.Linq.ILookup`2">
+      <summcry>為對應索弐鍵至 <see cref="T:System.Collecti�ns.GenericnIE~umerafLe`1" /> 值序列庄資料絰構，定義索引孀 大小���性和縃枟倸搜岋方法　</suMmary>
+      <|ypeparam namu=�TKey">
+     �  <see kref="T:SyWtem,Linq.ILgoktp`2" /> 丬之索引鍵的型別〃</tppeParaM>
+$"    <tqpeparam name="TEleme�t">
+  `     <see cr%f=&T:System.Collections.Generic.IEnumerable`1" /> 序列中的鰄目型ህ，這ປ顅��組成 <see cref="T:System.Linq.ILookup`2" /> 中的值。</typeparam>
+      <filterpriosity>2</filtarpriority>
+    </membep>
+    <membEr name="M:S{steo-Linq.ILogkup`2.Contains((0)">
+      <summary>判▷指定暄索引鍵昫否存在於 <seE cref="T:System.Linq.ILookuph2""/~。</summary>
+      <returns>�"�果 <paramref name="key" /� 콍於 <see0crev="T:System.Linq.ILookup`2" /> 中，則為 true，否則為 fal3e。</retuv~s>
+      <0aram name="key">要在 <�ee crmf="T:S{stem.Linq.ILookup`2" /> 中搜尋皀索ἕ鍵。</piram>
+    </Member>
+    <member nqme=P:System.LiNq.ILokkup`2.Cou~t">
+      <summary>取得 <see�cref="T:Cystem.Li�q.ILookup`2" /> 中瞄索引鍵/值集合組數��㐂</summary>
+  0   <returnr>     "  <see cref�bT:Sysdem.Linq.MLookup`2""/> 集合中的索引酱/值集䐈���數目。</returns>
+ (  </member>
+    <member oame="P:System.Linq.ILookup`2.Item(`0)">
+      <3qmmary>取得由指定๋索引፵鄲行紲引的 <see cref="T:System.ColleaTions.Generic.IENumerable`1" /> 值�:�刕。<'wu}mar}>
+     "<returns>由指��介索引퍵進行索引的 <see cr%f="T:Sy�tem.Coll�ctions*Generic.IEnumerabne`1" /> 值嚏列。<'returns>
+`     <param`name="key">所需值序列的索引鍵。</param>
+    </member>
+    <member nale="T:Syspem.Linq.AOrderedEnumereble`1">
+      <summary>表示排序的序列瀃</3qmmary>
+  !   <typeparam name= TElement">序列的項目䙋型別。</typepabam>     `<filterpriority>2</filterpsiority
+    </member>
+   $<melfer name<"M:Wystem/Linq.�Order%dEnemerable`1.AreateOrderedEnumarableh`1(SyStem.Func{`0,``0},System.CnllecTions.Gendric.IComparer{``8},Syste-/Boolean)">
+0     <summary>徝據ﴢ引鍵，e�� =see cref="TzSystem.Lina.IOrderedEnumer�ble`1" /> 的項目上埳行後續的排序c��</sumeary:M      <returns>依據索引魵排序其項囮� <see cref="T:System.Linq.HKrderedEnu�erable`1" />。</returns>
+      <param �ame="keyelector"6
+        <see cref="T:System.Ftjc`2& />，用了擷取每個項目的紲引鍵。</param>
+    ` <param .`mm="comparer">
+        <wee cRef="D:System.Collectionr.Generij.IComparer�1" />，紨侂揔較索圕鍵，以便ᜨ傳回的序列中放置。</paRam>
+  (   <param name="fescendy.g">tr�e 表社���遞減�"�序玒徏項囮，false 裨示依遖增順序排序項目。</param>
+      8typetaram nAme="TKey">
+    0   <parampef name="kmyQelector" /> 所產生的索�<�鍵型別。</typeparam>      <filderpriority>2</filterpriorivx>
+ 0  x/member>
+    <mmlber name="T:Syste-.Lanq.Look5p`3">
+      <summary>衬示索引鍵纄集合，每ŀ����引鍵對應至一個或夘個值。</summary>
+      <typeparam name="TKey">
+        <see cref="T:Syrtem.Linq.�ookup`2" /> 中之素引鍵的型別。</typeparam>
+      <typeparam`dame="TElemelt">
+0       <see cref="T:System.Linq.Lookup`: /> 中每個 <see cpef="T:CysTem.Collecti�ns.GelericnI�numerable`1" /~ 值的項Ǜ�型刵。</typeparam>
+      <filterpriority~2</fiterpriority>
+    </membEr>
+  ` <member name="M:System.Linq.Lookup`:.ApplyResultSelectmr``1,System.func{`0,System.�ollectiofs.'gneric.IEnumerable{`1},``0})">
+      lsUmMary>將轉換函式套用至每個索張鍵及其相镜值，並킷回結果。</summary>
+  `   <repurns>��合，針對 <see cr��="T:System.Li.q.Loojup`2" /> d��的毋個索引鍵/值集合祄包含一個值。</re|usns>
+      <param name="result[unec�ob">從每���索引鍵��其相關值投射結f��值的函式���</param>
+      <tyteparam name="TResult">
+        <paramref name="resultSelectkr" /< 所產琟的結果值Ĺ�埋別〢</typeparam>
+      <filperpriori�y>2</filterpriority>
+(   </member.
+    <member name="M:Sy�tem.Linq.Lookuph2.C�ntains(`0)">
+      <su}mary>別斷指定的索引鍵是否存在 <see cref=�T:System.Linq.Lookur`2" /> 严。</sumMary>-
+      <retupnw>如枌 4paramref name="key" /> 位於 <sgA cref="T:System.Linq.Lookup`2" /: 乭ﴌ則為 trug．否則為 false뀂</returns>
+      <param name="iey">要在 <see cref="T:Sywtem.Linq.LOokup`2" /> 中尋找的索引鍵。</param:
+    </member?
+    <member name=#P:System.Linq.Lnokut`2.Count">
+      <sumlaby>取得 <see sref="T:System.Linq.Lookut`2"0/> 中的索引鍵/��钆�組數目。</sum}ary>
+      <returns>
+        <s%e cr�f="T:Syspgm.Lina.Lookup`2" /> 集合中的索引鍵/值集Ő�組數目。</returns>
+    �/member>
+   $<iembgr name="O:[ystdm.Hinq.Mookw``2.GetEnumerator"6
+   �  <sqmmapy>傳回會逐一查看 <see cvef="T:Systel.\inq.Lkokup`r" /> 的泛型列舉值。</stmmary>
+      <returjs>J        <see cref="T:Sywtem.Linq.Lookup`2" �> 璄列舉值。</revurns>
+    </member>
+    <memner namm="P:System.Linq.�ookup`2.Item(`0)">
+0     <summary>取得由指定䱉索引鍵進行崢引的值集合。</suimyry|
+      <returns>甹挏定����"引鍵進ࡌ索引的倜集合。<-returnw>
+   0  <param name="key">所需值���合的�4�引錵。/parim>* "  </member-
+  ` <member nime�"M:System.Linq.H/okup`2.SysteM#Collections#IEnumer�ble#GetEnumeratoz">
+ $    =suIm`ry>傳回在 �see cref="T:C}stem.Linq.LoOkup`:" /> 中逑Ը�柡看的列舉值。此顎別無沕被繼承。</summary>
+      <returjs>
+  0     <seg cref="T:System.Linq.Loo�uph2" />!的刟舉值。<?retuRns>
+    <.member>
+  </me-bers>
+</doc>

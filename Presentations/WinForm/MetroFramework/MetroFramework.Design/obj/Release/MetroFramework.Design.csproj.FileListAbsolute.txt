@@ -1,0 +1,8 @@
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Design\bin\Release\MetroFramework.Design.dll
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Design\bin\Release\MetroFramework.Design.pdb
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Design\bin\Release\MetroFramework.dll
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Design\obj\Release\MetroFramework.Design.csproj.AssemblyReference.cache
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Design\obj\Release\MetroFramework.Design.csproj.CoreCompileInputs.cache
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Design\obj\Release\MetroFramework.Design.csproj.CopyComplete
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Design\obj\Release\MetroFramework.Design.dll
+D:\NLifeFramework\Presentations\WinForm\MetroFramework\MetroFramework.Design\obj\Release\MetroFramework.Design.pdb

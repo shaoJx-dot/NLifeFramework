@@ -1,0 +1,100 @@
+﻿@model Web.Models.RegisterViewModel
+@{
+    ViewBag.Title = "注册";
+}
+
+<div class="col-xs-6 col-sm-9">
+    <div >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">注册用户</h3>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @*@Html.ValidationSummary()*@
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.ValidationMessageFor(model => model.UserName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-8">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-8">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.VerificationCode, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-3">
+                        @Html.EditorFor(model => model.VerificationCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @*<img id="verificationcode" title="点击刷新" src="@Url.Action("VerificationCode")" style="cursor:pointer" />
+            @Html.ValidationMessageFor(model => model.VerificationCode)*@
+                    </div>
+                    <div class="col-sm-4">
+                        &nbsp;&nbsp;<a href="javascript:reloadcode();" title="更换验证码"><img id="verificationcode" title="点击刷新" src="@Url.Action("VerificationCode")" style="cursor:pointer" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:reloadcode();">换一张</a>
+                    </div>
+                    <div class="col-md-4">
+                        @Html.ValidationMessageFor(model => model.VerificationCode)
+                    </div>
+                </div>
+                    <script type="text/javascript">
+            @*$("#verificationcode").click(function () {
+                $("#verificationcode").attr("src", "@Url.Action("VerificationCode")?" + new Date());
+            })*@
+                        //刷新图片
+                        function reloadcode() {//刷新验证码函数
+                            var verify = document.getElementById('verificationcode');
+                            verify.setAttribute('src', "@Url.Action("VerificationCode")?" + Math.random());
+                        }
+                    </script>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="checkbox" checked="checked" required /> 我同意 <a href="javascript:void(0);">《用户注册协议》</a>
+                        </div>
+                        @*<div class="checkbox">
+                                <input type="checkbox" checked="checked" required />我同意 <a href="#">《用户注册协议》</a>
+                            </div>*@
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-default" value="注册" />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- /.panel content -->
+
+    </div><!-- /.col-md-8 -->
+</div>
+
+@Html.Partial("_RightPartial")

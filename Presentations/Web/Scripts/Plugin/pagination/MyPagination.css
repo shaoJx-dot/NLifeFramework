@@ -1,0 +1,21 @@
+﻿.page-number{
+	border: #aaa solid 1px;
+	font-size: 12px;
+	background-color: #FFF;
+	color: #599dea;
+	padding:2px 5px;
+	cursor:pointer;
+	margin-right:5px;
+	font-family:'微软雅黑';
+}
+
+.curr-page-number{
+	border: #599dea solid 1px;
+	font-size: 12px;
+	background-color: #599dea;
+	color: #FFF;
+	padding:2px 5px;
+	cursor:pointer;
+	margin-right:5px;
+	font-family:'微软雅黑';
+}

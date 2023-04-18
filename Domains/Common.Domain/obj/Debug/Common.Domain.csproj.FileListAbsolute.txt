@@ -1,0 +1,6 @@
+D:\Work\C#\NLifeFramework\Domains\Common.Domain\bin\Debug\Common.Domain.dll
+D:\Work\C#\NLifeFramework\Domains\Common.Domain\bin\Debug\Common.Domain.pdb
+D:\Work\C#\NLifeFramework\Domains\Common.Domain\obj\Debug\Common.Domain.csprojResolveAssemblyReference.cache
+D:\Work\C#\NLifeFramework\Domains\Common.Domain\obj\Debug\Common.Domain.csproj.CoreCompileInputs.cache
+D:\Work\C#\NLifeFramework\Domains\Common.Domain\obj\Debug\Common.Domain.dll
+D:\Work\C#\NLifeFramework\Domains\Common.Domain\obj\Debug\Common.Domain.pdb

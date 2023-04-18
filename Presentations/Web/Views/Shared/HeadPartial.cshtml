@@ -1,0 +1,19 @@
+﻿<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>零时差微社区-@ViewBag.Title</title>
+    <meta name="keywords" content="零时差,零时差微社区,轻量,论坛程序,微社区系统,论坛大全" />
+    <meta name="description" content="零时差微社区软件|高负载MVC论坛程序|轻社区" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    @Styles.Render("~/Content/css")
+    @if (ViewBag.MenuClassDictionary.Case == "active")
+    {
+        @Styles.Render("~/Content/case")
+    }
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <!--[if lt IE 9]>
+    <script src="~/Scripts/html5shiv.min.js"></script>
+    <script src="~/Scripts/respond.min.js"></script>
+    <![endif]-->
+</head>

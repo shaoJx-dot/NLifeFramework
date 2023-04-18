@@ -1,0 +1,1543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Linq</name>
+  </assembly>
+  <members>
+    <member name="T:System.Linq.Enumerable">
+      <summary>Предоставляет набор методов типа static (Shared в Visual Basic) для выполнения запросов к объектам, реализующим интерфейс <see cref="T:System.Collections.Generic.IEnumerable`1" />.</summary>
+    </member>
+    <member name="M:System.Linq.Enumerable.Aggregate``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})">
+      <summary>Применяет к последовательности агрегатную функцию.</summary>
+      <returns>Конечное агрегатное значение.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, для которого выполняется статистическая операция.</param>
+      <param name="func">Агрегатная функция, вызываемая для каждого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="func" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Aggregate``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})">
+      <summary>Применяет к последовательности агрегатную функцию.Указанное начальное значение используется в качестве исходного значения агрегатной операции.</summary>
+      <returns>Конечное агрегатное значение.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, для которого выполняется статистическая операция.</param>
+      <param name="seed">Начальное агрегатное значение.</param>
+      <param name="func">Агрегатная функция, вызываемая для каждого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TAccumulate">Тип агрегатного значения.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="func" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Aggregate``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})">
+      <summary>Применяет к последовательности агрегатную функцию.Указанное начальное значение служит исходным значением для агрегатной операции, а указанная функция используется для выбора результирующего значения.</summary>
+      <returns>Преобразованное конечное агрегатное значение.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, для которого выполняется статистическая операция.</param>
+      <param name="seed">Начальное агрегатное значение.</param>
+      <param name="func">Агрегатная функция, вызываемая для каждого элемента.</param>
+      <param name="resultSelector">Функция, преобразующая конечное агрегатное значение в результирующее значение.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TAccumulate">Тип агрегатного значения.</typeparam>
+      <typeparam name="TResult">Тип результирующего значения.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" />, <paramref name="func" /> или <paramref name="resultSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.All``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Проверяет, все ли элементы последовательности удовлетворяют условию.</summary>
+      <returns>true, если каждый элемент исходной последовательности проходит проверку, определяемую указанным предикатом, или если последовательность пуста; в противном случае — false.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий элементы, к которым применяется предикат.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Any``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Проверяет, содержит ли последовательность какие-либо элементы.</summary>
+      <returns>true, если исходная последовательность содержит какие-либо элементы, в противном случае — false.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, проверяемый на наличие элементов.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Any``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Проверяет, удовлетворяет ли какой-либо элемент последовательности заданному условию.</summary>
+      <returns>true, если какие-либо элементы исходной последовательности проходят проверку, определяемую указанным предикатом; в противном случае — false.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, к элементам которого применяется предикат.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.AsEnumerable``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает входные данные, приведенные к типу <see cref="T:System.Collections.Generic.IEnumerable`1" />.</summary>
+      <returns>Входная последовательность, приведенная к типу <see cref="T:System.Collections.Generic.IEnumerable`1" />.</returns>
+      <param name="source">Последовательность, которая приводится к типу <see cref="T:System.Collections.Generic.IEnumerable`1" />.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>Вычисляет среднее последовательности значений типа <see cref="T:System.Decimal" />.</summary>
+      <returns>Среднее для последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Decimal" />, для которых вычисляется среднее.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>Вычисляет среднее для последовательности значений типа <see cref="T:System.Double" />.</summary>
+      <returns>Среднее для последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Double" />, для которых вычисляется среднее.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>Вычисляет среднее для последовательности значений типа <see cref="T:System.Int32" />.</summary>
+      <returns>Среднее для последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Int32" />, для которых вычисляется среднее.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Int64})">
+      <summary>Вычисляет среднее для последовательности значений типа <see cref="T:System.Int64" />.</summary>
+      <returns>Среднее для последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Int64" />, для которых вычисляется среднее.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Decimal}})">
+      <summary>Вычисляет среднее для последовательности значений <see cref="T:System.Decimal" /> обнуляемого типа.</summary>
+      <returns>Среднее арифметическое значений последовательности, или null, если исходная последовательность пуста либо содержит только значения null.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Decimal" /> обнуляемого типа, для которых вычисляется среднее.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Сумма элементов последовательности больше значения <see cref="F:System.Decimal.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+      <summary>Вычисляет среднее для последовательности значений <see cref="T:System.Double" /> обнуляемого типа.</summary>
+      <returns>Среднее арифметическое значений последовательности, или null, если исходная последовательность пуста либо содержит только значения null.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Double" /> обнуляемого типа, для которых вычисляется среднее.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>Вычисляет среднее для последовательности значений <see cref="T:System.Int32" /> обнуляемого типа.</summary>
+      <returns>Среднее арифметическое значений последовательности, или null, если исходная последовательность пуста либо содержит только значения null.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Int32" /> обнуляемого типа, для которых вычисляется среднее.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Сумма элементов последовательности больше значения <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Int64}})">
+      <summary>Вычисляет среднее для последовательности значений <see cref="T:System.Int64" /> обнуляемого типа.</summary>
+      <returns>Среднее арифметическое значений последовательности, или null, если исходная последовательность пуста либо содержит только значения null.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Int64" /> обнуляемого типа, для которых вычисляется среднее.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Сумма элементов последовательности больше значения <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Nullable{System.Single}})">
+      <summary>Вычисляет среднее для последовательности значений <see cref="T:System.Single" /> обнуляемого типа.</summary>
+      <returns>Среднее арифметическое значений последовательности, или null, если исходная последовательность пуста либо содержит только значения null.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Single" /> обнуляемого типа, для которых вычисляется среднее.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average(System.Collections.Generic.IEnumerable{System.Single})">
+      <summary>Вычисляет среднее для последовательности значений типа <see cref="T:System.Single" />.</summary>
+      <returns>Среднее для последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Single" />, для которых вычисляется среднее.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>Вычисляет среднее для последовательности значений типа <see cref="T:System.Decimal" />, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Среднее для последовательности значений.</returns>
+      <param name="source">Последовательность значений, используемых для вычисления среднего.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+      <exception cref="T:System.OverflowException">Сумма элементов последовательности больше значения <see cref="F:System.Decimal.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>Вычисляет среднее для последовательности значений типа <see cref="T:System.Double" />, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Среднее для последовательности значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется среднее.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>Вычисляет среднее для последовательности значений типа <see cref="T:System.Int32" />, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Среднее для последовательности значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется среднее.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+      <exception cref="T:System.OverflowException">Сумма элементов последовательности больше значения <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>Вычисляет среднее для последовательности значений типа <see cref="T:System.Int64" />, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Среднее для последовательности значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется среднее.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов исходной последовательности.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+      <exception cref="T:System.OverflowException">Сумма элементов последовательности больше значения <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>Вычисляет среднее для последовательности значений <see cref="T:System.Decimal" /> обнуляемого типа, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Среднее арифметическое значений последовательности, или null, если исходная последовательность пуста либо содержит только значения null.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется среднее.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.OverflowException">Сумма элементов последовательности больше значения <see cref="F:System.Decimal.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>Вычисляет среднее для последовательности значений <see cref="T:System.Double" /> обнуляемого типа, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Среднее арифметическое значений последовательности, или null, если исходная последовательность пуста либо содержит только значения null.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется среднее.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>Вычисляет среднее для последовательности значений <see cref="T:System.Int32" /> обнуляемого типа, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Среднее арифметическое значений последовательности, или null, если исходная последовательность пуста либо содержит только значения null.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется среднее.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.OverflowException">Сумма элементов последовательности больше значения <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>Вычисляет среднее для последовательности значений <see cref="T:System.Int64" /> обнуляемого типа, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Среднее арифметическое значений последовательности, или null, если исходная последовательность пуста либо содержит только значения null.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется среднее.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>Вычисляет среднее для последовательности значений <see cref="T:System.Single" /> обнуляемого типа, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Среднее арифметическое значений последовательности, или null, если исходная последовательность пуста либо содержит только значения null.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется среднее.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Average``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>Вычисляет среднее для последовательности значений типа <see cref="T:System.Single" />, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Среднее для последовательности значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется среднее.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Cast``1(System.Collections.IEnumerable)">
+      <summary>Приводит элементы объекта <see cref="T:System.Collections.IEnumerable" /> к заданному типу.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, который содержит все элементы исходной последовательности, приведенные в заданный тип.</returns>
+      <param name="source">
+        <see cref="T:System.Collections.IEnumerable" />, содержащий элементы, которые можно привести к <paramref name="TResult" />.</param>
+      <typeparam name="TResult">Тип, в который приводятся элементы параметра <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidCastException">Элемент последовательности не может быть приведен к типу <paramref name="TResult" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>Объединяет две последовательности.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий объединенные элементы двух входных последовательностей.</returns>
+      <param name="first">Первая из объединяемых последовательностей.</param>
+      <param name="second">Последовательность, объединяемая с первой последовательностью.</param>
+      <typeparam name="TSource">Тип элементов входных последовательностей.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="first" /> или <paramref name="second" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Contains``1(System.Collections.Generic.IEnumerable{``0},``0)">
+      <summary>Определяет, содержится ли указанный элемент в последовательности, используя компаратор проверки на равенство по умолчанию.</summary>
+      <returns>true, если исходная последовательность содержит элемент с указанным значением, в противном случае — false.</returns>
+      <param name="source">Последовательность, в которой требуется найти данное значение.</param>
+      <param name="value">Значение, которое требуется найти в последовательности.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Contains``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>Определяет, содержит ли последовательность заданный элемент, используя указанный компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.</summary>
+      <returns>true, если исходная последовательность содержит элемент с указанным значением, в противном случае — false.</returns>
+      <param name="source">Последовательность, в которой требуется найти данное значение.</param>
+      <param name="value">Значение, которое требуется найти в последовательности.</param>
+      <param name="comparer">Компаратор проверки на равенство, используемый для сравнения значений.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Count``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает количество элементов в последовательности.</summary>
+      <returns>Число элементов во входной последовательности.</returns>
+      <param name="source">Последовательность, элементы которой требуется подсчитать.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Число элементов в последовательности <paramref name="source" /> больше, чем <see cref="F:System.Int32.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Count``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Возвращает число, представляющее количество элементов последовательности, удовлетворяющих заданному условию.</summary>
+      <returns>Число, представляющее количество элементов последовательности, удовлетворяющих условию функции предиката.</returns>
+      <param name="source">Последовательность, элементы которой требуется проверить и подсчитать.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+      <exception cref="T:System.OverflowException">Число элементов в последовательности <paramref name="source" /> больше, чем <see cref="F:System.Int32.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.DefaultIfEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает элементы указанной последовательности или одноэлементную коллекцию, содержащую значение параметра типа по умолчанию, если последовательность пуста.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий значение по умолчанию для типа <paramref name="TSource" />, если параметр <paramref name="source" /> пуст; в противном случае — значение <paramref name="source" />.</returns>
+      <param name="source">Последовательность, для которой возвращается значение по умолчанию, если она пуста.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.DefaultIfEmpty``1(System.Collections.Generic.IEnumerable{``0},``0)">
+      <summary>Возвращает элементы указанной последовательности или одноэлементную коллекцию, содержащую указанное значение, если последовательность пуста.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий значение <paramref name="defaultValue" />, если последовательность <paramref name="source" /> пуста; в противном случае возвращается <paramref name="source" />.</returns>
+      <param name="source">Последовательность, для которой возвращается указанное значение, если она пуста.</param>
+      <param name="defaultValue">Значение, возвращаемое в случае пустой последовательности.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.Distinct``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает различающиеся элементы последовательности, используя для сравнения значений компаратор проверки на равенство по умолчанию.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий различающиеся элементы из исходной последовательности.</returns>
+      <param name="source">Последовательность, из которой требуется удалить дубликаты элементов.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Distinct``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>Возвращает различающиеся элементы последовательности, используя для сравнения значений указанный компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий различающиеся элементы из исходной последовательности.</returns>
+      <param name="source">Последовательность, из которой требуется удалить дубликаты элементов.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения значений.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ElementAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+      <summary>Возвращает элемент по указанному индексу в последовательности.</summary>
+      <returns>Элемент, находящийся в указанной позиции в исходной последовательности.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить элемент.</param>
+      <param name="index">Отсчитываемый от нуля индекс извлекаемого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.ArgumentOutOfRangeException">Значение <paramref name="index" /> меньше 0 либо больше или равно числу элементов последовательности <paramref name="source" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ElementAtOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+      <summary>Возвращает элемент по указанному индексу в последовательности или значение по умолчанию, если индекс вне допустимого диапазона.</summary>
+      <returns>default(<paramref name="TSource" />), если индекс указывает позицию вне исходной последовательности, в противном случае — элемент, находящийся в указанной позиции в исходной последовательности.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить элемент.</param>
+      <param name="index">Отсчитываемый от нуля индекс извлекаемого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Empty``1">
+      <summary>Возвращает пустую коллекцию <see cref="T:System.Collections.Generic.IEnumerable`1" /> с указанным аргументом типа.</summary>
+      <returns>Пустая коллекция <see cref="T:System.Collections.Generic.IEnumerable`1" /> с аргументом типа <paramref name="TResult" />.</returns>
+      <typeparam name="TResult">Тип, присваиваемый параметру типа возвращаемого универсального интерфейса <see cref="T:System.Collections.Generic.IEnumerable`1" />.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.Except``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>Находит разность множеств, представленных двумя последовательностями, используя для сравнения значений компаратор проверки на равенство по умолчанию.</summary>
+      <returns>Последовательность, представляющая собой разность двух последовательностей как множеств.</returns>
+      <param name="first">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется извлечь элементы, отсутствующие в последовательности <paramref name="second" />.</param>
+      <param name="second">Последовательность <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которой, входящие также в первую последовательность, должны быть исключены из возвращаемой последовательности.</param>
+      <typeparam name="TSource">Тип элементов входных последовательностей.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="first" /> или <paramref name="second" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Except``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>Находит разность множеств, представленных двумя последовательностями, используя для сравнения значений указанный компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.</summary>
+      <returns>Последовательность, представляющая собой разность двух последовательностей как множеств.</returns>
+      <param name="first">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется извлечь элементы, отсутствующие в последовательности <paramref name="second" />.</param>
+      <param name="second">Последовательность <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которой, входящие также в первую последовательность, должны быть исключены из возвращаемой последовательности.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения значений.</param>
+      <typeparam name="TSource">Тип элементов входных последовательностей.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="first" /> или <paramref name="second" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.First``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает первый элемент последовательности.</summary>
+      <returns>Первый элемент указанной последовательности.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, первый элемент которого требуется возвратить.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Исходная последовательность пуста.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.First``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Возвращает первый элемент последовательности, удовлетворяющий указанному условию.</summary>
+      <returns>Первый элемент последовательности, который прошел проверку, определенную указанной функцией предиката.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить элемент.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Ни один элемент не удовлетворяет условию предиката <paramref name="predicate" />.– или –Исходная последовательность пуста.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.FirstOrDefault``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает первый элемент последовательности или значение по умолчанию, если последовательность не содержит элементов.</summary>
+      <returns>default(<paramref name="TSource" />), если последовательность <paramref name="source" /> пуста, в противном случае — первый элемент последовательности <paramref name="source" />.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, первый элемент которого требуется возвратить.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.FirstOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Возвращает первый удовлетворяющий условию элемент последовательности или значение по умолчанию, если ни одного такого элемента не найдено.</summary>
+      <returns>default(<paramref name="TSource" />), если последовательность <paramref name="source" /> пуста или ни один ее элемент не прошел проверку, определенную предикатом <paramref name="predicate" />; в противном случае — первый элемент последовательности <paramref name="source" />, прошедший проверку, определенную предикатом <paramref name="predicate" />.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить элемент.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>Группирует элементы последовательности в соответствии с заданной функцией селектора ключа.</summary>
+      <returns>Объект IEnumerable&lt;IGrouping&lt;TKey, TSource&gt;&gt; в C# или IEnumerable(Of IGrouping(Of TKey, TSource)) в Visual Basic, где каждый объект <see cref="T:System.Linq.IGrouping`2" /> содержит последовательность объектов и ключ.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого следует сгруппировать.</param>
+      <param name="keySelector">Функция, извлекающая ключ для каждого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>Группирует элементы последовательности в соответствии с заданной функцией селектора ключа и сравнивает ключи с помощью указанного компаратора.</summary>
+      <returns>Объект IEnumerable&lt;IGrouping&lt;TKey, TSource&gt;&gt; в C# или IEnumerable(Of IGrouping(Of TKey, TSource)) в Visual Basic, где каждый объект <see cref="T:System.Linq.IGrouping`2" /> содержит коллекцию объектов и ключ.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого следует сгруппировать.</param>
+      <param name="keySelector">Функция, извлекающая ключ для каждого элемента.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+      <summary>Группирует элементы последовательности в соответствии с заданной функцией селектора ключа и проецирует элементы каждой группы с помощью указанной функции.</summary>
+      <returns>Объект IEnumerable&lt;IGrouping&lt;TKey, TElement&gt;&gt; в C# или IEnumerable(Of IGrouping(Of TKey, TElement)) в Visual Basic, где каждый объект <see cref="T:System.Linq.IGrouping`2" /> содержит коллекцию объектов типа <paramref name="TElement" /> и ключ.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого следует сгруппировать.</param>
+      <param name="keySelector">Функция, извлекающая ключ для каждого элемента.</param>
+      <param name="elementSelector">Функция, сопоставляющая каждый исходный элемент с элементом объекта <see cref="T:System.Linq.IGrouping`2" />.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <typeparam name="TElement">Тип элементов объекта <see cref="T:System.Linq.IGrouping`2" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" />, <paramref name="keySelector" /> или <paramref name="elementSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>Группирует элементы последовательности в соответствии с функцией селектора ключа.Ключи сравниваются с помощью компаратора, элементы каждой группы проецируются с помощью указанной функции.</summary>
+      <returns>Объект IEnumerable&lt;IGrouping&lt;TKey, TElement&gt;&gt; в C# или IEnumerable(Of IGrouping(Of TKey, TElement)) в Visual Basic, где каждый объект <see cref="T:System.Linq.IGrouping`2" /> содержит коллекцию объектов типа <paramref name="TElement" /> и ключ.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого следует сгруппировать.</param>
+      <param name="keySelector">Функция, извлекающая ключ для каждого элемента.</param>
+      <param name="elementSelector">Функция, сопоставляющая каждый исходный элемент с элементом объекта <see cref="T:System.Linq.IGrouping`2" />.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <typeparam name="TElement">Тип элементов объекта <see cref="T:System.Linq.IGrouping`2" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" />, <paramref name="keySelector" /> или <paramref name="elementSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``4(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Func{``1,System.Collections.Generic.IEnumerable{``2},``3})">
+      <summary>Группирует элементы последовательности в соответствии с заданной функцией селектора ключа и создает результирующее значение для каждой группы и ее ключа.Элементы каждой группы проецируются с помощью указанной функции.</summary>
+      <returns>Коллекция элементов типа <paramref name="TResult" />, в которой каждый элемент представляет проекцию группы и ее ключа.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого следует сгруппировать.</param>
+      <param name="keySelector">Функция, извлекающая ключ для каждого элемента.</param>
+      <param name="elementSelector">Функция, сопоставляющая каждый исходный элемент с элементом объекта <see cref="T:System.Linq.IGrouping`2" />.</param>
+      <param name="resultSelector">Функция для создания результирующего значения для каждой группы.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <typeparam name="TElement">Тип элементов каждого объекта <see cref="T:System.Linq.IGrouping`2" />.</typeparam>
+      <typeparam name="TResult">Тип результирующего значения, возвращаемого функцией <paramref name="resultSelector" />.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``4(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Func{``1,System.Collections.Generic.IEnumerable{``2},``3},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>Группирует элементы последовательности в соответствии с заданной функцией селектора ключа и создает результирующее значение для каждой группы и ее ключа.Значения ключей сравниваются с помощью указанного компаратора, элементы каждой группы проецируются с помощью указанной функции.</summary>
+      <returns>Коллекция элементов типа <paramref name="TResult" />, в которой каждый элемент представляет проекцию группы и ее ключа.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого следует сгруппировать.</param>
+      <param name="keySelector">Функция, извлекающая ключ для каждого элемента.</param>
+      <param name="elementSelector">Функция, сопоставляющая каждый исходный элемент с элементом объекта <see cref="T:System.Linq.IGrouping`2" />.</param>
+      <param name="resultSelector">Функция для создания результирующего значения для каждой группы.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <typeparam name="TElement">Тип элементов каждого объекта <see cref="T:System.Linq.IGrouping`2" />.</typeparam>
+      <typeparam name="TResult">Тип результирующего значения, возвращаемого функцией <paramref name="resultSelector" />.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``1,System.Collections.Generic.IEnumerable{``0},``2})">
+      <summary>Группирует элементы последовательности в соответствии с заданной функцией селектора ключа и создает результирующее значение для каждой группы и ее ключа.</summary>
+      <returns>Коллекция элементов типа <paramref name="TResult" />, в которой каждый элемент представляет проекцию группы и ее ключа.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого следует сгруппировать.</param>
+      <param name="keySelector">Функция, извлекающая ключ для каждого элемента.</param>
+      <param name="resultSelector">Функция для создания результирующего значения для каждой группы.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <typeparam name="TResult">Тип результирующего значения, возвращаемого функцией <paramref name="resultSelector" />.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``1,System.Collections.Generic.IEnumerable{``0},``2},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>Группирует элементы последовательности в соответствии с заданной функцией селектора ключа и создает результирующее значение для каждой группы и ее ключа.Ключи сравниваются с использованием заданного компаратора.</summary>
+      <returns>Коллекция элементов типа <paramref name="TResult" />, в которой каждый элемент представляет проекцию группы и ее ключа.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого следует сгруппировать.</param>
+      <param name="keySelector">Функция, извлекающая ключ для каждого элемента.</param>
+      <param name="resultSelector">Функция для создания результирующего значения для каждой группы.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <typeparam name="TResult">Тип результирующего значения, возвращаемого функцией <paramref name="resultSelector" />.</typeparam>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3})">
+      <summary>Устанавливает корреляцию между элементами двух последовательностей на основе равенства ключей и группирует результаты.Для сравнения ключей используется компаратор проверки на равенство по умолчанию.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, который содержит элементы типа <paramref name="TResult" />, полученные в результате соединения двух последовательностей с группировкой.</returns>
+      <param name="outer">Первая последовательность для соединения.</param>
+      <param name="inner">Последовательность, соединяемая с первой последовательностью.</param>
+      <param name="outerKeySelector">Функция, извлекающая ключ соединения из каждого элемента первой последовательности.</param>
+      <param name="innerKeySelector">Функция, извлекающая ключ соединения из каждого элемента второй последовательности.</param>
+      <param name="resultSelector">Функция, создающая результирующий элемент для элемента первой последовательности и коллекции соответствующих элементов второй последовательности.</param>
+      <typeparam name="TOuter">Тип элементов первой последовательности.</typeparam>
+      <typeparam name="TInner">Тип элементов второй последовательности.</typeparam>
+      <typeparam name="TKey">Тип ключей, возвращаемых функциями селектора ключа.</typeparam>
+      <typeparam name="TResult">Тип результирующих элементов.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="outer" />, <paramref name="inner" />, <paramref name="outerKeySelector" />, <paramref name="innerKeySelector" /> или <paramref name="resultSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3},System.Collections.Generic.IEqualityComparer{``2})">
+      <summary>Устанавливает корреляцию между элементами двух последовательностей на основе равенства ключей и группирует результаты.Для сравнения ключей используется указанный компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, который содержит элементы типа <paramref name="TResult" />, полученные в результате соединения двух последовательностей с группировкой.</returns>
+      <param name="outer">Первая последовательность для соединения.</param>
+      <param name="inner">Последовательность, соединяемая с первой последовательностью.</param>
+      <param name="outerKeySelector">Функция, извлекающая ключ соединения из каждого элемента первой последовательности.</param>
+      <param name="innerKeySelector">Функция, извлекающая ключ соединения из каждого элемента второй последовательности.</param>
+      <param name="resultSelector">Функция, создающая результирующий элемент для элемента первой последовательности и коллекции соответствующих элементов второй последовательности.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для хэширования и сравнения ключей.</param>
+      <typeparam name="TOuter">Тип элементов первой последовательности.</typeparam>
+      <typeparam name="TInner">Тип элементов второй последовательности.</typeparam>
+      <typeparam name="TKey">Тип ключей, возвращаемых функциями селектора ключа.</typeparam>
+      <typeparam name="TResult">Тип результирующих элементов.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="outer" />, <paramref name="inner" />, <paramref name="outerKeySelector" />, <paramref name="innerKeySelector" /> или <paramref name="resultSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Intersect``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>Находит пересечение множеств, представленных двумя последовательностями, используя для сравнения значений компаратор проверки на равенство по умолчанию.</summary>
+      <returns>Последовательность элементов, представляющая собой пересечение двух заданных последовательностей как множеств.</returns>
+      <param name="first">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого извлекаются различающиеся элементы, входящие также в последовательность <paramref name="second" />.</param>
+      <param name="second">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого извлекаются различающиеся элементы, входящие также в первую последовательность.</param>
+      <typeparam name="TSource">Тип элементов входных последовательностей.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="first" /> или <paramref name="second" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Intersect``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>Находит пересечение множеств, представленных двумя последовательностями, используя для сравнения значений указанный компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.</summary>
+      <returns>Последовательность элементов, представляющая собой пересечение двух заданных последовательностей как множеств.</returns>
+      <param name="first">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого извлекаются различающиеся элементы, входящие также в последовательность <paramref name="second" />.</param>
+      <param name="second">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого извлекаются различающиеся элементы, входящие также в первую последовательность.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения значений.</param>
+      <typeparam name="TSource">Тип элементов входных последовательностей.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="first" /> или <paramref name="second" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Join``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
+      <summary>Устанавливает корреляцию между элементами двух последовательностей на основе сопоставления ключей.Для сравнения ключей используется компаратор проверки на равенство по умолчанию.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, который содержит элементы типа <paramref name="TResult" />, полученные в результате внутреннего соединения двух последовательностей.</returns>
+      <param name="outer">Первая последовательность для соединения.</param>
+      <param name="inner">Последовательность, соединяемая с первой последовательностью.</param>
+      <param name="outerKeySelector">Функция, извлекающая ключ соединения из каждого элемента первой последовательности.</param>
+      <param name="innerKeySelector">Функция, извлекающая ключ соединения из каждого элемента второй последовательности.</param>
+      <param name="resultSelector">Функция для создания результирующего элемента для пары соответствующих элементов.</param>
+      <typeparam name="TOuter">Тип элементов первой последовательности.</typeparam>
+      <typeparam name="TInner">Тип элементов второй последовательности.</typeparam>
+      <typeparam name="TKey">Тип ключей, возвращаемых функциями селектора ключа.</typeparam>
+      <typeparam name="TResult">Тип результирующих элементов.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="outer" />, <paramref name="inner" />, <paramref name="outerKeySelector" />, <paramref name="innerKeySelector" /> или <paramref name="resultSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Join``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})">
+      <summary>Устанавливает корреляцию между элементами двух последовательностей на основе сопоставления ключей.Для сравнения ключей используется указанный компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, который содержит элементы типа <paramref name="TResult" />, полученные в результате внутреннего соединения двух последовательностей.</returns>
+      <param name="outer">Первая последовательность для соединения.</param>
+      <param name="inner">Последовательность, соединяемая с первой последовательностью.</param>
+      <param name="outerKeySelector">Функция, извлекающая ключ соединения из каждого элемента первой последовательности.</param>
+      <param name="innerKeySelector">Функция, извлекающая ключ соединения из каждого элемента второй последовательности.</param>
+      <param name="resultSelector">Функция для создания результирующего элемента для пары соответствующих элементов.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для хэширования и сравнения ключей.</param>
+      <typeparam name="TOuter">Тип элементов первой последовательности.</typeparam>
+      <typeparam name="TInner">Тип элементов второй последовательности.</typeparam>
+      <typeparam name="TKey">Тип ключей, возвращаемых функциями селектора ключа.</typeparam>
+      <typeparam name="TResult">Тип результирующих элементов.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="outer" />, <paramref name="inner" />, <paramref name="outerKeySelector" />, <paramref name="innerKeySelector" /> или <paramref name="resultSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Last``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает последний элемент последовательности.</summary>
+      <returns>Значение, находящееся в последней позиции исходной последовательности.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, последний элемент которого требуется возвратить.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Исходная последовательность пуста.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Last``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Возвращает последний элемент последовательности, удовлетворяющий указанному условию.</summary>
+      <returns>Последний элемент последовательности, который прошел проверку, определенную указанной функцией предиката.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить элемент.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Ни один элемент не удовлетворяет условию предиката <paramref name="predicate" />.– или –Исходная последовательность пуста.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LastOrDefault``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает последний элемент последовательности или значение по умолчанию, если последовательность не содержит элементов.</summary>
+      <returns>default(<paramref name="TSource" />), если исходная последовательность пуста, в противном случае — последний элемент коллекции <see cref="T:System.Collections.Generic.IEnumerable`1" />.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, последний элемент которого требуется возвратить.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LastOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Возвращает последний элемент последовательности, удовлетворяющий указанному условию, или значение по умолчанию, если ни одного такого элемента не найдено.</summary>
+      <returns>default(<paramref name="TSource" />), если последовательность пуста или ни один ее элемент не прошел проверку функцией предиката, в противном случае — последний элемент, прошедший проверку функцией предиката.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить элемент.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LongCount``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает значение типа <see cref="T:System.Int64" />, представляющее общее число элементов в последовательности.</summary>
+      <returns>Число элементов в исходной последовательности.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий элементы, которые требуется подсчитать.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Число элементов больше, чем <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.LongCount``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Возвращает значение типа <see cref="T:System.Int64" />, представляющее число элементов последовательности, удовлетворяющих заданному условию.</summary>
+      <returns>Число, представляющее количество элементов последовательности, удовлетворяющих условию функции предиката.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий элементы, которые требуется подсчитать.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+      <exception cref="T:System.OverflowException">Число найденных элементов больше, чем <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>Возвращает максимальное значение, содержащееся в последовательности значений типа <see cref="T:System.Decimal" />.</summary>
+      <returns>Максимальное значение в последовательности.</returns>
+      <param name="source">Последовательность значений типа <see cref="T:System.Decimal" />, для которой определяется максимальное значение.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Max(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>Возвращает максимальное значение, содержащееся в последовательности значений типа <see cref="T:System.Double" />.</summary>
+      <returns>Максимальное значение в последовательности.</returns>
+      <param name="source">Последовательность значенP�й типа <see cref=":Sy�tem.Double" />, для кѾ�о��ой опредЕляется макفймаЛь��ое(е����чннае.<oparam>
+0 `   <axcepthon cr�f="T:Systei.ArguientNullException"~ПараМетQ� <paramref nale="sourca" /> имеец значениҥ null.</e�ception>-
+     <exbupti�n cruf= T:SysTem.InRalidMperationException">ПоследоаА��нльҽосђь <p`ramref name=2source" /> ؽе содصѐж�8т Սлемен��ов.</exception�    </member>
+    <membgr�namu9"M:System>Linq.Enumerable.M!x(System.Collect�onw.Gengric.IEnumerable{Susdem.Int32u)b>
+ !   $<sumeary>Возвращает �<аксиѼалэP�ое طпаченйе, с�дероащееся в по��ледоватٵльҽ��ёти значе�=ий типѰ <see cref="T:SysTem.Int32" />.</summary>
+0     <returns6МаксШм�0ль�ме значение в последовАӂельн�с��и.<+return3>
+   "  �para� namE="source">Посл��Դователш��оѡть зѽачеЭQ��� ��ипа 4se% cref="T:Qistem.Int32" />,"для ��о��P�рой определяетӁч максимальнؾе значение.</param.
+   "  <exception gref="T:SystemArgumenuNullExcept�kn">Пар��мет� "<paramref0name="source" /> и��ебт ҷначение null.</exc%ption>
+      <exception cref="T:System.In�alidOperationException">ПЬследоваъельностQ� <paraivef Namd="source"$/> ме ��одصржиЂ элеме�то�.</exc�ption>
+    </member>
+    4memb�r namE="M:Cystem.Linu.E.wmerable.Max(S9suem.Colleations.Generhc.IEnumes#�le{Syst%}.Ift64})">
+      <sqmMary>ВозвѠащаصт наксин�0ԻьнԾе�значение, содержа��ееся Ъ последоҲа��ԵльноՁти значееий"типа <sea cref="T:System.Iot64"`/>.<+summary>
+      <returNs>МвксP�иально�� знP�чение в поQ�ЛедмвҰтеЫьности.</return�> 0    <param nam%="soubce">Послее��ват��льност�� зн��ченP�й т�8па <s�e crev<"T:System.Inu64" />, дԻя ккт������й определُется!МаксимальноԵ з��ачѵние�=/param>
+      <ehception cref="T:System.ArgumentNullExceptiOn">����раметـ <paramref name="sousce" /> имеет ҷѽбчение ntll.</exception�
+      <exception cref="T:Systum.InvalidOperationException�>ПослеДовательность <paramreF name="soerce" /> не содержит �ле��ентов.<?excEp�ion.
+   *</melber>�    <member name="M:System.Linq.Ejumerable.Max(System.Collections.Generic.IEnumerable{System.NulLable{System.Decimal}})":
+      <summary>��о��P���ащ��еђ мбКсиЬал�ное зԽачение$в пмсЫеджв��тельностй з�ачений <see cref="T:S}stem.Eecimal" /> обнѣляемо��о типа.</sulmary>
+      <returns>��начение�тѸпа Nullable&lt;Deci}a�&gt{ в C# или Nullajle(Of Fecimal) в(Visual @asic, ��оؾтветств��ющее ма�симальному зеачениѮ поёػедов��т�5лшностԸ. </returnc~
+      <param namu?"�ource">Пос��едоГаӂелЎносѢь значенай <sea cref="T:S{stem.DecieaL"0/> обнѓляе�<о��о т��па, дһ�� которЮй опреДеляется максимальное зн�0чение.</param.
+      ,exception kref="T>System.ArgumentLullEx#eption">Нара�<етр <�aramvef na-e="source" /< �8��еет Чначение n}ll.</exception>
+  ! </member>
+ `  <member Name="M:System.Linq.Enumerable.Mix(System.Collmctions.GenericIUnume2ab,e{S�stem.Nullable{Sysuem.Double}})">
+      <summary>ВозѶра��ает максимальнؾе знҰهепие в!посһеԴожательност�� ҷнP�че��и�� <qee cref="T:S}stem.Doubla" /> о��нуляеЬог� типа.<'summary>
+      <zetup.s>P�н��хенмҵ тШпа Nullable&lt;Doubme&gt; в C# илP� Nullable(Of Doub\m) в V)sua,`Bashc, сОотаетств��ющее м��кёималь�ом�� значения последовател�ности.</returns>
+ $    <p!ram name="source">ПоӁледовбтельн����ть зна��ений <see cref="T:Systgm.Do5Ble" /? обнтляѵ�ого Ղипа, для котоـмй определяется максимальное0знач����и�.</param>
+   `  <excettion cref="T:System.ArgumentNullExcapt)o~">ПарамP�ђф <paramref name="rource" /> иМеԵт ��начениP� null.</excmption>
+    </m�mber>    member name="M:Syqtem.Linq.Enum�vable.MaP8System.Ollections.Generic.IEnumerable[System�Nullable{Sys�em.Int32}})">
+      <su�mary>Возв��а�ает максимальноЧ знаЇениѵ"Ѳ посл�P�овательности!значений <see kref="T:SysteM.I.t3�" /> Обнуляؽмого типа.,/s�mmavy>
+      <returns>Значени� �ипа Nwllable&lt;I.t32&gt; в # или Nul,ablu(Of Int32) в Visual Bcsic, сЮотв�тхтвующ��е на���имальному зничصнию ппفледовательности. </returjs>
+( �$  <param ncmm=*s/urce >ПослеҴовательностQ� значбний <see cref="T�System.Int32" /> Ծбну�;��еؼого тиP�а, дл� которой ҾP�ред��P�я��тся максимҰл��ное значԵние.<?p!ram>
+      <exceptiOn cref="T8System.AbgumentNullException�>Парам��тѠ <paba}ref name="source" /> и��ент з�=ачбние null.</excaptIoN<
+  ` �/member>
+    <mem*er fame="M*System*Linq&Enumerable.May(ystem.Col�ections.Generic.IDnumerable{System�Nullable;Sysvem.Int64}})">
+      <Summary>��озвращ��е� Ѽаксимальное значе��ие Ҳ пос�:едовател��ности знач��н�й <see cref?�T�System.	ft64" /> обНՃляемого тиؿа.</summary>      <returns>Значени�� типа�Nudlable&lt;Int64&ft+ в C" или Nullabl%(Of Int64) в Visual Jasic, сожтвЕQ�сӂвуѮщее ��аксимаһьному геԐчению ��оследователь�ости&��</returnq>
+      ,param name="sour#e">Посл�дова�ельность значенбй <see cref="T:System.Int64" /> обнуляЕмогվ`типа, для �:отжрѾй опѠP�делябтся оак��и�<аѻ����ое зн�0чени�5.,/param>
+      <exceptimn c�uf="T8System,AreumentNul,Exception">Параметр`,paramrgf nAme="sousce" /> имЕет �7�=ачѵние null.</except�o�>
+    </oember>
+    <member name="M:System.Linq.Enumezable.Max(System.Collec4io�s.Geleric.IEnumerable{System.NullablesSxstem.ingla}]9"?
+   (  <summary>В��жвЀащает максимально�� значение в по�лед��ватХльЭосӂи"зна�ений!<see cref="T:System.Sjngle" /> обнуляемого ђипа.</summary:
+    � <returfs>ЗнаQ�е��ие �Ըпа�Nulleble&lt;Singme&gd; ж C# иP�и Ne,lable(Of Single( в Viqu`l Basic, соотزԵуствую�	ее ��акQ�имальном�� ��начению последовАтеЫьмЮсти.</returns>
+    0 <Parae name<"source#>Последоватصльнж�ть значен�8й <see cref="T:SysdemSingle  /> Обнуля��дого(Ѣипа для�кq�торой определяет��я иаксимальное змачение.</param>
+      <exception cref"T:Syrtdm.rgumentNudlExcepTioN"џараметр <paramref name="soerce" /> имеет значение null.</exception>
+$  `</member>
+    <member name5"M:System.L)nq.�numebable.Max(System.Collections&G%neric.IEnumerable{System.Single})2>
+     $<summaryԒозвращ��еـ м��ксимальное значение, содерЖѰщееся в последؼвательност��(зн��чен��й!уипа 8qee cref="T:SystEm.singla" />.</swmmary>
+      <returns>Максина��ьнѾе значеЭие в посЫедовательноفти,/returns>
+$0    <pAr`m name="source">��оӁледовате�Q�ность значений Ѣина <See cref="T:System.SInole" />, для котоѐой определяется миксимальнке�значен��д.</para->
+      <exceptio. cre&="T:System.ArgumentNullException�>ПараиХقѐ <paramref name="sourbe" /> имеет значение null.</exception>
+      <exception cref="T:Sywtem.Inval�dOp%ratimnExc�pti}n">��ослҵдоватԵP�ьнЮстQ�!<paramref nime="source" /> ҽе содержит(эпементов.</eqcePtion>
+    </member>
+    <membar name="M:SysteM.Linq.Enumerable.Max`t1(System.Collmctions.Generic.IEnumezable{``0})":
+      <aummury>Вؾзвращаец макскма��ь��ое значен�Е, содержащее��я в ѣникерсаR�ьной пжследоP�ате��ьP�ости,</sulmary>
+      <returns>МРкفимальное зеаЇение в пжследľвательности.</retu2ns>
+      <param n`me="source">П��слзмоваQ����ь��ость значений,`для коՂорой%опре��еляется$ҽаксимдльное зна�ение.</pazam>
+     $<tipeparam name="TSouRce">Тип э��ементов последѾҲательности <pavamref name="so�rce" />.</ty`epapam>
+      <�xce�tin eref="T:Sys|em.ArgumentN�hlExceqTion">Па��амет� =parampef name="rourae" /> име��т значениP� null.8/exceptkon>
+    </membeb>
+    <member name="M:System�Linq.Enumerable.Max`@1(System.Gollections.Generis.IEnumdr�ble{``0},System.Funs{``0,Syst�m.Decimaly)">
+      <summary>Вызывае�� фунP�цию преобразованиѯ для каԶдого э�;емента ��ощледова�ельн�>сти и во�вращает максимальнон ����ачѵни�5 قипа <see crmg=2T:System.Decimal" />*</summary>�
+ "    <returns>Максимальнпе طначение Ҳ посл�5дЮваЂельؽости.</returns>   "  <param name="sowrce">ПԾс�;едовбтеػьно��ть ҷначений, для которой определяется мذ𺑁имальное значение><oparam>
+      <param name="selector">��унѻц��я псеобразоваеия, примЕняемая и каждому э��еP���нту>4/para�>
+      <typepcram jame=TSourge">��и�� элзментов пѾслеДR�вательности <parim�ef name-"source" >.</typepasam>
+`     <exception cpef=&�>System.ArguientNuldExgeption">їначение п԰раме�ра <para�refname="so}rce" />�или =paramref(name="selector" /> — n}ll.<.excupt)on>
+      4exception �ref="T:S}stem*InvalidOperationException".ПоследоP�ательн򾑁ть <paramref name="source" /> не ��одержит �лементов.8/exception:
+  " </member>
+    <member name="M*System,Linu.Enumerable.Max``1(System.Collections,Ge�eric.IEnumerabme{``0},System.Func{``0,Rystem.Doub,e])">
+(     <s5mmary>Вы��ывает функцию прео�1раЧо��ания для каждого элемента зослбдовательносри �� вѾзزращ�0нт мак��P�мальное значени�5 типа <see cref="T:System.double" �:.</suMmary>
+      <raturns>М��ксимальное знач�5нP�е в послP�довите��ӌнос҂а.</return{>
+     0<param nama=soub#e">Пмсػедовp�тел��ность з��ачений, дһя которѺй опрбделяется маҺсимальное значени��.</param>
+$   " <param namg="selector">Функция преобӀазования, прИменяҵмая к каждо��у эпе��енту.</param>
+(     <typeparam �ame5"tSource">Тип элеменѢов пос��едовательносђи |pabamref name="soUrce" />.</typep`ram>
+      <excEption cref9"T:Cystem.ArgqmentNull�8aeption">ԕѽачениҵ0па��аметра <pabamref$fame="soupce" /> или <paramref name=sulector" /> —null.</exceptioo>
+  �   <exception cref="TSystem.InvalidOperationMxcuptkon">НослеP�оԲ԰тельйос��ь �paramref name=&source" /> P�е содержит элбментоѲ.</exception>
+    </member>
+   $<mem�er name="]:Sysvem.Linq.Enumerable.Max``5(Systdm.Collections,Generic.IEnumerable{``0�,Rystem.Func�`�0,System*Int32})">      <summary>Вызывает фунغцию преобраз�<вания дл�� каждого элемента пЬследовательности ظ козвращ�0ет мP���сииальное знвчение типа <see �ref="T:Sy2tem.I�t32" />.</sqmmary<
+  `   <returns>Макхи��ذльP=ое значен��е �2 по��ледоваѢеP�ьностиn</returns>-
+      <param name<"souzce">Пос��едовАтельност�� знач�м��ع, для!котор�й ооред��ляP�тся м԰ксималь����е зؽачемие.</param>
+      <param name}"selector">Функция преобраҷ��вания, P���им��няемРя к �:ажҴому элементу.</rarao>
+h     <t�peparam�name="TSource">Тип элемеН�ов последователюносъи <�aramred name=2sourcu& />.<-txpeparam>
+      <exception crEf="T:SyStem.Argum%ntNullException">Зна���н��е параметра <�aramref name="source" /> или <paramref name="selector" /> ꀕ null.,/exception>
+      <exception cref="T>System.InvalidOperationException">ПоследоваЂель�=ؾ��Q�ь <paramref name="source" /> Не ��>��Е��жит элش�еетов.<+exception>
+    </member>
+    <member name="M:System.Linq.EnumebableMax``1(Sy�tem.Gollection3.Generic.IEnumecable{``0}(Sy3tem.Fun#{``0,System.Int4}+">
+      <summary>Выеыаает фунغцкю"пՀеобраз��ввния для каждо��о элемента послеP�оввтصл�ност�8 и возвращает максѺ�альное з�=Ѱ�ение ти�а`=s'e cref="T:System.Int64" />.</qwmmary>
+      <returns>Максим�0льное зн��чеѽИе в последо��втصльности.</returns>
+      <param name="skurce">��ОрлԵ�оаађельносуь ҷначе��ий� для котороԹ опред��лязQ�ѡ� ؼакՉимальное ендчение.</param>
+      <param jame="selector">ФункцШя(преобӀаз��ван��я, применяемая к каждому элеЬе�ту.</paRam>
+    ( <typeparam name="TSource ~Тип элҵментов поЁледовате��ьؽости |paramref fame="sour�e" />.</ty�eparam>
+   0  <exception cref="T8Qystem.ArgumentNwllAhception">ԕначԵнйе паӀаЬЕтра <paramref`name="source" /> или <p�ramref name="selectob"0/> — nsll&</exception>
+  (0  <%xception cref="T:Sqstem.IfvalidOpe�a|iolExcaptioo">похле�оватѵ��ьнЮӁть <paramref name="rource" /> не ���>держит элементЮв.</exception>
+( ! </member>
+    <iember name="M:Sy{4em.Linq.Enummrablen]ax p1(Systam.Collections.Generic.IEnumerable{``0|,SystemnFunc{``0,Sqstem.Nul,!`leySystemnDecimalm})">
+      <summary>Вызывает функцҸю преобразования для кажԤ��го элеменӂа последовате�;یности и возвращает максииальнпе зн��чение <�ed cref="T:Systgm.Decimal" /> оануля��Мог�� типа.<osuomary>
+      <returns>Знвчҥние типа Nullable&lt;Decimal&wt9 в C# и��и Nulmable(Of Decimal) в Visual asic, соответ�т�ующ�е мP�ксимальнооу значе�=ию последоватейьнЮсти./revurn3>
+      <parim name?"source">ПоследователQ�но��тӌ значԝнШй, для Ъоторой опреде��я���сэ максимP�льное значP�нШе.</parAl>
+!     <p�ram name<"selecuor">Фكнкция пѐеоб��Ұгован��я, ѿсиме�ӏصмая к каждому эйементу.</papqm>
+      <typeparam name=2TWowrce">Тип элемѵнЂов послٵдов����елќносѢи <paramref name="source" />/</t}peparai>
+      <excdptmon�cref="T:System&ErgumentNellException">Значен�е парамеQ�ра <paramrEf namE="sk}rce" /> иги <pe2a-rEf name="seLec4or" /> — null.</exception>
+  ( </member>
+    membe2(name="]:System.Lins.Enumerabde.Max``1�System.Collections.Gener)c.IEnumerable{``1},System.Funcs``0,System.Nullajle{System.Double}})">
+      <summary>Вызыва��т функцию зреобрАзован��я для каждого элемента ѿ�следовательео�тP� и возвращает максималь��ое зна��ение <see cref=*T:System.Double" /> обнуляемԾго т���?а.</summary>
+      <�eturns>��наهен�е типа Nullacle&lt;Touble&gt; �� C# или Nullable(Of $oubhe) В Visual @qsyc, соответст��ующее мал�имальному значеP�ию последовател��ности.</vetu`ns>
+      <param name="wour�e">Последовательность значений, дпя котороع оԻреаеляется мдксимайьP���е значение.</param>*  �   <param Nale="selector">Функция преобрвз��ваниЏ, применяедая к каP�дому элементу.</param>
+      <typeparam name="TSource">P�ип ѝлементов последоваре��ьн��сти <piramref name="source" />.</typep!ram>
+      <exception cref="T:System.ArgumentNullexception">Значение п�0раметра <paramrud name="source" /> или <paramref jame="selectmr" /> — null.</gxceptio.>
+    </member>
+  $ ,member name="M:SysvemliNq.Enumerable�]ax``1(System.Collections.Generic.IEnqmerable{`b4},System.F}nC{``0,System.Oullable[Systee.Int32}})">*      <summary?Вызывает функ��иَ0прP�обрвзпввниQ� для каждо��о элеP�Хнт�� поскедовательно�ти и возвращает мбксимальное значение <see cref�"T:System.I~t32" /> Ծбнуляемо�о типа.</sumiarq>
+`     <return1>P�наՇЕние т��па NulLable&lt;Ift3r&gt; в C# или Nullarle(Of Int32) в�Visual Basic, роответӁтвующбе макс��мальному еначеȽиъ последователь��ости.</r�turns>
+      <param name="source">По�леԴовТтельؽость"зна�ений, аля غоторой опQ�едел��е��ся мذ��симайьное гнаՇение.</qaram>
+      <Param name="seluctor">Фуйкция преобразов��ния, приме��яемая к каждому элем��нт��.</param>
+      <ty�eparam name<TSource">Ти�� элеоентов послздовате��ьнос��P� <0aramref nime="sou"Ce" .>.</typaparam>
+      <%xception0cref="T:Systel.ArgumentN5llAxception">ЗеачзниP� параԼетра <p�ramref nqme="source" /> или <paramrdd name=�smlect/r" /> — null.</exception>
+    </me-ber>
+    <member name="M:SysteM.Linq.EnuMeRable.Maxp`1(Syspem.Collectio�s.Generic.IEnumerable{``0},System.Func{``0,System.Nqllable{Sy�Tem.Int64}})#>      <summary>ВызываЕт функцию преобразоP�ания дгя каждого элементР после��овательҽости и ВозP���ащает максимальное значеНие |see cref="T:System.Int64" .> огнул��еѼого`типа.</summary>
+      8retu�ns>ЗНачение типа Nullable&lt;Int64&g�; в C# или Nullable(Of In�64) в Visual Baqic, соответстВующее �<аксимал��ному знах��нию последователЌ�=ости.</returns>
+ !    ,parqm name="snurce">ПослеӤовательность`значеP�ий, для кҾтпрой ѾпрЕде��ُется Ѽаксима��ьное знахение,>/p�ram>
+      <param name="selewtor">ФЁнҺция прP���бфазова�=ия, применяеR�ая к каждому эле��енту�</param>
+      <typmtaram name="TSnurce">Ти�� эле�ен�о�� P�ослеشоваՂелٌно��ти <paramref name="soqrce" />.</typEparam>
+      <exceptaon cr�F="T:Systam.ArgumentNullExceptio.">ЗначенѸе!параметра 4paramrEf naie="�ou�ce" /> илШ <paraeref nqme=bselectkr" /> � � null.</exception>    </member?
+   `<}emb�r name="M:System.Linq.Enumerable.Max``9(Sysvem.Co|lections.Generic.AEnumurable{``0},Sys|�m.Fwnc{``0,System.Nullable{[9stem.Single}})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает максимальное значение <see cref="T:System.Single" /> обнуляемого типа.</summary>
+      <returns>Значение типа Nullable&lt;Single&gt; в C# или Nullable(Of Single) в Visual Basic, соответствующее максимальному значению последовательности.</returns>
+      <papam name9"source�>По��ледѾвательность P�нҰчений, для кмӂ��рؾ�� оп�еделяется$макхимальное значеP�йе.</param>
+      <param name="selector">Функц�8я преоб��азова��ия, применяемая к каждомك элементу.</pab`m>
+      <typeparam name="TSourcu">ТԸп элементов$последовP�тельности <par`mref namu�"source" />.</typeparam6*   "  <exce0tion craf="T:Syste-.Argu-eotNullxception">Значение параметра <paramref name?"source" /> Ѹػи <pcramref nam�5"�elector" -> — nUll.</exception>*    </member>    <member@.ame="M:System.Liny.Enumerable.Max``1(System.Collections.Ce�eric.IEnummrable;``0},Cystem.Funs{``0,System.Cingle})">
+      <summary>Вызы�����у фун��фию Преобразованию для каждпго элемента посл�доватегьност�� и возгращант мбксимакќное значбниЕ типа <qee cref="T:Wystem.Singld" />.</summary>
+    � <returns>Максимальное значение в!последоват��льности.</returns>      <param name="source">П��следовѰтѭЫьнос��ь значений, Ҵлُ ко��орой оптХделяет��я макёимальное знذчение.</param>
+    ` <param name="selector">Фун��ция прекбразования, п��именяемая к к�0ждому элемҵнту.</raram>
+      �typeparam ogme="TSource">آиѿ`элементо� пжследЮватѵлфности <pAramrgf Name="source" />.</typeparam>
+      <exceptkon0cref="T:System/ArgumentNullException >ЗначенИе пафаметра <paramref name=#source" -> или <raramref name="selector" /6 — null.=/dycgptin>
+  0 � <mxception cref="T:Systee.InvalidOperationEzcgptionb>Последовательпость <paramreF na-e="source" /> не соаержит0элементжв.</exception>
+    </member
+    <m%mber name="M:System.Lil�.Enumerable.Max``2(System.Collegtions.Generic.IEnumer!ble{``0},Systam.Func{`` ,`d1})&>
+      <summa2y>ВызываеѢ функцию �7реобѠذзоزаниӏ дл� каждого элемента универсакьн�>й последовательностИ и возвраща��� максимаЫьное результирующее зн�0чение.<+summary>
+    " <returns>Маغсимальное значԵние в по��ледова��ельности.</ret}rns>
+      8param name="sourc%">П��слбдо��ателЌнохт�� знذченИй, для к�>торой опреҼеляеЂся P�аксимакьноЕ знذчение.</pAram>
+      <param name="selecuor"6Функция пѐеобразования, примѵѽэرмАя к`��аждому элемЕн��у.</param>
+      <typgparam name="TSour�e*>Ъип элемҵнтоВ последоВательн��сти <p!ramref name="sourcg" />.</typeparam>
+      <uypepar!m name="Result">Тип(значениэ,(возвращ԰емого фуؽкюией <paramref name5"selector" />.</typeparam>
+   !  <exception cref="T:System.ArgumentNullExcepTion">Значение парҰмеՂѠа <paramsef name<"source" /> или <papamref name="s%leCtor" /> — ~ull</excdp|yon>
+    </Member~
+   "8member name="M:System.Linq.Enumerable.Min(Systee.Gol|ec�ions.Generic.IEnumerable{Syctem.Dmcimal})">-
+      <summary>Возвращает минP�мальноз зНачение, сѾдP�ржащееся В по��ледокателٌностҸ зничений типа <see sref="T*System�Fecimel" o>.</summary>
+      <returns>Минимальнмԥ значен��е`�� последоԲательно��ти.</returns>
+`     <pcram oame=�source">Пжследмвательность гнач�ний ��и��а <see cref="T:System.Decimal" />,(для которой определяеуся мP�нимальное зн��чение.</pasam>
+      <excepti�n cruf="T:System.AsgumentNullExCeptiof">Параметр <paramref name="source" /> им��ет значзн��е null.|+exceptio.>�`     <excepdikn creg="T:System.InvalidOperationExce�tion">Посгедовађелфность <parairef ~ame="sourcm" /� нЕ содP�ржит элементок.,#exception>
+   "</member>
+    <me�ber name="M:Systm�.Linq.Enwmerable.Min(System/Collections.Generic.IGnumurarle{System&Dotble})">
+     �<summary>Возвращазт минимальное ѷнаїзние, ѡодервашееся в посл��дов��тельноууи"зн԰Ň��ний тип�� <see c�lf="T:Qystem.Double" />/=/summ�ry>
+(     <redurns>Ќинимал�ное знач��ни�� в поѡл�5еԾ�ательнԾстИ.</returns>
+      <pap!m na�e="source">ПосѻедовательноутѬ �наهений рип�� <see cr%f=bT:System.Double" /<$ P�ля кото��ой опреҴеһяется миниМвльно�5 значенԸб.</parcm>
+     "<eXception cref="T:Sy�tem.ArgumentNwl|Exception">��арддетр <parem�ef name2source"!/> имP�ет значеԽие null.</exception>
+      <exception"cref9"T:SystEm.IgValidOperqtign�xception">ПослеѴовательность paramrgf name="soerce" /> не содержит элصм��нцов.</gxceptign>
+    </member>
+  $ <mumber name="M:System.Linq.Enumerable.Min(Syqtee.Collections'Generic.Ienw}erable{System/Mnt32})>
+      <summary>Возвращает ѼѸнимальпое значеҽие, содержащеесю в последокательно��ти значений ти�а <see(cref=#T:Syst�m/Int32" />.</sumMary�
+ $    <returns>МинимальнP�P� значенԸе � посЛеP�оватѵпьнос��и.</re5urns>
+      <para� name=*wource">ПосЫедо��ательԽость значенШй типа <sem gref="T:System.Int32" />< для которой опредейЏнтсѯ минимальн��е значение.<+pqram>
+   !  <axception cref=V:System.ArgUienTNullExceptIon">парذметр <par�mref name="source" /> имеет зн��ч�ние ntll.</exception>M
+      <exception!craf="T:SystEm.InvalidOpezationException">ԟощледмватЕльность <paramref �ame="source* o> йе содержит элеЬенQ�ов.</exception>
+    </member>
+ !  <membeb$name="M:Syste�.Linq.Mnumerab|e.Min(System.Collections.Generic.IEnu-erable{SyStee.Hnt64})">
+`    "<summary>Возвращае� минимальНоХ з��ачение, сожержащееفя в последователь�=ости значений тP�Կа <see cref="T:System.INt64" /.&</summar{>
+     (<return�>Минимильное зн��че��Ҹе а ҿP�ыледовательности.<?returns>
+   �  <param name="3oerce">ПощледОватҵл��P�осЃь значений типа <sem cref="T:System.Ift642 />, ��лч которой оԿреддгяется миниҼалфное знаѧенҸе.</param>
+      <exceptIon cref="T:System.AbfumentNullException">��арамеЂр �piramref0name="source" /~ имеет знАЇение n}ll.</exceppion>
+ �    <e�ception csef="T:System.InvalidO0erationExceptio~">ПоследоP�и��льность <paramreb!nk-e="sousce" /> нѵ ׁодеѐжظт элԵментов.</exception>
+(`  </member>
+    <membev name="M:System.Linq.Dnumerable.Mmn(SyStem.C�llect�ons.Generic.IEnumerAble{System.Nullable{Sy�tem.Decimal}})b>
+      4rummary>Аозвращает минималфное зѽачениХ в посл��д��гательнҺсقи зничP�май <see cref="T:S{stem.Decioa�" /> обнуляемого типа.</summary>
+      <returns>Значение типа Nullible&lv;Decimalfgv; в C# ик�8 Nullable(Of De#imal) в Virual Bacic, соотвԵтхтвующѵе минималӌн��м���значению пОследовате��ьносӂи.</returnw>
+�     <pa6am Name="sourse">ПосP�еДовательность значен��ѹ <see cref= VSystemDeCimal""/> о��Эул��емого типа, мля котороЙ определяется мйнимал��ное значҵние.</pabam>
+  (   <exception crgf="TSystem,ARgumentNullException>Парамет�� <parairef name="sour�e" /> иЬеет`Էеачеؽин null.</exception>J    </mEmber>
+�   =member name="M:Wist%m.LInq.En5mgrab,e.Ain(Systee.Collections.Generic&IEnumerable{Aystem.NUn,able{System.Double}})">
+    $ <summary>Возв��ащаеՂ минимаЛьн��е значенид в послеФовательн��сти зн�0Їен��й <see$cref="T:System.Double" ?> ��бнуляемого типа.</summarx>
+      <returns:З��ачени�� ��ипа Nulla�le&|t;Doubla&g|; в C# или Numlable(Of Double) в Visual Basic. сооувбтствЃющбе ми�P�мальнP�му �7начен��ю последовађельн��сти.</returns>*   (  <pqram neme=source".Последؾвательность зP�аченИع <see #reg="T:System.Double" /> об�نляемого тԸпа, дл� которой опредегяется мҸн��ؼальное значение.</para}>
+      <exception cref="T:System.ArgumentNullE8ception">��афаметш <paramref namg="sourcm2 /> имеет зниуение .uln.</exception>
+    </me}bMr>
+    <m%mber name="M:Syst%m.Linq.Enumer ble.Min(System.Collectionw.Generic.IEnwme�able{System.Nul�able{�ystem.Int32u})">M
+      <cumMafy>Воѷвращает минималюноз значԵние в последоватеЛьно��ти з�=ачений |see crwf="T:System&Int3�" /> Юбнуляемого типа.<-summa�y>
+      <returnr>Зна�P�ѽ�е т��пб Jullable&lp;Int3:&gt; в C# иѫи0Nullable(Of`Int32) вVisuAl Bawic,�скответст��ующ��е минимальному значен���� �>оЁ��здоТател��Խксти&<-returns>
+      <param neme="skurce"~Пж��леѴова��еԻфнощть значений <see(crEg=�T:Sysdem.Int3:* /> об��уػяе�огО типа, для к�торой опр��деляеӒся минШм�0льное значенке.>/paral>	
+ 0    <exception$cref="T:System/ArgumentNuldExcextion">Па��аметр <paramref nama=*soUrce" /> имеет значP�ние�null.</excepti/n>
+    </membe�>
+    <memfer name=&M:System.Linq.Enueerable.Min(Sxstem.Collections.GEneric*IEntmerible{System.Nullable{Sys4em.Int4g|)">
+      =summary>Воҷвращ��ет�минималь��ое зн��чен�8е в последователюԽосри зйаїص��ий <sde cref="T:System.Int66" /> обнуляе��ого т��па.</summazy>
+      <returns>ЗначениT� тиԿа Nu�dable&lt;Int64&gt; в C# иѻи Nullable(f Int64	 в"Visu�l Basic, соо��вХтств��юще� минимАль�ому значԵнию последовацель��остк.>/reTurns>�
+      <param`name="source">ԟос��е�4оP�ательноQ�ть значений <see(c�ef5*T:System.Int64� /� обԽу��яԵ��оسо ткпа, ��ля которой опреД�лэется Ьинимаػ��нؾP�0зн�чение.</param>
+      <excEp�ion!kreF="T:System.AreumentNullException">ПарамеѢр <para�ref name=�sourca" /> имеет ҷначен�8е nul|./excep|ion�
+    </membmr>
+    <member name="M:Systmm.Linq.EnUme�able.Min(System.Collections.generic&IEnumerablezSystem.NullablezSysteM.Single}})">
+`(    <summar}>Во�врАщает манимальнпе(зндчеҽие в послддкватдльнос��P�(значений <see arev="T:SyStem.Single" /> обн�ля��мого Ѣипа.</summary>-
+  0  �<returns?Зна��ение ципа Nullajle&lt;S-ngme&gt+ в C#0иЛи Nu|lab�e(Of Smngle) в Visual Basic, со�тветствующее миним��льЭому значԵЭию посл��доѲательности.</retuRns>
+      <pasam nama="sourc�">Пос��еаоватصльность значений <see cref="T:S�stem.Single"$/> �:бнулӏемоЛ�� типа, для ѻؾто��ой опреФ��л��ется ��ин��ѼP�лٌؽое зн��чение.</`aram>
+      ,exception crdf="T*System.ArgumentNullException">Параметр <paramref nao�="so}rce&!> имеет знАчение nuld&</exception>
+    </member>
+    <member name="M:System.Lins.Enumdrable.Min(Sys�em.Collectionc.Generkc.IEnUmerable{Sys|em.Single})">
+   �  <summary>Возвращает миниҼҐльное зн��Q���нае,!с�>дҕ� жащееся в последовательности значений типа <see cref="T:System.Single" />.</summary>
+      <returns>Минимальное значение в последовательности.</returns>
+      <param name="source">Последовательность значений типа <see cref="T:System.Single" />, для которой определяется минимальное значение.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает минимальное значение, содержащееся в универсальной последовательности.</summary>
+      <returns>Минимальное значение в последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает минимальное значение типа <see cref="T:System.Decimal" />.</summary>
+      <returns>Минимальное значение в последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает минимальное значение типа <see cref="T:System.Double" />.</summary>
+      <returns>Минимальное значение в последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает минимальное значение типа <see cref="T:System.Int32" />.</summary>
+      <returns>Минимальное значение в последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает минимальное значение типа <see cref="T:System.Int64" />.</summary>
+      <returns>Минимальное значение в последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает минимальное значение <see cref="T:System.Decimal" /> обнуляемого типа.</summary>
+      <returns>Значение типа Nullable&lt;Decimal&gt; в C# или Nullable(Of Decimal) в Visual Basic, соответствующее минимальному значению последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает минимальное значение <see cref="T:System.Double" /> обнуляемого типа.</summary>
+      <returns>Значение типа Nullable&lt;Double&gt; в C# или Nullable(Of Double) в Visual Basic, соответствующее минимальному значению последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает минимальное значение <see cref="T:System.Int32" /> обнуляемого типа.</summary>
+      <returns>Значение типа Nullable&lt;Int32&gt; в C# или Nullable(Of Int32) в Visual Basic, соответствующее минимальному значению последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает минимальное значение <see cref="T:System.Int64" /> обнуляемого типа.</summary>
+      <returns>Значение типа Nullable&lt;Int64&gt; в C# или Nullable(Of Int64) в Visual Basic, соответствующее минимальному значению последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает минимальное значение <see cref="T:System.Single" /> обнуляемого типа.</summary>
+      <returns>Значение типа Nullable&lt;Single&gt; в C# или Nullable(Of Single) в Visual Basic, соответствующее минимальному значению последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>Вызывает функцию преобразования для каждого элемента последовательности и возвращает минимальное значение типа <see cref="T:System.Single" />.</summary>
+      <returns>Минимальное значение в последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Последовательность <paramref name="source" /> не содержит элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Min``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>Вызывает функцию преобразования для каждого элемента универсальной последовательности и возвращает минимальное результирующее значение.</summary>
+      <returns>Минимальное значение в последовательности.</returns>
+      <param name="source">Последовательность значений, для которой определяется минимальное значение.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TResult">Тип значения, возвращаемого функцией <paramref name="selector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OfType``1(System.Collections.IEnumerable)">
+      <summary>Выполняет фильтрацию элементов объекта <see cref="T:System.Collections.IEnumerable" /> по заданному типу.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий элементы входной последовательности типа <paramref name="TResult" />.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.IEnumerable" />, элементы которого следует фильтровать.</param>
+      <typeparam name="TResult">Тип, по которому фильтруются элементы последовательности.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>Сортирует элементы последовательности в порядке возрастания ключа.</summary>
+      <returns>Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, элементы которого отсортированы по ключу.</returns>
+      <param name="source">Последовательность значений, которые следует упорядочить.</param>
+      <param name="keySelector">Функция, извлекающая ключ из элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+      <summary>Сортирует элементы последовательности в порядке возрастания с использованием указанного компаратора.</summary>
+      <returns>Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, элементы которого отсортированы по ключу.</returns>
+      <param name="source">Последовательность значений, которые следует упорядочить.</param>
+      <param name="keySelector">Функция, извлекающая ключ из элемента.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderByDescending``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>Сортирует элементы последовательности в порядке убывания ключа.</summary>
+      <returns>Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, элементы которого отсортированы по ключу в порядке убывания.</returns>
+      <param name="source">Последовательность значений, которые следует упорядочить.</param>
+      <param name="keySelector">Функция, извлекающая ключ из элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.OrderByDescending``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+      <summary>Сортирует элементы последовательности в порядке убывания с использованием указанного компаратора.</summary>
+      <returns>Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, элементы которого отсортированы по ключу в порядке убывания.</returns>
+      <param name="source">Последовательность значений, которые следует упорядочить.</param>
+      <param name="keySelector">Функция, извлекающая ключ из элемента.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Range(System.Int32,System.Int32)">
+      <summary>Генерирует последовательность целых чисел в заданном диапазоне.</summary>
+      <returns>Объект IEnumerable&lt;Int32&gt; в C# или IEnumerable(Of Int32) в Visual Basic, содержащий диапазон последовательных целых чисел.</returns>
+      <param name="start">Значение первого целого числа для последовательности.</param>
+      <param name="count">Количество генерируемых последовательных целых чисел.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">Значение параметра <paramref name="count" /> меньше 0.– или –<paramref name="start" /> + <paramref name="count" /> -1 больше, чем <see cref="F:System.Int32.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Repeat``1(``0,System.Int32)">
+      <summary>Генерирует последовательность, содержащую одно повторяющееся значение.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий повторяющееся значение.</returns>
+      <param name="element">Повторяемое значение.</param>
+      <param name="count">Требуемое число повторений данного значения в создаваемой последовательности.</param>
+      <typeparam name="TResult">Тип значения, которое будет повторяться в результирующей последовательности.</typeparam>
+      <exception cref="T:System.ArgumentOutOfRangeException">Значение параметра <paramref name="count" /> меньше 0.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Reverse``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Изменяет порядок элементов последовательности на противоположный.</summary>
+      <returns>Последовательность, элементы которой соответствуют элементам входной последовательности, но следуют в противоположном порядке.</returns>
+      <param name="source">Последовательность значений, которые следует расставить в обратном порядке.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>Проецирует каждый элемент последовательности в новую форму.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого получены в результате вызова функции преобразования для каждого элемента последовательности <paramref name="source" />.</returns>
+      <param name="source">Последовательность значений, для которых вызывается функция преобразования.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TResult">Тип значения, возвращаемого функцией <paramref name="selector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,``1})">
+      <summary>Проецирует каждый элемент последовательности в новую форму, добавляя индекс элемента.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого получены в результате вызова функции преобразования для каждого элемента последовательности <paramref name="source" />.</returns>
+      <param name="source">Последовательность значений, для которых вызывается функция преобразования.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому исходному элементу; второй параметр функции представляет индекс исходного элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TResult">Тип значения, возвращаемого функцией <paramref name="selector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``1}},System.Func{``0,``1,``2})">
+      <summary>Проецирует каждый элемент последовательности в объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, объединяет результирующие последовательности в одну и вызывает функцию селектора результата для каждого элемента этой последовательности.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого получены в результате вызова функции преобразования "один ко многим" <paramref name="collectionSelector" /> для каждого элемента последовательности <paramref name="source" /> и последующего сопоставления каждого элемента такой промежуточной последовательности и соответствующего ему исходного элемента с результирующим элементом.</returns>
+      <param name="source">Последовательность значений, которые следует проецировать.</param>
+      <param name="collectionSelector">Функция преобразования, применяемая к каждому элементу входной последовательности.</param>
+      <param name="resultSelector">Функция преобразования, применяемая к каждому элементу промежуточной последовательности.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TCollection">Тип промежуточных элементов, собранных функцией <paramref name="collectionSelector" />.</typeparam>
+      <typeparam name="TResult">Тип элементов результирующей последовательности.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" />, <paramref name="collectionSelector" /> или <paramref name="resultSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``1}})">
+      <summary>Проецирует каждый элемент последовательности в объект <see cref="T:System.Collections.Generic.IEnumerable`1" /> и объединяет результирующие последовательности в одну последовательность.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого получены в результате вызова функции преобразования "один ко многим" для каждого элемента входной последовательности.</returns>
+      <param name="source">Последовательность значений, которые следует проецировать.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TResult">Тип элементов последовательности, возвращаемых функцией <paramref name="selector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Collections.Generic.IEnumerable{``1}},System.Func{``0,``1,``2})">
+      <summary>Проецирует каждый элемент последовательности в объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, объединяет результирующие последовательности в одну и вызывает функцию селектора результата для каждого элемента этой последовательности.Индекс каждого элемента исходной последовательности используется в промежуточной проецированной форме этого элемента.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого получены в результате вызова функции преобразования "один ко многим" <paramref name="collectionSelector" /> для каждого элемента последовательности <paramref name="source" /> и последующего сопоставления каждого элемента такой промежуточной последовательности и соответствующего ему исходного элемента с результирующим элементом.</returns>
+      <param name="source">Последовательность значений, которые следует проецировать.</param>
+      <param name="collectionSelector">Функция преобразования, применяемая к каждому исходному элементу; второй параметр функции представляет индекс исходного элемента.</param>
+      <param name="resultSelector">Функция преобразования, применяемая к каждому элементу промежуточной последовательности.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TCollection">Тип промежуточных элементов, собранных функцией <paramref name="collectionSelector" />.</typeparam>
+      <typeparam name="TResult">Тип элементов результирующей последовательности.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" />, <paramref name="collectionSelector" /> или <paramref name="resultSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SelectMany``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Collections.Generic.IEnumerable{``1}})">
+      <summary>Проецирует каждый элемент последовательности в объект <see cref="T:System.Collections.Generic.IEnumerable`1" /> и объединяет результирующие последовательности в одну последовательность.Индекс каждого элемента исходной последовательности используется в проецированной форме этого элемента.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, элементы которого получены в результате вызова функции преобразования "один ко многим" для каждого элемента входной последовательности.</returns>
+      <param name="source">Последовательность значений, которые следует проецировать.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому исходному элементу; второй параметр функции представляет индекс исходного элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TResult">Тип элементов последовательности, возвращаемых функцией <paramref name="selector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SequenceEqual``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>Определяет, совпадают ли две последовательности, используя для сравнения элементов компаратор проверки на равенство по умолчанию, предназначенный для их типа.</summary>
+      <returns>true, если у двух исходных последовательностей одинаковая длина и соответствующие элементы совпадают, согласно компаратору проверки на равенство по умолчанию для этого типа элементов, в противном случае — false.</returns>
+      <param name="first">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, сравниваемый с последовательностью <paramref name="second" />.</param>
+      <param name="second">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, сравниваемый с первой последовательностью.</param>
+      <typeparam name="TSource">Тип элементов входных последовательностей.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="first" /> или <paramref name="second" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SequenceEqual``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>Определяет, совпадают ли две последовательности, используя для сравнения элементов указанный компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.</summary>
+      <returns>true, если у двух исходных последовательностей одинаковая длина и соответствующие элементы совпадают согласно компаратору <paramref name="comparer" />, в противном случае — false.</returns>
+      <param name="first">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, сравниваемый с последовательностью <paramref name="second" />.</param>
+      <param name="second">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, сравниваемый с первой последовательностью.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения элементов.</param>
+      <typeparam name="TSource">Тип элементов входных последовательностей.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="first" /> или <paramref name="second" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Single``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает единственный элемент последовательности и генерирует исключение, если число элементов последовательности отлично от 1.</summary>
+      <returns>Единственный элемент входной последовательности.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, единственный элемент которого требуется возвратить.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Входная последовательность содержит более одного элемента.– или –Входная последовательность пуста.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Single``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Возвращает единственный элемент последовательности, удовлетворяющий заданному условию, и генерирует исключение, если таких элементов больше одного.</summary>
+      <returns>Единственный элемент входной последовательности, удовлетворяющий условию.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить единственный элемент.</param>
+      <param name="predicate">Функция для проверки элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+      <exception cref="T:System.InvalidOperationException">Ни один элемент не удовлетворяет условию предиката <paramref name="predicate" />.– или –Условию предиката <paramref name="predicate" /> удовлетворяет более одного элемента.– или –Исходная последовательность пуста.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SingleOrDefault``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Возвращает единственный элемент последовательности или значение по умолчанию, если последовательность пуста; если в последовательности более одного элемента, генерируется исключение.</summary>
+      <returns>Единственный элемент входной последовательности или default(<paramref name="TSource" />), если в последовательности нет элементов.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, единственный элемент которого требуется возвратить.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.InvalidOperationException">Входная последовательность содержит более одного элемента.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SingleOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Возвращает единственный элемент последовательности, удовлетворяющий заданному условию, или значение по умолчанию, если такого элемента не существует; если условию удовлетворяет более одного элемента, генерируется исключение.</summary>
+      <returns>Единственный элемент входной последовательности, удовлетворяющий условию, или default(<paramref name="TSource" />), если такой элемент не найден.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить единственный элемент.</param>
+      <param name="predicate">Функция для проверки элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Skip``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+      <summary>Пропускает заданное число элементов в последовательности и возвращает остальные элементы.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий элементы из входной последовательности, начиная с указанного индекса.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить элементы.</param>
+      <param name="count">Число элементов, пропускаемых перед возвращением остальных элементов.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SkipWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Пропускает элементы в последовательности, пока они удовлетворяют заданному условию, и затем возвращает оставшиеся элементы.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий цепочку элементов входной последовательности, начиная с первого элемента, который не прошел проверку, заданную предикатом <paramref name="predicate" />.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить элементы.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.SkipWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Boolean})">
+      <summary>Пропускает элементы в последовательности, пока они удовлетворяют заданному условию, и затем возвращает оставшиеся элементы.Индекс элемента используется в логике функции предиката.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий цепочку элементов входной последовательности, начиная с первого элемента, который не прошел проверку, заданную предикатом <paramref name="predicate" />.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, из которого требуется возвратить элементы.</param>
+      <param name="predicate">Функция, применяемая к каждому исходному элементу для проверки условия; второй параметр функции представляет индекс исходного элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Decimal})">
+      <summary>Вычисляет сумму последовательности значений типа <see cref="T:System.Decimal" />.</summary>
+      <returns>Сумма последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Decimal" />, сумму которых требуется вычислить.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Decimal.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Double})">
+      <summary>Вычисляет сумму последовательности значений типа <see cref="T:System.Double" />.</summary>
+      <returns>Сумма последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Double" />, сумму которых требуется вычислить.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>Вычисляет сумму последовательности значений типа <see cref="T:System.Int32" />.</summary>
+      <returns>Сумма последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Int32" />, сумму которых требуется вычислить.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Int32.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Int64})">
+      <summary>Вычисляет сумму последовательности значений типа <see cref="T:System.Int64" />.</summary>
+      <returns>Сумма последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Int64" />, сумму которых требуется вычислить.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Decimal}})">
+      <summary>Вычисляет сумму последовательности значений <see cref="T:System.Decimal" /> обнуляемого типа.</summary>
+      <returns>Сумма последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Decimal" /> обнуляемого типа, сумму которых требуется вычислить.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Decimal.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+      <summary>Вычисляет сумму последовательности значений <see cref="T:System.Double" /> обнуляемого типа.</summary>
+      <returns>Сумма последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Double" /> обнуляемого типа, сумму которых требуется вычислить.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>Вычисляет сумму последовательности значений <see cref="T:System.Int32" /> обнуляемого типа.</summary>
+      <returns>Сумма последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Int32" /> обнуляемого типа, сумму которых требуется вычислить.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Int32.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Int64}})">
+      <summary>Вычисляет сумму последовательности значений <see cref="T:System.Int64" /> обнуляемого типа.</summary>
+      <returns>Сумма последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Int64" /> обнуляемого типа, сумму которых требуется вычислить.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Nullable{System.Single}})">
+      <summary>Вычисляет сумму последовательности значений <see cref="T:System.Single" /> обнуляемого типа.</summary>
+      <returns>Сумма последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Single" /> обнуляемого типа, сумму которых требуется вычислить.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Single})">
+      <summary>Вычисляет сумму последовательности значений типа <see cref="T:System.Single" />.</summary>
+      <returns>Сумма последовательности значений.</returns>
+      <param name="source">Последовательность значений <see cref="T:System.Single" />, сумму которых требуется вычислить.</param>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Decimal})">
+      <summary>Вычисляет сумму последовательности значений типа <see cref="T:System.Decimal" />, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Сумма проецированных значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется сумма.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Decimal.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+      <summary>Вычисляет сумму последовательности значений типа <see cref="T:System.Double" />, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Сумма проецированных значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется сумма.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+      <summary>Вычисляет сумму последовательности значений типа <see cref="T:System.Int32" />, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Сумма проецированных значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется сумма.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Int32.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int64})">
+      <summary>Вычисляет сумму последовательности значений типа <see cref="T:System.Int64" />, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Сумма проецированных значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется сумма.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Decimal}})">
+      <summary>Вычисляет сумму последовательности значений <see cref="T:System.Decimal" /> обнуляемого типа, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Сумма проецированных значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется сумма.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Decimal.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Double}})">
+      <summary>Вычисляет сумму последовательности значений <see cref="T:System.Double" /> обнуляемого типа, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Сумма проецированных значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется сумма.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int32}})">
+      <summary>Вычисляет сумму последовательности значений <see cref="T:System.Int32" /> обнуляемого типа, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Сумма проецированных значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется сумма.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Int32.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Int64}})">
+      <summary>Вычисляет сумму последовательности значений <see cref="T:System.Int64" /> обнуляемого типа, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Сумма проецированных значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется сумма.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+      <exception cref="T:System.OverflowException">Сумма больше значения <see cref="F:System.Int64.MaxValue" />.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Nullable{System.Single}})">
+      <summary>Вычисляет сумму последовательности значений <see cref="T:System.Single" /> обнуляемого типа, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Сумма проецированных значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется сумма.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Sum``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Single})">
+      <summary>Вычисляет сумму последовательности значений типа <see cref="T:System.Single" />, получаемой в результате применения функции преобразования к каждому элементу входной последовательности.</summary>
+      <returns>Сумма проецированных значений.</returns>
+      <param name="source">Последовательность значений, для которых вычисляется сумма.</param>
+      <param name="selector">Функция преобразования, применяемая к каждому элементу.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="selector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Take``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+      <summary>Возвращает указанное число подряд идущих элементов с начала последовательности.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий заданное число элементов с начала входной последовательности.</returns>
+      <param name="source">Последовательность, из которой требуется возвратить элементы.</param>
+      <param name="count">Число возвращаемых элементов.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.TakeWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Возвращает цепочку элементов последовательности, удовлетворяющих указанному условию.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий элементы входной последовательности до первого элемента, который не прошел проверку.</returns>
+      <param name="source">Последовательность, из которой требуется возвратить элементы.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.TakeWhile``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Boolean})">
+      <summary>Возвращает цепочку элементов последовательности, удовлетворяющих указанному условию.Индекс элемента используется в логике функции предиката.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий элементы входной последовательности до первого элемента, который не прошел проверку.</returns>
+      <param name="source">Последовательность, из которой требуется возвратить элементы.</param>
+      <param name="predicate">Функция, применяемая к каждому исходному элементу для проверки условия; второй параметр функции представляет индекс исходного элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ThenBy``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})">
+      <summary>Выполняет дополнительное упорядочение элементов последовательности в порядке возрастания ключа.</summary>
+      <returns>Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, элементы которого отсортированы по ключу.</returns>
+      <param name="source">Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, содержащий сортируемые элементы.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ThenBy``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+      <summary>Выполняет дополнительное упорядочение элементов последовательности в порядке возрастания с использованием указанного компаратора.</summary>
+      <returns>Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, элементы которого отсортированы по ключу.</returns>
+      <param name="source">Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, содержащий сортируемые элементы.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ThenByDescending``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})">
+      <summary>Выполняет дополнительное упорядочение элементов последовательности в порядке убывания ключа.</summary>
+      <returns>Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, элементы которого отсортированы по ключу в порядке убывания.</returns>
+      <param name="source">Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, содержащий сортируемые элементы.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ThenByDescending``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+      <summary>Выполняет дополнительное упорядочение элементов последовательности в порядке убывания с использованием указанного компаратора.</summary>
+      <returns>Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, элементы которого отсортированы по ключу в порядке убывания.</returns>
+      <param name="source">Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, содержащий сортируемые элементы.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToArray``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Создает массив из объекта <see cref="T:System.Collections.Generic.IEnumerable`1" />.</summary>
+      <returns>Массив, содержащий элементы из входной последовательности.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, на основе которого создается массив.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToDictionary``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>Создает словарь <see cref="T:System.Collections.Generic.Dictionary`2" /> из объекта <see cref="T:System.Collections.Generic.IEnumerable`1" /> в соответствии с заданной функцией селектора ключа.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.Dictionary`2" />, содержащий ключи и значения.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, на основе которого создается словарь <see cref="T:System.Collections.Generic.Dictionary`2" />.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.– или –Функция <paramref name="keySelector" /> возвращает null в качестве ключа.</exception>
+      <exception cref="T:System.ArgumentException">Функция <paramref name="keySelector" /> выдает дубликаты ключей для двух элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToDictionary``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>Создает словарь <see cref="T:System.Collections.Generic.Dictionary`2" /> из объекта <see cref="T:System.Collections.Generic.IEnumerable`1" /> в соответствии с заданной функцией селектора ключа и компаратором ключей.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.Dictionary`2" />, содержащий ключи и значения.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, на основе которого создается словарь <see cref="T:System.Collections.Generic.Dictionary`2" />.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключей, возвращаемых функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.– или –Функция <paramref name="keySelector" /> возвращает null в качестве ключа.</exception>
+      <exception cref="T:System.ArgumentException">Функция <paramref name="keySelector" /> выдает дубликаты ключей для двух элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+      <summary>Создает словарь <see cref="T:System.Collections.Generic.Dictionary`2" /> из объекта <see cref="T:System.Collections.Generic.IEnumerable`1" /> в соответствии с заданными функциями селектора ключа и селектора элемента.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.Dictionary`2" />, содержащий элементы входной последовательности типа <paramref name="TElement" />.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, на основе которого создается словарь <see cref="T:System.Collections.Generic.Dictionary`2" />.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <param name="elementSelector">Функция преобразования для получения результирующего значения каждого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <typeparam name="TElement">Тип значения, возвращаемого функцией <paramref name="elementSelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" />, <paramref name="keySelector" /> или <paramref name="elementSelector" /> — null.– или –Функция <paramref name="keySelector" /> возвращает null в качестве ключа.</exception>
+      <exception cref="T:System.ArgumentException">Функция <paramref name="keySelector" /> выдает дубликаты ключей для двух элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>Создает словарь <see cref="T:System.Collections.Generic.Dictionary`2" /> из объекта <see cref="T:System.Collections.Generic.IEnumerable`1" /> в соответствии с заданным компаратором и функциями селектора ключа и селектора элемента.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.Dictionary`2" />, содержащий элементы входной последовательности типа <paramref name="TElement" />.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, на основе которого создается словарь <see cref="T:System.Collections.Generic.Dictionary`2" />.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <param name="elementSelector">Функция преобразования для получения результирующего значения каждого элемента.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <typeparam name="TElement">Тип значения, возвращаемого функцией <paramref name="elementSelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" />, <paramref name="keySelector" /> или <paramref name="elementSelector" /> — null.– или –Функция <paramref name="keySelector" /> возвращает null в качестве ключа.</exception>
+      <exception cref="T:System.ArgumentException">Функция <paramref name="keySelector" /> выдает дубликаты ключей для двух элементов.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToList``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Создает список <see cref="T:System.Collections.Generic.List`1" /> из объекта <see cref="T:System.Collections.Generic.IEnumerable`1" />.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.List`1" />, содержащий элементы из входной последовательности.</returns>
+      <param name="source">Интерфейс <see cref="T:System.Collections.Generic.IEnumerable`1" />, на основе которого создается список <see cref="T:System.Collections.Generic.List`1" />.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Параметр <paramref name="source" /> имеет значение null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToLookup``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+      <summary>Создает объект <see cref="T:System.Linq.Lookup`2" /> из коллекции <see cref="T:System.Collections.Generic.IEnumerable`1" /> в соответствии с заданной функцией выбора ключа.</summary>
+      <returns>Объект <see cref="T:System.Linq.Lookup`2" />, содержащий ключи и значения.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, на основе которого создается объект <see cref="T:System.Linq.Lookup`2" />.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToLookup``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>Создает объект <see cref="T:System.Linq.Lookup`2" /> из объекта <see cref="T:System.Collections.Generic.IEnumerable`1" /> в соответствии с заданной функцией селектора ключа и компаратором ключей.</summary>
+      <returns>Объект <see cref="T:System.Linq.Lookup`2" />, содержащий ключи и значения.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, на основе которого создается объект <see cref="T:System.Linq.Lookup`2" />.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="keySelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToLookup``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+      <summary>Создает объект <see cref="T:System.Linq.Lookup`2" /> из объекта <see cref="T:System.Collections.Generic.IEnumerable`1" /> в соответствии с заданными функциями селектора ключа и селектора элемента.</summary>
+      <returns>Объект <see cref="T:System.Linq.Lookup`2" />, содержащий элементы входной последовательности типа <paramref name="TElement" />.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, на основе которого создается объект <see cref="T:System.Linq.Lookup`2" />.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <param name="elementSelector">Функция преобразования для получения результирующего значения каждого элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <typeparam name="TElement">Тип значения, возвращаемого функцией <paramref name="elementSelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" />, <paramref name="keySelector" /> или <paramref name="elementSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.ToLookup``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+      <summary>Создает объект <see cref="T:System.Linq.Lookup`2" /> из объекта <see cref="T:System.Collections.Generic.IEnumerable`1" /> в соответствии с заданным компаратором и функциями селектора ключа и селектора элемента.</summary>
+      <returns>Объект <see cref="T:System.Linq.Lookup`2" />, содержащий элементы входной последовательности типа <paramref name="TElement" />.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, на основе которого создается объект <see cref="T:System.Linq.Lookup`2" />.</param>
+      <param name="keySelector">Функция, извлекающая ключ из каждого элемента.</param>
+      <param name="elementSelector">Функция преобразования для получения результирующего значения каждого элемента.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения ключей.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <typeparam name="TKey">Тип ключа, возвращаемого функцией <paramref name="keySelector" />.</typeparam>
+      <typeparam name="TElement">Тип значения, возвращаемого функцией <paramref name="elementSelector" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" />, <paramref name="keySelector" /> или <paramref name="elementSelector" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Union``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>Находит объединение множеств, представленных двумя последовательностями, используя для сравнения значений компаратор проверки на равенство по умолчанию.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, который содержит элементы, имеющиеся в обеих входных последовательностях, кроме дубликатов.</returns>
+      <param name="first">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, различающиеся элементы которого образуют первое множество для объединения.</param>
+      <param name="second">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, различающиеся элементы которого образуют второе множество для объединения.</param>
+      <typeparam name="TSource">Тип элементов входных последовательностей.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="first" /> или <paramref name="second" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Union``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+      <summary>Находит объединение множеств, представленных двумя последовательностями, используя указанный компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, который содержит элементы, имеющиеся в обеих входных последовательностях, кроме дубликатов.</returns>
+      <param name="first">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, различающиеся элементы которого образуют первое множество для объединения.</param>
+      <param name="second">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, различающиеся элементы которого образуют второе множество для объединения.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IEqualityComparer`1" />, используемый для сравнения значений.</param>
+      <typeparam name="TSource">Тип элементов входных последовательностей.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="first" /> или <paramref name="second" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Where``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+      <summary>Выполняет фильтрацию последовательности значений на основе заданного предиката.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий элементы входной последовательности, которые удовлетворяют условию.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, подлежащий фильтрации.</param>
+      <param name="predicate">Функция для проверки каждого элемента на соответствие условию.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Where``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Boolean})">
+      <summary>Выполняет фильтрацию последовательности значений на основе заданного предиката.Индекс каждого элемента используется в логике функции предиката.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий элементы входной последовательности, которые удовлетворяют условию.</returns>
+      <param name="source">Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, подлежащий фильтрации.</param>
+      <param name="predicate">Функция, применяемая к каждому исходному элементу для проверки условия; второй параметр функции представляет индекс исходного элемента.</param>
+      <typeparam name="TSource">Тип элементов последовательности <paramref name="source" />.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="source" /> или <paramref name="predicate" /> — null.</exception>
+    </member>
+    <member name="M:System.Linq.Enumerable.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})">
+      <summary>Применяет указанную функцию к соответствующим элементам двух последовательностей, что дает последовательность результатов.</summary>
+      <returns>Объект <see cref="T:System.Collections.Generic.IEnumerable`1" />, содержащий объединенные элементы двух входных последовательностей.</returns>
+      <param name="first">Первая последовательность для объединения.</param>
+      <param name="second">Вторая последовательность для объединения.</param>
+      <param name="resultSelector">Функция, которая определяет, как объединить элементы двух последовательностей.</param>
+      <typeparam name="TFirst">Тип элементов первой входной последовательности.</typeparam>
+      <typeparam name="TSecond">Тип элементов второй входной последовательности.</typeparam>
+      <typeparam name="TResult">Тип элементов результирующей последовательности.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="first" /> или <paramref name="second" /> — null.</exception>
+    </member>
+    <member name="T:System.Linq.IGrouping`2">
+      <summary>Представляет коллекцию объектов, имеющих общий ключ.</summary>
+      <typeparam name="TKey">Тип ключа объекта <see cref="T:System.Linq.IGrouping`2" />.Этот параметр типа является ковариантным. Это означает, что можно использовать либо указанный тип, либо более производный тип. Дополнительные сведения о ковариации и контрвариации см. в разделе Ковариация и контравариация в универсальных шаблонах.</typeparam>
+      <typeparam name="TElement">Тип значений объекта <see cref="T:System.Linq.IGrouping`2" />.</typeparam>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="P:System.Linq.IGrouping`2.Key">
+      <summary>Возвращает ключ объекта <see cref="T:System.Linq.IGrouping`2" />.</summary>
+      <returns>Ключ объекта <see cref="T:System.Linq.IGrouping`2" />.</returns>
+    </member>
+    <member name="T:System.Linq.ILookup`2">
+      <summary>Определяет индексатор, свойство размера и метод логического поиска для структур данных, сопоставляющих ключи с последовательностями <see cref="T:System.Collections.Generic.IEnumerable`1" />.</summary>
+      <typeparam name="TKey">Тип ключей объекта <see cref="T:System.Linq.ILookup`2" />.</typeparam>
+      <typeparam name="TElement">Тип элементов в последовательностях <see cref="T:System.Collections.Generic.IEnumerable`1" />, представляющих значения объекта <see cref="T:System.Linq.ILookup`2" />.</typeparam>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="M:System.Linq.ILookup`2.Contains(`0)">
+      <summary>Определяет, существует ли указанный ключ в объекте <see cref="T:System.Linq.ILookup`2" />.</summary>
+      <returns>true, если ключ <paramref name="key" /> содержится в объекте <see cref="T:System.Linq.ILookup`2" />, в противном случае — false.</returns>
+      <param name="key">Ключ, который требуется найти в объекте <see cref="T:System.Linq.ILookup`2" />.</param>
+    </member>
+    <member name="P:System.Linq.ILookup`2.Count">
+      <summary>Получает число пар “ключ/коллекция значений”, содержащихся в объекте <see cref="T:System.Linq.ILookup`2" />.</summary>
+      <returns>Число пар “ключ/коллекция значений”, содержащихся в объекте <see cref="T:System.Linq.ILookup`2" />.</returns>
+    </member>
+    <member name="P:System.Linq.ILookup`2.Item(`0)">
+      <summary>Получает последовательность значений <see cref="T:System.Collections.Generic.IEnumerable`1" /> по индексу, определенному указанным ключом.</summary>
+      <returns>Последовательность значений <see cref="T:System.Collections.Generic.IEnumerable`1" /> с индексом, определенным указанным ключом.</returns>
+      <param name="key">Ключ требуемой последовательности значений.</param>
+    </member>
+    <member name="T:System.Linq.IOrderedEnumerable`1">
+      <summary>Представляет отсортированную последовательность.</summary>
+      <typeparam name="TElement">Тип элементов последовательности.</typeparam>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="M:System.Linq.IOrderedEnumerable`1.CreateOrderedEnumerable``1(System.Func{`0,``0},System.Collections.Generic.IComparer{``0},System.Boolean)">
+      <summary>Выполняет дополнительное упорядочение элементов объекта <see cref="T:System.Linq.IOrderedEnumerable`1" /> по ключу.</summary>
+      <returns>Объект <see cref="T:System.Linq.IOrderedEnumerable`1" />, элементы которого отсортированы по ключу.</returns>
+      <param name="keySelector">Функция <see cref="T:System.Func`2" />, используемая для извлечения ключа для каждого элемента.</param>
+      <param name="comparer">Компаратор <see cref="T:System.Collections.Generic.IComparer`1" />, используемый для сравнения ключей при формировании возвращаемой последовательности.</param>
+      <param name="descending">true, если элементы требуется сортировать в порядке убывания; false, чтобы сортировать элементы в порядке возрастания.</param>
+      <typeparam name="TKey">Тип ключа, созданного функцией <paramref name="keySelector" />.</typeparam>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="T:System.Linq.Lookup`2">
+      <summary>Представляет коллекцию ключей, каждый из которых сопоставлен с одним или несколькими значениями.</summary>
+      <typeparam name="TKey">Тип ключей объекта <see cref="T:System.Linq.Lookup`2" />.</typeparam>
+      <typeparam name="TElement">Тип элементов для каждого значения <see cref="T:System.Collections.Generic.IEnumerable`1" /> в составе объекта <see cref="T:System.Linq.Lookup`2" />.</typeparam>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="M:System.Linq.Lookup`2.ApplyResultSelector``1(System.Func{`0,System.Collections.Generic.IEnumerable{`1},``0})">
+      <summary>Применяет функцию преобразования к каждому ключу и связанным с ним значениям и возвращает результаты.</summary>
+      <returns>Коллекция, содержащая одно значение для каждой пары "ключ/коллекция значений", содержащейся в объекте <see cref="T:System.Linq.Lookup`2" />.</returns>
+      <param name="resultSelector">Функция, проецирующая результирующее значение из каждого ключа и связанных с ним значений.</param>
+      <typeparam name="TResult">Тип результирующих значений, возвращаемых функцией <paramref name="resultSelector" />.</typeparam>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="M:System.Linq.Lookup`2.Contains(`0)">
+      <summary>Определяет, содержится ли указанный ключ в объекте <see cref="T:System.Linq.Lookup`2" />.</summary>
+      <returns>true, если ключ <paramref name="key" /> содержится в объекте <see cref="T:System.Linq.Lookup`2" />, в противном случае — false.</returns>
+      <param name="key">Ключ, который требуется найти в объекте <see cref="T:System.Linq.Lookup`2" />.</param>
+    </member>
+    <member name="P:System.Linq.Lookup`2.Count">
+      <summary>Получает число пар "ключ/коллекция значений", содержащихся в объекте <see cref="T:System.Linq.Lookup`2" />.</summary>
+      <returns>Число пар "ключ/коллекция значений", содержащихся в объекте <see cref="T:System.Linq.Lookup`2" />.</returns>
+    </member>
+    <member name="M:System.Linq.Lookup`2.GetEnumerator">
+      <summary>Возвращает универсальный перечислитель, осуществляющий итерацию элементов объекта <see cref="T:System.Linq.Lookup`2" />.</summary>
+      <returns>Перечислитель для объекта <see cref="T:System.Linq.Lookup`2" />.</returns>
+    </member>
+    <member name="P:System.Linq.Lookup`2.Item(`0)">
+      <summary>Получает коллекцию значений по индексу, определенному указанным ключом.</summary>
+      <returns>Коллекция значений по индексу, определенному указанным ключом.</returns>
+      <param name="key">Ключ требуемой коллекции значений.</param>
+    </member>
+    <member name="M:System.Linq.Lookup`2.System#Collections#IEnumerable#GetEnumerator">
+      <summary>Возвращает перечислитель, осуществляющий итерацию элементов массива <see cref="T:System.Linq.Lookup`2" />.Этот класс не наследуется.</summary>
+      <returns>Перечислитель для объекта <see cref="T:System.Linq.Lookup`2" />.</returns>
+    </member>
+  </members>
+</doc>

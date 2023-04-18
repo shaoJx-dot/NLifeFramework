@@ -1,0 +1,8 @@
+E:\Work\LWD\NLifeFramework\Component.Model\bin\Debug\Component.Model.dll
+E:\Work\LWD\NLifeFramework\Component.Model\bin\Debug\Component.Model.pdb
+E:\Work\LWD\NLifeFramework\Component.Model\bin\Debug\Component.Data.dll
+E:\Work\LWD\NLifeFramework\Component.Model\bin\Debug\MySql.Data.dll
+E:\Work\LWD\NLifeFramework\Component.Model\bin\Debug\Component.Data.pdb
+E:\Work\LWD\NLifeFramework\Component.Model\obj\Debug\Component.Model.csprojResolveAssemblyReference.cache
+E:\Work\LWD\NLifeFramework\Component.Model\obj\Debug\Component.Model.dll
+E:\Work\LWD\NLifeFramework\Component.Model\obj\Debug\Component.Model.pdb
